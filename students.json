@@ -1,0 +1,1835 @@
+[
+ {
+  "name": "ABHIRAMI ANEESH",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-11-08",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 14,
+        "English": "Ab",
+        "Hindi": 12,
+        "S.S.": 10,
+        "B.S.": 13,
+        "Maths": 4
+      },
+      "total": 61,
+      "rank": 32
+    },
+    "2": {
+      "marks": {
+        "Mal I": 13,
+        "Mal II": 12,
+        "English": 16,
+        "Hindi": 14,
+        "S.S.": 3,
+        "B.S.": 7,
+        "Maths": 5
+      },
+      "total": 70,
+      "rank": 29
+    },
+    "3": {
+      "marks": {
+        "Mal I": 11,
+        "Mal II": 16,
+        "English": 15,
+        "Hindi": 14,
+        "S.S.": 22,
+        "B.S.": 11,
+        "Maths": 16
+      },
+      "total": 105,
+      "rank": 22
+    }
+  }
+},
+{
+  "name": "ANGELA LIJO",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-07-02",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 18,
+        "English": 10,
+        "Hindi": 14,
+        "S.S.": 16,
+        "B.S.": 6,
+        "Maths": 10
+      },
+      "total": 88,
+      "rank": 21
+    },
+    "2": {
+      "marks": {
+        "Mal I": 20,
+        "Mal II": 16,
+        "English": 14,
+        "Hindi": 13,
+        "S.S.": 10,
+        "B.S.": 7,
+        "Maths": 7
+      },
+      "total": 87,
+      "rank": 22
+    },
+    "3": {
+      "marks": {
+        "Mal I": 17,
+        "Mal II": 17,
+        "English": 19,
+        "Hindi": 13,
+        "S.S.": 18,
+        "B.S.": 10,
+        "Maths": 14
+      },
+      "total": 108,
+      "rank": 20
+    }
+  }
+},
+{
+  "name": "ANNA MARIA CYRIAC",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-07-19",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 20,
+        "Mal II": 22,
+        "English": "Ab",
+        "Hindi": 23,
+        "S.S.": 29,
+        "B.S.": "Ab",
+        "Maths": 26
+      },
+      "total": 120,
+      "rank": 13
+    },
+    "2": {
+      "marks": {
+        "Mal I": 21,
+        "Mal II": 22,
+        "English": 25,
+        "Hindi": 24,
+        "S.S.": 29,
+        "B.S.": 20,
+        "Maths": 26
+      },
+      "total": 167,
+      "rank": 3
+    },
+    "3": {
+      "marks": {
+        "Mal I": 23,
+        "Mal II": 19,
+        "English": 21,
+        "Hindi": 23,
+        "S.S.": 24,
+        "B.S.": 23,
+        "Maths": 23
+      },
+      "total": 156,
+      "rank": 6
+    }
+  }
+},
+{
+  "name": "AVANI SAJEEVAN",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-06-19",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 20,
+        "English": 23,
+        "Hindi": 23,
+        "S.S.": 29,
+        "B.S.": 30,
+        "Maths": 26
+      },
+      "total": 169,
+      "rank": 4
+    },
+    "2": {
+      "marks": {
+        "Mal I": 21,
+        "Mal II": 18,
+        "English": 24,
+        "Hindi": 24,
+        "S.S.": 27,
+        "B.S.": 30,
+        "Maths": 23
+      },
+      "total": 167,
+      "rank": 3
+    },
+    "3": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 20,
+        "English": 22,
+        "Hindi": 24,
+        "S.S.": 29,
+        "B.S.": 29,
+        "Maths": 29
+      },
+      "total": 175,
+      "rank": 3
+    }
+  }
+},
+{
+  "name": "AYONA MARIA SHIJU",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-09-26",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 18,
+        "English": 16,
+        "Hindi": 20,
+        "S.S.": 14,
+        "B.S.": 18,
+        "Maths": 13
+      },
+      "total": 109,
+      "rank": 17
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 18,
+        "English": 18,
+        "Hindi": 20,
+        "S.S.": 12,
+        "B.S.": 14,
+        "Maths": 4
+      },
+      "total": 100,
+      "rank": 17
+    },
+    "3": {
+      "marks": {
+        "Mal I": 19,
+        "Mal II": 18,
+        "English": 17,
+        "Hindi": 17,
+        "S.S.": 23,
+        "B.S.": 16,
+        "Maths": 15
+      },
+      "total": 125,
+      "rank": 12
+    }
+  }
+},
+{
+  "name": "ESSA JULIA LIJO",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-07-01",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 18,
+        "English": 21,
+        "Hindi": 21,
+        "S.S.": 22,
+        "B.S.": 26,
+        "Maths": 18
+      },
+      "total": 144,
+      "rank": 7
+    },
+    "2": {
+      "marks": {
+        "Mal I": 23,
+        "Mal II": 18,
+        "English": 20,
+        "Hindi": 21,
+        "S.S.": 20,
+        "B.S.": 27,
+        "Maths": 16
+      },
+      "total": 145,
+      "rank": 8
+    },
+    "3": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 18,
+        "English": 21,
+        "Hindi": 20,
+        "S.S.": 21,
+        "B.S.": 27,
+        "Maths": 23
+      },
+      "total": 148,
+      "rank": 8
+    }
+  }
+},
+{
+  "name": "GOURIPRIYA B",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-10-20",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 14,
+        "English": 23,
+        "Hindi": 23,
+        "S.S.": 27,
+        "B.S.": 27,
+        "Maths": 20
+      },
+      "total": 152,
+      "rank": 6
+    },
+    "2": {
+      "marks": {
+        "Mal I": 21,
+        "Mal II": 18,
+        "English": 24,
+        "Hindi": 24,
+        "S.S.": 25,
+        "B.S.": 27,
+        "Maths": 24
+      },
+      "total": 163,
+      "rank": 5
+    },
+    "3": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 20,
+        "English": 23,
+        "Hindi": 20,
+        "S.S.": 24,
+        "B.S.": 28,
+        "Maths": 25
+      },
+      "total": 158,
+      "rank": 5
+    }
+  }
+},
+{
+  "name": "JEMILIT MANJUSHA JAISON",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-06-09",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 13,
+        "Mal II": 18,
+        "English": 24,
+        "Hindi": 20,
+        "S.S.": 20,
+        "B.S.": 14,
+        "Maths": 18
+      },
+      "total": 127,
+      "rank": 9
+    },
+    "2": {
+      "marks": {
+        "Mal I": 16,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 18,
+        "S.S.": 12,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 98,
+      "rank": 19
+    },
+    "3": {
+      "marks": {
+        "Mal I": 20,
+        "Mal II": 18,
+        "English": 17,
+        "Hindi": 18,
+        "S.S.": 24,
+        "B.S.": 14,
+        "Maths": 15
+      },
+      "total": 126,
+      "rank": 11
+    }
+  }
+},
+{
+  "name": "JIYA JISHA JOMON",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-03-02",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 21,
+        "English": 24,
+        "Hindi": 25,
+        "S.S.": 27,
+        "B.S.": 29,
+        "Maths": 29
+      },
+      "total": 177,
+      "rank": 1
+    },
+    "2": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 24,
+        "English": 23,
+        "Hindi": 25,
+        "S.S.": 27,
+        "B.S.": 29,
+        "Maths": 22
+      },
+      "total": 172,
+      "rank": 2
+    },
+    "3": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 21,
+        "English": 25,
+        "Hindi": 22,
+        "S.S.": 28,
+        "B.S.": 30,
+        "Maths": 28
+      },
+      "total": 176,
+      "rank": 2
+    }
+  }
+},
+{
+  "name": "JOSHITHA JOJI",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-06-11",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 18,
+        "English": 18,
+        "Hindi": 18,
+        "S.S.": 14,
+        "B.S.": 13,
+        "Maths": 12
+      },
+      "total": 103,
+      "rank": 18
+    },
+    "2": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 18,
+        "English": 16,
+        "Hindi": 16,
+        "S.S.": 14,
+        "B.S.": 10,
+        "Maths": 13
+      },
+      "total": 105,
+      "rank": 16
+    },
+    "3": {
+      "marks": {
+        "Mal I": 16,
+        "Mal II": 21,
+        "English": 18,
+        "Hindi": 10,
+        "S.S.": 21,
+        "B.S.": 15,
+        "Maths": 11
+      },
+      "total": 112,
+      "rank": 18
+    }
+  }
+},
+{
+  "name": "MERIN SABU",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-09-04",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 12,
+        "Mal II": 20,
+        "English": 22,
+        "Hindi": 22,
+        "S.S.": 22,
+        "B.S.": 22,
+        "Maths": 18
+      },
+      "total": 138,
+      "rank": 8
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 18,
+        "English": 22,
+        "Hindi": 25,
+        "S.S.": 23,
+        "B.S.": 25,
+        "Maths": 10
+      },
+      "total": 137,
+      "rank": 9
+    },
+    "3": {
+      "marks": {
+        "Mal I": 20,
+        "Mal II": 17,
+        "English": 23,
+        "Hindi": 17,
+        "S.S.": 22,
+        "B.S.": 25,
+        "Maths": 16
+      },
+      "total": 140,
+      "rank": 9
+    }
+  }
+},
+{
+  "name": "NIRANJANA RAJESH",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2012-12-24",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 14,
+        "S.S.": 12,
+        "B.S.": 6,
+        "Maths": 3
+      },
+      "total": 76,
+      "rank": 24
+    },
+    "2": {
+      "marks": {
+        "Mal I": 16,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 13,
+        "S.S.": 7,
+        "B.S.": 6,
+        "Maths": 2
+      },
+      "total": 76,
+      "rank": 27
+    },
+    "3": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 14,
+        "English": 17,
+        "Hindi": 14,
+        "S.S.": 13,
+        "B.S.": 12,
+        "Maths": 12
+      },
+      "total": 96,
+      "rank": 25
+    }
+  }
+},
+{
+  "name": "ROSHNA RAJEEV",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-01-17",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 13,
+        "Mal II": 16,
+        "English": 18,
+        "Hindi": 9,
+        "S.S.": 13,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 89,
+      "rank": 20
+    },
+    "2": {
+      "marks": {
+        "Mal I": 13,
+        "Mal II": 14,
+        "English": 16,
+        "Hindi": 7,
+        "S.S.": 9,
+        "B.S.": 7,
+        "Maths": 3
+      },
+      "total": 69,
+      "rank": 30
+    },
+    "3": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 14,
+        "English": 19,
+        "Hindi": 8,
+        "S.S.": 17,
+        "B.S.": 12,
+        "Maths": 16
+      },
+      "total": 100,
+      "rank": 24
+    }
+  }
+},
+{
+  "name": "SREYA N R",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-01-09",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 16,
+        "Mal II": 20,
+        "English": 22,
+        "Hindi": 16,
+        "S.S.": 20,
+        "B.S.": 14,
+        "Maths": 16
+      },
+      "total": 124,
+      "rank": 12
+    },
+    "2": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 20,
+        "English": 20,
+        "Hindi": 18,
+        "S.S.": 5,
+        "B.S.": 18,
+        "Maths": 16
+      },
+      "total": 115,
+      "rank": 12
+    },
+    "3": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 17,
+        "English": 21,
+        "Hindi": 16,
+        "S.S.": 18,
+        "B.S.": 23,
+        "Maths": 18
+      },
+      "total": 135,
+      "rank": 10
+    }
+  }
+},
+{
+  "name": "THRESY JIMMIE NEERAKAL",
+  "class": "6B",
+  "gender": "F",
+  "dob": "2013-04-30",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 18,
+        "English": 18,
+        "Hindi": 21,
+        "S.S.": 27,
+        "B.S.": 20,
+        "Maths": 14
+      },
+      "total": 127,
+      "rank": 9
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 12,
+        "English": 20,
+        "Hindi": 18,
+        "S.S.": 18,
+        "B.S.": 14,
+        "Maths": 10
+      },
+      "total": 106,
+      "rank": 15
+    },
+    "3": {
+      "marks": {
+        "Mal I": 12,
+        "Mal II": 14,
+        "English": 21,
+        "Hindi": 15,
+        "S.S.": 20,
+        "B.S.": 11,
+        "Maths": 25
+      },
+      "total": 118,
+      "rank": 15
+    }
+  }
+},
+{
+  "name": "AASHIN JOBY",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-06-08",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 13,
+        "English": 13,
+        "Hindi": 14,
+        "S.S.": 10,
+        "B.S.": 4,
+        "Maths": 10
+      },
+      "total": 72,
+      "rank": 27
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 13,
+        "English": 10,
+        "Hindi": 18,
+        "S.S.": 10,
+        "B.S.": 10,
+        "Maths": 7
+      },
+      "total": 78,
+      "rank": 25
+    },
+    "3": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 10,
+        "English": 15,
+        "Hindi": 8,
+        "S.S.": 13,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 75,
+      "rank": 32
+    }
+  }
+},
+{
+  "name": "ABHINAV S NAIR",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2012-11-10",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 13,
+        "English": 18,
+        "Hindi": 14,
+        "S.S.": 22,
+        "B.S.": 18,
+        "Maths": 18
+      },
+      "total": 112,
+      "rank": 16
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 18,
+        "English": 16,
+        "Hindi": 20,
+        "S.S.": 14,
+        "B.S.": 14,
+        "Maths": 12
+      },
+      "total": 108,
+      "rank": 14
+    },
+    "3": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 10,
+        "English": 16,
+        "Hindi": 18,
+        "S.S.": 22,
+        "B.S.": 23,
+        "Maths": 18
+      },
+      "total": 117,
+      "rank": 16
+    }
+  }
+},
+{
+  "name": "ABIN JOHNY",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-04-17",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 10,
+        "English": 16,
+        "Hindi": 6,
+        "S.S.": 6,
+        "B.S.": 13,
+        "Maths": 13
+      },
+      "total": 72,
+      "rank": 27
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 8,
+        "English": 14,
+        "Hindi": 2,
+        "S.S.": 4,
+        "B.S.": 13,
+        "Maths": 7
+      },
+      "total": 58,
+      "rank": 34
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 14,
+        "Hindi": 8,
+        "S.S.": 11,
+        "B.S.": 16,
+        "Maths": 10
+      },
+      "total": 75,
+      "rank": 32
+    }
+  }
+},
+{
+  "name": "ADON PRINCE",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-08-28",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 10,
+        "English": 13,
+        "Hindi": 1,
+        "S.S.": 9,
+        "B.S.": 7,
+        "Maths": 10
+      },
+      "total": 58,
+      "rank": 33
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 10,
+        "English": 9,
+        "Hindi": 9,
+        "S.S.": 5,
+        "B.S.": 12,
+        "Maths": 7
+      },
+      "total": 62,
+      "rank": 33
+    },
+    "3": {
+      "marks": {
+        "Mal I": 11,
+        "Mal II": 11,
+        "English": 15,
+        "Hindi": 8,
+        "S.S.": 11,
+        "B.S.": 12,
+        "Maths": 12
+      },
+      "total": 80,
+      "rank": 31
+    }
+  }
+},
+{
+  "name": "AIEBEL SIJU",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2014-03-22",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 0,
+        "Mal II": 0,
+        "English": 0,
+        "Hindi": 0,
+        "S.S.": 0,
+        "B.S.": 0,
+        "Maths": 0
+      },
+      "total": 0,
+      "rank": 39
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 10,
+        "English": 16,
+        "Hindi": 12,
+        "S.S.": 10,
+        "B.S.": 13,
+        "Maths": 14
+      },
+      "total": 85,
+      "rank": 23
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 19,
+        "Hindi": "Ab",
+        "S.S.": 12,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 67,
+      "rank": 37
+    }
+  }
+},
+{
+  "name": "AKHILESH BINESH",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-12-26",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 12,
+        "English": 14,
+        "Hindi": 9,
+        "S.S.": 10,
+        "B.S.": 4,
+        "Maths": 7
+      },
+      "total": 64,
+      "rank": 30
+    },
+    "2": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 12,
+        "Hindi": 10,
+        "S.S.": 5,
+        "B.S.": 4,
+        "Maths": 1
+      },
+      "total": 48,
+      "rank": 36
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 11,
+        "Hindi": 10,
+        "S.S.": 11,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 68,
+      "rank": 35
+    }
+  }
+},
+{
+  "name": "ALPHONSE ROY",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-07-31",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 13,
+        "English": 14,
+        "Hindi": 18,
+        "S.S.": 10,
+        "B.S.": 13,
+        "Maths": 7
+      },
+      "total": 84,
+      "rank": 23
+    },
+    "2": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 13,
+        "English": 16,
+        "Hindi": 14,
+        "S.S.": 7,
+        "B.S.": 7,
+        "Maths": 7
+      },
+      "total": 73,
+      "rank": 28
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 17,
+        "Hindi": 14,
+        "S.S.": 15,
+        "B.S.": 12,
+        "Maths": 12
+      },
+      "total": 86,
+      "rank": 29
+    }
+  }
+},
+{
+  "name": "AYON ROY",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2014-01-07",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 18,
+        "English": 14,
+        "Hindi": 16,
+        "S.S.": 18,
+        "B.S.": 29,
+        "Maths": 16
+      },
+      "total": 125,
+      "rank": 11
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 18,
+        "English": 18,
+        "Hindi": 18,
+        "S.S.": 18,
+        "B.S.": 23,
+        "Maths": 16
+      },
+      "total": 125,
+      "rank": 10
+    },
+    "3": {
+      "marks": {
+        "Mal I": 15,
+        "Mal II": 18,
+        "English": 17,
+        "Hindi": 15,
+        "S.S.": 16,
+        "B.S.": 24,
+        "Maths": 17
+      },
+      "total": 122,
+      "rank": 13
+    }
+  }
+},
+{
+  "name": "CALVIN SOJAN",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-01-09",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 20,
+        "Mal II": 22,
+        "English": 23,
+        "Hindi": 25,
+        "S.S.": 29,
+        "B.S.": 27,
+        "Maths": 25
+      },
+      "total": 171,
+      "rank": 3
+    },
+    "2": {
+      "marks": {
+        "Mal I": 21,
+        "Mal II": 23,
+        "English": 22,
+        "Hindi": 24,
+        "S.S.": 23,
+        "B.S.": 25,
+        "Maths": 22
+      },
+      "total": 160,
+      "rank": 6
+    },
+    "3": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 20,
+        "English": 22,
+        "Hindi": 17,
+        "S.S.": 26,
+        "B.S.": 24,
+        "Maths": 21
+      },
+      "total": 152,
+      "rank": 7
+    }
+  }
+},
+{
+  "name": "DACE ROSHAN",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-07-19",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 16,
+        "English": 17,
+        "Hindi": 16,
+        "S.S.": 20,
+        "B.S.": 21,
+        "Maths": 16
+      },
+      "total": 120,
+      "rank": 13
+    },
+    "2": {
+      "marks": {
+        "Mal I": 16,
+        "Mal II": 17,
+        "English": 18,
+        "Hindi": 19,
+        "S.S.": 18,
+        "B.S.": 21,
+        "Maths": 12
+      },
+      "total": 121,
+      "rank": 11
+    },
+    "3": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 11,
+        "English": 20,
+        "Hindi": 14,
+        "S.S.": 16,
+        "B.S.": 23,
+        "Maths": 16
+      },
+      "total": 110,
+      "rank": 19
+    }
+  }
+},
+{
+  "name": "FAHMID SHAHID",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-03-24",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 9,
+        "English": 10,
+        "Hindi": 6,
+        "S.S.": 10,
+        "B.S.": 14,
+        "Maths": 7
+      },
+      "total": 64,
+      "rank": 30
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 10,
+        "English": 14,
+        "Hindi": 14,
+        "S.S.": 12,
+        "B.S.": 16,
+        "Maths": 2
+      },
+      "total": 78,
+      "rank": 25
+    },
+    "3": {
+      "marks": {
+        "Mal I": 12,
+        "Mal II": 9,
+        "English": 18,
+        "Hindi": 10,
+        "S.S.": 13,
+        "B.S.": 21,
+        "Maths": 10
+      },
+      "total": 93,
+      "rank": 26
+    }
+  }
+},
+{
+  "name": "GAHAN KRISHNA U",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-02-18",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 20,
+        "English": 22,
+        "Hindi": 24,
+        "S.S.": 27,
+        "B.S.": 29,
+        "Maths": 29
+      },
+      "total": 169,
+      "rank": 4
+    },
+    "2": {
+      "marks": {
+        "Mal I": 23,
+        "Mal II": 21,
+        "English": 24,
+        "Hindi": 25,
+        "S.S.": 27,
+        "B.S.": 27,
+        "Maths": 26
+      },
+      "total": 173,
+      "rank": 1
+    },
+    "3": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 19,
+        "English": 25,
+        "Hindi": 21,
+        "S.S.": 28,
+        "B.S.": 29,
+        "Maths": 28
+      },
+      "total": 172,
+      "rank": 4
+    }
+  }
+},
+{
+  "name": "JESWIN RIJO",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-09-01",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 13,
+        "Mal II": 12,
+        "English": 18,
+        "Hindi": 14,
+        "S.S.": 14,
+        "B.S.": 7,
+        "Maths": 10
+      },
+      "total": 88,
+      "rank": 21
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 20,
+        "S.S.": 10,
+        "B.S.": 9,
+        "Maths": 10
+      },
+      "total": 91,
+      "rank": 20
+    },
+    "3": {
+      "marks": {
+        "Mal I": 16,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 19,
+        "S.S.": 16,
+        "B.S.": 14,
+        "Maths": 23
+      },
+      "total": 120,
+      "rank": 14
+    }
+  }
+},
+{
+  "name": "JOSHUA JOMON",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2012-10-02",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 8,
+        "English": 18,
+        "Hindi": 18,
+        "S.S.": 14,
+        "B.S.": 13,
+        "Maths": 7
+      },
+      "total": 92,
+      "rank": 19
+    },
+    "2": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 10,
+        "English": 14,
+        "Hindi": 18,
+        "S.S.": 12,
+        "B.S.": 10,
+        "Maths": 7
+      },
+      "total": 80,
+      "rank": 24
+    },
+    "3": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 11,
+        "English": 20,
+        "Hindi": 17,
+        "S.S.": 14,
+        "B.S.": 18,
+        "Maths": 12
+      },
+      "total": 106,
+      "rank": 21
+    }
+  }
+},
+{
+  "name": "KARTHIK M. A.",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-08-21",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 1,
+        "Hindi": 4,
+        "S.S.": 1,
+        "B.S.": "Ab",
+        "Maths": 5
+      },
+      "total": 27,
+      "rank": 37
+    },
+    "2": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 6,
+        "Hindi": 3,
+        "S.S.": 2,
+        "B.S.": 0,
+        "Maths": 1
+      },
+      "total": 28,
+      "rank": 39
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 13,
+        "Hindi": 8,
+        "S.S.": 11,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 68,
+      "rank": 35
+    }
+  }
+},
+{
+  "name": "MATHEW GEORGE",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2012-11-09",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 12,
+        "English": 12,
+        "Hindi": 9,
+        "S.S.": 2,
+        "B.S.": 5,
+        "Maths": 4
+      },
+      "total": 52,
+      "rank": 34
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 12,
+        "English": 14,
+        "Hindi": 16,
+        "S.S.": 4,
+        "B.S.": 10,
+        "Maths": 3
+      },
+      "total": 69,
+      "rank": 30
+    },
+    "3": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 14,
+        "English": 17,
+        "Hindi": 10,
+        "S.S.": 14,
+        "B.S.": 14,
+        "Maths": 18
+      },
+      "total": 101,
+      "rank": 23
+    }
+  }
+},
+{
+  "name": "NEIL GEORGE WILSON",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-06-06",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 10,
+        "English": 18,
+        "Hindi": 16,
+        "S.S.": 10,
+        "B.S.": 13,
+        "Maths": "Ab"
+      },
+      "total": 76,
+      "rank": 24
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 16,
+        "S.S.": 10,
+        "B.S.": 18,
+        "Maths": 10
+      },
+      "total": 100,
+      "rank": 17
+    },
+    "3": {
+      "marks": {
+        "Mal I": 12,
+        "Mal II": 11,
+        "English": 15,
+        "Hindi": 11,
+        "S.S.": 10,
+        "B.S.": 14,
+        "Maths": 15
+      },
+      "total": 88,
+      "rank": 28
+    }
+  }
+},
+{
+  "name": "NOEL THOMAS BIBIN",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-10-03",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 18,
+        "English": 18,
+        "Hindi": 21,
+        "S.S.": 14,
+        "B.S.": 22,
+        "Maths": 16
+      },
+      "total": 119,
+      "rank": 15
+    },
+    "2": {
+      "marks": {
+        "Mal I": 22,
+        "Mal II": 13,
+        "English": 18,
+        "Hindi": 18,
+        "S.S.": 13,
+        "B.S.": 14,
+        "Maths": 14
+      },
+      "total": 112,
+      "rank": 13
+    },
+    "3": {
+      "marks": {
+        "Mal I": 17,
+        "Mal II": 16,
+        "English": 17,
+        "Hindi": 15,
+        "S.S.": 15,
+        "B.S.": 16,
+        "Maths": 21
+      },
+      "total": 117,
+      "rank": 16
+    }
+  }
+},
+{
+  "name": "RAYON BIJU",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-05-10",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 10,
+        "English": 16,
+        "Hindi": 14,
+        "S.S.": 10,
+        "B.S.": 10,
+        "Maths": 6
+      },
+      "total": 74,
+      "rank": 26
+    },
+    "2": {
+      "marks": {
+        "Mal I": 14,
+        "Mal II": 10,
+        "English": 18,
+        "Hindi": 18,
+        "S.S.": 7,
+        "B.S.": 10,
+        "Maths": 12
+      },
+      "total": 89,
+      "rank": 21
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 11,
+        "English": 16,
+        "Hindi": 15,
+        "S.S.": 13,
+        "B.S.": 11,
+        "Maths": 16
+      },
+      "total": 90,
+      "rank": 27
+    }
+  }
+},
+{
+  "name": "SAMUEL PRINCE ABRAHAM",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2012-11-29",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 18,
+        "Mal II": 23,
+        "English": 24,
+        "Hindi": 23,
+        "S.S.": 27,
+        "B.S.": 30,
+        "Maths": 29
+      },
+      "total": 174,
+      "rank": 2
+    },
+    "2": {
+      "marks": {
+        "Mal I": 20,
+        "Mal II": 22,
+        "English": 22,
+        "Hindi": 23,
+        "S.S.": 26,
+        "B.S.": 23,
+        "Maths": 22
+      },
+      "total": 158,
+      "rank": 7
+    },
+    "3": {
+      "marks": {
+        "Mal I": 23,
+        "Mal II": 24,
+        "English": 24,
+        "Hindi": 23,
+        "S.S.": 28,
+        "B.S.": 30,
+        "Maths": 25
+      },
+      "total": 177,
+      "rank": 1
+    }
+  }
+},
+{
+  "name": "SOJU R V",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-05-22",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 14,
+        "English": 18,
+        "Hindi": 5,
+        "S.S.": 10,
+        "B.S.": 10,
+        "Maths": 6
+      },
+      "total": 71,
+      "rank": 29
+    },
+    "2": {
+      "marks": {
+        "Mal I": 13,
+        "Mal II": 10,
+        "English": 16,
+        "Hindi": 9,
+        "S.S.": 5,
+        "B.S.": 6,
+        "Maths": 7
+      },
+      "total": 66,
+      "rank": 32
+    },
+    "3": {
+      "marks": {
+        "Mal I": 15,
+        "Mal II": 12,
+        "English": 12,
+        "Hindi": 8,
+        "S.S.": 10,
+        "B.S.": 10,
+        "Maths": 16
+      },
+      "total": 83,
+      "rank": 30
+    }
+  }
+},
+{
+  "name": "SOORAJ J",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-08-12",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 10,
+        "English": 9,
+        "Hindi": 2,
+        "S.S.": 5,
+        "B.S.": 2,
+        "Maths": 4
+      },
+      "total": 40,
+      "rank": 35
+    },
+    "2": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 12,
+        "English": 10,
+        "Hindi": 6,
+        "S.S.": 6,
+        "B.S.": 7,
+        "Maths": 3
+      },
+      "total": 54,
+      "rank": 35
+    },
+    "3": {
+      "marks": {
+        "Mal I": 10,
+        "Mal II": 9,
+        "English": 14,
+        "Hindi": 8,
+        "S.S.": 11,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 72,
+      "rank": 34
+    }
+  }
+},
+{
+  "name": "VAISHNAV SANTHOSH",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-11-12",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 1,
+        "Hindi": 4,
+        "S.S.": 2,
+        "B.S.": 3,
+        "Maths": 2
+      },
+      "total": 28,
+      "rank": 36
+    },
+    "2": {
+      "marks": {
+        "Mal I": 9,
+        "Mal II": 8,
+        "English": 7,
+        "Hindi": 10,
+        "S.S.": "Ab",
+        "B.S.": 4,
+        "Maths": 3
+      },
+      "total": 41,
+      "rank": 37
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 8,
+        "Hindi": 8,
+        "S.S.": 11,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 63,
+      "rank": 38
+    }
+  }
+},
+{
+  "name": "YADAV PRAVEEN",
+  "class": "6B",
+  "gender": "M",
+  "dob": "2013-03-23",
+  "terms": {
+    "1": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 1,
+        "Hindi": 2,
+        "S.S.": 1,
+        "B.S.": 1,
+        "Maths": 5
+      },
+      "total": 26,
+      "rank": 38
+    },
+    "2": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 10,
+        "Hindi": 9,
+        "S.S.": 2,
+        "B.S.": 3,
+        "Maths": 1
+      },
+      "total": 41,
+      "rank": 37
+    },
+    "3": {
+      "marks": {
+        "Mal I": 8,
+        "Mal II": 8,
+        "English": 8,
+        "Hindi": 8,
+        "S.S.": 11,
+        "B.S.": 10,
+        "Maths": 10
+      },
+      "total": 63,
+      "rank": 38
+    }
+  }
+}
+]
