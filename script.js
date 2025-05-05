@@ -12,6 +12,20 @@ const dashboardSection = document.getElementById('dashboard-section');
 const loginSection = document.getElementById('login-section');
 const changeStudentBtn = document.getElementById('change-student-btn');
 
+// Show disclaimer modal on first visit
+function showDisclaimer() {
+    // Check if disclaimer was previously accepted
+    if (!localStorage.getItem('disclaimerAccepted')) {
+      const disclaimerModal = new bootstrap.Modal(document.getElementById('disclaimerModal'));
+      disclaimerModal.show();
+      
+      // Set up accept button
+      document.getElementById('acceptDisclaimer').addEventListener('click', function() {
+        disclaimerModal.hide();
+      });
+    }
+  }
+
 // Helper functions
 function formatDisplayDate(dateStr) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -447,4 +461,7 @@ async function loadStudentData() {
 }
 
 // Start the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', loadStudentData);
+document.addEventListener('DOMContentLoaded', function(){
+    showDisclaimer();
+    loadStudentData();
+});
