@@ -15,6 +15,14 @@
     "gender": "Female",
     "dob": "1986-09-01",
     "phone": "9605017449"
+  },{
+    "role": "staff",
+    "name": "Varghese P M",
+    "designation": "HM",
+    "section": "HS",
+    "gender": "Male",
+    "dob": "1973-12-08",
+    "phone": "9495717506"
   },
     {
         "role": "student",
