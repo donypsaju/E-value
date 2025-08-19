@@ -3,7 +3,6 @@
     "role": "staff",
     "name": "Dony P Saju",
     "designation": "UPST",
-    "section": "UP",
     "gender": "Male",
     "dob": "1995-12-20",
     "phone": "7012395690"
@@ -11,7 +10,6 @@
     "role": "staff",
     "name": "Minu Jacob",
     "designation": "HST Mathematics",
-    "section": "HS",
     "gender": "Female",
     "dob": "1986-09-01",
     "phone": "9605017449"
@@ -19,7 +17,6 @@
     "role": "staff",
     "name": "Varghese P M",
     "designation": "HM",
-    "section": "HS",
     "gender": "Male",
     "dob": "1973-12-08",
     "phone": "9495717506"
