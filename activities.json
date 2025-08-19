@@ -1,0 +1,164 @@
+[
+    {
+        "admissionNo": 14945,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-06-19 17:26:07"
+    },
+    {
+        "admissionNo": 14937,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-06-19 17:26:32"
+    },
+    {
+        "admissionNo": 15782,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-06-19 17:26:51"
+    },
+    {
+        "admissionNo": 15516,
+        "Activity": "Competitive winner",
+        "Rating": 5,
+        "Timestamp": "2025-06-20 10:04:15"
+    },
+    {
+        "admissionNo": 15750,
+        "Activity": "Competitive winner",
+        "Rating": 3,
+        "Timestamp": "2025-06-20 10:09:37"
+    },
+    {
+        "admissionNo": 15822,
+        "Activity": "Helping mind",
+        "Rating": 3,
+        "Timestamp": "2025-06-20 10:18:21"
+    },
+    {
+        "admissionNo": 15964,
+        "Activity": "Class cleaning",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:01:49"
+    },
+    {
+        "admissionNo": 15747,
+        "Activity": "Class cleaning",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:02:18"
+    },
+    {
+        "admissionNo": 15752,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:17:44"
+    },
+    {
+        "admissionNo": 14945,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:18:13"
+    },
+    {
+        "admissionNo": 14945,
+        "Activity": "Fighting",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:19:16"
+    },
+    {
+        "admissionNo": 15476,
+        "Activity": "Fighting",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:19:31"
+    },
+    {
+        "admissionNo": 14925,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:20:04"
+    },
+    {
+        "admissionNo": 15516,
+        "Activity": "Play during interval",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:21:02"
+    },
+    {
+        "admissionNo": 15782,
+        "Activity": "Play during interval",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:21:23"
+    },
+    {
+        "admissionNo": 14956,
+        "Activity": "Play during interval",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:21:45"
+    },
+    {
+        "admissionNo": 14937,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:22:26"
+    },
+    {
+        "admissionNo": 15571,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:22:44"
+    },
+    {
+        "admissionNo": 15822,
+        "Activity": "Play during interval",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:23:00"
+    },
+    {
+        "admissionNo": 15616,
+        "Activity": "Competitive winner",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:25:48"
+    },
+    {
+        "admissionNo": 14916,
+        "Activity": "Competitive winner",
+        "Rating": 3,
+        "Timestamp": "2025-06-25 10:26:15"
+    },
+    {
+        "admissionNo": 15571,
+        "Activity": "Honesty",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:34:12"
+    },
+    {
+        "admissionNo": 15822,
+        "Activity": "Honesty",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:34:35"
+    },
+    {
+        "admissionNo": 14925,
+        "Activity": "Honesty",
+        "Rating": 5,
+        "Timestamp": "2025-06-25 10:34:50"
+    },
+    {
+        "admissionNo": 15516,
+        "Activity": "Extra curricular activities",
+        "Rating": 5,
+        "Timestamp": "2025-06-30 14:14:56"
+    },
+    {
+        "admissionNo": 15965,
+        "Activity": "Extra curricular activities",
+        "Rating": 5,
+        "Timestamp": "2025-06-30 14:15:43"
+    },
+    {
+        "admissionNo": 15750,
+        "Activity": "Extra curricular activities",
+        "Rating": 5,
+        "Timestamp": "2025-06-30 14:16:05"
+    }
+]
