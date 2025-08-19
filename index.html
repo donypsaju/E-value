@@ -777,7 +777,7 @@
         } else if (loggedInUser.role === 'staff') {
             buildTeacherDashboard(loggedInUser, allStudents, processedStudents, metadata);
         } else if (loggedInUser.role === 'student') {
-            const siblings = allStudents.filter(s => s.phone === loggedInUser.phone && s.admissionNo !== loggedInUser.admissionNo);
+            const siblings = allStudents.filter(s => s.phone === loggedInUser.phone && s.admissionNo.toString() !== loggedInUser.admissionNo.toString());
             const studentData = processedStudents.find(s => s.admissionNo.toString() === loggedInUser.admissionNo.toString());
             if (studentData) buildStudentDashboard(studentData, activities, null, siblings);
         }
