@@ -436,8 +436,17 @@
     function getTeacherSection(designation) {
         if (designation === 'LPST') return 'LP';
         if (designation === 'UPST') return 'UP';
-        if (designation && designation.startsWith('HST')) return 'HS';
+        if (designation && (designation.startsWith('HST') || designation === 'PET' || designation === 'Drawing Teacher')) return 'HS';
         return null;
+    }
+
+    function customClassSort(a, b) {
+        const partsA = a.split('-');
+        const partsB = b.split('-');
+        const numA = parseInt(partsA[0], 10);
+        const numB = parseInt(partsB[0], 10);
+        if (numA !== numB) return numA - numB;
+        return (partsA[1] || '').localeCompare(partsB[1] || '');
     }
 
     // --- UI RENDERING ---
@@ -445,8 +454,13 @@
 
     function buildHMDashboard(user, allStudents, processedStudents, metadata) {
         const classToppers = {};
-        processedStudents.sort((a, b) => a.class.localeCompare(b.class) || a.academicRank - b.academicRank)
-            .forEach(s => { if (!classToppers[`${s.class}-${s.division}`]) classToppers[`${s.class}-${s.division}`] = s; });
+        const uniqueClasses = [...new Set(processedStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+        uniqueClasses.forEach(className => {
+            const topper = processedStudents
+                .filter(s => `${s.class}-${s.division}` === className)
+                .sort((a, b) => a.academicRank - b.academicRank)[0];
+            if (topper) classToppers[className] = topper;
+        });
         const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
 
         dashboardContainer.innerHTML = `
@@ -470,13 +484,18 @@
 
         const sectionStudents = processedStudents.filter(s => getSection(s.class) === teacherSection);
         const classToppers = {};
-        sectionStudents.sort((a, b) => `${a.class}-${a.division}`.localeCompare(`${b.class}-${b.division}`) || a.academicRank - b.academicRank)
-            .forEach(s => { if (!classToppers[`${s.class}-${s.division}`]) classToppers[`${s.class}-${s.division}`] = s; });
+        const uniqueClasses = [...new Set(sectionStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+        uniqueClasses.forEach(className => {
+            const topper = sectionStudents
+                .filter(s => `${s.class}-${s.division}` === className)
+                .sort((a, b) => a.academicRank - b.academicRank)[0];
+            if (topper) classToppers[className] = topper;
+        });
         
         const markEntryUrl = {
-            lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
-            up: "https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit",
-            hs: "https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit"
+              lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
+            up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
+            hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
         }[teacherSection.toLowerCase()];
         const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
 
@@ -552,9 +571,13 @@
                 const section = getSection(student.class);
                 const classNum = parseInt(student.class);
                 let maxMark = 100;
-                if (section === 'LP') { maxMark = 25; } 
-                else if (section === 'UP') { maxMark = (k.toLowerCase().includes('monthly') || k.toLowerCase().includes('mid term')) ? 20 : 30; }
-                else if (section === 'HS') {
+                if (k.toLowerCase().includes('monthly exam 01') || k.toLowerCase().includes('first mid term')) {
+                    maxMark = 20;
+                } else if (section === 'LP') { 
+                    maxMark = 25; 
+                } else if (section === 'UP') { 
+                    maxMark = 30;
+                } else if (section === 'HS') {
                     if (classNum === 8) { maxMark = ['Physics', 'Chemistry', 'Biology'].includes(subject) ? 20 : 40; }
                     else if (classNum === 9 || classNum === 10) { maxMark = ['English', 'Social Science', 'Maths'].includes(subject) ? 80 : 40; }
                 }
@@ -624,7 +647,7 @@
     
     function buildStandingsChart(students, isSection = false) {
         const filter = document.getElementById('standingsFilter');
-        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort();
+        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
         if (isSection) {
             filter.innerHTML = `<option value="section">Section-wide</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
         } else {
@@ -666,7 +689,7 @@
 
     function buildLeaderboardCard(students, activities, isSection = false) {
         const leaderboardCard = document.getElementById('leaderboardCard');
-        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort();
+        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
         const filterOptions = isSection 
             ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
             : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
