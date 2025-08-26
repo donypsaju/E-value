@@ -17,7 +17,7 @@
     },
     {
         "role": "staff",
-        "name": "ReenaThomas ",
+        "name": "Reena Thomas ",
         "designation": "HST Social science",
         "gender": "Female",
         "dob": "1971-05-20",
@@ -258,10 +258,11 @@
     {
         "role": "student",
         "admissionNo": "14937",
-        "name": "AARUSHI JAYESH",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Aarushi Jayesh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-09-05",
         "phone": [
             "9947872548",
@@ -271,10 +272,11 @@
     {
         "role": "student",
         "admissionNo": "15782",
-        "name": "AAVANI ANIL",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Aavani Anil",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-09-05",
         "phone": [
             "9947064736",
@@ -284,10 +286,11 @@
     {
         "role": "student",
         "admissionNo": "15749",
-        "name": "AISWARYA BINU",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": "06 B",
+        "name": "Aiswarya Binu",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "06",
+        "Division": "B",
         "dob": "2015-01-12",
         "phone": [
             "7559022334",
@@ -297,10 +300,11 @@
     {
         "role": "student",
         "admissionNo": "14954",
-        "name": "AMRUTHA K M",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Amrutha K M",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-06-20",
         "phone": [
             "9048205608",
@@ -310,10 +314,11 @@
     {
         "role": "student",
         "admissionNo": "15961",
-        "name": "ANASWARA V R",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "06 B",
+        "name": "Anaswara V R",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-04-11",
         "phone": [
             "9744241646",
@@ -323,10 +328,11 @@
     {
         "role": "student",
         "admissionNo": "14956",
-        "name": "ANUSHKA P S",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Anushka P S",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-01-28",
         "phone": [
             "9961923333",
@@ -336,10 +342,11 @@
     {
         "role": "student",
         "admissionNo": "15577",
-        "name": "AVANTHIKA A",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Avanthika A",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-07-03",
         "phone": [
             "8075936560",
@@ -349,10 +356,11 @@
     {
         "role": "student",
         "admissionNo": "14932",
-        "name": "CHRISTEENA ELIZABETH ROBY",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Christeena Elizabeth Roby",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-12-04",
         "phone": [
             "9495165014",
@@ -362,10 +370,11 @@
     {
         "role": "student",
         "admissionNo": "15516",
-        "name": "CIYA MARIA JOMIN",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Ciya Maria Jomin",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-05-13",
         "phone": [
             "9755448003",
@@ -375,10 +384,11 @@
     {
         "role": "student",
         "admissionNo": "14920",
-        "name": "DEVANANDA AJEESH",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Devananda Ajeesh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-05-10",
         "phone": [
             "9061734032",
@@ -388,10 +398,11 @@
     {
         "role": "student",
         "admissionNo": "15750",
-        "name": "DEVANANDA S NAIR",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": "06 B",
+        "name": "Devananda S Nair",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "06",
+        "Division": "B",
         "dob": "2015-01-05",
         "phone": [
             "9747192788",
@@ -401,10 +412,11 @@
     {
         "role": "student",
         "admissionNo": "14947",
-        "name": "DEVANANDHA S",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "06 B",
+        "name": "Devanandha S",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "B",
         "dob": "2013-12-18",
         "phone": [
             "8129857171",
@@ -414,10 +426,11 @@
     {
         "role": "student",
         "admissionNo": "14938",
-        "name": "JAYCE LIJO",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Jayce Lijo",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-09-28",
         "phone": [
             "9061832578",
@@ -427,10 +440,11 @@
     {
         "role": "student",
         "admissionNo": "15965",
-        "name": "JENIYA JAMES",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "06 B",
+        "name": "Jeniya James",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "B",
         "dob": "2013-10-01",
         "phone": [
             "9497665965",
@@ -440,10 +454,11 @@
     {
         "role": "student",
         "admissionNo": "15571",
-        "name": "SIVANI N R",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Sivani N R",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-10-12",
         "phone": [
             "7558834005",
@@ -453,10 +468,11 @@
     {
         "role": "student",
         "admissionNo": "15162",
-        "name": "THEERTHA K A",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Theertha K A",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-07-14",
         "phone": [
             "9744517858",
@@ -466,10 +482,11 @@
     {
         "role": "student",
         "admissionNo": "14936",
-        "name": "AARYAN A R",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "06 B",
+        "name": "Aaryan A R",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-01-30",
         "phone": [
             "96598588250",
@@ -479,10 +496,11 @@
     {
         "role": "student",
         "admissionNo": "15752",
-        "name": "ABHISHEK M B",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "06 B",
+        "name": "Abhishek M B",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "B",
         "dob": "2015-01-14",
         "phone": [
             "9847094575",
@@ -492,10 +510,11 @@
     {
         "role": "student",
         "admissionNo": "15966",
-        "name": "ADHITHYAN P NAIR",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Adhithyan P Nair",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-11-16",
         "phone": [
             "9747675309",
@@ -505,10 +524,11 @@
     {
         "role": "student",
         "admissionNo": "14928",
-        "name": "ANIRUDH K P",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Anirudh K P",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-09-20",
         "phone": [
             "9656166989",
@@ -518,10 +538,11 @@
     {
         "role": "student",
         "admissionNo": "15747",
-        "name": "FEBIN BINOJ MATHEW",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "06 B",
+        "name": "Febin Binoj Mathew",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "B",
         "dob": "2013-10-04",
         "phone": [
             "8139057930",
@@ -531,10 +552,11 @@
     {
         "role": "student",
         "admissionNo": "14925",
-        "name": "GODWIN J SAJAN",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": "06 B",
+        "name": "Godwin J Sajan",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-05-21",
         "phone": [
             "8304895008",
@@ -544,10 +566,11 @@
     {
         "role": "student",
         "admissionNo": "15759",
-        "name": "JOVAAN JOJO",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Jovaan Jojo",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-06-11",
         "phone": [
             "9961166449",
@@ -557,10 +580,11 @@
     {
         "role": "student",
         "admissionNo": "15748",
-        "name": "MANAS MATHEW SEBASTIAN",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Manas Mathew Sebastian",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2013-12-19",
         "phone": [
             "9582075158",
@@ -570,10 +594,11 @@
     {
         "role": "student",
         "admissionNo": "15822",
-        "name": "MILAN P RAJU",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "06 B",
+        "name": "Milan P Raju",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-09-13",
         "phone": [
             "9544007559",
@@ -583,10 +608,11 @@
     {
         "role": "student",
         "admissionNo": "15474",
-        "name": "NIBIN SHYJU",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": "06 B",
+        "name": "Nibin Shyju",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "B",
         "dob": "2013-12-10",
         "phone": [
             "9188108569",
@@ -596,10 +622,11 @@
     {
         "role": "student",
         "admissionNo": "14945",
-        "name": "PRANAV PRAMOD",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": "06 B",
+        "name": "Pranav Pramod",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-06-10",
         "phone": [
             "9846837370",
@@ -609,10 +636,11 @@
     {
         "role": "student",
         "admissionNo": "14916",
-        "name": "RAHUL KRISHNA C S",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "06 B",
+        "name": "Rahul Krishna C S",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-03-07",
         "phone": [
             "9846504048",
@@ -622,10 +650,11 @@
     {
         "role": "student",
         "admissionNo": "15476",
-        "name": "ROHAN BIJU",
-        "gender": "Male",
-        "house": "Blue",
-        "class": "06 B",
+        "name": "Rohan Biju",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "B",
         "dob": "2013-12-18",
         "phone": [
             "7306135276",
@@ -635,10 +664,11 @@
     {
         "role": "student",
         "admissionNo": "15964",
-        "name": "SREEHARI SYAM",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "06 B",
+        "name": "Sreehari Syam",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "B",
         "dob": "2014-02-21",
         "phone": [
             "7909120643",
@@ -648,10 +678,11 @@
     {
         "role": "student",
         "admissionNo": "14953",
-        "name": "ADHITYA SANEESH",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Adhitya Saneesh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-03-31",
         "phone": [
             "9947880871",
@@ -661,10 +692,11 @@
     {
         "role": "student",
         "admissionNo": "15784",
-        "name": "AISWARYA S NAIR",
-        "gender": "Female",
-        "house": "YELLOW ",
-        "class": "06 C",
+        "name": "Aiswarya S Nair",
+        "Gender": "Female",
+        "House": "Yellow ",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-01-16",
         "phone": [
             "8281341325",
@@ -674,10 +706,11 @@
     {
         "role": "student",
         "admissionNo": "15475",
-        "name": "AISWARYA SANTHOSH",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": "06 C",
+        "name": "Aiswarya Santhosh",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-03-17",
         "phone": [
             "9895894127",
@@ -687,10 +720,11 @@
     {
         "role": "student",
         "admissionNo": "15810",
-        "name": "ANAMIKA C S",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": "06 C",
+        "name": "Anamika C S",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-03-05",
         "phone": [
             "8157821226",
@@ -700,10 +734,11 @@
     {
         "role": "student",
         "admissionNo": "15797",
-        "name": "ANDRIYA BIJO",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Andriya Bijo",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-01-30",
         "phone": [
             "9946815762",
@@ -713,10 +748,11 @@
     {
         "role": "student",
         "admissionNo": "14959",
-        "name": "ANGELA SEBIN",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 C",
+        "name": "Angela Sebin",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-08-28",
         "phone": [
             "8129387126",
@@ -726,10 +762,11 @@
     {
         "role": "student",
         "admissionNo": "15089",
-        "name": "ANGELINA MATHEW CHEMMATHU",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Angelina Mathew Chemmathu",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-08-02",
         "phone": [
             "7510382816",
@@ -739,10 +776,11 @@
     {
         "role": "student",
         "admissionNo": "15491",
-        "name": "ANN TREESA TENNISON",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Ann Treesa Tennison",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-07-25",
         "phone": [
             "9447400001",
@@ -752,10 +790,11 @@
     {
         "role": "student",
         "admissionNo": "14952",
-        "name": "ANUGRAHA S",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "06 C",
+        "name": "Anugraha S",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "C",
         "dob": "2013-08-22",
         "phone": [
             "9495848622",
@@ -765,10 +804,11 @@
     {
         "role": "student",
         "admissionNo": "14919",
-        "name": "ANUSREE V K",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "06 C",
+        "name": "Anusree V K",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-03-11",
         "phone": [
             "8943115726",
@@ -778,10 +818,11 @@
     {
         "role": "student",
         "admissionNo": "15745",
-        "name": "AYARIN ANNA AJO",
-        "gender": "Female",
-        "house": "Green",
-        "class": "06 C",
+        "name": "Ayarin Anna Ajo",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-01-16",
         "phone": [
             "7510624164",
@@ -791,10 +832,11 @@
     {
         "role": "student",
         "admissionNo": "14941",
-        "name": "AYONA ANNA REJU",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Ayona Anna Reju",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-02-14",
         "phone": [
             "8157995364",
@@ -804,10 +846,11 @@
     {
         "role": "student",
         "admissionNo": "14957",
-        "name": "DAYA SATHEESH",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "06 C",
+        "name": "Daya Satheesh",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "C",
         "dob": "2013-10-31",
         "phone": [
             "9061954978",
@@ -817,10 +860,11 @@
     {
         "role": "student",
         "admissionNo": "15962",
-        "name": "DHIYA VIVEK",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Dhiya Vivek",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-03-01",
         "phone": [
             "9747545241",
@@ -830,10 +874,11 @@
     {
         "role": "student",
         "admissionNo": "15865",
-        "name": "ELISHWA ROY",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 C",
+        "name": "Elishwa Roy",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-09-18",
         "phone": [
             "9847878996",
@@ -843,10 +888,11 @@
     {
         "role": "student",
         "admissionNo": "14927",
-        "name": "LIMIYA T LIJO",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 C",
+        "name": "Limiya T Lijo",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-05-08",
         "phone": [
             "7559069454",
@@ -856,10 +902,11 @@
     {
         "role": "student",
         "admissionNo": "15572",
-        "name": "NIVEDYA P S",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "06 C",
+        "name": "Nivedya P S",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-08-21",
         "phone": [
             "9656174151",
@@ -869,10 +916,11 @@
     {
         "role": "student",
         "admissionNo": "15228",
-        "name": "VRINDA C VINOD",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": "06 C",
+        "name": "Vrinda C Vinod",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-05-18",
         "phone": [
             "9747195825",
@@ -882,10 +930,11 @@
     {
         "role": "student",
         "admissionNo": "15859",
-        "name": "ADHI SAJI",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Adhi Saji",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-08-11",
         "phone": [
             "7592099701",
@@ -895,10 +944,11 @@
     {
         "role": "student",
         "admissionNo": "14946",
-        "name": "ADON P RENJITH",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "06 C",
+        "name": "Adon P Renjith",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-12-26",
         "phone": [
             "9447993430",
@@ -908,10 +958,11 @@
     {
         "role": "student",
         "admissionNo": "15758",
-        "name": "ALFYN SEBASTIAN RAJU",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "06 C",
+        "name": "Alfyn Sebastian Raju",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-03-28",
         "phone": [
             "9744076836",
@@ -921,10 +972,11 @@
     {
         "role": "student",
         "admissionNo": "15970",
-        "name": "EDBERT SOJAN",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "06 C",
+        "name": "Edbert Sojan",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-04-03",
         "phone": [
             "8547281398",
@@ -934,10 +986,11 @@
     {
         "role": "student",
         "admissionNo": "15490",
-        "name": "EVAN THOMAS TENNISON",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": "06 C",
+        "name": "Evan Thomas Tennison",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-07-25",
         "phone": [
             "9447400001",
@@ -947,10 +1000,11 @@
     {
         "role": "student",
         "admissionNo": "15573",
-        "name": "HARINARAYANAN C A",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Harinarayanan C A",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-07-23",
         "phone": [
             "9947454257",
@@ -960,10 +1014,11 @@
     {
         "role": "student",
         "admissionNo": "15351",
-        "name": "JARIL JAISON",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": "06 C",
+        "name": "Jaril Jaison",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-01-09",
         "phone": [
             "8590430518",
@@ -973,10 +1028,11 @@
     {
         "role": "student",
         "admissionNo": "14922",
-        "name": "JOHAN JINESH",
-        "gender": "Male",
-        "house": "Green",
-        "class": "06 C",
+        "name": "Johan Jinesh",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-11-04",
         "phone": [
             "9778249473",
@@ -986,10 +1042,11 @@
     {
         "role": "student",
         "admissionNo": "15960",
-        "name": "JOHAN JOSEPH",
-        "gender": "Male",
-        "house": "YELLOW ",
-        "class": "06 C",
+        "name": "Johan Joseph",
+        "Gender": "Male",
+        "House": "Yellow ",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-12-23",
         "phone": [
             "9947143633",
@@ -999,10 +1056,11 @@
     {
         "role": "student",
         "admissionNo": "14931",
-        "name": "JUWAN M THOMAS",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "06 C",
+        "name": "Juwan M Thomas",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-09-03",
         "phone": [
             "9961205457",
@@ -1012,10 +1070,11 @@
     {
         "role": "student",
         "admissionNo": "15796",
-        "name": "VINAYAK P ANOOP",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "06 C",
+        "name": "Vinayak P Anoop",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "06",
+        "Division": "C",
         "dob": "2014-01-26",
         "phone": [
             "9447009580",
@@ -1025,10 +1084,11 @@
     {
         "role": "student",
         "admissionNo": "14732",
-        "name": "ARYA SANTHOSH",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "07 A",
+        "name": "Arya Santhosh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-02-02",
         "phone": [
             "9947142125",
@@ -1038,10 +1098,11 @@
     {
         "role": "student",
         "admissionNo": "15596",
-        "name": "DIYA ANNAKUTTY",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": " 07 A",
+        "name": "Diya Annakutty",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-06-05",
         "phone": [
             "9562138944"
@@ -1050,10 +1111,11 @@
     {
         "role": "student",
         "admissionNo": "15867",
-        "name": "LAKSHMI SUNIL",
-        "gender": "Female",
-        "house": "ROSE",
-        "class": "07 A",
+        "name": "Lakshmi Sunil",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-06-04",
         "phone": [
             "9947542993",
@@ -1063,10 +1125,11 @@
     {
         "role": "student",
         "admissionNo": "15358",
-        "name": "SIKHA SURESH",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": " 07  A",
+        "name": "Sikha Suresh",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "A",
         "dob": "2012-06-23",
         "phone": [
             "9539562687"
@@ -1075,10 +1138,11 @@
     {
         "role": "student",
         "admissionNo": "15971",
-        "name": "ADWAITH MADHU",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "07 A",
+        "name": "Adwaith Madhu",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "A",
         "dob": "2012-07-25",
         "phone": [
             "8086904902",
@@ -1088,10 +1152,11 @@
     {
         "role": "student",
         "admissionNo": "14731",
-        "name": "ALAN JOJI",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "07 A",
+        "name": "Alan Joji",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-04-02",
         "phone": [
             "9846436133"
@@ -1100,10 +1165,11 @@
     {
         "role": "student",
         "admissionNo": "15357",
-        "name": "KARTHIK M A",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "07 A",
+        "name": "Karthik M A",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-08-21",
         "phone": [
             "9961629045"
@@ -1112,10 +1178,11 @@
     {
         "role": "student",
         "admissionNo": "15478",
-        "name": "ROSHAN BIJU",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": "07 A",
+        "name": "Roshan Biju",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-01-05",
         "phone": [
             "7306135276"
@@ -1124,10 +1191,11 @@
     {
         "role": "student",
         "admissionNo": "15278",
-        "name": "SHREYAS M",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "07 A",
+        "name": "Shreyas M",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "A",
         "dob": "2012-10-30",
         "phone": [
             "9497818183",
@@ -1137,10 +1205,11 @@
     {
         "role": "student",
         "admissionNo": "15595",
-        "name": "SREEHARI.S",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "07 A",
+        "name": "Sreehari.S",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-11-02",
         "phone": [
             "7559092952"
@@ -1149,10 +1218,11 @@
     {
         "role": "student",
         "admissionNo": "14756",
-        "name": "SREENAND UNNI",
-        "gender": "Male",
-        "house": "YELLOW",
-        "class": " 07 A",
+        "name": "Sreenand Unni",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "A",
         "dob": "2013-07-19",
         "phone": [
             "8943609870"
@@ -1161,10 +1231,11 @@
     {
         "role": "student",
         "admissionNo": "16009",
-        "name": "VAISHNAV SAJI",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "07 A",
+        "name": "Vaishnav Saji",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "A",
         "dob": "2014-04-14",
         "phone": [
             "8714363028",
@@ -1173,11 +1244,1056 @@
     },
     {
         "role": "student",
+        "admissionNo": "14719",
+        "name": "Aiwa Anna Jaison",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2012-11-23",
+        "phone": [
+            "9447868229",
+            "9656931535"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14728",
+        "name": "Aleevia Joshy",
+        "Gender": "Female",
+        "House": "Green ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-04-22",
+        "phone": [
+            "9961057125",
+            "9961057125"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14730",
+        "name": "Anakhamol Biju",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-03-26",
+        "phone": [
+            "9656969131",
+            "9656369979"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15589",
+        "name": "Avani P A",
+        "Gender": "Female",
+        "House": "Yellow ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2014-04-17",
+        "phone": [
+            "9447317426",
+            "9497137426"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14736",
+        "name": "Devanandha C V",
+        "Gender": "Female",
+        "House": "Blue ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-05-03",
+        "phone": [
+            "9961661210",
+            "9961661210"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15139",
+        "name": "Elizabeth Mathew",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-11-23",
+        "phone": [
+            "9895739677",
+            "9605133571"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14738",
+        "name": "Essa Julia Lijo",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-07-01",
+        "phone": [
+            "9446713012",
+            "8075607667"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14740",
+        "name": "Gouripriya B",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-10-20",
+        "phone": [
+            "9946934277",
+            "9539022577"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15581",
+        "name": "Hitha K A",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2014-06-04",
+        "phone": [
+            "9400045953",
+            "9947295331"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14745",
+        "name": "Jeanna Mariam Jojo",
+        "Gender": "Female",
+        "House": "Green ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-03-14",
+        "phone": [
+            "9947982166",
+            "9656707126"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14742",
+        "name": "Jessa Jojimon",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-08-22",
+        "phone": [
+            "8111822648",
+            "7907716586"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15762",
+        "name": "Medha Reji",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2012-12-07",
+        "phone": [
+            "9961764191",
+            "7025446163"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14750",
+        "name": "Niranjana Rajesh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2012-12-24",
+        "phone": [
+            "9605571190",
+            "9562136306"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14759",
+        "name": "Saraswathydevi R Nair",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-02-18",
+        "phone": [
+            "8129197918",
+            "7034605234"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15200",
+        "name": "Treesa Alex",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2014-03-25",
+        "phone": [
+            "9495063680",
+            "9496722377"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15356",
+        "name": "Aadish K. S.",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-06-02",
+        "phone": [
+            "7909138224",
+            "9745065614"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14734",
+        "name": "Abhinav S Nair",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2012-11-10",
+        "phone": [
+            "9605607606",
+            "9562274071"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15874",
+        "name": "Abhirag Lal M S",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-12-09",
+        "phone": [
+            "9746654009",
+            "8089070733"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15578",
+        "name": "Abin Johny",
+        "Gender": "Male",
+        "House": "Yellow ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-04-17",
+        "phone": [
+            "8281197005",
+            "8281197005"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15055",
+        "name": "Adthu Raj S",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2012-12-27",
+        "phone": [
+            "9562182533",
+            "9207680205"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15974",
+        "name": "Akhilesh Ashokan",
+        "Gender": "Male",
+        "House": "Green ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-04-16",
+        "phone": [
+            "7558089274",
+            "7558089274"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14726",
+        "name": "Akhilesh Binesh",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-12-26",
+        "phone": [
+            "9249230303",
+            "7034823033"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14718",
+        "name": "Alan Jose",
+        "Gender": "Male",
+        "House": "Yellow ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-04-09",
+        "phone": [
+            "9495584764",
+            "9745501572"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15354",
+        "name": "Ashin Sunil",
+        "Gender": "Male",
+        "House": "Blue ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-10-24",
+        "phone": [
+            "8547245998",
+            "8547245998"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15976",
+        "name": "Bhanu Sojan",
+        "Gender": "Male",
+        "House": "Green ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-09-24",
+        "phone": [
+            "9747123969",
+            "9747123969"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15763",
+        "name": "Bibin Biju",
+        "Gender": "Male",
+        "House": "Blue ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-11-02",
+        "phone": [
+            "9694262661",
+            "9447679626"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14737",
+        "name": "Eby Jimmon",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-03-14",
+        "phone": [
+            "9947968845",
+            "9747168845"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15591",
+        "name": "Fahmid Shahid",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-03-24",
+        "phone": [
+            "9744881117",
+            "8078786777"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14963",
+        "name": "Gahan Krishna U",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-02-18",
+        "phone": [
+            "9747244456",
+            "9847799149"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14739",
+        "name": "Gourinadh Vinod",
+        "Gender": "Male",
+        "House": "Green ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-09-24",
+        "phone": [
+            "9446924174",
+            "9446924174"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15054",
+        "name": "Neil George Wilson",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-06-06",
+        "phone": [
+            "8590226339",
+            "8592952272"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14751",
+        "name": "Noel Thomas Bibin",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-10-03",
+        "phone": [
+            "9048031973",
+            "7561852366"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15586",
+        "name": "Rayon Biju",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-05-10",
+        "phone": [
+            "9744688747",
+            "7510292919"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14758",
+        "name": "Santo Sajith",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-04-04",
+        "phone": [
+            "9605056122",
+            "7034119595"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15764",
+        "name": "Soju R V",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-05-22",
+        "phone": [
+            "8086457090",
+            "8086457090"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15766",
+        "name": "Sooraj J",
+        "Gender": "Male",
+        "House": "Blue ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-08-12",
+        "phone": [
+            "7907226977",
+            "7907226977"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14761",
+        "name": "Vaishnav Santhosh",
+        "Gender": "Male",
+        "House": "Rose ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-11-12",
+        "phone": [
+            "9526331858",
+            "9526331858"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14760",
+        "name": "Vivek Santhosh",
+        "Gender": "Male",
+        "House": "Yellow ",
+        "Class": "7",
+        "Division": "B",
+        "dob": "2013-08-19",
+        "phone": [
+            "9446201146",
+            "7025446116"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15259",
+        "name": "Yadav Praveen",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "B",
+        "dob": "2013-03-23",
+        "phone": [
+            "9495941276",
+            "6235609149"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14715",
+        "name": "Abhirami Aneesh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-11-08",
+        "phone": [
+            "9895296718",
+            "9746602587"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15975",
+        "name": "Aiswarya Aneesh",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-03-01",
+        "phone": [
+            "9495505250"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15972",
+        "name": "Anakha V Nair",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-09-10",
+        "phone": [
+            "8289883660",
+            "8943636576"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14716",
+        "name": "Angela Lijo",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-07-02",
+        "phone": [
+            "9809320051",
+            "9809050910"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14721",
+        "name": "Ann Maria Sabu",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-04-20",
+        "phone": [
+            "9447419293",
+            "9961204769"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14722",
+        "name": "Anna Maria Cyriac",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-07-19",
+        "phone": [
+            "9544043394",
+            "9544043394"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15584",
+        "name": "Anna Mariya Rojin",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-11-08",
+        "phone": [
+            "7907660817",
+            "7559888720"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15769",
+        "name": "Avani Sajeevan",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-06-19",
+        "phone": [
+            "7511158522",
+            "9947121316"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14727",
+        "name": "Ayona Maria Shiju",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-09-26",
+        "phone": [
+            "9744054636",
+            "9961096307"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15582",
+        "name": "Bhavya S Nair",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-07-25",
+        "phone": [
+            "9447795326",
+            "9447612684"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15223",
+        "name": "Jemilit Manjusha Jaison",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-06-09",
+        "phone": [
+            "9447179108",
+            "9447179108"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14741",
+        "name": "Jiya Jisha Jomon",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-03-02",
+        "phone": [
+            "9847791198",
+            "966550796736"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14743",
+        "name": "Joahna Jobi",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-06-29",
+        "phone": [
+            "8606175713"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15593",
+        "name": "Joshitha Joji",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-06-11",
+        "phone": [
+            "8281132641",
+            "7012117392"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14747",
+        "name": "Merin Sabu",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-09-04",
+        "phone": [
+            "9562859880",
+            "9526713812"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14748",
+        "name": "Niya Marry Nijo",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-04-02",
+        "phone": [
+            "9605938738",
+            "9961425915"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14753",
+        "name": "Roshna Rajeev",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-01-17",
+        "phone": [
+            "9447456858",
+            "8547936858"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15575",
+        "name": "Sreya N R",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-01-09",
+        "phone": [
+            "7558834005",
+            "9605173450"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15082",
+        "name": "Thresy Jimmie Neerakal",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-04-30",
+        "phone": [
+            "9860127286",
+            "9844500797"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14720",
+        "name": "Aashin Joby",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-06-08",
+        "phone": [
+            "9818644824",
+            "8368890800"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15768",
+        "name": "Adon Prince",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-08-28",
+        "phone": [
+            "9847524889"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15875",
+        "name": "Aiebel Siju",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2014-03-22",
+        "phone": [
+            "918113889912",
+            "642108745484"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15583",
+        "name": "Akhilesh R",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-10-29",
+        "phone": [
+            "9562169853",
+            "8078098212"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15765",
+        "name": "Aloshious Jojo",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-06-28",
+        "phone": [
+            "9495093989",
+            "9495093989"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14729",
+        "name": "Alphonse Roy",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-07-31",
+        "phone": [
+            "9447226979",
+            "9496278020"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15977",
+        "name": "Ashin K Anil",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-08-08",
+        "phone": [
+            "9496631071"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15587",
+        "name": "Aswin Sijeesh",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-05-08",
+        "phone": [
+            "9744965813",
+            "9605786582"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14733",
+        "name": "Athiroop Anoop",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2014-02-13",
+        "phone": [
+            "7558833491"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15597",
+        "name": "Ayon Roy",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2014-01-07",
+        "phone": [
+            "8593818273",
+            "9961928133"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15590",
+        "name": "Joshua Jomon",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2012-10-02",
+        "phone": [
+            "9847472781",
+            "8111808443"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14746",
+        "name": "Leyon Thomas",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-09-10",
+        "phone": [
+            "9846961183",
+            "8157031131"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15761",
+        "name": "Mathew George",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2012-11-09",
+        "phone": [
+            "9961297459"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14754",
+        "name": "Rosario Jomon",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-10-22",
+        "phone": [
+            "9818644824",
+            "8368890800"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15844",
+        "name": "S Balakrishnan",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-04-24",
+        "phone": [
+            "9747965986",
+            "9656115044"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14757",
+        "name": "Salvin Soby",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2013-04-15",
+        "phone": [
+            "9495109895",
+            "9846541778"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15585",
+        "name": "Samuel Prince Abraham",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "07",
+        "Division": "C",
+        "dob": "2012-11-29",
+        "phone": [
+            "9895385711",
+            "9605230698"
+        ]
+    },
+    {
+        "role": "student",
         "admissionNo": "15807",
-        "name": "ATHIRA MANOJ",
-        "gender": "Female",
-        "house": "YELLOW",
-        "class": "09 A",
+        "name": "Athira Manoj",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-05-22",
         "phone": [
             "9633403452",
@@ -1187,10 +2303,11 @@
     {
         "role": "student",
         "admissionNo": "15613",
-        "name": "CHANDHINI SANTHOSH",
-        "gender": "Female",
-        "house": "GREEN",
-        "class": "09 A",
+        "name": "Chandhini Santhosh",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "09",
+        "Division": "A",
         "dob": "2012-05-13",
         "phone": [
             "79079 83979",
@@ -1200,10 +2317,11 @@
     {
         "role": "student",
         "admissionNo": "15208",
-        "name": "DIYA SATHEESH",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "09 A",
+        "name": "Diya Satheesh",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-02-21",
         "phone": [
             "9061954978",
@@ -1213,10 +2331,11 @@
     {
         "role": "student",
         "admissionNo": "15790",
-        "name": "THEERTHA N RAJ",
-        "gender": "Female",
-        "house": "BLUE",
-        "class": "09 A",
+        "name": "Theertha N Raj",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-05-28",
         "phone": [
             "8921423096",
@@ -1226,10 +2345,11 @@
     {
         "role": "student",
         "admissionNo": "15808",
-        "name": "ABHINAV M",
-        "gender": "Male",
-        "house": "Green",
-        "class": "09 A",
+        "name": "Abhinav M",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "A",
         "dob": "2012-07-10",
         "phone": [
             "9605017449",
@@ -1239,10 +2359,11 @@
     {
         "role": "student",
         "admissionNo": "15788",
-        "name": "ABINAV A S",
-        "gender": "Male",
-        "house": "GREEN",
-        "class": "09 A",
+        "name": "Abinav A S",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-11-09",
         "phone": [
             "SHAJI. MON. A. R",
@@ -1252,10 +2373,11 @@
     {
         "role": "student",
         "admissionNo": "15791",
-        "name": "ADHITHYAN K UNNI",
-        "gender": "Male",
-        "house": "Green",
-        "class": "09 A",
+        "name": "Adhithyan K Unni",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-06-26",
         "phone": [
             "8921343540",
@@ -1265,10 +2387,11 @@
     {
         "role": "student",
         "admissionNo": "15803",
-        "name": "ADITHYAN ANEESH",
-        "gender": "Male",
-        "house": "Blue",
-        "class": "09 A",
+        "name": "Adithyan Aneesh",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-03-17",
         "phone": [
             "8078808693",
@@ -1278,10 +2401,11 @@
     {
         "role": "student",
         "admissionNo": "16002",
-        "name": "ALANJOE C G",
-        "gender": "Male",
-        "house": "ROSE",
-        "class": "09 A",
+        "name": "Alanjoe C G",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "A",
         "dob": "2012-03-02",
         "phone": [
             "9744838319",
@@ -1291,10 +2415,11 @@
     {
         "role": "student",
         "admissionNo": "15799",
-        "name": "ALBIN LALU",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "09 A",
+        "name": "Albin Lalu",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "A",
         "dob": "2012-06-19",
         "phone": [
             "9562595034",
@@ -1304,10 +2429,11 @@
     {
         "role": "student",
         "admissionNo": "15792",
-        "name": "ANANDHU BINU",
-        "gender": "Male",
-        "house": "Yellow",
-        "class": "09 A",
+        "name": "Anandhu Binu",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "A",
         "dob": "2012-01-18",
         "phone": [
             "7994829375",
@@ -1317,10 +2443,11 @@
     {
         "role": "student",
         "admissionNo": "15801",
-        "name": "ASHWIN ANISH",
-        "gender": "Male",
-        "house": "Rose",
-        "class": "09 A",
+        "name": "Ashwin Anish",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-05-01",
         "phone": [
             "9605017449",
@@ -1330,10 +2457,11 @@
     {
         "role": "student",
         "admissionNo": "15779",
-        "name": "DENNIS JOSEPH TOMY",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "09 A",
+        "name": "Dennis Joseph Tomy",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-09-06",
         "phone": [
             "9496439354",
@@ -1343,10 +2471,11 @@
     {
         "role": "student",
         "admissionNo": "15794",
-        "name": "FELIX JOSHY",
-        "gender": "Male",
-        "house": "Rose",
-        "class": "09 A",
+        "name": "Felix Joshy",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-02-20",
         "phone": [
             "9567431972",
@@ -1356,10 +2485,11 @@
     {
         "role": "student",
         "admissionNo": "15776",
-        "name": "JOYAL JOJO",
-        "gender": "Male",
-        "house": "BLUE",
-        "class": "09 A",
+        "name": "Joyal Jojo",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "A",
         "dob": "2011-09-11",
         "phone": [
             "9961166449",
@@ -1369,14 +2499,323 @@
     {
         "role": "student",
         "admissionNo": "15789",
-        "name": "SHALOM SHAJI",
-        "gender": "Male",
-        "house": "Yellow",
-        "class": "09 A",
+        "name": "Shalom Shaji",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "A",
         "dob": "2012-08-10",
         "phone": [
             "9605017449",
             "9745828785"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14392",
+        "name": "Anjana C S",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-07-04",
+        "phone": [
+            "9446200398",
+            "9744299138"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14965",
+        "name": "Aradhya T Saji",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2012-08-06",
+        "phone": [
+            "9847777963",
+            "8157837441"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15679",
+        "name": "Elmer B Maria",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2012-02-16",
+        "phone": [
+            "9645395997",
+            "9946674599"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14384",
+        "name": "Gauri S",
+        "Gender": "Female",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2012-03-25",
+        "phone": [
+            "9497092813",
+            "7907760492"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15809",
+        "name": "Jewel Anna Raju",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-03-21",
+        "phone": [
+            "9544007559",
+            "9544007559"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15802",
+        "name": "Malavika N R",
+        "Gender": "Female",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-11-11",
+        "phone": [
+            "8086005865",
+            "8157028606"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "16007",
+        "name": "Meera Madhu",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-07-30",
+        "phone": [
+            "8086904902",
+            "9744381588"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14580",
+        "name": "Savina Saji",
+        "Gender": "Female",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-08-02",
+        "phone": [
+            "9562114245",
+            "9562848915"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15202",
+        "name": "Sreelakshmi A N",
+        "Gender": "Female",
+        "House": "Green",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-08-10",
+        "phone": [
+            "9526348185",
+            "9207798185"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14389",
+        "name": "Abhinav Manoj",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-04-01",
+        "phone": [
+            "9961723833",
+            "6567680757"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15156",
+        "name": "Antony C Bijosh",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2012-02-03",
+        "phone": [
+            "7907406905",
+            "9961273482"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15605",
+        "name": "Aric Deleap",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-03-04",
+        "phone": [
+            "9037366010",
+            "9605566010"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14388",
+        "name": "Badrinath B Krishna",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2012-01-20",
+        "phone": [
+            "9496465568",
+            "9400235597"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15804",
+        "name": "Binil Bineesh",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-10-14",
+        "phone": [
+            "9539041287",
+            "9539041287"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15805",
+        "name": "Derin Shibu",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-11-02",
+        "phone": [
+            "9961775841",
+            "9074079106"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15388",
+        "name": "Edwin Luke",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-04-25",
+        "phone": [
+            "7012968232",
+            "9633275377"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14572",
+        "name": "Jeswin Jaison",
+        "Gender": "Male",
+        "House": "Blue",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-02-25",
+        "phone": [
+            "9497388920",
+            "9497667656"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15246",
+        "name": "Karthik Rajan",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-04-18",
+        "phone": [
+            "7306490327",
+            "9744931580"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15180",
+        "name": "Madhav K Ajith",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-07-28",
+        "phone": [
+            "9744517858",
+            "9656517860"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15178",
+        "name": "Maheshwar K Ajith",
+        "Gender": "Male",
+        "House": "Yellow",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-07-28",
+        "phone": [
+            "9744517858",
+            "9656517860"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "15843",
+        "name": "Nived S Krishna",
+        "Gender": "Male",
+        "House": "Green",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2011-04-19",
+        "phone": [
+            "9447134015",
+            "8304997138"
+        ]
+    },
+    {
+        "role": "student",
+        "admissionNo": "14387",
+        "name": "Ribin Benny",
+        "Gender": "Male",
+        "House": "Rose",
+        "Class": "09",
+        "Division": "D",
+        "dob": "2012-03-13",
+        "phone": [
+            "7902830573",
+            "7909233526"
         ]
     }
 ]
