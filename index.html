@@ -88,7 +88,7 @@
         .trend-up { color: #16a34a; }
         .trend-down { color: #dc2626; }
         .trend-stable { color: #64748b; }
-        #closeModal, #closeIframeModal, #closeSwitchChildModal, #closeDobVerifyModal { font-size: 2rem; line-height: 1; font-weight: bold; }
+        #closeModal, #closeIframeModal, #closeSwitchChildModal, #closeDobVerifyModal, #closeBulkActivityModal { font-size: 2rem; line-height: 1; font-weight: bold; }
 
         /* Grade Colors */
         .grade-a-plus, .grade-a { color: #16a34a; } /* Green */
@@ -379,6 +379,21 @@
     }
 
     // --- DATA PROCESSING & CALCULATIONS ---
+    
+    // NEW Helper function to check if an activity belongs to a student
+    function isActivityForStudent(activity, student) {
+        const studentAdmNoStr = student.admissionNo.toString();
+        const activityAdmNo = activity.admissionNo;
+
+        if (Array.isArray(activityAdmNo)) {
+            // If admissionNo is an array, check if the student's ID is included
+            return activityAdmNo.map(String).includes(studentAdmNoStr);
+        } else {
+            // Otherwise, perform a direct comparison
+            return activityAdmNo.toString() === studentAdmNoStr;
+        }
+    }
+
     function processStudentData(students, marksData, activities) {
         const studentsByClass = students.reduce((acc, student) => {
             const classKey = `${student.class}-${student.division}`;
@@ -398,7 +413,7 @@
                 }
                 
                 const disciplinePoints = activities
-                    .filter(a => a.admissionNo.toString() === student.admissionNo.toString())
+                    .filter(a => isActivityForStudent(a, student)) // MODIFIED
                     .reduce((sum, act) => {
                         const basePoints = activityRules[act.Activity] || 0;
                         const calculatedPoints = (act.Rating / 5) * basePoints;
@@ -553,7 +568,7 @@
             return;
         }
 
-        const studentActivities = activities.filter(a => a.admissionNo.toString() === student.admissionNo.toString());
+        const studentActivities = activities.filter(a => isActivityForStudent(a, student)); // MODIFIED
         const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
         const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
         const allSubjects = [...new Set(termKeys.flatMap(key => Object.keys(marksRecord.terms[key].marks)))];
@@ -719,11 +734,11 @@
             if (value === 'lp' || value === 'up' || value === 'hs') {
                 const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
                 filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                filteredActivities = activities.filter(a => studentAdmNos.has(a.admissionNo.toString()));
+                filteredActivities = activities.filter(a => isActivityForStudent(a, { admissionNo: studentAdmNos }));
             } else if (value !== 'school' && value !== 'section') {
                 const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
                 filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                filteredActivities = activities.filter(a => studentAdmNos.has(a.admissionNo.toString()));
+                filteredActivities = activities.filter(a => isActivityForStudent(a, { admissionNo: studentAdmNos }));
             }
 
             const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
@@ -1109,7 +1124,7 @@
                 });
 
             let tableHTML = `<div class="overflow-x-auto"><table id="reportTable" class="custom-table"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
-            let clipboardText = "Grade\n"; // Header for clipboard
+            let clipboardText = ""; // MODIFIED: No header
 
             classStudents.forEach(s => {
                 const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
@@ -1124,7 +1139,7 @@
             resultContainer.innerHTML = tableHTML;
 
             document.getElementById('copyReportBtn').addEventListener('click', (e) => {
-                navigator.clipboard.writeText(clipboardText).then(() => {
+                navigator.clipboard.writeText(clipboardText.trim()).then(() => { // trim to remove last newline
                     const btn = e.target;
                     btn.textContent = 'Copied!';
                     setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
