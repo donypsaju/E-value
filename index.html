@@ -636,7 +636,7 @@
         
         const modal = document.getElementById('disciplineModal');
         document.getElementById('showDiscipline').addEventListener('click', () => {
-            document.getElementById('modal-content').innerHTML = `<div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-green-600' : 'text-red-600'} font-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center text-gray-500">No activities logged.</td></tr>'}</tbody></table></div>`;
+            document.getElementById('modal-content-body').innerHTML = `<div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-green-600' : 'text-red-600'} font-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center text-gray-500">No activities logged.</td></tr>'}</tbody></table></div>`;
             modal.classList.remove('hidden'); modal.classList.add('flex');
         });
         document.getElementById('closeModal').addEventListener('click', () => { modal.classList.add('hidden'); modal.classList.remove('flex'); });
