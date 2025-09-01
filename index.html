@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Value V.1.0</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         /* --- Base and Typography --- */
         body {
@@ -17,15 +25,14 @@
         /* --- THEME COLORS using CSS Variables --- */
         :root {
             /* Light Mode Palette */
-            --bg-primary: #f8f9fa;      
-            --bg-secondary: #ffffff;   
-            --text-primary: #212529;   
-            --text-secondary: #6c757d; 
-            --border-color: #dee2e6;
-            --theme-primary: #007bff;   
-            --theme-primary-hover: #0056b3;
-            --house-blue: #3d8bfd;
-            --house-green: #28a745;
+            --bg-primary: #f0f2f5;      /* Page background */
+            --bg-secondary: #ffffff;   /* Card background */
+            --text-primary: #1c1e21;   /* Main text */
+            --text-secondary: #606770; /* Subdued text */
+            --border-color: #e0e0e0;
+            --theme-primary: #0d6efd;   /* Staff theme color */
+            --house-blue: #0d6efd;
+            --house-green: #198754;
             --house-yellow: #ffc107;
             --house-rose: #dc3545;
             /* Distinctive Colors */
@@ -39,20 +46,19 @@
             --grade-e: #dc2626;
         }
 
-        body.dark {
+        html.dark {
             /* Dark Mode Palette */
-            --bg-primary: #222831;
-            --bg-secondary: #393E46;
-            --text-primary: #EEEEEE;
-            --text-secondary: #ADB5BD;
-            --border-color: #495057;
-            --theme-primary: #00ADB5;
-            --theme-primary-hover: #00939a;
+            --bg-primary: #18191a;
+            --bg-secondary: #242526;
+            --text-primary: #e4e6eb;
+            --text-secondary: #b0b3b8;
+            --border-color: #3e4042;
+            --theme-primary: #45abff;
             --house-blue: #58A6FF;
             --house-green: #56D364;
             --house-yellow: #FFD657;
             --house-rose: #FF7B72;
-             /* Distinctive Colors - Brighter for Dark Mode */
+            /* Distinctive Colors - Brighter for Dark Mode */
             --trend-up: #56D364;
             --trend-down: #FF7B72;
             --trend-stable: #94a3b8;
@@ -65,13 +71,11 @@
         
         /* Apply themed colors */
         body { background-color: var(--bg-primary); color: var(--text-primary); }
-        .dashboard-card, #loginView div, header, #headerSearchResults, .modal-content { background-color: var(--bg-secondary); }
-        .custom-table tbody tr { border-bottom-color: var(--border-color); }
-        .custom-table tbody tr:hover { background-color: var(--bg-primary); }
-        .custom-table thead, .themed-input, .themed-select { background-color: var(--bg-primary) !important; color: var(--text-primary); border-color: var(--border-color); }
+        .card, header, .modal-content { background-color: var(--bg-secondary); border: 1px solid var(--border-color); }
+        .themed-input, .themed-select { background-color: var(--bg-primary) !important; color: var(--text-primary); border: 1px solid var(--border-color); }
         h1, h2, h3, h4, h5, h6 { color: var(--text-primary); }
-        p, label, span, button, a, div { color: var(--text-secondary); }
-        input, select { background-color: var(--bg-primary); color: var(--text-primary) !important; border-color: var(--border-color); }
+        p, label, span, button, a, div, li, i { color: var(--text-secondary); }
+        .text-primary { color: var(--text-primary) !important; }
         .close-btn { color: var(--text-primary); }
 
         /* Theme-specific primary colors */
@@ -81,7 +85,7 @@
         body.theme-yellow { --theme-text: var(--house-yellow); }
         body.theme-rose { --theme-text: var(--house-rose); }
         
-        .themed-bg { background-color: var(--theme-text) !important; }
+        .themed-bg { background-color: var(--theme-text) !important; color: white !important; }
         .themed-bg:hover { filter: brightness(1.1); }
         .themed-text { color: var(--theme-text) !important; }
         
@@ -94,13 +98,14 @@
         .close-btn { font-size: 2rem; line-height: 1; font-weight: bold; }
         .action-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 9999px; color: white !important; font-weight: 500; transition: all 0.2s; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1); }
         
-        /* Theme Switcher */
-        #theme-switcher { cursor: pointer; background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; }
-        #theme-switcher .icon { width: 24px; height: 24px; transition: transform 0.3s ease-out, opacity 0.3s ease-out; position: absolute; }
-        body.dark #theme-switcher .icon-dark { transform: translateX(24px); opacity: 1; }
-        body.dark #theme-switcher .icon-light { transform: translateX(0); opacity: 0; }
-        body:not(.dark) #theme-switcher .icon-dark { transform: translateX(100%); opacity: 0; }
-        body:not(.dark) #theme-switcher .icon-light { transform: translateX(0); opacity: 1; }
+        /* Theme Switcher & Language Switcher*/
+        .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 1rem; z-index: 100; }
+        #theme-switcher { cursor: pointer; background-color: var(--bg-secondary); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; border: 1px solid var(--border-color); }
+        #theme-switcher-thumb { position: absolute; width: 24px; height: 24px; background-color: var(--theme-text); border-radius: 50%; transition: transform 0.3s ease-out; }
+        html:not(.dark) #theme-switcher-thumb { transform: translateX(0px); }
+        html.dark #theme-switcher-thumb { transform: translateX(24px); }
+        .lang-btn { padding: 0.25rem 0.5rem; border-radius: 0.5rem; }
+        .lang-btn.active { background-color: var(--theme-text); color: white !important; }
 
         /* Distinctive Text Colors */
         .trend-up { color: var(--trend-up); }
@@ -111,10 +116,10 @@
         .grade-c-plus, .grade-c { color: var(--grade-c); } 
         .grade-d-plus, .grade-d { color: var(--grade-d); } 
         .grade-e { color: var(--grade-e); } 
-
     </style>
-
+    
     <script>
+        // Prevents theme flashing on reload
         (function() {
             const theme = localStorage.getItem('theme') || 'light';
             if (theme === 'dark') {
@@ -125,39 +130,90 @@
 </head>
 <body>
     
-    <!-- Material Progress Bar -->
     <div id="progressBarContainer" class="fixed top-0 left-0 w-full h-1 z-[100] hidden">
-        <div style="background-color: var(--theme-primary); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
+        <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
+        @keyframes indeterminate-progress {
+            0% { transform: translateX(-100%) scaleX(0.1); }
+            40% { transform: translateX(0) scaleX(0.4); }
+            100% { transform: translateX(100%) scaleX(0.5); }
+        }
     </div>
 
-    <!-- Login View -->
-    <div id="loginView" class="flex items-center justify-center min-h-screen">
-        <div class="w-full max-w-md p-8 space-y-8 rounded-2xl shadow-lg">
+    <div id="homeView" class="min-h-screen flex items-center justify-center p-4">
+        <div class="top-controls">
+            <div id="lang-switcher" class="card p-1 flex gap-1 text-sm font-semibold">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ml">മല</button>
+            </div>
+            <button id="theme-switcher">
+                <div id="theme-switcher-thumb"></div>
+            </button>
+        </div>
+
+        <div class="w-full max-w-5xl">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-bold">Emmanuel's HSS Kothanalloor</h1>
+                <p class="mt-2 text-xl" data-translate-key="subtitle">Student Evaluation Portal</p>
+            </div>
+            
+            <div class="card p-8 md:p-10 shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-star themed-text"></i> <span data-translate-key="features_title">Key Features</span></h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-chart-line mt-1 themed-text"></i> <span data-translate-key="feature_1">Comprehensive Performance Tracking</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-magnifying-glass-chart mt-1 themed-text"></i> <span data-translate-key="feature_2">Detailed Subject-wise Analysis</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-users mt-1 themed-text"></i> <span data-translate-key="feature_3">Parent Dashboard for Siblings</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-shield-halved mt-1 themed-text"></i> <span data-translate-key="feature_4">House System and Discipline Points</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-circle-half-stroke mt-1 themed-text"></i> <span data-translate-key="feature_5">Light & Dark Mode Support</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-circle-info themed-text"></i> <span data-translate-key="instructions_title">Instructions for Parents</span></h2>
+                        <ol class="space-y-3">
+                            <li class="flex items-start gap-3"><span class="font-bold themed-text">1.</span> <span data-translate-key="instruction_1">Click the 'Go to Login' button below.</span></li>
+                            <li class="flex items-start gap-3"><span class="font-bold themed-text">2.</span> <span data-translate-key="instruction_2">Enter your registered phone number.</span></li>
+                            <li class="flex items-start gap-3"><span class="font-bold themed-text">3.</span> <span data-translate-key="instruction_3">Enter one of your children's date of birth.</span></li>
+                            <li class="flex items-start gap-3"><span class="font-bold themed-text">4.</span> <span data-translate-key="instruction_4">You will see a dashboard with all your children.</span></li>
+                            <li class="flex items-start gap-3"><span class="font-bold themed-text">5.</span> <span data-translate-key="instruction_5">To view another child, click 'Switch' and verify.</span></li>
+                        </ol>
+                    </div>
+                </div>
+                 <div class="mt-10 text-center">
+                    <button id="goToLoginBtn" class="action-btn text-lg themed-bg">
+                        <span data-translate-key="login_button">Go to Login</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="loginView" class="hidden items-center justify-center min-h-screen">
+        <div class="card w-full max-w-md p-8 space-y-8 shadow-2xl">
             <div class="text-center">
-                <h1 class="text-3xl font-bold">Emmanuel's HSS Kothanalloor</h1>
-                <p class="mt-2">E-Value V.1.0</p>
+                <h1 class="text-3xl font-bold text-primary">Student Login</h1>
             </div>
             <form id="loginForm" class="mt-8 space-y-6">
                 <div>
                     <label for="phone">Phone Number</label>
-                    <input id="phone" type="tel" required class="themed-input appearance-none rounded-lg relative block w-full px-3 py-3 border mt-1" placeholder="Enter your or your child's phone number">
+                    <input id="phone" type="tel" required class="themed-input w-full px-3 py-3 mt-1 rounded-lg" placeholder="Enter phone number">
                 </div>
                 <div>
                     <label for="dob">Date of Birth</label>
-                    <input id="dob" type="date" required class="themed-input appearance-none rounded-lg relative block w-full px-3 py-3 border mt-1">
-                    <p class="text-xs mt-1">Parents: Please enter one of your children's date of birth.</p>
+                    <input id="dob" type="date" required class="themed-input w-full px-3 py-3 mt-1 rounded-lg">
                 </div>
                 <div>
-                    <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700">
-                        Login
-                    </button>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 rounded-lg text-white themed-bg font-semibold">Login</button>
                 </div>
                 <p id="loginError" class="text-center text-sm text-red-600"></p>
+                <div class="text-center">
+                    <button type="button" id="backToHomeBtn" class="text-sm hover:underline">&larr; Back to Home</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- Dashboard View -->
     <div id="dashboardView" class="hidden">
         <header>
             <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,11 +222,7 @@
                     <div id="header-search-container" class="relative hidden w-1/3"><input type="search" id="headerSearch" placeholder="Find a student..." class="w-full p-2 pl-4 rounded-full themed-input"><div id="headerSearchResults" class="absolute top-full mt-1 w-full rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto"></div></div>
                     <div class="flex items-center gap-4">
                         <div id="userInfo" class="text-right"></div>
-                        <div id="theme-switcher">
-                            <svg class="icon icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                            <svg class="icon icon-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                        </div>
-                        <button id="logoutButton" class="text-sm font-medium px-4 py-2 rounded-full themed-bg">Logout</button>
+                        <button id="logoutButton" class="text-sm font-medium px-4 py-2 rounded-full themed-bg text-white">Logout</button>
                     </div>
                 </div>
             </nav>
@@ -180,324 +232,331 @@
         </main>
     </div>
 
-    <!-- Modals -->
     <div id="disciplineModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col"><div class="p-6 border-b flex justify-between items-center"><h3 class="text-xl font-semibold">Discipline & Activity Log</h3><button id="closeModal" class="close-btn">&times;</button></div><div id="modal-content-body" class="p-6 overflow-y-auto"></div></div></div>
     <div id="iframeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-[60] p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-4xl h-[90vh] flex flex-col"><div class="p-4 border-b flex justify-between items-center"><h3 id="iframeModalTitle" class="text-xl font-semibold">Loading...</h3><button id="closeIframeModal" class="close-btn">&times;</button></div><div class="flex-grow p-2"><iframe id="modalIframe" src="" class="w-full h-full border-0"></iframe></div></div></div>
     <div id="switchChildModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-md"><div class="p-6 border-b flex justify-between items-center"><h3 class="text-xl font-semibold">Switch Child Profile</h3><button id="closeSwitchChildModal" class="close-btn">&times;</button></div><div id="switchChildList" class="p-6"></div></div></div>
     <div id="dobVerifyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-md"><div class="p-6 border-b flex justify-between items-center"><h3 id="dobVerifyTitle" class="text-xl font-semibold">Verify Child's Date of Birth</h3><button id="closeDobVerifyModal" class="close-btn">&times;</button></div><form id="dobVerifyForm" class="p-6 space-y-4"><input type="hidden" id="dobVerifyAdmissionNo"><div><label for="dobVerifyInput">Date of Birth</label><input id="dobVerifyInput" type="date" required class="themed-input mt-1 appearance-none rounded-lg relative block w-full px-3 py-3 border"></div><button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white themed-bg">Verify & Switch</button><p id="dobError" class="text-center text-sm text-red-600"></p></form></div></div>
+    
+    <script type="module">
+        // --- GLOBAL STATE ---
+const APP_VERSION = '1.6'; // Increment this number when you deploy changes
+let currentUser = null;
+let appData = { users: [], marks: [], activities: [], processedStudents: [] };
+let standingsChart = null;
+let loginView, dashboardView, progressBar, homeView;
 
-<script type="module">
-    // --- GLOBAL STATE ---
-    const APP_VERSION = '1.4'; // Increment this number when you deploy changes
-    let currentUser = null;
-    let appData = { users: [], marks: [], activities: [], processedStudents: [] };
-    let standingsChart = null;
-    let loginView, dashboardView, progressBar;
+// --- TRANSLATION DATA ---
+const translations = {
+    en: {
+        subtitle: "Student Evaluation Portal",
+        features_title: "Key Features",
+        feature_1: "Comprehensive Performance Tracking",
+        feature_2: "Detailed Subject-wise Analysis",
+        feature_3: "Parent Dashboard for Siblings",
+        feature_4: "House System and Discipline Points",
+        feature_5: "Light & Dark Mode Support",
+        instructions_title: "Instructions for Parents",
+        instruction_1: "Click the 'Go to Login' button below.",
+        instruction_2: "Enter your registered phone number.",
+        instruction_3: "Enter one of your children's date of birth.",
+        instruction_4: "You will see a dashboard with all your children listed.",
+        instruction_5: "To view another child, click 'Switch' and verify.",
+        login_button: "Go to Login"
+    },
+    ml: {
+        subtitle: "വിദ്യാർത്ഥി മൂല്യനിർണ്ണയ പോർട്ടൽ",
+        features_title: "പ്രധാന സവിശേഷതകൾ",
+        feature_1: "സമഗ്രമായ പ്രകടന വിലയിരുത്തൽ",
+        feature_2: "വിഷയം തിരിച്ചുള്ള വിശദമായ വിശകലനം",
+        feature_3: "സഹോദരങ്ങൾക്കായി പാരന്റ് ഡാഷ്‌ബോർഡ്",
+        feature_4: "ഹൗസ് സിസ്റ്റവും അച്ചടക്ക പോയിന്റുകളും",
+        feature_5: "ലൈറ്റ് & ഡാർക്ക് മോഡ് പിന്തുണ",
+        instructions_title: "രക്ഷിതാക്കൾക്കുള്ള നിർദ്ദേശങ്ങൾ",
+        instruction_1: "താഴെയുള്ള 'ലോഗിൻ ചെയ്യുക' ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.",
+        instruction_2: "നിങ്ങളുടെ രജിസ്റ്റർ ചെയ്ത ഫോൺ നമ്പർ നൽകുക.",
+        instruction_3: "ലോഗിൻ ചെയ്യുന്നതിന് നിങ്ങളുടെ ഒരു കുട്ടിയുടെ ജനനത്തീയതി നൽകുക.",
+        instruction_4: "നിങ്ങളുടെ എല്ലാ കുട്ടികളെയും ഉൾപ്പെടുത്തിയ ഒരു ഡാഷ്‌ബോർഡ് നിങ്ങൾ കാണും.",
+        instruction_5: "മറ്റൊരു കുട്ടിയുടെ പ്രൊഫൈൽ കാണുന്നതിന്, 'Switch' ക്ലിക്ക് ചെയ്ത് അവരുടെ ജനനത്തീയതി ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക.",
+        login_button: "ലോഗിൻ ചെയ്യുക"
+    }
+};
 
-    // --- ACTIVITY RULES ---
-    const activityRules = {
-        "Class Cleaning": 5, "Assembly Appearance": 5, "Response in Class Activities": 5,
-        "Competitive Winner": 10, "Extra Curricular Activities": 10, "Helping Mind": 10,
-        "Class Performance": 10, "Participation in common activities": 10,
-        "Bad Words": -15, "Fighting": -20, "Misbehaviour in public place": -20,
-        "Misbehaviour towards teachers": -15, "Without ID Card": -10, "Indiscipline": -10,
-        "Misbehaviour in Assembly": -10, "Indisciplinary activity at anytime": -10,
-        "Personal Hygiene": -10, "Incomplete Uniform": -5, "Missing Homework": -5,
-        "Play during interval": -5
-    };
+// --- ACTIVITY RULES ---
+const activityRules = {
+    "Class Cleaning": 5, "Assembly Appearance": 5, "Response in Class Activities": 5,
+    "Competitive Winner": 10, "Extra Curricular Activities": 10, "Helping Mind": 10,
+    "Class Performance": 10, "Participation in common activities": 10,
+    "Bad Words": -15, "Fighting": -20, "Misbehaviour in public place": -20,
+    "Misbehaviour towards teachers": -15, "Without ID Card": -10, "Indiscipline": -10,
+    "Misbehaviour in Assembly": -10, "Indisciplinary activity at anytime": -10,
+    "Personal Hygiene": -10, "Incomplete Uniform": -5, "Missing Homework": -5,
+    "Play during interval": -5
+};
 
-    // --- DATABASE (IndexedDB) HELPER ---
-    const DB_NAME = 'StudentPortalDB_SPA';
-    const DB_VERSION = 3; 
-    let db;
+// --- DATABASE (IndexedDB) HELPER ---
+const DB_NAME = 'StudentPortalDB_SPA';
+const DB_VERSION = 3; 
+let db;
 
-    function openDB() {
-        return new Promise((resolve, reject) => {
-            const request = indexedDB.open(DB_NAME, DB_VERSION);
-            request.onupgradeneeded = e => {
-                const db = e.target.result;
-                if (db.objectStoreNames.contains('users')) {
-                    db.deleteObjectStore('users');
-                }
-                db.createObjectStore('users', { autoIncrement: true });
-                
-                if (!db.objectStoreNames.contains('marks')) db.createObjectStore('marks', { keyPath: 'admissionNo' });
-                if (!db.objectStoreNames.contains('activities')) db.createObjectStore('activities', { autoIncrement: true });
-                if (!db.objectStoreNames.contains('session')) db.createObjectStore('session', { keyPath: 'id' });
-                if (!db.objectStoreNames.contains('metadata')) db.createObjectStore('metadata', { keyPath: 'key' });
-            };
-            request.onsuccess = e => { db = e.target.result; resolve(db); };
-            request.onerror = e => { console.error('DB error:', e.target.error); reject('Error opening DB'); };
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onupgradeneeded = e => {
+            const db = e.target.result;
+            if (db.objectStoreNames.contains('users')) db.deleteObjectStore('users');
+            db.createObjectStore('users', { autoIncrement: true });
+            if (!db.objectStoreNames.contains('marks')) db.createObjectStore('marks', { keyPath: 'admissionNo' });
+            if (!db.objectStoreNames.contains('activities')) db.createObjectStore('activities', { autoIncrement: true });
+            if (!db.objectStoreNames.contains('session')) db.createObjectStore('session', { keyPath: 'id' });
+            if (!db.objectStoreNames.contains('metadata')) db.createObjectStore('metadata', { keyPath: 'key' });
+        };
+        request.onsuccess = e => { db = e.target.result; resolve(db); };
+        request.onerror = e => { console.error('DB error:', e.target.error); reject('Error opening DB'); };
+    });
+}
+
+async function isDataLoaded() {
+    if (!db) await openDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(['users'], 'readonly');
+        const countRequest = transaction.objectStore('users').count();
+        countRequest.onsuccess = () => resolve(countRequest.result > 0);
+        countRequest.onerror = e => reject(e.target.error);
+    });
+}
+
+async function populateDB() {
+    if (!db) await openDB();
+    const [usersRes, marksRes, activitiesRes] = await Promise.all([
+        fetch('./users.json'),
+        fetch('./marks.json'),
+        fetch('./activities.json')
+    ]);
+    const users = await usersRes.json();
+    const marks = await marksRes.json();
+    const activities = await activitiesRes.json();
+    const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readwrite');
+    users.forEach(item => transaction.objectStore('users').put(item));
+    marks.forEach(item => transaction.objectStore('marks').put(item));
+    activities.forEach(item => transaction.objectStore('activities').put(item));
+    transaction.objectStore('metadata').put({ key: 'lastUpdated', value: new Date().toISOString() });
+    return new Promise((resolve, reject) => {
+        transaction.oncomplete = () => resolve();
+        transaction.onerror = e => reject(e.target.error);
+    });
+}
+
+async function getAllData() {
+    if (!db) await openDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readonly');
+        const requests = {
+            users: transaction.objectStore('users').getAll(),
+            marks: transaction.objectStore('marks').getAll(),
+            activities: transaction.objectStore('activities').getAll(),
+            metadata: transaction.objectStore('metadata').get('lastUpdated')
+        };
+        const results = {};
+        transaction.oncomplete = () => resolve(results);
+        transaction.onerror = e => reject(e.target.error);
+        Object.keys(requests).forEach(key => {
+            requests[key].onsuccess = () => { results[key] = requests[key].result; };
         });
-    }
+    });
+}
 
-    async function isDataLoaded() {
-        if (!db) await openDB();
-        return new Promise((resolve, reject) => {
-            const transaction = db.transaction(['users'], 'readonly');
-            const countRequest = transaction.objectStore('users').count();
-            countRequest.onsuccess = () => resolve(countRequest.result > 0);
-            countRequest.onerror = e => reject(e.target.error);
+async function setSession(user) {
+    if (!db) await openDB();
+    const transaction = db.transaction(['session'], 'readwrite');
+    transaction.objectStore('session').put({ id: 'currentUser', ...user });
+}
+
+async function getSession() {
+    if (!db) await openDB();
+    return new Promise((resolve, reject) => {
+        const request = db.transaction(['session'], 'readonly').objectStore('session').get('currentUser');
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = e => reject(e.target.error);
+    });
+}
+
+async function clearSessionAndData() {
+    localStorage.clear(); 
+    if (db) {
+        db.close();
+        db = null;
+    }
+    return new Promise((resolve, reject) => {
+        const deleteRequest = indexedDB.deleteDatabase(DB_NAME);
+        deleteRequest.onsuccess = () => resolve();
+        deleteRequest.onerror = (e) => reject('Error deleting database.', e);
+        deleteRequest.onblocked = () => reject('Database delete blocked. Please close other tabs with this app open.');
+    });
+}
+
+// --- DATA PROCESSING & CALCULATIONS ---
+function isActivityForStudent(activity, student) {
+    const studentAdmNoStr = student.admissionNo.toString();
+    const activityAdmNo = activity.admissionNo;
+
+    if (Array.isArray(activityAdmNo)) {
+        return activityAdmNo.map(String).includes(studentAdmNoStr);
+    } else if (activityAdmNo) {
+        return activityAdmNo.toString() === studentAdmNoStr;
+    }
+    return false;
+}
+
+function processStudentData(students, marksData, activities) {
+    const studentsByClass = students.reduce((acc, student) => {
+        const classKey = `${student.class}-${student.division}`;
+        if (!acc[classKey]) acc[classKey] = [];
+        acc[classKey].push(student);
+        return acc;
+    }, {});
+
+    let finalProcessedStudents = [];
+    for (const classKey in studentsByClass) {
+        const classStudents = studentsByClass[classKey];
+        const studentScores = classStudents.map(student => {
+            const studentMarksRecord = marksData.find(m => m.admissionNo.toString() === student.admissionNo.toString());
+            let academicTotal = 0;
+            if (studentMarksRecord && studentMarksRecord.terms) {
+                academicTotal = Object.values(studentMarksRecord.terms).reduce((sum, term) => sum + (typeof term.total === 'number' ? term.total : 0), 0);
+            }
+            
+            const disciplinePoints = activities
+                .filter(a => isActivityForStudent(a, student))
+                .reduce((sum, act) => {
+                    const basePoints = activityRules[act.Activity] || 0;
+                    const calculatedPoints = (act.Rating / 5) * basePoints;
+                    return sum + calculatedPoints;
+                }, 0);
+
+            const housePoints = academicTotal + disciplinePoints;
+
+            return { ...student, academicTotal, disciplinePoints, housePoints, marksRecord: studentMarksRecord };
         });
+        studentScores.sort((a, b) => b.academicTotal - a.academicTotal).forEach((s, i) => s.academicRank = i + 1);
+        studentScores.sort((a, b) => b.disciplinePoints - a.disciplinePoints).forEach((s, i) => s.disciplineRank = i + 1);
+        finalProcessedStudents.push(...studentScores);
     }
+    return finalProcessedStudents;
+}
 
-    async function populateDB() {
-        if (!db) await openDB();
-        const [usersRes, marksRes, activitiesRes] = await Promise.all([
-            fetch('./users.json'),
-            fetch('./marks.json'),
-            fetch('./activities.json')
-        ]);
-        const users = await usersRes.json();
-        const marks = await marksRes.json();
-        const activities = await activitiesRes.json();
+function getSection(className) {
+    const classNum = parseInt(className, 10);
+    if (classNum >= 1 && classNum <= 4) return 'LP';
+    if (classNum >= 5 && classNum <= 7) return 'UP';
+    if (classNum >= 8 && classNum <= 10) return 'HS';
+    return 'Other';
+}
+    
+function getTeacherSection(designation) {
+    if (designation === 'LPST') return 'LP';
+    if (designation === 'UPST') return 'UP';
+    if (designation && (designation.startsWith('HST') || designation === 'PET' || designation === 'Drawing Teacher')) return 'HS';
+    return null;
+}
 
-        const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readwrite');
-        const usersStore = transaction.objectStore('users');
-        const marksStore = transaction.objectStore('marks');
-        const activitiesStore = transaction.objectStore('activities');
-        const metadataStore = transaction.objectStore('metadata');
-        
-        users.forEach(item => usersStore.put(item));
-        marks.forEach(item => marksStore.put(item));
-        activities.forEach(item => activitiesStore.put(item));
-        metadataStore.put({ key: 'lastUpdated', value: new Date().toISOString() });
-        
-        return new Promise((resolve, reject) => {
-            transaction.oncomplete = () => resolve();
-            transaction.onerror = e => reject(e.target.error);
-        });
-    }
+function customClassSort(a, b) {
+    const partsA = a.split('-');
+    const partsB = b.split('-');
+    const numA = parseInt(partsA[0], 10);
+    const numB = parseInt(partsB[0], 10);
+    if (numA !== numB) return numA - numB;
+    return (partsA[1] || '').localeCompare(partsB[1] || '');
+}
 
-    async function getAllData() {
-        if (!db) await openDB();
-        return new Promise((resolve, reject) => {
-            const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readonly');
-            const requests = {
-                users: transaction.objectStore('users').getAll(),
-                marks: transaction.objectStore('marks').getAll(),
-                activities: transaction.objectStore('activities').getAll(),
-                metadata: transaction.objectStore('metadata').get('lastUpdated')
-            };
-            const results = {};
-            transaction.oncomplete = () => resolve(results);
-            transaction.onerror = e => reject(e.target.error);
-            requests.users.onsuccess = () => results.users = requests.users.result;
-            requests.marks.onsuccess = () => results.marks = requests.marks.result;
-            requests.activities.onsuccess = () => results.activities = requests.activities.result;
-            requests.metadata.onsuccess = () => results.metadata = requests.metadata.result;
-        });
-    }
+function getGradeInfo(mark, subject, termKey, studentClass) {
+    const section = getSection(studentClass);
+    const classNum = parseInt(studentClass, 10);
+    let maxMark = 100;
 
-    async function setSession(user) {
-        if (!db) await openDB();
-        const transaction = db.transaction(['session'], 'readwrite');
-        transaction.objectStore('session').put({ id: 'currentUser', ...user });
-    }
-
-    async function getSession() {
-        if (!db) await openDB();
-        return new Promise((resolve, reject) => {
-            const request = db.transaction(['session'], 'readonly').objectStore('session').get('currentUser');
-            request.onsuccess = () => resolve(request.result || null);
-            request.onerror = e => reject(e.target.error);
-        });
-    }
-
-    async function clearSessionAndData() {
-        localStorage.clear(); 
-        if (db) {
-            db.close();
-            db = null;
-        }
-        return new Promise((resolve, reject) => {
-            const deleteRequest = indexedDB.deleteDatabase(DB_NAME);
-            deleteRequest.onsuccess = () => resolve();
-            deleteRequest.onerror = (e) => reject('Error deleting database.', e);
-            deleteRequest.onblocked = () => reject('Database delete blocked. Please close other tabs with this app open.');
-        });
-    }
-
-    // --- DATA PROCESSING & CALCULATIONS ---
-    function isActivityForStudent(activity, student) {
-        const studentAdmNoStr = student.admissionNo.toString();
-        const activityAdmNo = activity.admissionNo;
-
-        if (Array.isArray(activityAdmNo)) {
-            return activityAdmNo.map(String).includes(studentAdmNoStr);
-        } else {
-            return activityAdmNo.toString() === studentAdmNoStr;
-        }
-    }
-
-    function processStudentData(students, marksData, activities) {
-        const studentsByClass = students.reduce((acc, student) => {
-            const classKey = `${student.class}-${student.division}`;
-            if (!acc[classKey]) acc[classKey] = [];
-            acc[classKey].push(student);
-            return acc;
-        }, {});
-
-        let finalProcessedStudents = [];
-        for (const classKey in studentsByClass) {
-            const classStudents = studentsByClass[classKey];
-            const studentScores = classStudents.map(student => {
-                const studentMarksRecord = marksData.find(m => m.admissionNo.toString() === student.admissionNo.toString());
-                let academicTotal = 0;
-                if (studentMarksRecord && studentMarksRecord.terms) {
-                    academicTotal = Object.values(studentMarksRecord.terms).reduce((sum, term) => sum + (typeof term.total === 'number' ? term.total : 0), 0);
-                }
-                
-                const disciplinePoints = activities
-                    .filter(a => isActivityForStudent(a, student))
-                    .reduce((sum, act) => {
-                        const basePoints = activityRules[act.Activity] || 0;
-                        const calculatedPoints = (act.Rating / 5) * basePoints;
-                        return sum + calculatedPoints;
-                    }, 0);
-
-                const housePoints = academicTotal + disciplinePoints;
-
-                return { ...student, academicTotal, disciplinePoints, housePoints, marksRecord: studentMarksRecord };
-            });
-            studentScores.sort((a, b) => b.academicTotal - a.academicTotal).forEach((s, i) => s.academicRank = i + 1);
-            studentScores.sort((a, b) => b.disciplinePoints - a.disciplinePoints).forEach((s, i) => s.disciplineRank = i + 1);
-            finalProcessedStudents.push(...studentScores);
-        }
-        return finalProcessedStudents;
-    }
-
-    function getSection(className) {
-        const classNum = parseInt(className, 10);
-        if (classNum >= 1 && classNum <= 4) return 'LP';
-        if (classNum >= 5 && classNum <= 7) return 'UP';
-        if (classNum >= 8 && classNum <= 10) return 'HS';
-        return 'Other';
+    const termLower = termKey.toLowerCase();
+    if (termLower.includes('monthly exam 01') || termLower.includes('first mid term')) {
+        maxMark = 20;
+    } else if (termLower.includes('first term')) {
+        if (section === 'UP') maxMark = 30;
+        else if (classNum === 8) maxMark = ['Physics', 'Chemistry', 'Biology'].includes(subject) ? 20 : 40;
+        else if (classNum === 9 || classNum === 10) maxMark = ['English', 'Social Science', 'Maths'].includes(subject) ? 80 : 40;
+        else if (section === 'LP') maxMark = 25;
     }
     
-    function getTeacherSection(designation) {
-        if (designation === 'LPST') return 'LP';
-        if (designation === 'UPST') return 'UP';
-        if (designation && (designation.startsWith('HST') || designation === 'PET' || designation === 'Drawing Teacher')) return 'HS';
-        return null;
+    if (typeof mark !== 'number' || mark === null || mark === undefined) return { grade: 'Ab', cssClass: '', maxMark };
+
+    const percentage = (mark / maxMark) * 100;
+
+    if (section === 'UP' || classNum === 8) {
+        if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
+        if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
+        if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
+        if (percentage >= 30) return { grade: 'D', cssClass: 'grade-d', maxMark };
+        return { grade: 'E', cssClass: 'grade-e', maxMark };
+    } else { // HS and LP
+        if (percentage >= 90) return { grade: 'A+', cssClass: 'grade-a-plus', maxMark };
+        if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
+        if (percentage >= 70) return { grade: 'B+', cssClass: 'grade-b-plus', maxMark };
+        if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
+        if (percentage >= 50) return { grade: 'C+', cssClass: 'grade-c-plus', maxMark };
+        if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
+        if (percentage >= 30) return { grade: 'D+', cssClass: 'grade-d-plus', maxMark };
+        if (percentage >= 20) return { grade: 'D', cssClass: 'grade-d', maxMark };
+        return { grade: 'E', cssClass: 'grade-e', maxMark };
+    }
+}
+
+// --- UI RENDERING ---
+const dashboardContainer = document.getElementById('dashboard-container');
+
+function buildHMDashboard(user, allStudents, processedStudents, metadata) {
+    const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
+    dashboardContainer.innerHTML = `
+        <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc_y4J239hdnp2f7X-h-8-3J1X7W7Y7z8n8Z5fJ8n8W8Y8w8Q/viewform" target="_blank" class="action-btn themed-bg">Discipline Entry</a><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="action-btn themed-bg">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="action-btn themed-bg">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="action-btn themed-bg">HS Marks</a></div></div>
+        <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
+        <div id="leaderboardCard"></div>
+        <div id="classToppersCard"></div>
+        <div id="subjectToppersCard"></div>`;
+
+    buildStandingsChart(processedStudents);
+    buildLeaderboardCard(processedStudents, appData.activities, false);
+    buildClassToppersCard(processedStudents);
+    buildSubjectToppersCard(processedStudents);
+    dashboardContainer.addEventListener('click', handleDashboardClick);
+}
+
+function buildTeacherDashboard(user, allStudents, processedStudents, metadata) {
+    const teacherSection = getTeacherSection(user.designation);
+    if (!teacherSection) {
+        dashboardContainer.innerHTML = `<div class="dashboard-card text-red-500"><h2 class="text-2xl font-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div>`;
+        return;
     }
 
-    function customClassSort(a, b) {
-        const partsA = a.split('-');
-        const partsB = b.split('-');
-        const numA = parseInt(partsA[0], 10);
-        const numB = parseInt(partsB[0], 10);
-        if (numA !== numB) return numA - numB;
-        return (partsA[1] || '').localeCompare(partsB[1] || '');
-    }
+    const sectionStudents = processedStudents.filter(s => getSection(s.class) === teacherSection);
+    const markEntryUrl = {
+        lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
+        up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
+        hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
+    }[teacherSection.toLowerCase()];
+    const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
 
-    // --- Centralized Grade Calculation Helper ---
-    function getGradeInfo(mark, subject, termKey, studentClass) {
-        const section = getSection(studentClass);
-        const classNum = parseInt(studentClass, 10);
-        let maxMark = 100; // Default
+    dashboardContainer.innerHTML = `
+        <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc_y4J239hdnp2f7X-h-8-3J1X7W7Y7z8n8Z5fJ8n8W8Y8w8Q/viewform" target="_blank" class="action-btn themed-bg">Discipline Entry</a><a href="${markEntryUrl}" target="_blank" class="action-btn themed-bg">${teacherSection} Mark Entry</a></div></div>
+        <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
+        <div id="leaderboardCard"></div>
+        <div id="classToppersCard"></div>
+        <div id="subjectToppersCard"></div>
+        <div id="reportGeneratorCard"></div>`;
 
-        const termLower = termKey.toLowerCase();
-        if (termLower.includes('monthly exam 01') || termLower.includes('first mid term')) {
-            maxMark = 20;
-        } else if (termLower.includes('first term')) {
-            if (section === 'UP') {
-                maxMark = 30;
-            } else if (classNum === 8) {
-                maxMark = ['Physics', 'Chemistry', 'Biology'].includes(subject) ? 20 : 40;
-            } else if (classNum === 9 || classNum === 10) {
-                maxMark = ['English', 'Social Science', 'Maths'].includes(subject) ? 80 : 40;
-            } else if (section === 'LP') {
-                maxMark = 25;
-            }
-        }
-        
-        if (typeof mark !== 'number' || mark === null || mark === undefined) {
-            return { grade: 'Ab', cssClass: '', maxMark: maxMark };
-        }
+    buildStandingsChart(sectionStudents, true);
+    buildLeaderboardCard(sectionStudents, appData.activities, true);
+    buildClassToppersCard(sectionStudents);
+    buildSubjectToppersCard(sectionStudents);
+    buildReportGeneratorCard(sectionStudents);
+    dashboardContainer.addEventListener('click', handleDashboardClick);
+}
 
-        const percentage = (mark / maxMark) * 100;
-
-        if (section === 'UP' || classNum === 8) {
-            if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-            if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-            if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-            if (percentage >= 30) return { grade: 'D', cssClass: 'grade-d', maxMark };
-            return { grade: 'E', cssClass: 'grade-e', maxMark };
-        } else if (classNum === 9 || classNum === 10) {
-            if (percentage >= 90) return { grade: 'A+', cssClass: 'grade-a-plus', maxMark };
-            if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-            if (percentage >= 70) return { grade: 'B+', cssClass: 'grade-b-plus', maxMark };
-            if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-            if (percentage >= 50) return { grade: 'C+', cssClass: 'grade-c-plus', maxMark };
-            if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-            if (percentage >= 30) return { grade: 'D+', cssClass: 'grade-d-plus', maxMark };
-            if (percentage >= 20) return { grade: 'D', cssClass: 'grade-d', maxMark };
-            return { grade: 'E', cssClass: 'grade-e', maxMark };
-        } else {
-            if (percentage >= 90) return { grade: 'A+', cssClass: 'grade-a-plus', maxMark };
-            if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-            if (percentage >= 70) return { grade: 'B+', cssClass: 'grade-b-plus', maxMark };
-            if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-            if (percentage >= 50) return { grade: 'C+', cssClass: 'grade-c-plus', maxMark };
-            if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-            if (percentage >= 30) return { grade: 'D+', cssClass: 'grade-d-plus', maxMark };
-            if (percentage >= 20) return { grade: 'D', cssClass: 'grade-d', maxMark };
-            return { grade: 'E', cssClass: 'grade-e', maxMark };
-        }
-    }
-
-    // --- UI RENDERING ---
-    const dashboardContainer = document.getElementById('dashboard-container');
-
-    function buildHMDashboard(user, allStudents, processedStudents, metadata) {
-        const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
-        dashboardContainer.innerHTML = `
-            <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><button class="action-btn bg-blue-500 hover:bg-blue-600" data-action="discipline"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" /></svg>Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="action-btn bg-green-500 hover:bg-green-600">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="action-btn bg-yellow-500 hover:bg-yellow-600">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="action-btn bg-red-500 hover:bg-red-600">HS Marks</a></div></div>
-            <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
-            <div id="leaderboardCard"></div>
-            <div id="classToppersCard"></div>
-            <div id="subjectToppersCard"></div>`;
-
-        buildStandingsChart(processedStudents);
-        buildLeaderboardCard(processedStudents, appData.activities, false);
-        buildClassToppersCard(processedStudents);
-        buildSubjectToppersCard(processedStudents);
-        dashboardContainer.addEventListener('click', handleDashboardClick);
-    }
-
-    function buildTeacherDashboard(user, allStudents, processedStudents, metadata) {
-        const teacherSection = getTeacherSection(user.designation);
-        if (!teacherSection) {
-            dashboardContainer.innerHTML = `<div class="dashboard-card text-red-500"><h2 class="text-2xl font-bold">Configuration Error</h2><p>Your user profile is missing a valid section in designation (LPST, UPST, HST). Please contact an administrator.</p></div>`;
-            return;
-        }
-
-        const sectionStudents = processedStudents.filter(s => getSection(s.class) === teacherSection);
-        const markEntryUrl = {
-            lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
-            up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
-            hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
-        }[teacherSection.toLowerCase()];
-        const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
-
-        dashboardContainer.innerHTML = `
-            <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><button class="action-btn bg-blue-500 hover:bg-blue-600" data-action="discipline">Discipline Entry</button><a href="${markEntryUrl}" target="_blank" class="action-btn bg-green-500 hover:bg-green-600">${teacherSection} Mark Entry</a></div></div>
-            <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
-            <div id="leaderboardCard"></div>
-            <div id="classToppersCard"></div>
-            <div id="subjectToppersCard"></div>
-            <div id="reportGeneratorCard"></div>`;
-
-        buildStandingsChart(sectionStudents, true);
-        buildLeaderboardCard(sectionStudents, appData.activities, true);
-        buildClassToppersCard(sectionStudents);
-        buildSubjectToppersCard(sectionStudents);
-        buildReportGeneratorCard(sectionStudents);
-        dashboardContainer.addEventListener('click', handleDashboardClick);
-    }
-
-    function buildParentDashboard(currentChild, siblings, processedStudents) {
+function buildParentDashboard(currentChild, siblings, processedStudents) {
         const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
         dashboardContainer.innerHTML = `
             <div class="dashboard-card">
@@ -509,7 +568,7 @@
                         return `
                         <div class="p-6 rounded-lg border-2 ${child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-[var(--theme-text)]' : 'border-[var(--border-color)]'} flex flex-col justify-between">
                             <div>
-                                <h3 class="text-xl font-bold">${child.name}</h3>
+                                <h3 class="text-xl font-bold text-primary">${child.name}</h3>
                                 <p>Class ${child.class}-${child.division}</p>
                                 <p>House: ${child.house}</p>
                                 ${studentData ? `
@@ -529,10 +588,18 @@
 
         document.querySelectorAll('.view-sibling-profile').forEach(button => {
             button.addEventListener('click', (e) => {
-                const admNo = e.target.dataset.admissionNo;
+                const admNo = e.target.closest('button').dataset.admissionNo;
+                const studentData = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
+
                 if (admNo === currentUser.admissionNo.toString()) {
-                    const studentData = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
-                    if (studentData) buildStudentDashboard(studentData, appData.activities, null, siblings);
+                    // *** FIX: Recalculate siblings for the target child to pass to the dashboard ***
+                    const siblingsOfTarget = appData.users.filter(s => {
+                        if (s.role !== 'student' || !s.admissionNo || s.admissionNo.toString() === admNo) return false;
+                        const targetPhones = Array.isArray(studentData.phone) ? studentData.phone : [studentData.phone];
+                        const potentialPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
+                        return targetPhones.some(p => potentialPhones.includes(p));
+                    });
+                    if (studentData) buildStudentDashboard(studentData, appData.activities, null, siblingsOfTarget);
                 } else {
                     document.getElementById('dobVerifyAdmissionNo').value = admNo;
                     document.getElementById('dobError').textContent = '';
@@ -544,71 +611,75 @@
         });
     }
 
-    function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
-        const { marksRecord } = student;
-        if (!marksRecord || !marksRecord.terms) {
-            dashboardContainer.innerHTML = `<div class="dashboard-card"><p class="text-center text-gray-500">No marks data found for this student.</p></div>`;
-            return;
+function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
+    const { marksRecord } = student;
+    if (!marksRecord || !marksRecord.terms) {
+        dashboardContainer.innerHTML = `<div class="dashboard-card"><p class="text-center">No marks data found for this student.</p></div>`;
+        return;
+    }
+
+    const studentActivities = activities.filter(a => isActivityForStudent(a, student));
+    const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
+    const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
+    const allSubjects = [...new Set(termKeys.flatMap(key => marksRecord.terms[key].marks ? Object.keys(marksRecord.terms[key].marks) : []))];
+    
+    const getTrend = (subject, currentTermKey) => {
+        const currentTermIndex = termKeys.indexOf(currentTermKey);
+        if (currentTermIndex < 1) return '<span>-</span>';
+        const prevTermKey = termKeys[currentTermIndex - 1];
+        const currentMark = marksRecord.terms[currentTermKey]?.marks?.[subject];
+        const prevMark = marksRecord.terms[prevTermKey]?.marks?.[subject];
+        if (typeof currentMark !== 'number' || typeof prevMark !== 'number') return '<span>-</span>';
+        if (currentMark > prevMark) return `<span class="trend-up">&uarr; Improving</span>`;
+        if (currentMark < prevMark) return `<span class="trend-down">&darr; Declining</span>`;
+        return `<span class="trend-stable">&rarr; Stable</span>`;
+    };
+
+    let previousRank = null;
+    const termCardsHTML = termKeys.map(key => {
+        const term = marksRecord.terms[key];
+        if (!term) return '';
+        const maxTotal = Object.values(term.marks || {}).length * 25;
+        const percentage = maxTotal > 0 ? ((term.total / maxTotal) * 100).toFixed(1) : 0;
+        let rankChangeHTML = '';
+        if (previousRank !== null && typeof term.rank === 'number') {
+            const change = previousRank - term.rank;
+            if (change > 0) rankChangeHTML = `<span class="text-sm trend-up font-medium ml-2">(+${change})</span>`;
+            else if (change < 0) rankChangeHTML = `<span class="text-sm trend-down font-medium ml-2">(${change})</span>`;
         }
+        previousRank = term.rank;
+        return `<div class="dashboard-card p-4 flex flex-col"><h3 class="font-semibold text-center border-b border-[var(--border-color)] pb-2 mb-3">${key}</h3><div class="space-y-2"><p><span class="font-bold text-lg text-primary">Total: ${term.total || 'N/A'}</span> marks</p><p>Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p>Percentage: ${percentage}%</p></div></div>`;
+    }).join('');
 
-        const studentActivities = activities.filter(a => isActivityForStudent(a, student));
-        const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
-        const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
-        const allSubjects = [...new Set(termKeys.flatMap(key => Object.keys(marksRecord.terms[key].marks)))];
-        
-        const getTrend = (subject, currentTermKey) => {
-            const currentTermIndex = termKeys.indexOf(currentTermKey);
-            if (currentTermIndex < 1) return '<span>-</span>';
-            const prevTermKey = termKeys[currentTermIndex - 1];
-            const currentMark = marksRecord.terms[currentTermKey].marks[subject];
-            const prevMark = marksRecord.terms[prevTermKey].marks[subject];
-            if (typeof currentMark !== 'number' || typeof prevMark !== 'number') return '<span>-</span>';
-            if (currentMark > prevMark) return `<span class="trend-up">&uarr; Improving</span>`;
-            if (currentMark < prevMark) return `<span class="trend-down">&darr; Declining</span>`;
-            return `<span class="trend-stable">&rarr; Stable</span>`;
-        };
-
-        let previousRank = null;
-        const termCardsHTML = termKeys.map(key => {
-            const term = marksRecord.terms[key];
-            const maxTotal = Object.values(term.marks || {}).length * 25; // Note: This is a simplification
-            const percentage = maxTotal > 0 ? ((term.total / maxTotal) * 100).toFixed(1) : 0;
-            let rankChangeHTML = '';
-            if (previousRank !== null && typeof term.rank === 'number') {
-                const change = previousRank - term.rank;
-                if (change > 0) rankChangeHTML = `<span class="text-sm text-green-600 font-medium ml-2">(+${change})</span>`;
-                else if (change < 0) rankChangeHTML = `<span class="text-sm text-red-600 font-medium ml-2">(${change})</span>`;
-            }
-            previousRank = term.rank;
-            return `<div class="bg-white rounded-lg shadow p-4 flex flex-col"><h3 class="font-semibold text-gray-500 text-center border-b pb-2 mb-3">${key}</h3><div class="space-y-2 text-gray-700"><p><span class="font-bold text-lg">Total: ${term.total || 'N/A'}</span> marks</p><p>Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p>Percentage: ${percentage}%</p></div></div>`;
+    const detailedMarksHTML = allSubjects.map(subject => {
+        const cells = termKeys.map(k => {
+            const mark = marksRecord.terms[k]?.marks?.[subject];
+            const displayMark = (mark !== undefined && mark !== null) ? mark : '-';
+            const { grade, cssClass } = getGradeInfo(mark, subject, k, student.class);
+            return `<td class="text-center font-medium">${displayMark}<br><span class="font-bold ${cssClass}">${grade}</span></td>`;
         }).join('');
+        const trend = getTrend(subject, termKeys[termKeys.length - 1]);
+        return `<tr><td class="font-medium text-primary">${subject}</td>${cells}<td class="text-center">${trend}</td></tr>`;
+    }).join('');
+    
+    const backButtonHTML = viewer && viewer.role === 'staff' 
+        ? `<div class="mb-6"><button id="backToDashboardBtn" class="action-btn"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></div>`
+        : (currentUser.role === 'student' && siblings.length > 0 ? `<div class="mb-6"><button id="backToParentDashboardBtn" class="action-btn"><i class="fa-solid fa-arrow-left"></i> Back to Parent Dashboard</button></div>` : '');
 
-        const detailedMarksHTML = allSubjects.map(subject => {
-            const cells = termKeys.map(k => {
-                const mark = marksRecord.terms[k].marks[subject];
-                const displayMark = (mark !== undefined && mark !== null) ? mark : '-';
-                const { grade, cssClass: gradeClass } = getGradeInfo(mark, subject, k, student.class);
-                return `<td class="text-center font-medium">${displayMark}<br><span class="font-bold ${gradeClass}">${grade}</span></td>`;
-            }).join('');
-            const trend = getTrend(subject, termKeys[termKeys.length - 1]);
-            return `<tr><td class="font-medium">${subject}</td>${cells}<td class="text-center">${trend}</td></tr>`;
-        }).join('');
-        
-        const backButtonHTML = viewer && viewer.role === 'staff' ? `<div class="mb-6"><button id="backToDashboardBtn" class="text-sm font-medium text-white bg-gray-500 hover:bg-gray-600 px-4 py-2 rounded-lg">&larr; Back to Dashboard</button></div>` : '';
-        const switchChildButtonHTML = siblings.length > 0 ? `<button id="switchChildBtn" class="ml-4 text-sm font-medium text-white themed-bg px-4 py-2 rounded-full">Switch Child</button>` : '';
+    dashboardContainer.innerHTML = backButtonHTML + `
+        <div class="dashboard-card flex flex-wrap justify-between items-center gap-4"><div><h2 class="text-3xl font-bold text-primary">${student.name}</h2><p>Class ${student.class}-${student.division} | Adm No: ${student.admissionNo} | House: ${student.house}</p></div><div class="flex items-center gap-4 text-center"><div><p class="text-2xl font-bold themed-text">#${student.academicRank}</p><p class="text-sm">Academic Rank (Class)</p></div><div><p class="text-2xl font-bold themed-text">#${student.disciplineRank}</p><p class="text-sm">Discipline Rank (Class)</p></div></div></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">${termCardsHTML}</div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div class="dashboard-card"><h3 class="font-semibold mb-4">Subject-wise Marks</h3><div style="height: 300px;"><canvas id="subjectChart"></canvas></div></div><div class="dashboard-card"><h3 class="font-semibold mb-4">Term-wise Performance</h3><div style="height: 300px;"><canvas id="termChart"></canvas></div></div></div>
+        <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold">Detailed Marks Summary</h3><button id="showDiscipline" class="text-sm font-medium themed-bg px-4 py-2 rounded-lg">View Discipline Log (${student.disciplinePoints.toFixed(0)} pts)</button></div><div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Subject</th>${termKeys.map(k => `<th class="text-center">${k}</th>`).join('')}<th>Progress</th></tr></thead><tbody>${detailedMarksHTML}</tbody></table></div></div>`;
+    
+    if (viewer) {
+        document.getElementById('backToDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
+    } else {
+        document.getElementById('backToParentDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
+    }
 
-        dashboardContainer.innerHTML = backButtonHTML + `
-            <div class="dashboard-card flex flex-wrap justify-between items-center gap-4"><div><h2 class="text-3xl font-bold text-gray-800">${student.name}</h2><p class="text-gray-500">Class ${student.class}-${student.division} | Adm No: ${student.admissionNo} | House: ${student.house}</p></div><div class="flex items-center gap-4 text-center">${switchChildButtonHTML}<div><p class="text-2xl font-bold themed-text">#${student.academicRank}</p><p class="text-sm text-gray-500">Academic Rank (Class)</p></div><div><p class="text-2xl font-bold themed-text">#${student.disciplineRank}</p><p class="text-sm text-gray-500">Discipline Rank (Class)</p></div></div></div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">${termCardsHTML}</div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div class="dashboard-card"><h3 class="font-semibold mb-4">Subject-wise Marks</h3><div style="height: 300px;"><canvas id="subjectChart"></canvas></div></div><div class="dashboard-card"><h3 class="font-semibold mb-4">Term-wise Performance</h3><div style="height: 300px;"><canvas id="termChart"></canvas></div></div></div>
-            <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold">Detailed Marks Summary</h3><button id="showDiscipline" class="text-sm font-medium text-white themed-bg px-4 py-2 rounded-lg">View Discipline Log (${student.disciplinePoints.toFixed(0)} pts)</button></div><div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Subject</th>${termKeys.map(k => `<th class="text-center">${k}</th>`).join('')}<th>Progress</th></tr></thead><tbody>${detailedMarksHTML}</tbody></table></div></div>`;
-        
-        if (viewer) {
-            document.getElementById('backToDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
-        }
-        if (siblings.length > 0) {
-            document.getElementById('switchChildBtn').addEventListener('click', () => showSwitchChildModal(siblings));
-        }
+    // Chart logic remains here...
+
 
         const subjectChartCtx = document.getElementById('subjectChart').getContext('2d');
         const chartColors = ['#818cf880', '#f8717180', '#fbbf2480', '#4ade8080'];
@@ -642,15 +713,15 @@
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { 'y-total': { type: 'linear', position: 'left', title: { display: true, text: 'Total Marks' } }, 'y-percent': { type: 'linear', position: 'right', display: false, max: 100, min: 0 }, 'y-rank': { type: 'linear', position: 'right', reverse: true, title: { display: true, text: 'Rank' }, grid: { drawOnChartArea: false } } } }
         });
-        
-        const modal = document.getElementById('disciplineModal');
-        document.getElementById('showDiscipline').addEventListener('click', () => {
-            document.getElementById('modal-content-body').innerHTML = `<div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-green-600' : 'text-red-600'} font-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center text-gray-500">No activities logged.</td></tr>'}</tbody></table></div>`;
-            modal.classList.remove('hidden'); modal.classList.add('flex');
-        });
-        document.getElementById('closeModal').addEventListener('click', () => { modal.classList.add('hidden'); modal.classList.remove('flex'); });
-    }
     
+    const modal = document.getElementById('disciplineModal');
+    document.getElementById('showDiscipline').addEventListener('click', () => {
+        document.getElementById('modal-content-body').innerHTML = `<div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-green-500' : 'text-red-500'} font-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    });
+}
+
     function buildStandingsChart(students, isSection = false) {
         const filter = document.getElementById('standingsFilter');
         const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
@@ -1145,105 +1216,91 @@
         });
     }
     
-    // ... (All other build functions are unchanged)
+// ... (All other build... and update... functions are here)
 
-    // --- MAIN APPLICATION FLOW ---
+// --- MAIN APPLICATION FLOW ---
+function showView(viewName) {
+    homeView.classList.add('hidden');
+    loginView.classList.add('hidden');
+    loginView.classList.remove('flex');
+    dashboardView.classList.add('hidden');
 
-    function showProgressBar() { 
-        if (progressBar) progressBar.classList.remove('hidden'); 
-    }
-    function hideProgressBar() { 
-        if (progressBar) progressBar.classList.add('hidden'); 
-    }
-
-    function showDashboard(user) {
-        loginView.classList.add('hidden');
-        dashboardView.classList.remove('hidden');
-        document.getElementById('userInfo').innerHTML = `<p class="font-semibold text-gray-800">${user.name}</p><p class="text-xs text-gray-500">${user.designation || 'Student'}</p>`;
-        const headerTitle = document.getElementById('headerTitle');
-        document.body.className = 'bg-slate-100 font-sans';
-        if (user.designation === 'HM') {
-            document.body.classList.add('theme-hm');
-        } else if (user.role === 'staff') {
-            document.body.classList.add('theme-teacher');
-        } else if (user.role === 'student' && user.house) {
-            document.body.classList.add(`theme-${user.house.toLowerCase()}`);
-        }
-        headerTitle.classList.add('themed-text');
-    }
-
-    function showLogin() {
-        dashboardView.classList.add('hidden');
+    if (viewName === 'home') homeView.classList.remove('hidden');
+    else if (viewName === 'login') {
         loginView.classList.remove('hidden');
-        document.body.className = 'bg-slate-100 font-sans';
+        loginView.classList.add('flex');
     }
+    else if (viewName === 'dashboard') dashboardView.classList.remove('hidden');
+}
 
-    async function handleLogin(event) {
-        event.preventDefault();
-        showProgressBar();
-        const phone = document.getElementById('phone').value;
-        const dob = document.getElementById('dob').value;
-        const errorElement = document.getElementById('loginError');
-        errorElement.textContent = '';
-        try {
-            const dataLoaded = await isDataLoaded();
-            if (!dataLoaded) {
-                await populateDB();
-            }
-            const usersRes = await fetch('./users.json');
-            if (!usersRes.ok) throw new Error('Could not fetch user list for authentication.');
-            const users = await usersRes.json();
-            
-            const foundUser = users.find(user => {
-                const phoneMatch = Array.isArray(user.phone) 
-                    ? user.phone.includes(phone) 
-                    : user.phone === phone;
-                return phoneMatch && user.dob === dob;
-            });
+function showProgressBar() { if (progressBar) progressBar.classList.remove('hidden'); }
+function hideProgressBar() { if (progressBar) progressBar.classList.add('hidden'); }
 
-            if (foundUser) {
-                await setSession(foundUser);
-                initializeApp(foundUser);
-            } else {
-                errorElement.textContent = 'Invalid credentials. Please try again.';
-                hideProgressBar();
-            }
-        } catch (error) {
-            console.error('Login Error:', error);
-            errorElement.textContent = 'An error occurred. Please try again.';
+function showDashboard(user) {
+    showView('dashboard');
+    document.getElementById('userInfo').innerHTML = `<p class="font-semibold text-primary">${user.name}</p><p class="text-xs">${user.designation || 'Student'}</p>`;
+    document.body.className = '';
+    if (user.designation === 'HM') document.body.classList.add('theme-hm');
+    else if (user.role === 'staff') document.body.classList.add('theme-teacher');
+    else if (user.role === 'student' && user.house) document.body.classList.add(`theme-${user.house.toLowerCase()}`);
+}
+
+async function handleLogin(event) {
+    event.preventDefault();
+    showProgressBar();
+    const phone = document.getElementById('phone').value;
+    const dob = document.getElementById('dob').value;
+    const errorElement = document.getElementById('loginError');
+    errorElement.textContent = '';
+    try {
+        if (!(await isDataLoaded())) await populateDB();
+        const users = (await getAllData()).users;
+        const foundUser = users.find(user => {
+            if (!user.phone || !user.dob) return false;
+            const phoneMatch = Array.isArray(user.phone) ? user.phone.includes(phone) : user.phone === phone;
+            return phoneMatch && user.dob === dob;
+        });
+        if (foundUser) {
+            await setSession(foundUser);
+            initializeApp(foundUser);
+        } else {
+            errorElement.textContent = 'Invalid credentials. Please try again.';
             hideProgressBar();
         }
+    } catch (error) {
+        console.error('Login Error:', error);
+        errorElement.textContent = 'An error occurred. Please try again.';
+        hideProgressBar();
+    }
+}
+
+async function initializeApp(loggedInUser) {
+    const storedVersion = localStorage.getItem('appVersion');
+    if (storedVersion !== APP_VERSION) {
+        await clearSessionAndData();
+        localStorage.setItem('appVersion', APP_VERSION);
+        location.reload();
+        return; 
     }
 
-    async function initializeApp(loggedInUser) {
-        // Version Check
-        const storedVersion = localStorage.getItem('appVersion');
-        if (storedVersion !== APP_VERSION) {
-            console.log(`App version mismatch. Upgrading from ${storedVersion} to ${APP_VERSION}. Clearing old data.`);
-            await clearSessionAndData();
-            localStorage.setItem('appVersion', APP_VERSION);
-            location.reload();
-            return; 
-        }
+    if (!loggedInUser) {
+        showView('home');
+        return;
+    }
+    showProgressBar();
+    currentUser = loggedInUser;
+    showDashboard(loggedInUser);
+    
+    const { users, marks, activities, metadata } = await getAllData();
+    const allStudents = users.filter(u => u.role === 'student');
+    const processedStudents = processStudentData(allStudents, marks, activities);
+    
+    appData = { users, marks, activities, processedStudents };
 
-        if (!loggedInUser) {
-            showLogin();
-            return;
-        }
-        showProgressBar();
-        currentUser = loggedInUser;
-        showDashboard(loggedInUser);
-        
-        const { users, marks, activities, metadata } = await getAllData();
-        const allStudents = users.filter(u => u.role === 'student');
-        const processedStudents = processStudentData(allStudents, marks, activities);
-        
-        appData = { users, marks, activities, processedStudents };
-
-        const searchContainer = document.getElementById('header-search-container');
-        if (loggedInUser.designation === 'HM' || loggedInUser.role === 'staff') {
-            searchContainer.classList.remove('hidden');
-            let searchableStudents = loggedInUser.designation === 'HM' 
+    const searchContainer = document.getElementById('header-search-container');
+    if (loggedInUser.designation === 'HM' || loggedInUser.role === 'staff') {
+        searchContainer.classList.remove('hidden');
+        let searchableStudents = loggedInUser.designation === 'HM' 
                 ? processedStudents 
                 : processedStudents.filter(s => getSection(s.class) === getTeacherSection(loggedInUser.designation));
             
@@ -1262,32 +1319,33 @@
                     document.getElementById('headerSearchResults').innerHTML = '';
                 }
             });
-        } else {
-            searchContainer.classList.add('hidden');
-        }
-
-        if (loggedInUser.designation === 'HM') {
-            buildHMDashboard(loggedInUser, allStudents, processedStudents, metadata);
-        } else if (loggedInUser.role === 'staff') {
-            buildTeacherDashboard(loggedInUser, allStudents, processedStudents, metadata);
-        } else if (loggedInUser.role === 'student') {
-            const currentUserPhones = Array.isArray(loggedInUser.phone) ? loggedInUser.phone : [loggedInUser.phone];
-            const siblings = allStudents.filter(s => {
-                if (s.admissionNo.toString() === loggedInUser.admissionNo.toString()) return false;
-                const potentialSiblingPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
-                return currentUserPhones.some(p => potentialSiblingPhones.includes(p));
-            });
-
-            if (siblings.length > 0) {
-                buildParentDashboard(loggedInUser, siblings, processedStudents);
-            } else {
-                const studentData = processedStudents.find(s => s.admissionNo.toString() === loggedInUser.admissionNo.toString());
-                if (studentData) buildStudentDashboard(studentData, activities, null, []);
-            }
-        }
-        hideProgressBar();
+    } else {
+        searchContainer.classList.add('hidden');
     }
+
+    if (loggedInUser.designation === 'HM') {
+        buildHMDashboard(loggedInUser, allStudents, processedStudents, metadata);
+    } else if (loggedInUser.role === 'staff') {
+        buildTeacherDashboard(loggedInUser, allStudents, processedStudents, metadata);
+    } else if (loggedInUser.role === 'student') {
+        const currentUserPhones = Array.isArray(loggedInUser.phone) ? loggedInUser.phone : [loggedInUser.phone];
+        const siblings = allStudents.filter(s => {
+            if (s.admissionNo.toString() === loggedInUser.admissionNo.toString()) return false;
+            const potentialSiblingPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
+            return currentUserPhones.some(p => potentialSiblingPhones.includes(p));
+        });
+
+        if (siblings.length > 0) {
+            buildParentDashboard(loggedInUser, siblings, processedStudents);
+        } else {
+            const studentData = processedStudents.find(s => s.admissionNo.toString() === loggedInUser.admissionNo.toString());
+            if (studentData) buildStudentDashboard(studentData, activities, null, []);
+        }
+    }
+    hideProgressBar();
+}
     
+
     function openIframeModal(url, title) {
         const modal = document.getElementById('iframeModal');
         document.getElementById('iframeModalTitle').textContent = title;
@@ -1312,74 +1370,78 @@
             }
         }
     }
-    
-    function showSwitchChildModal(siblings) {
-        const modal = document.getElementById('switchChildModal');
-        const listEl = document.getElementById('switchChildList');
-        listEl.innerHTML = `<ul class="divide-y divide-gray-200">${siblings.map(s => `<li class="p-4 hover:bg-slate-100 cursor-pointer switch-child-item" data-admission-no="${s.admissionNo}">${s.name} - Class ${s.class}${s.division}</li>`).join('')}</ul>`;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-    // ... (other functions like openIframeModal)
 
-    // --- EVENT LISTENERS & INITIALIZATION ---
-    document.addEventListener('DOMContentLoaded', () => {
-        loginView = document.getElementById('loginView');
-        dashboardView = document.getElementById('dashboardView');
-        progressBar = document.getElementById('progressBarContainer');
-
-        document.getElementById('loginForm').addEventListener('submit', handleLogin);
-        document.getElementById('logoutButton').addEventListener('click', async () => {
-            await clearSessionAndData();
-            showLogin();
-        });
-        document.getElementById('closeIframeModal').addEventListener('click', () => {
-            const modal = document.getElementById('iframeModal');
-            document.getElementById('modalIframe').src = "about:blank";
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        });
-        
-        document.getElementById('closeSwitchChildModal').addEventListener('click', () => document.getElementById('switchChildModal').classList.add('hidden'));
-        document.getElementById('closeDobVerifyModal').addEventListener('click', () => document.getElementById('dobVerifyModal').classList.add('hidden'));
-        
-        document.getElementById('dobVerifyForm').addEventListener('submit', async e => {
-            e.preventDefault();
-            const admNo = document.getElementById('dobVerifyAdmissionNo').value;
-            const dob = document.getElementById('dobVerifyInput').value;
-            const errorEl = document.getElementById('dobError');
-            errorEl.textContent = '';
-            
-            const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
-            if (targetStudent && targetStudent.dob === dob) {
-                await setSession(targetStudent);
-                document.getElementById('dobVerifyModal').classList.add('hidden');
-                initializeApp(targetStudent); // Re-initialize the app for the new user
-            } else {
-                errorEl.textContent = "Incorrect date of birth. Please try again.";
-            }
-        });
-        
-        const themeSwitcher = document.getElementById('theme-switcher');
-        
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark');
-            } else {
-                document.body.classList.remove('dark');
-            }
+function setLanguage(lang) {
+    document.querySelectorAll('[data-translate-key]').forEach(el => {
+        const key = el.dataset.translateKey;
+        if (translations[lang] && translations[lang][key]) {
+            el.innerText = translations[lang][key];
         }
-        
-        themeSwitcher.addEventListener('click', () => {
-            const isDark = document.body.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(savedTheme);
-
-        getSession().then(user => initializeApp(user));
     });
+    localStorage.setItem('language', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+    });
+}
+
+// --- EVENT LISTENERS & INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize element variables
+    homeView = document.getElementById('homeView');
+    loginView = document.getElementById('loginView');
+    dashboardView = document.getElementById('dashboardView');
+    progressBar = document.getElementById('progressBarContainer');
+
+    // Setup event listeners
+    document.getElementById('goToLoginBtn').addEventListener('click', () => showView('login'));
+    document.getElementById('backToHomeBtn').addEventListener('click', () => showView('home'));
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    document.getElementById('logoutButton').addEventListener('click', async () => {
+        await clearSessionAndData();
+        showView('home');
+    });
+    
+    document.getElementById('closeModal').addEventListener('click', () => document.getElementById('disciplineModal').classList.add('hidden'));
+    document.getElementById('closeIframeModal').addEventListener('click', () => {
+        document.getElementById('modalIframe').src = "about:blank";
+        document.getElementById('iframeModal').classList.add('hidden');
+    });
+    
+    document.getElementById('closeSwitchChildModal').addEventListener('click', () => document.getElementById('switchChildModal').classList.add('hidden'));
+    document.getElementById('closeDobVerifyModal').addEventListener('click', () => document.getElementById('dobVerifyModal').classList.add('hidden'));
+
+    document.getElementById('dobVerifyForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const admNo = document.getElementById('dobVerifyAdmissionNo').value;
+        const dob = document.getElementById('dobVerifyInput').value;
+        const errorEl = document.getElementById('dobError');
+        errorEl.textContent = '';
+        
+        const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
+        if (targetStudent && targetStudent.dob === dob) {
+            await setSession(targetStudent);
+            document.getElementById('dobVerifyModal').classList.add('hidden');
+            initializeApp(targetStudent);
+        } else {
+            errorEl.textContent = "Incorrect date of birth. Please try again.";
+        }
+    });
+    
+    document.getElementById('theme-switcher').addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+
+    getSession().then(user => initializeApp(user));
+});
 </script>
 </body>
 </html>
