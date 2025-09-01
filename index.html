@@ -113,6 +113,15 @@
         .grade-e { color: var(--grade-e); } 
 
     </style>
+
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
 <body>
     
