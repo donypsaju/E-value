@@ -1,6 +1,6 @@
 [
     {
-        "admissionNo": "16027",
+        "admissionNo": 16027,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -53,7 +53,7 @@
         }
     },
     {
-        "admissionNo": "14545",
+        "admissionNo": 14545,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -106,7 +106,7 @@
         }
     },
     {
-        "admissionNo": "15507",
+        "admissionNo": 15507,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -159,7 +159,7 @@
         }
     },
     {
-        "admissionNo": "14556",
+        "admissionNo": 14556,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -212,7 +212,7 @@
         }
     },
     {
-        "admissionNo": "14535",
+        "admissionNo": 14535,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -265,7 +265,7 @@
         }
     },
     {
-        "admissionNo": "14538",
+        "admissionNo": 14538,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -318,7 +318,7 @@
         }
     },
     {
-        "admissionNo": "14540",
+        "admissionNo": 14540,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -371,7 +371,7 @@
         }
     },
     {
-        "admissionNo": "14544",
+        "admissionNo": 14544,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -424,7 +424,7 @@
         }
     },
     {
-        "admissionNo": "16010",
+        "admissionNo": 16010,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -477,7 +477,7 @@
         }
     },
     {
-        "admissionNo": "16021",
+        "admissionNo": 16021,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -530,7 +530,7 @@
         }
     },
     {
-        "admissionNo": "15383",
+        "admissionNo": 15383,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -583,7 +583,7 @@
         }
     },
     {
-        "admissionNo": "14532",
+        "admissionNo": 14532,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -636,7 +636,7 @@
         }
     },
     {
-        "admissionNo": "14531",
+        "admissionNo": 14531,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -689,7 +689,7 @@
         }
     },
     {
-        "admissionNo": "14516",
+        "admissionNo": 14516,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -742,7 +742,7 @@
         }
     },
     {
-        "admissionNo": "16005",
+        "admissionNo": 16005,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -795,7 +795,7 @@
         }
     },
     {
-        "admissionNo": "15480",
+        "admissionNo": 15480,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -848,7 +848,7 @@
         }
     },
     {
-        "admissionNo": "15260",
+        "admissionNo": 15260,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -901,7 +901,7 @@
         }
     },
     {
-        "admissionNo": "15818",
+        "admissionNo": 15818,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -954,7 +954,7 @@
         }
     },
     {
-        "admissionNo": "15978",
+        "admissionNo": 15978,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1007,7 +1007,7 @@
         }
     },
     {
-        "admissionNo": "14541",
+        "admissionNo": 14541,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1060,7 +1060,7 @@
         }
     },
     {
-        "admissionNo": "14530",
+        "admissionNo": 14530,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1113,7 +1113,7 @@
         }
     },
     {
-        "admissionNo": "15380",
+        "admissionNo": 15380,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1166,7 +1166,7 @@
         }
     },
     {
-        "admissionNo": "15136",
+        "admissionNo": 15136,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1219,7 +1219,7 @@
         }
     },
     {
-        "admissionNo": "15227",
+        "admissionNo": 15227,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1272,7 +1272,7 @@
         }
     },
     {
-        "admissionNo": "14557",
+        "admissionNo": 14557,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1325,7 +1325,7 @@
         }
     },
     {
-        "admissionNo": "14550",
+        "admissionNo": 14550,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1378,7 +1378,7 @@
         }
     },
     {
-        "admissionNo": "15361",
+        "admissionNo": 15361,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1431,7 +1431,7 @@
         }
     },
     {
-        "admissionNo": "14521",
+        "admissionNo": 14521,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1484,7 +1484,7 @@
         }
     },
     {
-        "admissionNo": "15378",
+        "admissionNo": 15378,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1537,7 +1537,7 @@
         }
     },
     {
-        "admissionNo": "16028",
+        "admissionNo": 16028,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1590,7 +1590,7 @@
         }
     },
     {
-        "admissionNo": "14964",
+        "admissionNo": 14964,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1643,7 +1643,7 @@
         }
     },
     {
-        "admissionNo": "14768",
+        "admissionNo": 14768,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1696,7 +1696,7 @@
         }
     },
     {
-        "admissionNo": "15081",
+        "admissionNo": 15081,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1749,7 +1749,7 @@
         }
     },
     {
-        "admissionNo": "14525",
+        "admissionNo": 14525,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1802,7 +1802,7 @@
         }
     },
     {
-        "admissionNo": "15599",
+        "admissionNo": 15599,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1855,7 +1855,7 @@
         }
     },
     {
-        "admissionNo": "15367",
+        "admissionNo": 15367,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1908,7 +1908,7 @@
         }
     },
     {
-        "admissionNo": "15214",
+        "admissionNo": 15214,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -1961,7 +1961,7 @@
         }
     },
     {
-        "admissionNo": "16033",
+        "admissionNo": 16033,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2014,7 +2014,7 @@
         }
     },
     {
-        "admissionNo": "15988",
+        "admissionNo": 15988,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2067,7 +2067,7 @@
         }
     },
     {
-        "admissionNo": "15371",
+        "admissionNo": 15371,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2120,7 +2120,7 @@
         }
     },
     {
-        "admissionNo": "15368",
+        "admissionNo": 15368,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2173,7 +2173,7 @@
         }
     },
     {
-        "admissionNo": "14520",
+        "admissionNo": 14520,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2226,7 +2226,7 @@
         }
     },
     {
-        "admissionNo": "15864",
+        "admissionNo": 15864,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2279,7 +2279,7 @@
         }
     },
     {
-        "admissionNo": "15377",
+        "admissionNo": 15377,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2332,7 +2332,7 @@
         }
     },
     {
-        "admissionNo": "14564",
+        "admissionNo": 14564,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2385,7 +2385,7 @@
         }
     },
     {
-        "admissionNo": "14569",
+        "admissionNo": 14569,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2438,7 +2438,7 @@
         }
     },
     {
-        "admissionNo": "15993",
+        "admissionNo": 15993,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2491,7 +2491,7 @@
         }
     },
     {
-        "admissionNo": "15372",
+        "admissionNo": 15372,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2544,7 +2544,7 @@
         }
     },
     {
-        "admissionNo": "14566",
+        "admissionNo": 14566,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2597,7 +2597,7 @@
         }
     },
     {
-        "admissionNo": "15386",
+        "admissionNo": 15386,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2650,7 +2650,7 @@
         }
     },
     {
-        "admissionNo": "14537",
+        "admissionNo": 14537,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2703,7 +2703,7 @@
         }
     },
     {
-        "admissionNo": "15069",
+        "admissionNo": 15069,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2756,7 +2756,7 @@
         }
     },
     {
-        "admissionNo": "14546",
+        "admissionNo": 14546,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2809,7 +2809,7 @@
         }
     },
     {
-        "admissionNo": "15224",
+        "admissionNo": 15224,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2862,7 +2862,7 @@
         }
     },
     {
-        "admissionNo": "15823",
+        "admissionNo": 15823,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2915,7 +2915,7 @@
         }
     },
     {
-        "admissionNo": "15230",
+        "admissionNo": 15230,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -2968,7 +2968,7 @@
         }
     },
     {
-        "admissionNo": "14555",
+        "admissionNo": 14555,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3021,7 +3021,7 @@
         }
     },
     {
-        "admissionNo": "15820",
+        "admissionNo": 15820,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3074,7 +3074,7 @@
         }
     },
     {
-        "admissionNo": "15979",
+        "admissionNo": 15979,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3127,7 +3127,7 @@
         }
     },
     {
-        "admissionNo": "14762",
+        "admissionNo": 14762,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3180,7 +3180,7 @@
         }
     },
     {
-        "admissionNo": "15770",
+        "admissionNo": 15770,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3233,7 +3233,7 @@
         }
     },
     {
-        "admissionNo": "15982",
+        "admissionNo": 15982,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3286,7 +3286,7 @@
         }
     },
     {
-        "admissionNo": "14764",
+        "admissionNo": 14764,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3339,7 +3339,7 @@
         }
     },
     {
-        "admissionNo": "15382",
+        "admissionNo": 15382,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3392,7 +3392,7 @@
         }
     },
     {
-        "admissionNo": "15086",
+        "admissionNo": 15086,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3445,7 +3445,7 @@
         }
     },
     {
-        "admissionNo": "15359",
+        "admissionNo": 15359,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3498,7 +3498,7 @@
         }
     },
     {
-        "admissionNo": "15364",
+        "admissionNo": 15364,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3551,7 +3551,7 @@
         }
     },
     {
-        "admissionNo": "15481",
+        "admissionNo": 15481,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3604,7 +3604,7 @@
         }
     },
     {
-        "admissionNo": "14553",
+        "admissionNo": 14553,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3657,7 +3657,7 @@
         }
     },
     {
-        "admissionNo": "15479",
+        "admissionNo": 15479,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3710,7 +3710,7 @@
         }
     },
     {
-        "admissionNo": "15137",
+        "admissionNo": 15137,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3763,7 +3763,7 @@
         }
     },
     {
-        "admissionNo": "15986",
+        "admissionNo": 15986,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3816,7 +3816,7 @@
         }
     },
     {
-        "admissionNo": "14767",
+        "admissionNo": 14767,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3869,7 +3869,7 @@
         }
     },
     {
-        "admissionNo": "15771",
+        "admissionNo": 15771,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3922,7 +3922,7 @@
         }
     },
     {
-        "admissionNo": "14548",
+        "admissionNo": 14548,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -3975,7 +3975,7 @@
         }
     },
     {
-        "admissionNo": "15384",
+        "admissionNo": 15384,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4028,7 +4028,7 @@
         }
     },
     {
-        "admissionNo": "15385",
+        "admissionNo": 15385,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4081,7 +4081,7 @@
         }
     },
     {
-        "admissionNo": "15999",
+        "admissionNo": 15999,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4134,7 +4134,7 @@
         }
     },
     {
-        "admissionNo": "16000",
+        "admissionNo": 16000,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4187,7 +4187,7 @@
         }
     },
     {
-        "admissionNo": "15998",
+        "admissionNo": 15998,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4240,7 +4240,7 @@
         }
     },
     {
-        "admissionNo": "14565",
+        "admissionNo": 14565,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4293,7 +4293,7 @@
         }
     },
     {
-        "admissionNo": "14533",
+        "admissionNo": 14533,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4346,7 +4346,7 @@
         }
     },
     {
-        "admissionNo": "15376",
+        "admissionNo": 15376,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4399,7 +4399,7 @@
         }
     },
     {
-        "admissionNo": "14763",
+        "admissionNo": 14763,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4452,7 +4452,7 @@
         }
     },
     {
-        "admissionNo": "15374",
+        "admissionNo": 15374,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4505,7 +4505,7 @@
         }
     },
     {
-        "admissionNo": "15381",
+        "admissionNo": 15381,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4558,7 +4558,7 @@
         }
     },
     {
-        "admissionNo": "15980",
+        "admissionNo": 15980,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4611,7 +4611,7 @@
         }
     },
     {
-        "admissionNo": "15825",
+        "admissionNo": 15825,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4664,7 +4664,7 @@
         }
     },
     {
-        "admissionNo": "14559",
+        "admissionNo": 14559,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4717,7 +4717,7 @@
         }
     },
     {
-        "admissionNo": "16030",
+        "admissionNo": 16030,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4770,7 +4770,7 @@
         }
     },
     {
-        "admissionNo": "16031",
+        "admissionNo": 16031,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4823,7 +4823,7 @@
         }
     },
     {
-        "admissionNo": "16014",
+        "admissionNo": 16014,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4876,7 +4876,7 @@
         }
     },
     {
-        "admissionNo": "14536",
+        "admissionNo": 14536,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4929,7 +4929,7 @@
         }
     },
     {
-        "admissionNo": "15375",
+        "admissionNo": 15375,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -4982,7 +4982,7 @@
         }
     },
     {
-        "admissionNo": "16036",
+        "admissionNo": 16036,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5035,7 +5035,7 @@
         }
     },
     {
-        "admissionNo": "15502",
+        "admissionNo": 15502,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5088,7 +5088,7 @@
         }
     },
     {
-        "admissionNo": "14543",
+        "admissionNo": 14543,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5141,7 +5141,7 @@
         }
     },
     {
-        "admissionNo": "14769",
+        "admissionNo": 14769,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5194,7 +5194,7 @@
         }
     },
     {
-        "admissionNo": "14708",
+        "admissionNo": 14708,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5247,7 +5247,7 @@
         }
     },
     {
-        "admissionNo": "14770",
+        "admissionNo": 14770,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5300,7 +5300,7 @@
         }
     },
     {
-        "admissionNo": "14526",
+        "admissionNo": 14526,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5353,7 +5353,7 @@
         }
     },
     {
-        "admissionNo": "14534",
+        "admissionNo": 14534,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5406,7 +5406,7 @@
         }
     },
     {
-        "admissionNo": "15772",
+        "admissionNo": 15772,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5459,7 +5459,7 @@
         }
     },
     {
-        "admissionNo": "15602",
+        "admissionNo": 15602,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5512,7 +5512,7 @@
         }
     },
     {
-        "admissionNo": "14563",
+        "admissionNo": 14563,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5565,7 +5565,7 @@
         }
     },
     {
-        "admissionNo": "15817",
+        "admissionNo": 15817,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5618,7 +5618,7 @@
         }
     },
     {
-        "admissionNo": "15600",
+        "admissionNo": 15600,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5671,7 +5671,7 @@
         }
     },
     {
-        "admissionNo": "15990",
+        "admissionNo": 15990,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5724,7 +5724,7 @@
         }
     },
     {
-        "admissionNo": "15983",
+        "admissionNo": 15983,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5777,7 +5777,7 @@
         }
     },
     {
-        "admissionNo": "14527",
+        "admissionNo": 14527,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5830,7 +5830,7 @@
         }
     },
     {
-        "admissionNo": "15360",
+        "admissionNo": 15360,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5883,7 +5883,7 @@
         }
     },
     {
-        "admissionNo": "15995",
+        "admissionNo": 15995,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5936,7 +5936,7 @@
         }
     },
     {
-        "admissionNo": "14560",
+        "admissionNo": 14560,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -5989,7 +5989,7 @@
         }
     },
     {
-        "admissionNo": "15991",
+        "admissionNo": 15991,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6042,7 +6042,7 @@
         }
     },
     {
-        "admissionNo": "14551",
+        "admissionNo": 14551,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6095,7 +6095,7 @@
         }
     },
     {
-        "admissionNo": "16032",
+        "admissionNo": 16032,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6148,7 +6148,7 @@
         }
     },
     {
-        "admissionNo": "14549",
+        "admissionNo": 14549,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6201,7 +6201,7 @@
         }
     },
     {
-        "admissionNo": "15373",
+        "admissionNo": 15373,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6254,7 +6254,7 @@
         }
     },
     {
-        "admissionNo": "14524",
+        "admissionNo": 14524,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6307,7 +6307,7 @@
         }
     },
     {
-        "admissionNo": "14568",
+        "admissionNo": 14568,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6360,7 +6360,7 @@
         }
     },
     {
-        "admissionNo": "14562",
+        "admissionNo": 14562,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6413,7 +6413,7 @@
         }
     },
     {
-        "admissionNo": "15138",
+        "admissionNo": 15138,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6466,7 +6466,7 @@
         }
     },
     {
-        "admissionNo": "15994",
+        "admissionNo": 15994,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6519,7 +6519,7 @@
         }
     },
     {
-        "admissionNo": "15598",
+        "admissionNo": 15598,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6572,7 +6572,7 @@
         }
     },
     {
-        "admissionNo": "15981",
+        "admissionNo": 15981,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6625,7 +6625,7 @@
         }
     },
     {
-        "admissionNo": "15992",
+        "admissionNo": 15992,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6678,7 +6678,7 @@
         }
     },
     {
-        "admissionNo": "15984",
+        "admissionNo": 15984,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6731,7 +6731,7 @@
         }
     },
     {
-        "admissionNo": "15070",
+        "admissionNo": 15070,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6784,7 +6784,7 @@
         }
     },
     {
-        "admissionNo": "14561",
+        "admissionNo": 14561,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6837,7 +6837,7 @@
         }
     },
     {
-        "admissionNo": "14766",
+        "admissionNo": 14766,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6890,7 +6890,7 @@
         }
     },
     {
-        "admissionNo": "15989",
+        "admissionNo": 15989,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6943,7 +6943,7 @@
         }
     },
     {
-        "admissionNo": "14542",
+        "admissionNo": 14542,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -6996,7 +6996,7 @@
         }
     },
     {
-        "admissionNo": "14522",
+        "admissionNo": 14522,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7049,7 +7049,7 @@
         }
     },
     {
-        "admissionNo": "15773",
+        "admissionNo": 15773,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7102,7 +7102,7 @@
         }
     },
     {
-        "admissionNo": "15985",
+        "admissionNo": 15985,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7155,7 +7155,7 @@
         }
     },
     {
-        "admissionNo": "14529",
+        "admissionNo": 14529,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7208,7 +7208,7 @@
         }
     },
     {
-        "admissionNo": "16040",
+        "admissionNo": 16040,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7261,7 +7261,7 @@
         }
     },
     {
-        "admissionNo": "16034",
+        "admissionNo": 16034,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7314,7 +7314,7 @@
         }
     },
     {
-        "admissionNo": "15473",
+        "admissionNo": 15473,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7367,7 +7367,7 @@
         }
     },
     {
-        "admissionNo": "15807",
+        "admissionNo": 15807,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7420,7 +7420,7 @@
         }
     },
     {
-        "admissionNo": "15613",
+        "admissionNo": 15613,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7473,7 +7473,7 @@
         }
     },
     {
-        "admissionNo": "15208",
+        "admissionNo": 15208,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7526,7 +7526,7 @@
         }
     },
     {
-        "admissionNo": "15790",
+        "admissionNo": 15790,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7579,7 +7579,7 @@
         }
     },
     {
-        "admissionNo": "15808",
+        "admissionNo": 15808,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7632,7 +7632,7 @@
         }
     },
     {
-        "admissionNo": "15788",
+        "admissionNo": 15788,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7685,7 +7685,7 @@
         }
     },
     {
-        "admissionNo": "15791",
+        "admissionNo": 15791,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7738,7 +7738,7 @@
         }
     },
     {
-        "admissionNo": "15803",
+        "admissionNo": 15803,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7791,7 +7791,7 @@
         }
     },
     {
-        "admissionNo": "16002",
+        "admissionNo": 16002,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7844,7 +7844,7 @@
         }
     },
     {
-        "admissionNo": "15799",
+        "admissionNo": 15799,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7897,7 +7897,7 @@
         }
     },
     {
-        "admissionNo": "15792",
+        "admissionNo": 15792,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -7950,7 +7950,7 @@
         }
     },
     {
-        "admissionNo": "15801",
+        "admissionNo": 15801,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -8003,7 +8003,7 @@
         }
     },
     {
-        "admissionNo": "15779",
+        "admissionNo": 15779,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -8056,7 +8056,7 @@
         }
     },
     {
-        "admissionNo": "15794",
+        "admissionNo": 15794,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -8109,7 +8109,7 @@
         }
     },
     {
-        "admissionNo": "15776",
+        "admissionNo": 15776,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -8162,7 +8162,7 @@
         }
     },
     {
-        "admissionNo": "15789",
+        "admissionNo": 15789,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15423,7 +15423,7 @@
         }
     },
     {
-        "admissionNo": "14978",
+        "admissionNo": 14978,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15476,7 +15476,7 @@
         }
     },
     {
-        "admissionNo": "15621",
+        "admissionNo": 15621,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15529,7 +15529,7 @@
         }
     },
     {
-        "admissionNo": "15155",
+        "admissionNo": 15155,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15582,7 +15582,7 @@
         }
     },
     {
-        "admissionNo": "14187",
+        "admissionNo": 14187,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15635,7 +15635,7 @@
         }
     },
     {
-        "admissionNo": "15160",
+        "admissionNo": 15160,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15688,7 +15688,7 @@
         }
     },
     {
-        "admissionNo": "14910",
+        "admissionNo": 14910,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15741,7 +15741,7 @@
         }
     },
     {
-        "admissionNo": "14227",
+        "admissionNo": 14227,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15794,7 +15794,7 @@
         }
     },
     {
-        "admissionNo": "14226",
+        "admissionNo": 14226,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15847,7 +15847,7 @@
         }
     },
     {
-        "admissionNo": "14970",
+        "admissionNo": 14970,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15900,7 +15900,7 @@
         }
     },
     {
-        "admissionNo": "15404",
+        "admissionNo": 15404,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -15953,7 +15953,7 @@
         }
     },
     {
-        "admissionNo": "14213",
+        "admissionNo": 14213,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16006,7 +16006,7 @@
         }
     },
     {
-        "admissionNo": "14215",
+        "admissionNo": 14215,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16059,7 +16059,7 @@
         }
     },
     {
-        "admissionNo": "14976",
+        "admissionNo": 14976,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16112,7 +16112,7 @@
         }
     },
     {
-        "admissionNo": "15028",
+        "admissionNo": 15028,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16165,7 +16165,7 @@
         }
     },
     {
-        "admissionNo": "14971",
+        "admissionNo": 14971,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16218,7 +16218,7 @@
         }
     },
     {
-        "admissionNo": "14195",
+        "admissionNo": 14195,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16271,7 +16271,7 @@
         }
     },
     {
-        "admissionNo": "15158",
+        "admissionNo": 15158,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16324,7 +16324,7 @@
         }
     },
     {
-        "admissionNo": "15617",
+        "admissionNo": 15617,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16377,7 +16377,7 @@
         }
     },
     {
-        "admissionNo": "14237",
+        "admissionNo": 14237,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16430,7 +16430,7 @@
         }
     },
     {
-        "admissionNo": "15397",
+        "admissionNo": 15397,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16483,7 +16483,7 @@
         }
     },
     {
-        "admissionNo": "14977",
+        "admissionNo": 14977,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16536,7 +16536,7 @@
         }
     },
     {
-        "admissionNo": "15395",
+        "admissionNo": 15395,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16589,7 +16589,7 @@
         }
     },
     {
-        "admissionNo": "14789",
+        "admissionNo": 14789,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16642,7 +16642,7 @@
         }
     },
     {
-        "admissionNo": "15811",
+        "admissionNo": 15811,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16695,7 +16695,7 @@
         }
     },
     {
-        "admissionNo": "14233",
+        "admissionNo": 14233,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16748,7 +16748,7 @@
         }
     },
     {
-        "admissionNo": "15836",
+        "admissionNo": 15836,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16801,7 +16801,7 @@
         }
     },
     {
-        "admissionNo": "15813",
+        "admissionNo": 15813,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16854,7 +16854,7 @@
         }
     },
     {
-        "admissionNo": "14206",
+        "admissionNo": 14206,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16907,7 +16907,7 @@
         }
     },
     {
-        "admissionNo": "15654",
+        "admissionNo": 15654,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -16960,7 +16960,7 @@
         }
     },
     {
-        "admissionNo": "15400",
+        "admissionNo": 15400,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17013,7 +17013,7 @@
         }
     },
     {
-        "admissionNo": "15493",
+        "admissionNo": 15493,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17066,7 +17066,7 @@
         }
     },
     {
-        "admissionNo": "15401",
+        "admissionNo": 15401,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17119,7 +17119,7 @@
         }
     },
     {
-        "admissionNo": "14188",
+        "admissionNo": 14188,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17172,7 +17172,7 @@
         }
     },
     {
-        "admissionNo": "15402",
+        "admissionNo": 15402,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17225,7 +17225,7 @@
         }
     },
     {
-        "admissionNo": "14583",
+        "admissionNo": 14583,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17278,7 +17278,7 @@
         }
     },
     {
-        "admissionNo": "15608",
+        "admissionNo": 15608,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17331,7 +17331,7 @@
         }
     },
     {
-        "admissionNo": "15399",
+        "admissionNo": 15399,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17384,7 +17384,7 @@
         }
     },
     {
-        "admissionNo": "15814",
+        "admissionNo": 15814,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17437,7 +17437,7 @@
         }
     },
     {
-        "admissionNo": "15624",
+        "admissionNo": 15624,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17490,7 +17490,7 @@
         }
     },
     {
-        "admissionNo": "15666",
+        "admissionNo": 15666,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17543,7 +17543,7 @@
         }
     },
     {
-        "admissionNo": "14193",
+        "admissionNo": 14193,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17596,7 +17596,7 @@
         }
     },
     {
-        "admissionNo": "15850",
+        "admissionNo": 15850,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17649,7 +17649,7 @@
         }
     },
     {
-        "admissionNo": "15484",
+        "admissionNo": 15484,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17702,7 +17702,7 @@
         }
     },
     {
-        "admissionNo": "14201",
+        "admissionNo": 14201,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17755,7 +17755,7 @@
         }
     },
     {
-        "admissionNo": "14240",
+        "admissionNo": 14240,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17808,7 +17808,7 @@
         }
     },
     {
-        "admissionNo": "15226",
+        "admissionNo": 15226,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17861,7 +17861,7 @@
         }
     },
     {
-        "admissionNo": "15632",
+        "admissionNo": 15632,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17914,7 +17914,7 @@
         }
     },
     {
-        "admissionNo": "14202",
+        "admissionNo": 14202,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -17967,7 +17967,7 @@
         }
     },
     {
-        "admissionNo": "14222",
+        "admissionNo": 14222,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18020,7 +18020,7 @@
         }
     },
     {
-        "admissionNo": "14695",
+        "admissionNo": 14695,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18073,7 +18073,7 @@
         }
     },
     {
-        "admissionNo": "15625",
+        "admissionNo": 15625,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18126,7 +18126,7 @@
         }
     },
     {
-        "admissionNo": "14787",
+        "admissionNo": 14787,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18179,7 +18179,7 @@
         }
     },
     {
-        "admissionNo": "14788",
+        "admissionNo": 14788,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18232,7 +18232,7 @@
         }
     },
     {
-        "admissionNo": "14212",
+        "admissionNo": 14212,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18285,7 +18285,7 @@
         }
     },
     {
-        "admissionNo": "14224",
+        "admissionNo": 14224,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18338,7 +18338,7 @@
         }
     },
     {
-        "admissionNo": "14205",
+        "admissionNo": 14205,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18391,7 +18391,7 @@
         }
     },
     {
-        "admissionNo": "15619",
+        "admissionNo": 15619,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18444,7 +18444,7 @@
         }
     },
     {
-        "admissionNo": "15627",
+        "admissionNo": 15627,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18497,7 +18497,7 @@
         }
     },
     {
-        "admissionNo": "14717",
+        "admissionNo": 14717,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18550,7 +18550,7 @@
         }
     },
     {
-        "admissionNo": "14197",
+        "admissionNo": 14197,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18603,7 +18603,7 @@
         }
     },
     {
-        "admissionNo": "15620",
+        "admissionNo": 15620,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18656,7 +18656,7 @@
         }
     },
     {
-        "admissionNo": "15816",
+        "admissionNo": 15816,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18709,7 +18709,7 @@
         }
     },
     {
-        "admissionNo": "14587",
+        "admissionNo": 14587,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18762,7 +18762,7 @@
         }
     },
     {
-        "admissionNo": "15631",
+        "admissionNo": 15631,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18815,7 +18815,7 @@
         }
     },
     {
-        "admissionNo": "15154",
+        "admissionNo": 15154,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18868,7 +18868,7 @@
         }
     },
     {
-        "admissionNo": "14242",
+        "admissionNo": 14242,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18921,7 +18921,7 @@
         }
     },
     {
-        "admissionNo": "15837",
+        "admissionNo": 15837,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -18974,7 +18974,7 @@
         }
     },
     {
-        "admissionNo": "14784",
+        "admissionNo": 14784,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19027,7 +19027,7 @@
         }
     },
     {
-        "admissionNo": "15078",
+        "admissionNo": 15078,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19080,7 +19080,7 @@
         }
     },
     {
-        "admissionNo": "15664",
+        "admissionNo": 15664,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19133,7 +19133,7 @@
         }
     },
     {
-        "admissionNo": "15047",
+        "admissionNo": 15047,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19186,7 +19186,7 @@
         }
     },
     {
-        "admissionNo": "15812",
+        "admissionNo": 15812,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19239,7 +19239,7 @@
         }
     },
     {
-        "admissionNo": "15635",
+        "admissionNo": 15635,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19292,7 +19292,7 @@
         }
     },
     {
-        "admissionNo": "14221",
+        "admissionNo": 14221,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19345,7 +19345,7 @@
         }
     },
     {
-        "admissionNo": "14220",
+        "admissionNo": 14220,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19398,7 +19398,7 @@
         }
     },
     {
-        "admissionNo": "14223",
+        "admissionNo": 14223,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19451,7 +19451,7 @@
         }
     },
     {
-        "admissionNo": "14786",
+        "admissionNo": 14786,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19504,7 +19504,7 @@
         }
     },
     {
-        "admissionNo": "15616",
+        "admissionNo": 15616,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19557,7 +19557,7 @@
         }
     },
     {
-        "admissionNo": "15815",
+        "admissionNo": 15815,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19610,7 +19610,7 @@
         }
     },
     {
-        "admissionNo": "16018",
+        "admissionNo": 16018,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19663,7 +19663,7 @@
         }
     },
     {
-        "admissionNo": "14238",
+        "admissionNo": 14238,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19716,7 +19716,7 @@
         }
     },
     {
-        "admissionNo": "14980",
+        "admissionNo": 14980,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19769,7 +19769,7 @@
         }
     },
     {
-        "admissionNo": "15633",
+        "admissionNo": 15633,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19822,7 +19822,7 @@
         }
     },
     {
-        "admissionNo": "14790",
+        "admissionNo": 14790,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19875,7 +19875,7 @@
         }
     },
     {
-        "admissionNo": "14401",
+        "admissionNo": 14401,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19928,7 +19928,7 @@
         }
     },
     {
-        "admissionNo": "14234",
+        "admissionNo": 14234,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -19981,7 +19981,7 @@
         }
     },
     {
-        "admissionNo": "14782",
+        "admissionNo": 14782,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20034,7 +20034,7 @@
         }
     },
     {
-        "admissionNo": "14196",
+        "admissionNo": 14196,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20087,7 +20087,7 @@
         }
     },
     {
-        "admissionNo": "14225",
+        "admissionNo": 14225,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20140,7 +20140,7 @@
         }
     },
     {
-        "admissionNo": "15634",
+        "admissionNo": 15634,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20193,7 +20193,7 @@
         }
     },
     {
-        "admissionNo": "15629",
+        "admissionNo": 15629,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20246,7 +20246,7 @@
         }
     },
     {
-        "admissionNo": "15601",
+        "admissionNo": 15601,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20299,7 +20299,7 @@
         }
     },
     {
-        "admissionNo": "14216",
+        "admissionNo": 14216,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20352,7 +20352,7 @@
         }
     },
     {
-        "admissionNo": "14231",
+        "admissionNo": 14231,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20405,7 +20405,7 @@
         }
     },
     {
-        "admissionNo": "14217",
+        "admissionNo": 14217,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20458,7 +20458,7 @@
         }
     },
     {
-        "admissionNo": "15622",
+        "admissionNo": 15622,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20511,7 +20511,7 @@
         }
     },
     {
-        "admissionNo": "14209",
+        "admissionNo": 14209,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20564,7 +20564,7 @@
         }
     },
     {
-        "admissionNo": "14235",
+        "admissionNo": 14235,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20617,7 +20617,7 @@
         }
     },
     {
-        "admissionNo": "14588",
+        "admissionNo": 14588,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20670,7 +20670,7 @@
         }
     },
     {
-        "admissionNo": "15274",
+        "admissionNo": 15274,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20723,7 +20723,7 @@
         }
     },
     {
-        "admissionNo": "15513",
+        "admissionNo": 15513,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20776,7 +20776,7 @@
         }
     },
     {
-        "admissionNo": "15873",
+        "admissionNo": 15873,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20829,7 +20829,7 @@
         }
     },
     {
-        "admissionNo": "14203",
+        "admissionNo": 14203,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20882,7 +20882,7 @@
         }
     },
     {
-        "admissionNo": "14983",
+        "admissionNo": 14983,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20935,7 +20935,7 @@
         }
     },
     {
-        "admissionNo": "14191",
+        "admissionNo": 14191,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -20988,7 +20988,7 @@
         }
     },
     {
-        "admissionNo": "14236",
+        "admissionNo": 14236,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21041,7 +21041,7 @@
         }
     },
     {
-        "admissionNo": "14228",
+        "admissionNo": 14228,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21094,7 +21094,7 @@
         }
     },
     {
-        "admissionNo": "14982",
+        "admissionNo": 14982,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21147,7 +21147,7 @@
         }
     },
     {
-        "admissionNo": "14975",
+        "admissionNo": 14975,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21200,7 +21200,7 @@
         }
     },
     {
-        "admissionNo": "15626",
+        "admissionNo": 15626,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21253,7 +21253,7 @@
         }
     },
     {
-        "admissionNo": "15630",
+        "admissionNo": 15630,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21306,7 +21306,7 @@
         }
     },
     {
-        "admissionNo": "16011",
+        "admissionNo": 16011,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21359,7 +21359,7 @@
         }
     },
     {
-        "admissionNo": "15074",
+        "admissionNo": 15074,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21412,7 +21412,7 @@
         }
     },
     {
-        "admissionNo": "14586",
+        "admissionNo": 14586,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21465,7 +21465,7 @@
         }
     },
     {
-        "admissionNo": "15839",
+        "admissionNo": 15839,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21518,7 +21518,7 @@
         }
     },
     {
-        "admissionNo": "15838",
+        "admissionNo": 15838,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21571,7 +21571,7 @@
         }
     },
     {
-        "admissionNo": "15618",
+        "admissionNo": 15618,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21624,7 +21624,7 @@
         }
     },
     {
-        "admissionNo": "14589",
+        "admissionNo": 14589,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21677,7 +21677,7 @@
         }
     },
     {
-        "admissionNo": "14981",
+        "admissionNo": 14981,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21730,7 +21730,7 @@
         }
     },
     {
-        "admissionNo": "16008",
+        "admissionNo": 16008,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21783,7 +21783,7 @@
         }
     },
     {
-        "admissionNo": "15677",
+        "admissionNo": 15677,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21836,7 +21836,7 @@
         }
     },
     {
-        "admissionNo": "14218",
+        "admissionNo": 14218,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21889,7 +21889,7 @@
         }
     },
     {
-        "admissionNo": "15403",
+        "admissionNo": 15403,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21942,7 +21942,7 @@
         }
     },
     {
-        "admissionNo": "14584",
+        "admissionNo": 14584,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -21995,7 +21995,7 @@
         }
     },
     {
-        "admissionNo": "15623",
+        "admissionNo": 15623,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22048,7 +22048,7 @@
         }
     },
     {
-        "admissionNo": "14229",
+        "admissionNo": 14229,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22101,7 +22101,7 @@
         }
     },
     {
-        "admissionNo": "15343",
+        "admissionNo": 15343,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22143,7 +22143,7 @@
         }
     },
     {
-        "admissionNo": "15953",
+        "admissionNo": 15953,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22185,7 +22185,7 @@
         }
     },
     {
-        "admissionNo": "15101",
+        "admissionNo": 15101,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22227,7 +22227,7 @@
         }
     },
     {
-        "admissionNo": "15102",
+        "admissionNo": 15102,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22269,7 +22269,7 @@
         }
     },
     {
-        "admissionNo": "15944",
+        "admissionNo": 15944,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22311,7 +22311,7 @@
         }
     },
     {
-        "admissionNo": "15349",
+        "admissionNo": 15349,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22353,7 +22353,7 @@
         }
     },
     {
-        "admissionNo": "15184",
+        "admissionNo": 15184,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22395,7 +22395,7 @@
         }
     },
     {
-        "admissionNo": "15955",
+        "admissionNo": 15955,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22437,7 +22437,7 @@
         }
     },
     {
-        "admissionNo": "16016",
+        "admissionNo": 16016,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22479,7 +22479,7 @@
         }
     },
     {
-        "admissionNo": "15182",
+        "admissionNo": 15182,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22521,7 +22521,7 @@
         }
     },
     {
-        "admissionNo": "15954",
+        "admissionNo": 15954,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22563,7 +22563,7 @@
         }
     },
     {
-        "admissionNo": "16043",
+        "admissionNo": 16043,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22605,7 +22605,7 @@
         }
     },
     {
-        "admissionNo": "15510",
+        "admissionNo": 15510,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22647,7 +22647,7 @@
         }
     },
     {
-        "admissionNo": "15346",
+        "admissionNo": 15346,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22689,7 +22689,7 @@
         }
     },
     {
-        "admissionNo": "15870",
+        "admissionNo": 15870,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22731,7 +22731,7 @@
         }
     },
     {
-        "admissionNo": "15091",
+        "admissionNo": 15091,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22773,7 +22773,7 @@
         }
     },
     {
-        "admissionNo": "15185",
+        "admissionNo": 15185,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22815,7 +22815,7 @@
         }
     },
     {
-        "admissionNo": "16013",
+        "admissionNo": 16013,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22857,7 +22857,7 @@
         }
     },
     {
-        "admissionNo": "15348",
+        "admissionNo": 15348,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22899,7 +22899,7 @@
         }
     },
     {
-        "admissionNo": "15093",
+        "admissionNo": 15093,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22941,7 +22941,7 @@
         }
     },
     {
-        "admissionNo": "15250",
+        "admissionNo": 15250,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -22983,7 +22983,7 @@
         }
     },
     {
-        "admissionNo": "15849",
+        "admissionNo": 15849,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23025,7 +23025,7 @@
         }
     },
     {
-        "admissionNo": "15959",
+        "admissionNo": 15959,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23067,7 +23067,7 @@
         }
     },
     {
-        "admissionNo": "15114",
+        "admissionNo": 15114,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23109,7 +23109,7 @@
         }
     },
     {
-        "admissionNo": "15946",
+        "admissionNo": 15946,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23151,7 +23151,7 @@
         }
     },
     {
-        "admissionNo": "15569",
+        "admissionNo": 15569,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23193,7 +23193,7 @@
         }
     },
     {
-        "admissionNo": "15570",
+        "admissionNo": 15570,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23235,7 +23235,7 @@
         }
     },
     {
-        "admissionNo": "15109",
+        "admissionNo": 15109,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23277,7 +23277,7 @@
         }
     },
     {
-        "admissionNo": "15125",
+        "admissionNo": 15125,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23319,7 +23319,7 @@
         }
     },
     {
-        "admissionNo": "15098",
+        "admissionNo": 15098,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23361,7 +23361,7 @@
         }
     },
     {
-        "admissionNo": "16035",
+        "admissionNo": 16035,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23403,7 +23403,7 @@
         }
     },
     {
-        "admissionNo": "15268",
+        "admissionNo": 15268,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23445,7 +23445,7 @@
         }
     },
     {
-        "admissionNo": "15095",
+        "admissionNo": 15095,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23487,7 +23487,7 @@
         }
     },
     {
-        "admissionNo": "15659",
+        "admissionNo": 15659,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23529,7 +23529,7 @@
         }
     },
     {
-        "admissionNo": "15205",
+        "admissionNo": 15205,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23571,7 +23571,7 @@
         }
     },
     {
-        "admissionNo": "15743",
+        "admissionNo": 15743,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23613,7 +23613,7 @@
         }
     },
     {
-        "admissionNo": "15943",
+        "admissionNo": 15943,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23655,7 +23655,7 @@
         }
     },
     {
-        "admissionNo": "15207",
+        "admissionNo": 15207,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23697,7 +23697,7 @@
         }
     },
     {
-        "admissionNo": "15997",
+        "admissionNo": 15997,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23739,7 +23739,7 @@
         }
     },
     {
-        "admissionNo": "15518",
+        "admissionNo": 15518,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23781,7 +23781,7 @@
         }
     },
     {
-        "admissionNo": "15948",
+        "admissionNo": 15948,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23823,7 +23823,7 @@
         }
     },
     {
-        "admissionNo": "15113",
+        "admissionNo": 15113,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23865,7 +23865,7 @@
         }
     },
     {
-        "admissionNo": "16012",
+        "admissionNo": 16012,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23907,7 +23907,7 @@
         }
     },
     {
-        "admissionNo": "15120",
+        "admissionNo": 15120,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23949,7 +23949,7 @@
         }
     },
     {
-        "admissionNo": "15741",
+        "admissionNo": 15741,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -23991,7 +23991,7 @@
         }
     },
     {
-        "admissionNo": "15344",
+        "admissionNo": 15344,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24033,7 +24033,7 @@
         }
     },
     {
-        "admissionNo": "15744",
+        "admissionNo": 15744,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24075,7 +24075,7 @@
         }
     },
     {
-        "admissionNo": "15108",
+        "admissionNo": 15108,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24117,7 +24117,7 @@
         }
     },
     {
-        "admissionNo": "15115",
+        "admissionNo": 15115,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24159,7 +24159,7 @@
         }
     },
     {
-        "admissionNo": "15945",
+        "admissionNo": 15945,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24201,7 +24201,7 @@
         }
     },
     {
-        "admissionNo": "15127",
+        "admissionNo": 15127,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24243,7 +24243,7 @@
         }
     },
     {
-        "admissionNo": "15106",
+        "admissionNo": 15106,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24285,7 +24285,7 @@
         }
     },
     {
-        "admissionNo": "15244",
+        "admissionNo": 15244,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24327,7 +24327,7 @@
         }
     },
     {
-        "admissionNo": "15121",
+        "admissionNo": 15121,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24369,7 +24369,7 @@
         }
     },
     {
-        "admissionNo": "15105",
+        "admissionNo": 15105,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24411,7 +24411,7 @@
         }
     },
     {
-        "admissionNo": "15124",
+        "admissionNo": 15124,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24453,7 +24453,7 @@
         }
     },
     {
-        "admissionNo": "15949",
+        "admissionNo": 15949,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24495,7 +24495,7 @@
         }
     },
     {
-        "admissionNo": "16026",
+        "admissionNo": 16026,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24537,7 +24537,7 @@
         }
     },
     {
-        "admissionNo": "15958",
+        "admissionNo": 15958,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24579,7 +24579,7 @@
         }
     },
     {
-        "admissionNo": "15739",
+        "admissionNo": 15739,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24621,7 +24621,7 @@
         }
     },
     {
-        "admissionNo": "15757",
+        "admissionNo": 15757,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24663,7 +24663,7 @@
         }
     },
     {
-        "admissionNo": "15957",
+        "admissionNo": 15957,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24705,7 +24705,7 @@
         }
     },
     {
-        "admissionNo": "15952",
+        "admissionNo": 15952,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24747,7 +24747,7 @@
         }
     },
     {
-        "admissionNo": "15754",
+        "admissionNo": 15754,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24789,7 +24789,7 @@
         }
     },
     {
-        "admissionNo": "15239",
+        "admissionNo": 15239,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24831,7 +24831,7 @@
         }
     },
     {
-        "admissionNo": "15940",
+        "admissionNo": 15940,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24873,7 +24873,7 @@
         }
     },
     {
-        "admissionNo": "15947",
+        "admissionNo": 15947,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24915,7 +24915,7 @@
         }
     },
     {
-        "admissionNo": "15756",
+        "admissionNo": 15756,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24957,7 +24957,7 @@
         }
     },
     {
-        "admissionNo": "15686",
+        "admissionNo": 15686,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -24999,7 +24999,7 @@
         }
     },
     {
-        "admissionNo": "15740",
+        "admissionNo": 15740,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25041,7 +25041,7 @@
         }
     },
     {
-        "admissionNo": "16022",
+        "admissionNo": 16022,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25083,7 +25083,7 @@
         }
     },
     {
-        "admissionNo": "15118",
+        "admissionNo": 15118,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25125,7 +25125,7 @@
         }
     },
     {
-        "admissionNo": "15097",
+        "admissionNo": 15097,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25167,7 +25167,7 @@
         }
     },
     {
-        "admissionNo": "15103",
+        "admissionNo": 15103,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25209,7 +25209,7 @@
         }
     },
     {
-        "admissionNo": "15117",
+        "admissionNo": 15117,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25251,7 +25251,7 @@
         }
     },
     {
-        "admissionNo": "15094",
+        "admissionNo": 15094,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25293,7 +25293,7 @@
         }
     },
     {
-        "admissionNo": "15235",
+        "admissionNo": 15235,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25335,7 +25335,7 @@
         }
     },
     {
-        "admissionNo": "15092",
+        "admissionNo": 15092,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25377,7 +25377,7 @@
         }
     },
     {
-        "admissionNo": "15090",
+        "admissionNo": 15090,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25419,7 +25419,7 @@
         }
     },
     {
-        "admissionNo": "15243",
+        "admissionNo": 15243,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25461,7 +25461,7 @@
         }
     },
     {
-        "admissionNo": "15942",
+        "admissionNo": 15942,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25503,7 +25503,7 @@
         }
     },
     {
-        "admissionNo": "15950",
+        "admissionNo": 15950,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25545,7 +25545,7 @@
         }
     },
     {
-        "admissionNo": "15512",
+        "admissionNo": 15512,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25587,7 +25587,7 @@
         }
     },
     {
-        "admissionNo": "15123",
+        "admissionNo": 15123,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25629,7 +25629,7 @@
         }
     },
     {
-        "admissionNo": "15951",
+        "admissionNo": 15951,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25671,7 +25671,7 @@
         }
     },
     {
-        "admissionNo": "15126",
+        "admissionNo": 15126,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25713,7 +25713,7 @@
         }
     },
     {
-        "admissionNo": "15347",
+        "admissionNo": 15347,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25755,7 +25755,7 @@
         }
     },
     {
-        "admissionNo": "16037",
+        "admissionNo": 16037,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25797,7 +25797,7 @@
         }
     },
     {
-        "admissionNo": "15100",
+        "admissionNo": 15100,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25839,7 +25839,7 @@
         }
     },
     {
-        "admissionNo": "15110",
+        "admissionNo": 15110,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25881,7 +25881,7 @@
         }
     },
     {
-        "admissionNo": "15099",
+        "admissionNo": 15099,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25923,7 +25923,7 @@
         }
     },
     {
-        "admissionNo": "15941",
+        "admissionNo": 15941,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -25965,7 +25965,7 @@
         }
     },
     {
-        "admissionNo": "15672",
+        "admissionNo": 15672,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26007,7 +26007,7 @@
         }
     },
     {
-        "admissionNo": "14929",
+        "admissionNo": 14929,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26049,7 +26049,7 @@
         }
     },
     {
-        "admissionNo": "15963",
+        "admissionNo": 15963,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26091,7 +26091,7 @@
         }
     },
     {
-        "admissionNo": "15753",
+        "admissionNo": 15753,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26133,7 +26133,7 @@
         }
     },
     {
-        "admissionNo": "14960",
+        "admissionNo": 14960,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26175,7 +26175,7 @@
         }
     },
     {
-        "admissionNo": "14955",
+        "admissionNo": 14955,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26217,7 +26217,7 @@
         }
     },
     {
-        "admissionNo": "14926",
+        "admissionNo": 14926,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26259,7 +26259,7 @@
         }
     },
     {
-        "admissionNo": "14949",
+        "admissionNo": 14949,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26301,7 +26301,7 @@
         }
     },
     {
-        "admissionNo": "15751",
+        "admissionNo": 15751,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26343,7 +26343,7 @@
         }
     },
     {
-        "admissionNo": "14944",
+        "admissionNo": 14944,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26385,7 +26385,7 @@
         }
     },
     {
-        "admissionNo": "14951",
+        "admissionNo": 14951,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26427,7 +26427,7 @@
         }
     },
     {
-        "admissionNo": "14948",
+        "admissionNo": 14948,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26469,7 +26469,7 @@
         }
     },
     {
-        "admissionNo": "15968",
+        "admissionNo": 15968,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26511,7 +26511,7 @@
         }
     },
     {
-        "admissionNo": "15967",
+        "admissionNo": 15967,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26553,7 +26553,7 @@
         }
     },
     {
-        "admissionNo": "15231",
+        "admissionNo": 15231,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26595,7 +26595,7 @@
         }
     },
     {
-        "admissionNo": "14934",
+        "admissionNo": 14934,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26637,7 +26637,7 @@
         }
     },
     {
-        "admissionNo": "14943",
+        "admissionNo": 14943,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26679,7 +26679,7 @@
         }
     },
     {
-        "admissionNo": "14923",
+        "admissionNo": 14923,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26721,7 +26721,7 @@
         }
     },
     {
-        "admissionNo": "15746",
+        "admissionNo": 15746,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26763,7 +26763,7 @@
         }
     },
     {
-        "admissionNo": "14918",
+        "admissionNo": 14918,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26805,7 +26805,7 @@
         }
     },
     {
-        "admissionNo": "16029",
+        "admissionNo": 16029,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26847,7 +26847,7 @@
         }
     },
     {
-        "admissionNo": "15576",
+        "admissionNo": 15576,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26889,7 +26889,7 @@
         }
     },
     {
-        "admissionNo": "15579",
+        "admissionNo": 15579,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26931,7 +26931,7 @@
         }
     },
     {
-        "admissionNo": "14939",
+        "admissionNo": 14939,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -26973,7 +26973,7 @@
         }
     },
     {
-        "admissionNo": "15969",
+        "admissionNo": 15969,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27015,7 +27015,7 @@
         }
     },
     {
-        "admissionNo": "14930",
+        "admissionNo": 14930,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27057,7 +27057,7 @@
         }
     },
     {
-        "admissionNo": "14940",
+        "admissionNo": 14940,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27099,7 +27099,7 @@
         }
     },
     {
-        "admissionNo": "15783",
+        "admissionNo": 15783,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27141,7 +27141,7 @@
         }
     },
     {
-        "admissionNo": "15519",
+        "admissionNo": 15519,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27183,7 +27183,7 @@
         }
     },
     {
-        "admissionNo": "15352",
+        "admissionNo": 15352,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27225,7 +27225,7 @@
         }
     },
     {
-        "admissionNo": "14924",
+        "admissionNo": 14924,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27267,7 +27267,7 @@
         }
     },
     {
-        "admissionNo": "15688",
+        "admissionNo": 15688,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27309,7 +27309,7 @@
         }
     },
     {
-        "admissionNo": "14937",
+        "admissionNo": 14937,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27351,7 +27351,7 @@
         }
     },
     {
-        "admissionNo": "15782",
+        "admissionNo": 15782,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27393,7 +27393,7 @@
         }
     },
     {
-        "admissionNo": "15749",
+        "admissionNo": 15749,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27435,7 +27435,7 @@
         }
     },
     {
-        "admissionNo": "14954",
+        "admissionNo": 14954,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27477,7 +27477,7 @@
         }
     },
     {
-        "admissionNo": "15961",
+        "admissionNo": 15961,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27519,7 +27519,7 @@
         }
     },
     {
-        "admissionNo": "14956",
+        "admissionNo": 14956,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27561,7 +27561,7 @@
         }
     },
     {
-        "admissionNo": "15577",
+        "admissionNo": 15577,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27603,7 +27603,7 @@
         }
     },
     {
-        "admissionNo": "14932",
+        "admissionNo": 14932,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27645,7 +27645,7 @@
         }
     },
     {
-        "admissionNo": "15516",
+        "admissionNo": 15516,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27687,7 +27687,7 @@
         }
     },
     {
-        "admissionNo": "14920",
+        "admissionNo": 14920,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27729,7 +27729,7 @@
         }
     },
     {
-        "admissionNo": "15750",
+        "admissionNo": 15750,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27771,7 +27771,7 @@
         }
     },
     {
-        "admissionNo": "14947",
+        "admissionNo": 14947,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27813,7 +27813,7 @@
         }
     },
     {
-        "admissionNo": "14938",
+        "admissionNo": 14938,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27855,7 +27855,7 @@
         }
     },
     {
-        "admissionNo": "15965",
+        "admissionNo": 15965,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27897,7 +27897,7 @@
         }
     },
     {
-        "admissionNo": "15571",
+        "admissionNo": 15571,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27939,7 +27939,7 @@
         }
     },
     {
-        "admissionNo": "15162",
+        "admissionNo": 15162,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -27981,7 +27981,7 @@
         }
     },
     {
-        "admissionNo": "14936",
+        "admissionNo": 14936,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28023,7 +28023,7 @@
         }
     },
     {
-        "admissionNo": "15752",
+        "admissionNo": 15752,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28065,7 +28065,7 @@
         }
     },
     {
-        "admissionNo": "15966",
+        "admissionNo": 15966,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28107,7 +28107,7 @@
         }
     },
     {
-        "admissionNo": "14928",
+        "admissionNo": 14928,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28149,7 +28149,7 @@
         }
     },
     {
-        "admissionNo": "15747",
+        "admissionNo": 15747,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28191,7 +28191,7 @@
         }
     },
     {
-        "admissionNo": "14925",
+        "admissionNo": 14925,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28233,7 +28233,7 @@
         }
     },
     {
-        "admissionNo": "15759",
+        "admissionNo": 15759,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28275,7 +28275,7 @@
         }
     },
     {
-        "admissionNo": "15748",
+        "admissionNo": 15748,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28317,7 +28317,7 @@
         }
     },
     {
-        "admissionNo": "15822",
+        "admissionNo": 15822,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28359,7 +28359,7 @@
         }
     },
     {
-        "admissionNo": "15474",
+        "admissionNo": 15474,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28401,7 +28401,7 @@
         }
     },
     {
-        "admissionNo": "14945",
+        "admissionNo": 14945,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28443,7 +28443,7 @@
         }
     },
     {
-        "admissionNo": "14916",
+        "admissionNo": 14916,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28485,7 +28485,7 @@
         }
     },
     {
-        "admissionNo": "15476",
+        "admissionNo": 15476,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28527,7 +28527,7 @@
         }
     },
     {
-        "admissionNo": "15964",
+        "admissionNo": 15964,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28569,7 +28569,7 @@
         }
     },
     {
-        "admissionNo": "14953",
+        "admissionNo": 14953,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28611,7 +28611,7 @@
         }
     },
     {
-        "admissionNo": "15784",
+        "admissionNo": 15784,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28653,7 +28653,7 @@
         }
     },
     {
-        "admissionNo": "15475",
+        "admissionNo": 15475,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28695,7 +28695,7 @@
         }
     },
     {
-        "admissionNo": "15810",
+        "admissionNo": 15810,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28737,7 +28737,7 @@
         }
     },
     {
-        "admissionNo": "15797",
+        "admissionNo": 15797,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28779,7 +28779,7 @@
         }
     },
     {
-        "admissionNo": "14959",
+        "admissionNo": 14959,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28821,7 +28821,7 @@
         }
     },
     {
-        "admissionNo": "15089",
+        "admissionNo": 15089,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28863,7 +28863,7 @@
         }
     },
     {
-        "admissionNo": "15491",
+        "admissionNo": 15491,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28905,7 +28905,7 @@
         }
     },
     {
-        "admissionNo": "14952",
+        "admissionNo": 14952,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28947,7 +28947,7 @@
         }
     },
     {
-        "admissionNo": "14919",
+        "admissionNo": 14919,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -28989,7 +28989,7 @@
         }
     },
     {
-        "admissionNo": "15745",
+        "admissionNo": 15745,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29031,7 +29031,7 @@
         }
     },
     {
-        "admissionNo": "14941",
+        "admissionNo": 14941,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29073,7 +29073,7 @@
         }
     },
     {
-        "admissionNo": "14957",
+        "admissionNo": 14957,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29115,7 +29115,7 @@
         }
     },
     {
-        "admissionNo": "15962",
+        "admissionNo": 15962,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29157,7 +29157,7 @@
         }
     },
     {
-        "admissionNo": "15865",
+        "admissionNo": 15865,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29199,7 +29199,7 @@
         }
     },
     {
-        "admissionNo": "14927",
+        "admissionNo": 14927,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29241,7 +29241,7 @@
         }
     },
     {
-        "admissionNo": "15572",
+        "admissionNo": 15572,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29283,7 +29283,7 @@
         }
     },
     {
-        "admissionNo": "15228",
+        "admissionNo": 15228,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29325,7 +29325,7 @@
         }
     },
     {
-        "admissionNo": "15859",
+        "admissionNo": 15859,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29367,7 +29367,7 @@
         }
     },
     {
-        "admissionNo": "14946",
+        "admissionNo": 14946,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29409,7 +29409,7 @@
         }
     },
     {
-        "admissionNo": "15758",
+        "admissionNo": 15758,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29451,7 +29451,7 @@
         }
     },
     {
-        "admissionNo": "15970",
+        "admissionNo": 15970,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29493,7 +29493,7 @@
         }
     },
     {
-        "admissionNo": "15490",
+        "admissionNo": 15490,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29535,7 +29535,7 @@
         }
     },
     {
-        "admissionNo": "15573",
+        "admissionNo": 15573,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29577,7 +29577,7 @@
         }
     },
     {
-        "admissionNo": "15351",
+        "admissionNo": 15351,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29619,7 +29619,7 @@
         }
     },
     {
-        "admissionNo": "14922",
+        "admissionNo": 14922,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29661,7 +29661,7 @@
         }
     },
     {
-        "admissionNo": "15960",
+        "admissionNo": 15960,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29703,7 +29703,7 @@
         }
     },
     {
-        "admissionNo": "15350",
+        "admissionNo": 15350,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29745,7 +29745,7 @@
         }
     },
     {
-        "admissionNo": "14931",
+        "admissionNo": 14931,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29787,7 +29787,7 @@
         }
     },
     {
-        "admissionNo": "15796",
+        "admissionNo": 15796,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29829,7 +29829,7 @@
         }
     },
     {
-        "admissionNo": "14732",
+        "admissionNo": 14732,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29871,7 +29871,7 @@
         }
     },
     {
-        "admissionNo": "15596",
+        "admissionNo": 15596,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29913,7 +29913,7 @@
         }
     },
     {
-        "admissionNo": "15867",
+        "admissionNo": 15867,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29955,7 +29955,7 @@
         }
     },
     {
-        "admissionNo": "15358",
+        "admissionNo": 15358,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -29997,7 +29997,7 @@
         }
     },
     {
-        "admissionNo": "15971",
+        "admissionNo": 15971,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30039,7 +30039,7 @@
         }
     },
     {
-        "admissionNo": "14731",
+        "admissionNo": 14731,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30081,7 +30081,7 @@
         }
     },
     {
-        "admissionNo": "15357",
+        "admissionNo": 15357,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30123,7 +30123,7 @@
         }
     },
     {
-        "admissionNo": "15478",
+        "admissionNo": 15478,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30165,7 +30165,7 @@
         }
     },
     {
-        "admissionNo": "15278",
+        "admissionNo": 15278,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30207,7 +30207,7 @@
         }
     },
     {
-        "admissionNo": "15595",
+        "admissionNo": 15595,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30249,7 +30249,7 @@
         }
     },
     {
-        "admissionNo": "14756",
+        "admissionNo": 14756,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30291,7 +30291,7 @@
         }
     },
     {
-        "admissionNo": "16009",
+        "admissionNo": 16009,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30333,7 +30333,7 @@
         }
     },
     {
-        "admissionNo": "14719",
+        "admissionNo": 14719,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30375,7 +30375,7 @@
         }
     },
     {
-        "admissionNo": "14728",
+        "admissionNo": 14728,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30417,7 +30417,7 @@
         }
     },
     {
-        "admissionNo": "14730",
+        "admissionNo": 14730,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30459,7 +30459,7 @@
         }
     },
     {
-        "admissionNo": "15973",
+        "admissionNo": 15973,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30501,7 +30501,7 @@
         }
     },
     {
-        "admissionNo": "15589",
+        "admissionNo": 15589,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30543,7 +30543,7 @@
         }
     },
     {
-        "admissionNo": "14736",
+        "admissionNo": 14736,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30585,7 +30585,7 @@
         }
     },
     {
-        "admissionNo": "15139",
+        "admissionNo": 15139,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30627,7 +30627,7 @@
         }
     },
     {
-        "admissionNo": "14738",
+        "admissionNo": 14738,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30669,7 +30669,7 @@
         }
     },
     {
-        "admissionNo": "14740",
+        "admissionNo": 14740,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30711,7 +30711,7 @@
         }
     },
     {
-        "admissionNo": "15581",
+        "admissionNo": 15581,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30753,7 +30753,7 @@
         }
     },
     {
-        "admissionNo": "14745",
+        "admissionNo": 14745,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30795,7 +30795,7 @@
         }
     },
     {
-        "admissionNo": "14742",
+        "admissionNo": 14742,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30837,7 +30837,7 @@
         }
     },
     {
-        "admissionNo": "15762",
+        "admissionNo": 15762,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30879,7 +30879,7 @@
         }
     },
     {
-        "admissionNo": "14750",
+        "admissionNo": 14750,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30921,7 +30921,7 @@
         }
     },
     {
-        "admissionNo": "14759",
+        "admissionNo": 14759,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -30963,7 +30963,7 @@
         }
     },
     {
-        "admissionNo": "15200",
+        "admissionNo": 15200,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31005,7 +31005,7 @@
         }
     },
     {
-        "admissionNo": "15356",
+        "admissionNo": 15356,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31047,7 +31047,7 @@
         }
     },
     {
-        "admissionNo": "14734",
+        "admissionNo": 14734,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31089,7 +31089,7 @@
         }
     },
     {
-        "admissionNo": "15874",
+        "admissionNo": 15874,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31131,7 +31131,7 @@
         }
     },
     {
-        "admissionNo": "15578",
+        "admissionNo": 15578,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31173,7 +31173,7 @@
         }
     },
     {
-        "admissionNo": "15055",
+        "admissionNo": 15055,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31215,7 +31215,7 @@
         }
     },
     {
-        "admissionNo": "15974",
+        "admissionNo": 15974,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31257,7 +31257,7 @@
         }
     },
     {
-        "admissionNo": "14726",
+        "admissionNo": 14726,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31299,7 +31299,7 @@
         }
     },
     {
-        "admissionNo": "14718",
+        "admissionNo": 14718,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31341,7 +31341,7 @@
         }
     },
     {
-        "admissionNo": "15354",
+        "admissionNo": 15354,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31383,7 +31383,7 @@
         }
     },
     {
-        "admissionNo": "15976",
+        "admissionNo": 15976,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31425,7 +31425,7 @@
         }
     },
     {
-        "admissionNo": "15763",
+        "admissionNo": 15763,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31467,7 +31467,7 @@
         }
     },
     {
-        "admissionNo": "15592",
+        "admissionNo": 15592,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31509,7 +31509,7 @@
         }
     },
     {
-        "admissionNo": "14737",
+        "admissionNo": 14737,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31551,7 +31551,7 @@
         }
     },
     {
-        "admissionNo": "15591",
+        "admissionNo": 15591,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31593,7 +31593,7 @@
         }
     },
     {
-        "admissionNo": "14963",
+        "admissionNo": 14963,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31635,7 +31635,7 @@
         }
     },
     {
-        "admissionNo": "14739",
+        "admissionNo": 14739,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31677,7 +31677,7 @@
         }
     },
     {
-        "admissionNo": "15355",
+        "admissionNo": 15355,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31719,7 +31719,7 @@
         }
     },
     {
-        "admissionNo": "15054",
+        "admissionNo": 15054,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31761,7 +31761,7 @@
         }
     },
     {
-        "admissionNo": "14751",
+        "admissionNo": 14751,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31803,7 +31803,7 @@
         }
     },
     {
-        "admissionNo": "15586",
+        "admissionNo": 15586,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31845,7 +31845,7 @@
         }
     },
     {
-        "admissionNo": "14758",
+        "admissionNo": 14758,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31887,7 +31887,7 @@
         }
     },
     {
-        "admissionNo": "15764",
+        "admissionNo": 15764,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31929,7 +31929,7 @@
         }
     },
     {
-        "admissionNo": "15766",
+        "admissionNo": 15766,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -31971,7 +31971,7 @@
         }
     },
     {
-        "admissionNo": "14761",
+        "admissionNo": 14761,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32013,7 +32013,7 @@
         }
     },
     {
-        "admissionNo": "14760",
+        "admissionNo": 14760,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32055,7 +32055,7 @@
         }
     },
     {
-        "admissionNo": "15259",
+        "admissionNo": 15259,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32097,7 +32097,7 @@
         }
     },
     {
-        "admissionNo": "14715",
+        "admissionNo": 14715,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32139,7 +32139,7 @@
         }
     },
     {
-        "admissionNo": "15975",
+        "admissionNo": 15975,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32181,7 +32181,7 @@
         }
     },
     {
-        "admissionNo": "15972",
+        "admissionNo": 15972,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32223,7 +32223,7 @@
         }
     },
     {
-        "admissionNo": "14716",
+        "admissionNo": 14716,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32265,7 +32265,7 @@
         }
     },
     {
-        "admissionNo": "14721",
+        "admissionNo": 14721,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32307,7 +32307,7 @@
         }
     },
     {
-        "admissionNo": "14722",
+        "admissionNo": 14722,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32349,7 +32349,7 @@
         }
     },
     {
-        "admissionNo": "15584",
+        "admissionNo": 15584,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32391,7 +32391,7 @@
         }
     },
     {
-        "admissionNo": "15769",
+        "admissionNo": 15769,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32433,7 +32433,7 @@
         }
     },
     {
-        "admissionNo": "14727",
+        "admissionNo": 14727,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32475,7 +32475,7 @@
         }
     },
     {
-        "admissionNo": "15582",
+        "admissionNo": 15582,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32517,7 +32517,7 @@
         }
     },
     {
-        "admissionNo": "15223",
+        "admissionNo": 15223,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32559,7 +32559,7 @@
         }
     },
     {
-        "admissionNo": "14741",
+        "admissionNo": 14741,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32601,7 +32601,7 @@
         }
     },
     {
-        "admissionNo": "14743",
+        "admissionNo": 14743,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32643,7 +32643,7 @@
         }
     },
     {
-        "admissionNo": "15593",
+        "admissionNo": 15593,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32685,7 +32685,7 @@
         }
     },
     {
-        "admissionNo": "14747",
+        "admissionNo": 14747,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32727,7 +32727,7 @@
         }
     },
     {
-        "admissionNo": "14748",
+        "admissionNo": 14748,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32769,7 +32769,7 @@
         }
     },
     {
-        "admissionNo": "14753",
+        "admissionNo": 14753,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32811,7 +32811,7 @@
         }
     },
     {
-        "admissionNo": "15575",
+        "admissionNo": 15575,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32853,7 +32853,7 @@
         }
     },
     {
-        "admissionNo": "15082",
+        "admissionNo": 15082,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32895,7 +32895,7 @@
         }
     },
     {
-        "admissionNo": "14720",
+        "admissionNo": 14720,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32937,7 +32937,7 @@
         }
     },
     {
-        "admissionNo": "15768",
+        "admissionNo": 15768,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -32979,7 +32979,7 @@
         }
     },
     {
-        "admissionNo": "15875",
+        "admissionNo": 15875,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33021,7 +33021,7 @@
         }
     },
     {
-        "admissionNo": "15583",
+        "admissionNo": 15583,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33063,7 +33063,7 @@
         }
     },
     {
-        "admissionNo": "15765",
+        "admissionNo": 15765,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33105,7 +33105,7 @@
         }
     },
     {
-        "admissionNo": "14729",
+        "admissionNo": 14729,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33147,7 +33147,7 @@
         }
     },
     {
-        "admissionNo": "15977",
+        "admissionNo": 15977,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33189,7 +33189,7 @@
         }
     },
     {
-        "admissionNo": "15587",
+        "admissionNo": 15587,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33231,7 +33231,7 @@
         }
     },
     {
-        "admissionNo": "14733",
+        "admissionNo": 14733,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33273,7 +33273,7 @@
         }
     },
     {
-        "admissionNo": "15597",
+        "admissionNo": 15597,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33315,7 +33315,7 @@
         }
     },
     {
-        "admissionNo": "14735",
+        "admissionNo": 14735,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33357,7 +33357,7 @@
         }
     },
     {
-        "admissionNo": "16042",
+        "admissionNo": 16042,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33399,7 +33399,7 @@
         }
     },
     {
-        "admissionNo": "15590",
+        "admissionNo": 15590,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33441,7 +33441,7 @@
         }
     },
     {
-        "admissionNo": "14746",
+        "admissionNo": 14746,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33483,7 +33483,7 @@
         }
     },
     {
-        "admissionNo": "15761",
+        "admissionNo": 15761,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33525,7 +33525,7 @@
         }
     },
     {
-        "admissionNo": "14752",
+        "admissionNo": 14752,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33567,7 +33567,7 @@
         }
     },
     {
-        "admissionNo": "14754",
+        "admissionNo": 14754,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33609,7 +33609,7 @@
         }
     },
     {
-        "admissionNo": "15844",
+        "admissionNo": 15844,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33651,7 +33651,7 @@
         }
     },
     {
-        "admissionNo": "14757",
+        "admissionNo": 14757,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
@@ -33693,7 +33693,7 @@
         }
     },
     {
-        "admissionNo": "15585",
+        "admissionNo": 15585,
         "terms": {
             "Monthly Exam 01": {
                 "marks": {
