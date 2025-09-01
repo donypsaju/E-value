@@ -250,6 +250,7 @@
 
 <script type="module">
     // --- GLOBAL STATE ---
+    const APP_VERSION = '1.1'; // Increment this number when you deploy changes
     let currentUser = null;
     let appData = { users: [], marks: [], activities: [], processedStudents: [] };
     let standingsChart = null;
@@ -365,7 +366,8 @@
     }
 
     async function clearSessionAndData() {
-        localStorage.clear();
+        // We use localStorage for versioning, so clear it too.
+        localStorage.clear(); 
         if (db) {
             db.close();
             db = null;
@@ -379,17 +381,13 @@
     }
 
     // --- DATA PROCESSING & CALCULATIONS ---
-    
-    // NEW Helper function to check if an activity belongs to a student
     function isActivityForStudent(activity, student) {
         const studentAdmNoStr = student.admissionNo.toString();
         const activityAdmNo = activity.admissionNo;
 
         if (Array.isArray(activityAdmNo)) {
-            // If admissionNo is an array, check if the student's ID is included
             return activityAdmNo.map(String).includes(studentAdmNoStr);
         } else {
-            // Otherwise, perform a direct comparison
             return activityAdmNo.toString() === studentAdmNoStr;
         }
     }
@@ -413,7 +411,7 @@
                 }
                 
                 const disciplinePoints = activities
-                    .filter(a => isActivityForStudent(a, student)) // MODIFIED
+                    .filter(a => isActivityForStudent(a, student))
                     .reduce((sum, act) => {
                         const basePoints = activityRules[act.Activity] || 0;
                         const calculatedPoints = (act.Rating / 5) * basePoints;
@@ -568,7 +566,7 @@
             return;
         }
 
-        const studentActivities = activities.filter(a => isActivityForStudent(a, student)); // MODIFIED
+        const studentActivities = activities.filter(a => isActivityForStudent(a, student));
         const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
         const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
         const allSubjects = [...new Set(termKeys.flatMap(key => Object.keys(marksRecord.terms[key].marks)))];
@@ -734,11 +732,11 @@
             if (value === 'lp' || value === 'up' || value === 'hs') {
                 const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
                 filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                filteredActivities = activities.filter(a => isActivityForStudent(a, { admissionNo: studentAdmNos }));
+                filteredActivities = activities.filter(a => studentAdmNos.has(a.admissionNo.toString()));
             } else if (value !== 'school' && value !== 'section') {
                 const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
                 filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                filteredActivities = activities.filter(a => isActivityForStudent(a, { admissionNo: studentAdmNos }));
+                filteredActivities = activities.filter(a => studentAdmNos.has(a.admissionNo.toString()));
             }
 
             const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
@@ -1219,6 +1217,16 @@
     }
 
     async function initializeApp(loggedInUser) {
+        // Version Check: If the version in code is different from storage, wipe data.
+        const storedVersion = localStorage.getItem('appVersion');
+        if (storedVersion !== APP_VERSION) {
+            console.log(`App version mismatch. Upgrading from ${storedVersion} to ${APP_VERSION}. Clearing old data.`);
+            await clearSessionAndData();
+            localStorage.setItem('appVersion', APP_VERSION);
+            location.reload();
+            return; // Stop execution to allow reload
+        }
+
         if (!loggedInUser) {
             showLogin();
             return;
