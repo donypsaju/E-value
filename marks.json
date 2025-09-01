@@ -32109,7 +32109,7 @@
                     "B.S.": 6,
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":14715,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":7,\"S.S.\":14,\"B.S.\":6,\"Maths\":\"ab\"},\"total\":39,\"rank\":26},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":9,\"S.S.\":7,\"B.S.\":7,\"Maths\":4},\"total\":42,\"rank\":19},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":8,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":8,\"rank\":12}}},"
+                "total": "{\"admissionNo\":14715,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":7,\"S.S.\":14,\"B.S.\":6,\"Maths\":\"ab\"},\"total\":39,\"rank\":26},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":9,\"S.S.\":7,\"B.S.\":7,\"Maths\":4},\"total\":42,\"rank\":19},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32130,7 +32130,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 8,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32151,7 +32151,7 @@
                     "B.S.": 9,
                     "Maths": 3
                 },
-                "total": "{\"admissionNo\":15975,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":8,\"S.S.\":13,\"B.S.\":9,\"Maths\":3},\"total\":51,\"rank\":17},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":14,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":8,\"S.S.\":\"ab\",\"B.S.\":4,\"Maths\":3},\"total\":29,\"rank\":26},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":7,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":7,\"rank\":13}}},"
+                "total": "{\"admissionNo\":15975,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":8,\"S.S.\":13,\"B.S.\":9,\"Maths\":3},\"total\":51,\"rank\":17},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":14,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":8,\"S.S.\":\"ab\",\"B.S.\":4,\"Maths\":3},\"total\":29,\"rank\":26},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32172,7 +32172,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 7,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32193,7 +32193,7 @@
                     "B.S.": 12,
                     "Maths": 11
                 },
-                "total": "{\"admissionNo\":15972,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":15,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":7,\"S.S.\":9,\"B.S.\":12,\"Maths\":11},\"total\":61,\"rank\":15},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":5,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":11,\"S.S.\":7,\"B.S.\":11,\"Maths\":7},\"total\":47,\"rank\":18},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":12,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":12,\"rank\":8}}},"
+                "total": "{\"admissionNo\":15972,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":15,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":7,\"S.S.\":9,\"B.S.\":12,\"Maths\":11},\"total\":61,\"rank\":15},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":5,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":11,\"S.S.\":7,\"B.S.\":11,\"Maths\":7},\"total\":47,\"rank\":18},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32214,7 +32214,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 12,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32235,7 +32235,7 @@
                     "B.S.": 7,
                     "Maths": 5
                 },
-                "total": "{\"admissionNo\":14716,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":13,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":6,\"S.S.\":7,\"B.S.\":7,\"Maths\":5},\"total\":43,\"rank\":25},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":8,\"S.S.\":1,\"B.S.\":6,\"Maths\":6},\"total\":32,\"rank\":24},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":7,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":7,\"rank\":13}}},"
+                "total": "{\"admissionNo\":14716,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":13,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":6,\"S.S.\":7,\"B.S.\":7,\"Maths\":5},\"total\":43,\"rank\":25},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":8,\"S.S.\":1,\"B.S.\":6,\"Maths\":6},\"total\":32,\"rank\":24},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32256,7 +32256,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 7,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32277,7 +32277,7 @@
                     "B.S.": 15,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":14721,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":13,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":18,\"S.S.\":18,\"B.S.\":15,\"Maths\":1},\"total\":76,\"rank\":9},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":10,\"Hindi\":18,\"S.S.\":15,\"B.S.\":16,\"Maths\":11},\"total\":88,\"rank\":4},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":15,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":15,\"rank\":4}}},"
+                "total": "{\"admissionNo\":14721,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":13,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":18,\"S.S.\":18,\"B.S.\":15,\"Maths\":1},\"total\":76,\"rank\":9},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":10,\"Hindi\":18,\"S.S.\":15,\"B.S.\":16,\"Maths\":11},\"total\":88,\"rank\":4},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32298,7 +32298,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 15,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32319,7 +32319,7 @@
                     "B.S.": 18,
                     "Maths": 7
                 },
-                "total": "{\"admissionNo\":14722,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":19,\"S.S.\":19,\"B.S.\":18,\"Maths\":7},\"total\":97,\"rank\":3},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":20,\"Mal II\":\"Ab\",\"English\":12,\"Hindi\":18,\"S.S.\":12,\"B.S.\":13,\"Maths\":12},\"total\":87,\"rank\":5},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":20,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":20,\"rank\":3}}},"
+                "total": "{\"admissionNo\":14722,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":19,\"S.S.\":19,\"B.S.\":18,\"Maths\":7},\"total\":97,\"rank\":3},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":20,\"Mal II\":\"Ab\",\"English\":12,\"Hindi\":18,\"S.S.\":12,\"B.S.\":13,\"Maths\":12},\"total\":87,\"rank\":5},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32340,7 +32340,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 20,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32361,7 +32361,7 @@
                     "B.S.": "ab",
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":15584,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":8,\"S.S.\":4,\"B.S.\":3,\"Maths\":2},\"total\":27,\"rank\":28},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":7,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":7,\"rank\":13}}},"
+                "total": "{\"admissionNo\":15584,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":8,\"S.S.\":4,\"B.S.\":3,\"Maths\":2},\"total\":27,\"rank\":28},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32382,7 +32382,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 7,
+                    "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32445,7 +32445,7 @@
                     "B.S.": 11,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":14727,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":15,\"S.S.\":11,\"B.S.\":11,\"Maths\":1},\"total\":68,\"rank\":14},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":14,\"S.S.\":10,\"B.S.\":13,\"Maths\":8},\"total\":58,\"rank\":13},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":10,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":10,\"rank\":11}}},"
+                "total": "{\"admissionNo\":14727,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":15,\"S.S.\":11,\"B.S.\":11,\"Maths\":1},\"total\":68,\"rank\":14},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":14,\"S.S.\":10,\"B.S.\":13,\"Maths\":8},\"total\":58,\"rank\":13},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":10,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":10,\"rank\":8}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32487,7 +32487,7 @@
                     "B.S.": 11,
                     "Maths": 5
                 },
-                "total": "{\"admissionNo\":15582,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":18,\"Hindi\":14,\"S.S.\":11,\"B.S.\":11,\"Maths\":5},\"total\":76,\"rank\":9},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":15,\"S.S.\":\"ab\",\"B.S.\":15,\"Maths\":7},\"total\":37,\"rank\":22},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15582,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":18,\"Hindi\":14,\"S.S.\":11,\"B.S.\":11,\"Maths\":5},\"total\":76,\"rank\":9},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":15,\"S.S.\":\"ab\",\"B.S.\":15,\"Maths\":7},\"total\":37,\"rank\":22},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32529,7 +32529,7 @@
                     "B.S.": 10,
                     "Maths": 6
                 },
-                "total": "{\"admissionNo\":15223,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":11,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":11,\"S.S.\":10,\"B.S.\":10,\"Maths\":6},\"total\":59,\"rank\":16},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":8,\"Hindi\":14,\"S.S.\":8,\"B.S.\":10,\"Maths\":10},\"total\":66,\"rank\":9},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":14,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":14,\"rank\":5}}},"
+                "total": "{\"admissionNo\":15223,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":11,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":11,\"S.S.\":10,\"B.S.\":10,\"Maths\":6},\"total\":59,\"rank\":16},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":8,\"Hindi\":14,\"S.S.\":8,\"B.S.\":10,\"Maths\":10},\"total\":66,\"rank\":9},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":14,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":14,\"rank\":3}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32613,7 +32613,7 @@
                     "B.S.": 17,
                     "Maths": 10
                 },
-                "total": "{\"admissionNo\":14743,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":13,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":5,\"S.S.\":17,\"B.S.\":17,\"Maths\":10},\"total\":75,\"rank\":12},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":10,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":2,\"S.S.\":12,\"B.S.\":8,\"Maths\":9},\"total\":56,\"rank\":14},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":14,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":14,\"rank\":5}}},"
+                "total": "{\"admissionNo\":14743,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":13,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":5,\"S.S.\":17,\"B.S.\":17,\"Maths\":10},\"total\":75,\"rank\":12},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":10,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":2,\"S.S.\":12,\"B.S.\":8,\"Maths\":9},\"total\":56,\"rank\":14},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":14,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":14,\"rank\":3}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32655,7 +32655,7 @@
                     "B.S.": "ab",
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":15593,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":11,\"S.S.\":7,\"B.S.\":6,\"Maths\":10},\"total\":52,\"rank\":16},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":11,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":11,\"rank\":9}}},"
+                "total": "{\"admissionNo\":15593,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":11,\"S.S.\":7,\"B.S.\":6,\"Maths\":10},\"total\":52,\"rank\":16},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":11,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":11,\"rank\":6}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32697,7 +32697,7 @@
                     "B.S.": 20,
                     "Maths": 6
                 },
-                "total": "{\"admissionNo\":14747,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":17,\"Hindi\":17,\"S.S.\":20,\"B.S.\":20,\"Maths\":6},\"total\":99,\"rank\":2},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":12,\"Hindi\":18,\"S.S.\":11,\"B.S.\":9,\"Maths\":12},\"total\":78,\"rank\":7},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":11,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":11,\"rank\":9}}},"
+                "total": "{\"admissionNo\":14747,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":17,\"Hindi\":17,\"S.S.\":20,\"B.S.\":20,\"Maths\":6},\"total\":99,\"rank\":2},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":12,\"Hindi\":18,\"S.S.\":11,\"B.S.\":9,\"Maths\":12},\"total\":78,\"rank\":7},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":11,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":11,\"rank\":6}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32739,7 +32739,7 @@
                     "B.S.": 15,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":14748,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":16,\"S.S.\":20,\"B.S.\":15,\"Maths\":1},\"total\":81,\"rank\":7},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":15,\"Mal II\":\"Ab\",\"English\":12,\"Hindi\":12,\"S.S.\":10,\"B.S.\":8,\"Maths\":15},\"total\":72,\"rank\":8},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":14,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":14,\"rank\":5}}},"
+                "total": "{\"admissionNo\":14748,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":16,\"S.S.\":20,\"B.S.\":15,\"Maths\":1},\"total\":81,\"rank\":7},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":15,\"Mal II\":\"Ab\",\"English\":12,\"Hindi\":12,\"S.S.\":10,\"B.S.\":8,\"Maths\":15},\"total\":72,\"rank\":8},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":14,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":14,\"rank\":3}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32781,7 +32781,7 @@
                     "B.S.": 7,
                     "Maths": 5
                 },
-                "total": "{\"admissionNo\":14753,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":9,\"Hindi\":7,\"S.S.\":6,\"B.S.\":7,\"Maths\":5},\"total\":46,\"rank\":20},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":11,\"Mal II\":\"Ab\",\"English\":8,\"Hindi\":11,\"S.S.\":7,\"B.S.\":4,\"Maths\":9},\"total\":50,\"rank\":17},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14753,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":9,\"Hindi\":7,\"S.S.\":6,\"B.S.\":7,\"Maths\":5},\"total\":46,\"rank\":20},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":11,\"Mal II\":\"Ab\",\"English\":8,\"Hindi\":11,\"S.S.\":7,\"B.S.\":4,\"Maths\":9},\"total\":50,\"rank\":17},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32823,7 +32823,7 @@
                     "B.S.": 5,
                     "Maths": 10
                 },
-                "total": "{\"admissionNo\":15575,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":7,\"S.S.\":7,\"B.S.\":5,\"Maths\":10},\"total\":50,\"rank\":18},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":13,\"S.S.\":8,\"B.S.\":7,\"Maths\":5},\"total\":64,\"rank\":11},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15575,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":7,\"S.S.\":7,\"B.S.\":5,\"Maths\":10},\"total\":50,\"rank\":18},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":13,\"S.S.\":8,\"B.S.\":7,\"Maths\":5},\"total\":64,\"rank\":11},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32865,7 +32865,7 @@
                     "B.S.": 15,
                     "Maths": 12
                 },
-                "total": "{\"admissionNo\":15082,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":15,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":8,\"S.S.\":17,\"B.S.\":15,\"Maths\":12},\"total\":78,\"rank\":8},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":9,\"S.S.\":7,\"B.S.\":10,\"Maths\":9},\"total\":65,\"rank\":10},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15082,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":15,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":8,\"S.S.\":17,\"B.S.\":15,\"Maths\":12},\"total\":78,\"rank\":8},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":9,\"S.S.\":7,\"B.S.\":10,\"Maths\":9},\"total\":65,\"rank\":10},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32907,7 +32907,7 @@
                     "B.S.": 15,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":14720,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":5,\"S.S.\":2,\"B.S.\":15,\"Maths\":1},\"total\":46,\"rank\":\"Ab\"},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":10,\"S.S.\":1,\"B.S.\":1,\"Maths\":5},\"total\":26,\"rank\":29},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14720,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":5,\"S.S.\":2,\"B.S.\":15,\"Maths\":1},\"total\":46,\"rank\":\"Ab\"},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":10,\"S.S.\":1,\"B.S.\":1,\"Maths\":5},\"total\":26,\"rank\":29},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32949,7 +32949,7 @@
                     "B.S.": 11,
                     "Maths": 5
                 },
-                "total": "{\"admissionNo\":15768,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":5,\"S.S.\":7,\"B.S.\":11,\"Maths\":5},\"total\":39,\"rank\":26},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":4,\"Mal II\":\"Ab\",\"English\":2,\"Hindi\":2,\"S.S.\":1,\"B.S.\":1,\"Maths\":\"ab\"},\"total\":10,\"rank\":34},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15768,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":5,\"S.S.\":7,\"B.S.\":11,\"Maths\":5},\"total\":39,\"rank\":26},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":4,\"Mal II\":\"Ab\",\"English\":2,\"Hindi\":2,\"S.S.\":1,\"B.S.\":1,\"Maths\":\"ab\"},\"total\":10,\"rank\":34},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -32991,7 +32991,7 @@
                     "B.S.": 5,
                     "Maths": 10
                 },
-                "total": "{\"admissionNo\":15875,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":2,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":1,\"S.S.\":2,\"B.S.\":5,\"Maths\":10},\"total\":20,\"rank\":33},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":3,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":2,\"S.S.\":4,\"B.S.\":4,\"Maths\":\"ab\"},\"total\":17,\"rank\":33},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15875,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":2,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":1,\"S.S.\":2,\"B.S.\":5,\"Maths\":10},\"total\":20,\"rank\":33},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":3,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":2,\"S.S.\":4,\"B.S.\":4,\"Maths\":\"ab\"},\"total\":17,\"rank\":33},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33033,7 +33033,7 @@
                     "B.S.": "ab",
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":15583,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15583,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33075,7 +33075,7 @@
                     "B.S.": 7,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":15765,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":4,\"S.S.\":2,\"B.S.\":7,\"Maths\":1},\"total\":26,\"rank\":31},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":3,\"Mal II\":\"Ab\",\"English\":1,\"Hindi\":\"ab\",\"S.S.\":1,\"B.S.\":\"ab\",\"Maths\":1},\"total\":6,\"rank\":35},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15765,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":4,\"S.S.\":2,\"B.S.\":7,\"Maths\":1},\"total\":26,\"rank\":31},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":3,\"Mal II\":\"Ab\",\"English\":1,\"Hindi\":\"ab\",\"S.S.\":1,\"B.S.\":\"ab\",\"Maths\":1},\"total\":6,\"rank\":35},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33117,7 +33117,7 @@
                     "B.S.": 8,
                     "Maths": 10
                 },
-                "total": "{\"admissionNo\":14729,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":2,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":4,\"S.S.\":10,\"B.S.\":8,\"Maths\":10},\"total\":45,\"rank\":22},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":8,\"S.S.\":5,\"B.S.\":6,\"Maths\":3},\"total\":34,\"rank\":23},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14729,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":2,\"Mal II\":\"Ab\",\"English\":11,\"Hindi\":4,\"S.S.\":10,\"B.S.\":8,\"Maths\":10},\"total\":45,\"rank\":22},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":8,\"S.S.\":5,\"B.S.\":6,\"Maths\":3},\"total\":34,\"rank\":23},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33159,7 +33159,7 @@
                     "B.S.": 6,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":15977,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":8,\"Hindi\":3,\"S.S.\":3,\"B.S.\":6,\"Maths\":1},\"total\":29,\"rank\":29},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":3,\"S.S.\":6,\"B.S.\":3,\"Maths\":7},\"total\":38,\"rank\":21},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15977,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":8,\"Hindi\":3,\"S.S.\":3,\"B.S.\":6,\"Maths\":1},\"total\":29,\"rank\":29},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":12,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":3,\"S.S.\":6,\"B.S.\":3,\"Maths\":7},\"total\":38,\"rank\":21},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33201,7 +33201,7 @@
                     "B.S.": 15,
                     "Maths": 10
                 },
-                "total": "{\"admissionNo\":15587,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":16,\"S.S.\":20,\"B.S.\":15,\"Maths\":10},\"total\":95,\"rank\":4},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":9},\"total\":25,\"rank\":30},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15587,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":16,\"S.S.\":20,\"B.S.\":15,\"Maths\":10},\"total\":95,\"rank\":4},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":9},\"total\":25,\"rank\":30},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33243,7 +33243,7 @@
                     "B.S.": 18,
                     "Maths": 10
                 },
-                "total": "{\"admissionNo\":14733,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":\"ab\",\"S.S.\":15,\"B.S.\":18,\"Maths\":10},\"total\":76,\"rank\":9},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":16,\"Hindi\":13,\"S.S.\":14,\"B.S.\":7,\"Maths\":13},\"total\":80,\"rank\":6},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14733,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":18,\"Mal II\":\"Ab\",\"English\":15,\"Hindi\":\"ab\",\"S.S.\":15,\"B.S.\":18,\"Maths\":10},\"total\":76,\"rank\":9},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":17,\"Mal II\":\"Ab\",\"English\":16,\"Hindi\":13,\"S.S.\":14,\"B.S.\":7,\"Maths\":13},\"total\":80,\"rank\":6},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33285,7 +33285,7 @@
                     "B.S.": 8,
                     "Maths": 12
                 },
-                "total": "{\"admissionNo\":15597,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":14,\"Hindi\":10,\"S.S.\":12,\"B.S.\":8,\"Maths\":12},\"total\":72,\"rank\":13},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":12,\"S.S.\":11,\"B.S.\":4,\"Maths\":14},\"total\":62,\"rank\":12},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15597,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":16,\"Mal II\":\"Ab\",\"English\":14,\"Hindi\":10,\"S.S.\":12,\"B.S.\":8,\"Maths\":12},\"total\":72,\"rank\":13},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":12,\"S.S.\":11,\"B.S.\":4,\"Maths\":14},\"total\":62,\"rank\":12},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33327,7 +33327,7 @@
                     "B.S.": "ab",
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":14735,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14735,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33369,7 +33369,7 @@
                     "B.S.": "ab",
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":16042,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":16042,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33411,7 +33411,7 @@
                     "B.S.": 14,
                     "Maths": 9
                 },
-                "total": "{\"admissionNo\":15590,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":4,\"S.S.\":6,\"B.S.\":14,\"Maths\":9},\"total\":47,\"rank\":19},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":4,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":9,\"S.S.\":4,\"B.S.\":5,\"Maths\":\"ab\"},\"total\":25,\"rank\":30},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15590,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":4,\"S.S.\":6,\"B.S.\":14,\"Maths\":9},\"total\":47,\"rank\":19},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":4,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":9,\"S.S.\":4,\"B.S.\":5,\"Maths\":\"ab\"},\"total\":25,\"rank\":30},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33453,7 +33453,7 @@
                     "B.S.": 10,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":14746,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":5,\"S.S.\":7,\"B.S.\":10,\"Maths\":1},\"total\":44,\"rank\":23},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":8,\"S.S.\":10,\"B.S.\":3,\"Maths\":6},\"total\":41,\"rank\":20},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14746,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":13,\"Hindi\":5,\"S.S.\":7,\"B.S.\":10,\"Maths\":1},\"total\":44,\"rank\":23},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":6,\"Hindi\":8,\"S.S.\":10,\"B.S.\":3,\"Maths\":6},\"total\":41,\"rank\":20},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33495,7 +33495,7 @@
                     "B.S.": 11,
                     "Maths": 5
                 },
-                "total": "{\"admissionNo\":15761,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":4,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":8,\"S.S.\":2,\"B.S.\":11,\"Maths\":5},\"total\":37,\"rank\":28},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":10,\"S.S.\":5,\"B.S.\":3,\"Maths\":\"ab\"},\"total\":30,\"rank\":25},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15761,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":4,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":8,\"S.S.\":2,\"B.S.\":11,\"Maths\":5},\"total\":37,\"rank\":28},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":4,\"Hindi\":10,\"S.S.\":5,\"B.S.\":3,\"Maths\":\"ab\"},\"total\":30,\"rank\":25},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33537,7 +33537,7 @@
                     "B.S.": "ab",
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":14752,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14752,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":34},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":\"ab\",\"Mal II\":\"Ab\",\"English\":\"ab\",\"Hindi\":\"ab\",\"S.S.\":\"ab\",\"B.S.\":\"ab\",\"Maths\":\"ab\"},\"total\":0,\"rank\":36},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33579,7 +33579,7 @@
                     "B.S.": 2,
                     "Maths": "ab"
                 },
-                "total": "{\"admissionNo\":14754,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":5,\"S.S.\":2,\"B.S.\":2,\"Maths\":\"ab\"},\"total\":22,\"rank\":32},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":8,\"S.S.\":1,\"B.S.\":3,\"Maths\":6},\"total\":29,\"rank\":26},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14754,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":6,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":5,\"S.S.\":2,\"B.S.\":2,\"Maths\":\"ab\"},\"total\":22,\"rank\":32},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":8,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":8,\"S.S.\":1,\"B.S.\":3,\"Maths\":6},\"total\":29,\"rank\":26},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33621,7 +33621,7 @@
                     "B.S.": 10,
                     "Maths": 1
                 },
-                "total": "{\"admissionNo\":15844,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":10,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":13,\"S.S.\":3,\"B.S.\":10,\"Maths\":1},\"total\":44,\"rank\":23},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":14,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":13,\"S.S.\":8,\"B.S.\":14,\"Maths\":2},\"total\":54,\"rank\":15},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15844,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":10,\"Mal II\":\"Ab\",\"English\":7,\"Hindi\":13,\"S.S.\":3,\"B.S.\":10,\"Maths\":1},\"total\":44,\"rank\":23},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":14,\"Mal II\":\"Ab\",\"English\":3,\"Hindi\":13,\"S.S.\":8,\"B.S.\":14,\"Maths\":2},\"total\":54,\"rank\":15},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33663,7 +33663,7 @@
                     "B.S.": 2,
                     "Maths": 9
                 },
-                "total": "{\"admissionNo\":14757,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":5,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":1,\"S.S.\":6,\"B.S.\":2,\"Maths\":9},\"total\":28,\"rank\":30},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":3,\"Mal II\":\"Ab\",\"English\":1,\"Hindi\":7,\"S.S.\":1,\"B.S.\":3,\"Maths\":8},\"total\":23,\"rank\":32},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":14757,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":5,\"Mal II\":\"Ab\",\"English\":5,\"Hindi\":1,\"S.S.\":6,\"B.S.\":2,\"Maths\":9},\"total\":28,\"rank\":30},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":3,\"Mal II\":\"Ab\",\"English\":1,\"Hindi\":7,\"S.S.\":1,\"B.S.\":3,\"Maths\":8},\"total\":23,\"rank\":32},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -33705,7 +33705,7 @@
                     "B.S.": 16,
                     "Maths": 12
                 },
-                "total": "{\"admissionNo\":15585,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":14,\"Mal II\":\"Ab\",\"English\":17,\"Hindi\":17,\"S.S.\":15,\"B.S.\":16,\"Maths\":12},\"total\":91,\"rank\":6},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":19,\"Hindi\":20,\"S.S.\":16,\"B.S.\":11,\"Maths\":18},\"total\":103,\"rank\":2},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":16}}},"
+                "total": "{\"admissionNo\":15585,\"terms\": {\"Monthly Exam 01\": {\"marks\": {\"Mal I\":14,\"Mal II\":\"Ab\",\"English\":17,\"Hindi\":17,\"S.S.\":15,\"B.S.\":16,\"Maths\":12},\"total\":91,\"rank\":6},\"First Mid Term Exam\": {\"marks\": {\"Mal I\":19,\"Mal II\":\"Ab\",\"English\":19,\"Hindi\":20,\"S.S.\":16,\"B.S.\":11,\"Maths\":18},\"total\":103,\"rank\":2},\"First Term Exam\": {\"marks\": {\"Mal I\":0,\"Mal II\":0,\"English\":0,\"Hindi\":0,\"S.S.\":0,\"B.S.\":0,\"Maths\":0,\"Art\":0,\"H.E.\":0,\"Work\":0},\"total\":0,\"rank\":9}}},"
             },
             "First Mid Term Exam": {
                 "marks": {
