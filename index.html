@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -44,6 +44,7 @@
             --grade-c: #f59e0b;
             --grade-d: #f97316;
             --grade-e: #dc2626;
+            --theme-text: var(--theme-primary); /* Default theme */
         }
 
         html.dark {
@@ -87,6 +88,7 @@
         
         .themed-bg { background-color: var(--theme-text) !important; color: white !important; }
         .themed-bg:hover { filter: brightness(1.1); }
+        .themed-bg span, .themed-bg i { color: white !important; } /* Ensure child elements are white */
         .themed-text { color: var(--theme-text) !important; }
         
         /* General Component Styles */
@@ -512,11 +514,11 @@ const dashboardContainer = document.getElementById('dashboard-container');
 function buildHMDashboard(user, allStudents, processedStudents, metadata) {
     const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
     dashboardContainer.innerHTML = `
-        <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc_y4J239hdnp2f7X-h-8-3J1X7W7Y7z8n8Z5fJ8n8W8Y8w8Q/viewform" target="_blank" class="action-btn themed-bg">Discipline Entry</a><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="action-btn themed-bg">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="action-btn themed-bg">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="action-btn themed-bg">HS Marks</a></div></div>
-        <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
-        <div id="leaderboardCard"></div>
-        <div id="classToppersCard"></div>
-        <div id="subjectToppersCard"></div>`;
+    <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><button data-action="discipline" class="action-btn themed-bg">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="action-btn themed-bg">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="action-btn themed-bg">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="action-btn themed-bg">HS Marks</a></div></div>
+    <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
+    <div id="leaderboardCard"></div>
+    <div id="classToppersCard"></div>
+    <div id="subjectToppersCard"></div>`;
 
     buildStandingsChart(processedStudents);
     buildLeaderboardCard(processedStudents, appData.activities, false);
@@ -541,7 +543,7 @@ function buildTeacherDashboard(user, allStudents, processedStudents, metadata) {
     const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
 
     dashboardContainer.innerHTML = `
-        <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc_y4J239hdnp2f7X-h-8-3J1X7W7Y7z8n8Z5fJ8n8W8Y8w8Q/viewform" target="_blank" class="action-btn themed-bg">Discipline Entry</a><a href="${markEntryUrl}" target="_blank" class="action-btn themed-bg">${teacherSection} Mark Entry</a></div></div>
+        <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><button data-action="discipline" class="action-btn themed-bg">Discipline Entry</button><a href="${markEntryUrl}" target="_blank" class="action-btn themed-bg">${teacherSection} Mark Entry</a></div></div>
         <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
         <div id="leaderboardCard"></div>
         <div id="classToppersCard"></div>
@@ -592,7 +594,6 @@ function buildParentDashboard(currentChild, siblings, processedStudents) {
                 const studentData = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
 
                 if (admNo === currentUser.admissionNo.toString()) {
-                    // *** FIX: Recalculate siblings for the target child to pass to the dashboard ***
                     const siblingsOfTarget = appData.users.filter(s => {
                         if (s.role !== 'student' || !s.admissionNo || s.admissionNo.toString() === admNo) return false;
                         const targetPhones = Array.isArray(studentData.phone) ? studentData.phone : [studentData.phone];
@@ -788,21 +789,14 @@ function buildStudentDashboard(student, activities, viewer = null, siblings = []
             if (value === 'lp' || value === 'up' || value === 'hs') {
                 const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
                 filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                // *** FIX START ***
-                filteredActivities = activities.filter(a => {
-                    const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                    return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-                });
-                // *** FIX END ***
+                filteredActivities = activities.filter(a => { const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()]; return activityAdmNos.some(admNo => studentAdmNos.has(admNo)); });
             } else if (value !== 'school' && value !== 'section') {
                 const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
                 filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                // *** FIX START ***
                  filteredActivities = activities.filter(a => {
                     const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
                     return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
                 });
-                // *** FIX END ***
             }
 
             const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
@@ -1183,13 +1177,11 @@ function buildStudentDashboard(student, activities, viewer = null, siblings = []
             
             const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
                 .sort((a, b) => {
-                    if (a.gender < b.gender) return -1; // 'F' before 'M'
-                    if (a.gender > b.gender) return 1;
-                    return a.name.localeCompare(b.name); // Then sort by name
+                    return a.name.localeCompare(b.name); // Sort by name
                 });
 
             let tableHTML = `<div class="overflow-x-auto"><table id="reportTable" class="custom-table"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
-            let clipboardText = ""; // MODIFIED: No header
+            let clipboardText = ""; 
 
             classStudents.forEach(s => {
                 const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
@@ -1303,22 +1295,22 @@ async function initializeApp(loggedInUser) {
         let searchableStudents = loggedInUser.designation === 'HM' 
                 ? processedStudents 
                 : processedStudents.filter(s => getSection(s.class) === getTeacherSection(loggedInUser.designation));
-            
-            document.getElementById('headerSearch').addEventListener('input', e => {
-                const query = e.target.value.toLowerCase();
-                const searchResultsEl = document.getElementById('headerSearchResults');
-                if (!query) { searchResultsEl.innerHTML = ''; return; }
-                const results = searchableStudents.filter(s => s.name.toLowerCase().includes(query) || s.admissionNo.toString().includes(query));
-                searchResultsEl.innerHTML = results.length > 0 ? `<ul class="divide-y divide-[var(--border-color)]">${results.map(s => `<li class="p-2 hover:bg-[var(--bg-primary)] cursor-pointer view-student-btn" data-admission-no="${s.admissionNo}">${s.name} - ${s.class}${s.division}</li>`).join('')}</ul>` : `<div class="p-2">No students found.</div>`;
-            });
-             document.getElementById('headerSearchResults').addEventListener('click', e => {
-                if (e.target.classList.contains('view-student-btn')) {
-                    const student = appData.processedStudents.find(s => s.admissionNo.toString() === e.target.dataset.admissionNo.toString());
-                    if (student) buildStudentDashboard(student, appData.activities, currentUser);
-                    document.getElementById('headerSearch').value = '';
-                    document.getElementById('headerSearchResults').innerHTML = '';
-                }
-            });
+        
+        document.getElementById('headerSearch').addEventListener('input', e => {
+            const query = e.target.value.toLowerCase();
+            const searchResultsEl = document.getElementById('headerSearchResults');
+            if (!query) { searchResultsEl.innerHTML = ''; return; }
+            const results = searchableStudents.filter(s => s.name.toLowerCase().includes(query) || s.admissionNo.toString().includes(query));
+            searchResultsEl.innerHTML = results.length > 0 ? `<ul class="divide-y divide-[var(--border-color)]">${results.map(s => `<li class="p-2 hover:bg-[var(--bg-primary)] cursor-pointer view-student-btn" data-admission-no="${s.admissionNo}">${s.name} - ${s.class}${s.division}</li>`).join('')}</ul>` : `<div class="p-2">No students found.</div>`;
+        });
+         document.getElementById('headerSearchResults').addEventListener('click', e => {
+            if (e.target.classList.contains('view-student-btn')) {
+                const student = appData.processedStudents.find(s => s.admissionNo.toString() === e.target.dataset.admissionNo.toString());
+                if (student) buildStudentDashboard(student, appData.activities, currentUser);
+                document.getElementById('headerSearch').value = '';
+                document.getElementById('headerSearchResults').innerHTML = '';
+            }
+        });
     } else {
         searchContainer.classList.add('hidden');
     }
@@ -1365,7 +1357,7 @@ async function initializeApp(loggedInUser) {
         if (target.classList.contains('action-btn')) {
             const action = target.dataset.action;
             if (action === 'discipline') {
-                const url = "https://forms.gle/WMmnHUghyBWRckr46";
+                const url = "https://forms.gle/MifhWNaqjoN3feeLA"; // <-- CORRECT URL APPLIED HERE
                 openIframeModal(url, "Record Discipline Points");
             }
         }
@@ -1445,3 +1437,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
