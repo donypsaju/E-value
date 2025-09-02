@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
@@ -23,19 +24,17 @@
         }
 
         /* --- THEME COLORS using CSS Variables --- */
-        :root {
-            /* Light Mode Palette */
-            --bg-primary: #F7F9FB;      /* Page background */
-            --bg-secondary: #ffffff;   /* Card background */
-            --text-primary: #3D405B;   /* Main text */
-            --text-secondary: #8D99AE; /* Subdued text */
+        [data-bs-theme="light"] {
+            --bg-primary: #F7F9FB;      
+            --bg-secondary: #ffffff;   
+            --text-primary: #3D405B;   
+            --text-secondary: #8D99AE; 
             --border-color: #E0E0E0;
-            --theme-primary: #F38181;   /* Staff theme color (from user palette) */
-            --house-blue: #81B2D9;     /* A complementary soft blue */
-            --house-green: #95E1D3;    /* User palette */
-            --house-yellow: #FCE38A;   /* User palette */
-            --house-rose: #F38181;     /* User palette */
-            /* Distinctive Colors */
+            --theme-primary: #F38181;   
+            --house-blue: #81B2D9;     
+            --house-green: #95E1D3;   
+            --house-yellow: #FCE38A;   
+            --house-rose: #F38181;     
             --trend-up: #95E1D3;
             --trend-down: #F38181;
             --trend-stable: #8D99AE;
@@ -44,11 +43,9 @@
             --grade-c: #FCE38A;
             --grade-d: #F4B678;
             --grade-e: #F38181;
-            --theme-text: var(--theme-primary); /* Default theme */
         }
 
-        html.dark {
-            /* Dark Mode Palette */
+        [data-bs-theme="dark"] {
             --bg-primary: #242424;
             --bg-secondary: #333533;
             --text-primary: #F5F5F5;
@@ -59,7 +56,6 @@
             --house-green: #95E1D3;
             --house-yellow: #FCE38A;
             --house-rose: #F38181;
-            /* Distinctive Colors - Same vibrant colors work well on dark */
             --trend-up: #95E1D3;
             --trend-down: #F38181;
             --trend-stable: #ADB5BD;
@@ -68,16 +64,21 @@
             --grade-c: #FCE38A;
             --grade-d: #F4B678;
             --grade-e: #F38181;
+            
+            --bs-body-bg: var(--bg-primary);
+            --bs-body-color: var(--text-primary);
+            --bs-border-color: var(--border-color);
         }
         
         /* Apply themed colors */
         body { background-color: var(--bg-primary); color: var(--text-primary); }
-        .card, header, .modal-content { background-color: var(--bg-secondary); border: 1px solid var(--border-color); }
-        .themed-input, .themed-select { background-color: var(--bg-primary) !important; color: var(--text-primary); border: 1px solid var(--border-color); }
-        h1, h2, h3, h4, h5, h6 { color: var(--text-primary); }
+        .card, .modal-content, header { background-color: var(--bg-secondary); border-color: var(--border-color); }
+        .form-control, .form-select { background-color: var(--bg-primary) !important; color: var(--text-primary); border-color: var(--border-color); }
+        h1, h2, h3, h4, h5, h6, .text-primary { color: var(--text-primary) !important; }
         p, label, span, button, a, div, li, i { color: var(--text-secondary); }
-        .text-primary { color: var(--text-primary) !important; }
-        .close-btn { color: var(--text-primary); }
+        .btn-close { filter: invert(0.5); }
+        [data-bs-theme="dark"] .btn-close { filter: invert(1); }
+
 
         /* Theme-specific primary colors */
         body.theme-hm, body.theme-teacher { --theme-text: var(--theme-primary); }
@@ -85,28 +86,32 @@
         body.theme-green { --theme-text: var(--house-green); }
         body.theme-yellow { --theme-text: var(--house-yellow); }
         body.theme-rose { --theme-text: var(--house-rose); }
+        body { --theme-text: var(--theme-primary); } /* Default for home/login */
         
-        .themed-bg { background-color: var(--theme-text) !important; color: white !important; }
+        .themed-bg { background-color: var(--theme-text) !important; color: white !important; border: none;}
         .themed-bg:hover { filter: brightness(1.1); }
-        .themed-bg span, .themed-bg i { color: white !important; } /* Ensure child elements are white */
+        .themed-bg span, .themed-bg i { color: white !important; } 
         .themed-text { color: var(--theme-text) !important; }
         
         /* General Component Styles */
-        .dashboard-card { border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.07); padding: 1.5rem; transition: all 0.2s ease; animation: fadeIn 0.5s ease-out; }
+        .dashboard-card { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .custom-table { width: 100%; border-collapse: collapse; }
-        .custom-table th, .custom-table td { padding: 1rem 1.5rem; text-align: left; }
-        .custom-table th { font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .close-btn { font-size: 2rem; line-height: 1; font-weight: bold; }
-        .action-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 9999px; color: white !important; font-weight: 500; transition: all 0.2s; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1); }
         
-        /* Theme Switcher & Language Switcher*/
-        .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 1rem; z-index: 100; }
+        @keyframes indeterminate-progress {
+            0% { transform: translateX(-100%) scaleX(0.1); }
+            40% { transform: translateX(0) scaleX(0.4); }
+            100% { transform: translateX(100%) scaleX(0.5); }
+        }
+
+        .action-btn { font-weight: 500; }
+        
+        /* Theme Switcher */
+        .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 100; }
         #theme-switcher { cursor: pointer; background-color: var(--bg-secondary); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; border: 1px solid var(--border-color); }
         #theme-switcher-thumb { position: absolute; width: 24px; height: 24px; background-color: var(--theme-text); border-radius: 50%; transition: transform 0.3s ease-out; }
-        html:not(.dark) #theme-switcher-thumb { transform: translateX(0px); }
-        html.dark #theme-switcher-thumb { transform: translateX(24px); }
-        .lang-btn { padding: 0.25rem 0.5rem; border-radius: 0.5rem; }
+        html[data-bs-theme="light"] #theme-switcher-thumb { transform: translateX(0px); }
+        html[data-bs-theme="dark"] #theme-switcher-thumb { transform: translateX(24px); }
+        .lang-btn { padding: 0.25rem 0.5rem; border-radius: 0.5rem; border: none; background: transparent; }
         .lang-btn.active { background-color: var(--theme-text); color: white !important; }
 
         /* Distinctive Text Colors */
@@ -124,65 +129,58 @@
         // Prevents theme flashing on reload
         (function() {
             const theme = localStorage.getItem('theme') || 'light';
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-            }
+            document.documentElement.setAttribute('data-bs-theme', theme);
         })();
     </script>
 </head>
 <body>
     
-    <div id="progressBarContainer" class="fixed top-0 left-0 w-full h-1 z-[100] hidden">
+    <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
         <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
-        @keyframes indeterminate-progress {
-            0% { transform: translateX(-100%) scaleX(0.1); }
-            40% { transform: translateX(0) scaleX(0.4); }
-            100% { transform: translateX(100%) scaleX(0.5); }
-        }
     </div>
 
-    <div id="homeView" class="min-h-screen flex items-center justify-center p-4">
-        <div class="top-controls">
-            <div id="lang-switcher" class="card p-1 flex gap-1 text-sm font-semibold">
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ml">മല</button>
+    <div id="homeView" class="min-vh-100 d-flex align-items-center justify-content-center p-4">
+        <div class="top-controls d-flex align-items-center gap-3">
+            <div id="lang-switcher" class="card p-1 d-flex flex-row gap-1">
+                <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                <button class="lang-btn btn-sm" data-lang="ml">മല</button>
             </div>
             <button id="theme-switcher">
                 <div id="theme-switcher-thumb"></div>
             </button>
         </div>
 
-        <div class="w-full max-w-5xl">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold">Emmanuel's HSS Kothanalloor</h1>
-                <p class="mt-2 text-xl" data-translate-key="subtitle">Student Evaluation Portal</p>
+        <div class="container-lg">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold">Emmanuel's HSS Kothanalloor</h1>
+                <p class="mt-2 fs-5" data-translate-key="subtitle">Student Evaluation Portal</p>
             </div>
             
-            <div class="card p-8 md:p-10 shadow-2xl">
-                <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                    <div>
-                        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-star themed-text"></i> <span data-translate-key="features_title">Key Features</span></h2>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-chart-line mt-1 themed-text"></i> <span data-translate-key="feature_1">Comprehensive Performance Tracking</span></li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-magnifying-glass-chart mt-1 themed-text"></i> <span data-translate-key="feature_2">Detailed Subject-wise Analysis</span></li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-users mt-1 themed-text"></i> <span data-translate-key="feature_3">Parent Dashboard for Siblings</span></li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-shield-halved mt-1 themed-text"></i> <span data-translate-key="feature_4">House System and Discipline Points</span></li>
-                            <li class="flex items-start gap-3"><i class="fa-solid fa-circle-half-stroke mt-1 themed-text"></i> <span data-translate-key="feature_5">Light & Dark Mode Support</span></li>
+            <div class="card p-4 p-md-5 shadow-lg">
+                <div class="row g-4 g-md-5">
+                    <div class="col-md-6">
+                        <h2 class="fs-4 fw-bold mb-4 d-flex align-items-center gap-3"><i class="fa-solid fa-star themed-text"></i> <span data-translate-key="features_title">Key Features</span></h2>
+                        <ul class="list-unstyled d-grid gap-3">
+                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-chart-line mt-1 themed-text"></i> <span data-translate-key="feature_1">Comprehensive Performance Tracking</span></li>
+                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-magnifying-glass-chart mt-1 themed-text"></i> <span data-translate-key="feature_2">Detailed Subject-wise Analysis</span></li>
+                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-users mt-1 themed-text"></i> <span data-translate-key="feature_3">Parent Dashboard for Siblings</span></li>
+                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-shield-halved mt-1 themed-text"></i> <span data-translate-key="feature_4">House System and Discipline Points</span></li>
+                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-circle-half-stroke mt-1 themed-text"></i> <span data-translate-key="feature_5">Light & Dark Mode Support</span></li>
                         </ul>
                     </div>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-circle-info themed-text"></i> <span data-translate-key="instructions_title">Instructions for Parents</span></h2>
-                        <ol class="space-y-3">
-                            <li class="flex items-start gap-3"><span class="font-bold themed-text">1.</span> <span data-translate-key="instruction_1">Click the 'Go to Login' button below.</span></li>
-                            <li class="flex items-start gap-3"><span class="font-bold themed-text">2.</span> <span data-translate-key="instruction_2">Enter your registered phone number.</span></li>
-                            <li class="flex items-start gap-3"><span class="font-bold themed-text">3.</span> <span data-translate-key="instruction_3">Enter one of your children's date of birth.</span></li>
-                            <li class="flex items-start gap-3"><span class="font-bold themed-text">4.</span> <span data-translate-key="instruction_4">You will see a dashboard with all your children.</span></li>
-                            <li class="flex items-start gap-3"><span class="font-bold themed-text">5.</span> <span data-translate-key="instruction_5">To view another child, click 'Switch' and verify.</span></li>
+                    <div class="col-md-6">
+                        <h2 class="fs-4 fw-bold mb-4 d-flex align-items-center gap-3"><i class="fa-solid fa-circle-info themed-text"></i> <span data-translate-key="instructions_title">Instructions for Parents</span></h2>
+                        <ol class="list-unstyled d-grid gap-3">
+                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">1.</span> <span data-translate-key="instruction_1">Click the 'Go to Login' button below.</span></li>
+                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">2.</span> <span data-translate-key="instruction_2">Enter your registered phone number.</span></li>
+                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">3.</span> <span data-translate-key="instruction_3">Enter one of your children's date of birth.</span></li>
+                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">4.</span> <span data-translate-key="instruction_4">You will see a dashboard with all your children.</span></li>
+                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">5.</span> <span data-translate-key="instruction_5">To view another child, click 'Switch' and verify.</span></li>
                         </ol>
                     </div>
                 </div>
-                 <div class="mt-10 text-center">
-                    <button id="goToLoginBtn" class="action-btn text-lg themed-bg">
+                 <div class="mt-5 text-center">
+                    <button id="goToLoginBtn" class="btn btn-lg rounded-pill themed-bg action-btn px-4">
                         <span data-translate-key="login_button">Go to Login</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
@@ -191,1250 +189,1321 @@
         </div>
     </div>
     
-    <div id="loginView" class="hidden items-center justify-center min-h-screen">
-        <div class="card w-full max-w-md p-8 space-y-8 shadow-2xl">
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-primary">Student Login</h1>
+    <div id="loginView" class="min-vh-100 d-none align-items-center justify-content-center">
+        <div class="card shadow-lg p-4" style="width: 100%; max-width: 420px;">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h1 class="h3 mb-3 fw-bold">Student Login</h1>
+                </div>
+                <form id="loginForm" class="d-grid gap-3">
+                    <div>
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input id="phone" type="tel" required class="form-control form-control-lg" placeholder="Enter phone number">
+                    </div>
+                    <div>
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input id="dob" type="date" required class="form-control form-control-lg">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-lg w-100 themed-bg fw-semibold">Login</button>
+                    </div>
+                    <p id="loginError" class="text-center text-danger small"></p>
+                    <div class="text-center">
+                        <button type="button" id="backToHomeBtn" class="btn btn-link btn-sm text-decoration-none">&larr; Back to Home</button>
+                    </div>
+                </form>
             </div>
-            <form id="loginForm" class="mt-8 space-y-6">
-                <div>
-                    <label for="phone">Phone Number</label>
-                    <input id="phone" type="tel" required class="themed-input w-full px-3 py-3 mt-1 rounded-lg" placeholder="Enter phone number">
-                </div>
-                <div>
-                    <label for="dob">Date of Birth</label>
-                    <input id="dob" type="date" required class="themed-input w-full px-3 py-3 mt-1 rounded-lg">
-                </div>
-                <div>
-                    <button type="submit" class="w-full flex justify-center py-3 px-4 rounded-lg text-white themed-bg font-semibold">Login</button>
-                </div>
-                <p id="loginError" class="text-center text-sm text-red-600"></p>
-                <div class="text-center">
-                    <button type="button" id="backToHomeBtn" class="text-sm hover:underline">&larr; Back to Home</button>
-                </div>
-            </form>
         </div>
     </div>
 
-    <div id="dashboardView" class="hidden">
-        <header>
-            <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center"><span id="headerTitle" class="font-bold text-xl themed-text">E-Value V.1.0</span></div>
-                    <div id="header-search-container" class="relative hidden w-1/3"><input type="search" id="headerSearch" placeholder="Find a student..." class="w-full p-2 pl-4 rounded-full themed-input"><div id="headerSearchResults" class="absolute top-full mt-1 w-full rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto"></div></div>
-                    <div class="flex items-center gap-4">
-                        <div id="userInfo" class="text-right"></div>
-                        <button id="logoutButton" class="text-sm font-medium px-4 py-2 rounded-full themed-bg text-white">Logout</button>
+    <div id="dashboardView" class="d-none">
+        <header class="shadow-sm">
+            <nav class="container">
+                <div class="d-flex justify-content-between align-items-center" style="height: 4rem;">
+                    <div class="flex-shrink-0"><span id="headerTitle" class="fw-bold fs-5 themed-text">E-Value V.1.0</span></div>
+                    <div id="header-search-container" class="position-relative d-none w-50 mx-4">
+                        <input type="search" id="headerSearch" placeholder="Find a student..." class="form-control rounded-pill">
+                        <div id="headerSearchResults" class="position-absolute top-100 mt-1 w-100 rounded shadow-lg bg-body" style="z-index: 1050; max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <div id="userInfo" class="text-end"></div>
+                        <button id="logoutButton" class="btn btn-sm themed-bg text-white rounded-pill px-3">Logout</button>
                     </div>
                 </div>
             </nav>
         </header>
-        <main class="container mx-auto p-4 sm:p-6 lg:p-8">
-            <div id="dashboard-container" class="space-y-8"></div>
+        <main class="container py-4">
+            <div id="dashboard-container" class="d-grid gap-4"></div>
         </main>
     </div>
 
-    <div id="disciplineModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col"><div class="p-6 border-b flex justify-between items-center"><h3 class="text-xl font-semibold">Discipline & Activity Log</h3><button id="closeModal" class="close-btn">&times;</button></div><div id="modal-content-body" class="p-6 overflow-y-auto"></div></div></div>
-    <div id="iframeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-[60] p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-4xl h-[90vh] flex flex-col"><div class="p-4 border-b flex justify-between items-center"><h3 id="iframeModalTitle" class="text-xl font-semibold">Loading...</h3><button id="closeIframeModal" class="close-btn">&times;</button></div><div class="flex-grow p-2"><iframe id="modalIframe" src="" class="w-full h-full border-0"></iframe></div></div></div>
-    <div id="switchChildModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-md"><div class="p-6 border-b flex justify-between items-center"><h3 class="text-xl font-semibold">Switch Child Profile</h3><button id="closeSwitchChildModal" class="close-btn">&times;</button></div><div id="switchChildList" class="p-6"></div></div></div>
-    <div id="dobVerifyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4"><div class="modal-content rounded-2xl shadow-xl w-full max-w-md"><div class="p-6 border-b flex justify-between items-center"><h3 id="dobVerifyTitle" class="text-xl font-semibold">Verify Child's Date of Birth</h3><button id="closeDobVerifyModal" class="close-btn">&times;</button></div><form id="dobVerifyForm" class="p-6 space-y-4"><input type="hidden" id="dobVerifyAdmissionNo"><div><label for="dobVerifyInput">Date of Birth</label><input id="dobVerifyInput" type="date" required class="themed-input mt-1 appearance-none rounded-lg relative block w-full px-3 py-3 border"></div><button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white themed-bg">Verify & Switch</button><p id="dobError" class="text-center text-sm text-red-600"></p></form></div></div>
+    <!-- Modals -->
+    <div class="modal fade" id="disciplineModal" tabindex="-1" aria-labelledby="disciplineModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="disciplineModalLabel">Discipline & Activity Log</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modal-content-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="iframeModal" tabindex="-1" aria-labelledby="iframeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered" style="height: 85vh;">
+        <div class="modal-content h-100">
+          <div class="modal-header">
+            <h5 class="modal-title" id="iframeModalTitle">Loading...</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-2 h-100">
+             <iframe id="modalIframe" src="" class="w-100 h-100 border-0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="dobVerifyModal" tabindex="-1" aria-labelledby="dobVerifyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="dobVerifyTitle">Verify Child's Date of Birth</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="dobVerifyForm" class="modal-body d-grid gap-3">
+            <input type="hidden" id="dobVerifyAdmissionNo">
+            <div>
+              <label for="dobVerifyInput" class="form-label">Date of Birth</label>
+              <input id="dobVerifyInput" type="date" required class="form-control">
+            </div>
+            <button type="submit" class="btn w-100 themed-bg">Verify & Switch</button>
+            <p id="dobError" class="text-center small text-danger"></p>
+          </form>
+        </div>
+      </div>
+    </div>
     
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module">
         // --- GLOBAL STATE ---
-const APP_VERSION = '1.7'; // Increment this number when you deploy changes
-let currentUser = null;
-let appData = { users: [], marks: [], activities: [], processedStudents: [] };
-let standingsChart = null;
-let loginView, dashboardView, progressBar, homeView;
+        const APP_VERSION = '1.7-bootstrap'; // Increment this number when you deploy changes
+        let currentUser = null;
+        let appData = { users: [], marks: [], activities: [], processedStudents: [] };
+        let standingsChart = null;
+        let loginView, dashboardView, progressBar, homeView;
+        let disciplineModal, iframeModal, dobVerifyModal;
 
-// --- TRANSLATION DATA ---
-const translations = {
-    en: {
-        subtitle: "Student Evaluation Portal",
-        features_title: "Key Features",
-        feature_1: "Comprehensive Performance Tracking",
-        feature_2: "Detailed Subject-wise Analysis",
-        feature_3: "Parent Dashboard for Siblings",
-        feature_4: "House System and Discipline Points",
-        feature_5: "Light & Dark Mode Support",
-        instructions_title: "Instructions for Parents",
-        instruction_1: "Click the 'Go to Login' button below.",
-        instruction_2: "Enter your registered phone number.",
-        instruction_3: "Enter one of your children's date of birth.",
-        instruction_4: "You will see a dashboard with all your children listed.",
-        instruction_5: "To view another child, click 'Switch' and verify.",
-        login_button: "Go to Login"
-    },
-    ml: {
-        subtitle: "വിദ്യാർത്ഥി മൂല്യനിർണ്ണയ പോർട്ടൽ",
-        features_title: "പ്രധാന സവിശേഷതകൾ",
-        feature_1: "സമഗ്രമായ പ്രകടന വിലയിരുത്തൽ",
-        feature_2: "വിഷയം തിരിച്ചുള്ള വിശദമായ വിശകലനം",
-        feature_3: "സഹോദരങ്ങൾക്കായി പാരന്റ് ഡാഷ്‌ബോർഡ്",
-        feature_4: "ഹൗസ് സിസ്റ്റവും അച്ചടക്ക പോയിന്റുകളും",
-        feature_5: "ലൈറ്റ് & ഡാർക്ക് മോഡ് പിന്തുണ",
-        instructions_title: "രക്ഷിതാക്കൾക്കുള്ള നിർദ്ദേശങ്ങൾ",
-        instruction_1: "താഴെയുള്ള 'ലോഗിൻ ചെയ്യുക' ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.",
-        instruction_2: "നിങ്ങളുടെ രജിസ്റ്റർ ചെയ്ത ഫോൺ നമ്പർ നൽകുക.",
-        instruction_3: "ലോഗിൻ ചെയ്യുന്നതിന് നിങ്ങളുടെ ഒരു കുട്ടിയുടെ ജനനത്തീയതി നൽകുക.",
-        instruction_4: "നിങ്ങളുടെ എല്ലാ കുട്ടികളെയും ഉൾപ്പെടുത്തിയ ഒരു ഡാഷ്‌ബോർഡ് നിങ്ങൾ കാണും.",
-        instruction_5: "മറ്റൊരു കുട്ടിയുടെ പ്രൊഫൈൽ കാണുന്നതിന്, 'Switch' ക്ലിക്ക് ചെയ്ത് അവരുടെ ജനനത്തീയതി ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക.",
-        login_button: "ലോഗിൻ ചെയ്യുക"
-    }
-};
-
-// --- ACTIVITY RULES ---
-const activityRules = {
-    "Class Cleaning": 5, "Assembly Appearance": 5, "Response in Class Activities": 5,
-    "Competitive Winner": 10, "Extra Curricular Activities": 10, "Helping Mind": 10,
-    "Class Performance": 10, "Participation in common activities": 10,
-    "Bad Words": -15, "Fighting": -20, "Misbehaviour in public place": -20,
-    "Misbehaviour towards teachers": -15, "Without ID Card": -10, "Indiscipline": -10,
-    "Misbehaviour in Assembly": -10, "Indisciplinary activity at anytime": -10,
-    "Personal Hygiene": -10, "Incomplete Uniform": -5, "Missing Homework": -5,
-    "Play during interval": -5
-};
-
-// --- DATABASE (IndexedDB) HELPER ---
-const DB_NAME = 'StudentPortalDB_SPA';
-const DB_VERSION = 3; 
-let db;
-
-function openDB() {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open(DB_NAME, DB_VERSION);
-        request.onupgradeneeded = e => {
-            const db = e.target.result;
-            if (db.objectStoreNames.contains('users')) db.deleteObjectStore('users');
-            db.createObjectStore('users', { autoIncrement: true });
-            if (!db.objectStoreNames.contains('marks')) db.createObjectStore('marks', { keyPath: 'admissionNo' });
-            if (!db.objectStoreNames.contains('activities')) db.createObjectStore('activities', { autoIncrement: true });
-            if (!db.objectStoreNames.contains('session')) db.createObjectStore('session', { keyPath: 'id' });
-            if (!db.objectStoreNames.contains('metadata')) db.createObjectStore('metadata', { keyPath: 'key' });
+        // --- TRANSLATION DATA ---
+        const translations = {
+            en: {
+                subtitle: "Student Evaluation Portal",
+                features_title: "Key Features",
+                feature_1: "Comprehensive Performance Tracking",
+                feature_2: "Detailed Subject-wise Analysis",
+                feature_3: "Parent Dashboard for Siblings",
+                feature_4: "House System and Discipline Points",
+                feature_5: "Light & Dark Mode Support",
+                instructions_title: "Instructions for Parents",
+                instruction_1: "Click the 'Go to Login' button below.",
+                instruction_2: "Enter your registered phone number.",
+                instruction_3: "Enter one of your children's date of birth.",
+                instruction_4: "You will see a dashboard with all your children listed.",
+                instruction_5: "To view another child, click 'Switch' and verify.",
+                login_button: "Go to Login"
+            },
+            ml: {
+                subtitle: "വിദ്യാർത്ഥി മൂല്യനിർണ്ണയ പോർട്ടൽ",
+                features_title: "പ്രധാന സവിശേഷതകൾ",
+                feature_1: "സമഗ്രമായ പ്രകടന വിലയിരുത്തൽ",
+                feature_2: "വിഷയം തിരിച്ചുള്ള വിശദമായ വിശകലനം",
+                feature_3: "സഹോദരങ്ങൾക്കായി പാരന്റ് ഡാഷ്‌ബോർഡ്",
+                feature_4: "ഹൗസ് സിസ്റ്റവും അച്ചടക്ക പോയിന്റുകളും",
+                feature_5: "ലൈറ്റ് & ഡാർക്ക് മോഡ് പിന്തുണ",
+                instructions_title: "രക്ഷിതാക്കൾക്കുള്ള നിർദ്ദേശങ്ങൾ",
+                instruction_1: "താഴെയുള്ള 'ലോഗിൻ ചെയ്യുക' ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.",
+                instruction_2: "നിങ്ങളുടെ രജിസ്റ്റർ ചെയ്ത ഫോൺ നമ്പർ നൽകുക.",
+                instruction_3: "ലോഗിൻ ചെയ്യുന്നതിന് നിങ്ങളുടെ ഒരു കുട്ടിയുടെ ജനനത്തീയതി നൽകുക.",
+                instruction_4: "നിങ്ങളുടെ എല്ലാ കുട്ടികളെയും ഉൾപ്പെടുത്തിയ ഒരു ഡാഷ്‌ബോർഡ് നിങ്ങൾ കാണും.",
+                instruction_5: "മറ്റൊരു കുട്ടിയുടെ പ്രൊഫൈൽ കാണുന്നതിന്, 'Switch' ക്ലിക്ക് ചെയ്ത് അവരുടെ ജനനത്തീയതി ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക.",
+                login_button: "ലോഗിൻ ചെയ്യുക"
+            }
         };
-        request.onsuccess = e => { db = e.target.result; resolve(db); };
-        request.onerror = e => { console.error('DB error:', e.target.error); reject('Error opening DB'); };
-    });
-}
 
-async function isDataLoaded() {
-    if (!db) await openDB();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction(['users'], 'readonly');
-        const countRequest = transaction.objectStore('users').count();
-        countRequest.onsuccess = () => resolve(countRequest.result > 0);
-        countRequest.onerror = e => reject(e.target.error);
-    });
-}
-
-async function populateDB() {
-    if (!db) await openDB();
-    const [usersRes, marksRes, activitiesRes] = await Promise.all([
-        fetch('./users.json'),
-        fetch('./marks.json'),
-        fetch('./activities.json')
-    ]);
-    const users = await usersRes.json();
-    const marks = await marksRes.json();
-    const activities = await activitiesRes.json();
-    const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readwrite');
-    users.forEach(item => transaction.objectStore('users').put(item));
-    marks.forEach(item => transaction.objectStore('marks').put(item));
-    activities.forEach(item => transaction.objectStore('activities').put(item));
-    transaction.objectStore('metadata').put({ key: 'lastUpdated', value: new Date().toISOString() });
-    return new Promise((resolve, reject) => {
-        transaction.oncomplete = () => resolve();
-        transaction.onerror = e => reject(e.target.error);
-    });
-}
-
-async function getAllData() {
-    if (!db) await openDB();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readonly');
-        const requests = {
-            users: transaction.objectStore('users').getAll(),
-            marks: transaction.objectStore('marks').getAll(),
-            activities: transaction.objectStore('activities').getAll(),
-            metadata: transaction.objectStore('metadata').get('lastUpdated')
+        // --- ACTIVITY RULES ---
+        const activityRules = {
+            "Class Cleaning": 5, "Assembly Appearance": 5, "Response in Class Activities": 5,
+            "Competitive Winner": 10, "Extra Curricular Activities": 10, "Helping Mind": 10,
+            "Class Performance": 10, "Participation in common activities": 10,
+            "Bad Words": -15, "Fighting": -20, "Misbehaviour in public place": -20,
+            "Misbehaviour towards teachers": -15, "Without ID Card": -10, "Indiscipline": -10,
+            "Misbehaviour in Assembly": -10, "Indisciplinary activity at anytime": -10,
+            "Personal Hygiene": -10, "Incomplete Uniform": -5, "Missing Homework": -5,
+            "Play during interval": -5
         };
-        const results = {};
-        transaction.oncomplete = () => resolve(results);
-        transaction.onerror = e => reject(e.target.error);
-        Object.keys(requests).forEach(key => {
-            requests[key].onsuccess = () => { results[key] = requests[key].result; };
-        });
-    });
-}
 
-async function setSession(user) {
-    if (!db) await openDB();
-    const transaction = db.transaction(['session'], 'readwrite');
-    transaction.objectStore('session').put({ id: 'currentUser', ...user });
-}
+        // --- DATABASE (IndexedDB) HELPER ---
+        const DB_NAME = 'StudentPortalDB_SPA';
+        const DB_VERSION = 3; 
+        let db;
 
-async function getSession() {
-    if (!db) await openDB();
-    return new Promise((resolve, reject) => {
-        const request = db.transaction(['session'], 'readonly').objectStore('session').get('currentUser');
-        request.onsuccess = () => resolve(request.result || null);
-        request.onerror = e => reject(e.target.error);
-    });
-}
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onupgradeneeded = e => {
+                    const db = e.target.result;
+                    if (db.objectStoreNames.contains('users')) db.deleteObjectStore('users');
+                    db.createObjectStore('users', { autoIncrement: true });
+                    if (!db.objectStoreNames.contains('marks')) db.createObjectStore('marks', { keyPath: 'admissionNo' });
+                    if (!db.objectStoreNames.contains('activities')) db.createObjectStore('activities', { autoIncrement: true });
+                    if (!db.objectStoreNames.contains('session')) db.createObjectStore('session', { keyPath: 'id' });
+                    if (!db.objectStoreNames.contains('metadata')) db.createObjectStore('metadata', { keyPath: 'key' });
+                };
+                request.onsuccess = e => { db = e.target.result; resolve(db); };
+                request.onerror = e => { console.error('DB error:', e.target.error); reject('Error opening DB'); };
+            });
+        }
 
-async function clearSessionAndData() {
-    localStorage.clear(); 
-    if (db) {
-        db.close();
-        db = null;
-    }
-    return new Promise((resolve, reject) => {
-        const deleteRequest = indexedDB.deleteDatabase(DB_NAME);
-        deleteRequest.onsuccess = () => resolve();
-        deleteRequest.onerror = (e) => reject('Error deleting database.', e);
-        deleteRequest.onblocked = () => reject('Database delete blocked. Please close other tabs with this app open.');
-    });
-}
+        async function isDataLoaded() {
+            if (!db) await openDB();
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['users'], 'readonly');
+                const countRequest = transaction.objectStore('users').count();
+                countRequest.onsuccess = () => resolve(countRequest.result > 0);
+                countRequest.onerror = e => reject(e.target.error);
+            });
+        }
 
-// --- DATA PROCESSING & CALCULATIONS ---
-function isActivityForStudent(activity, student) {
-    const studentAdmNoStr = student.admissionNo.toString();
-    const activityAdmNo = activity.admissionNo;
+        async function populateDB() {
+            if (!db) await openDB();
+            const [usersRes, marksRes, activitiesRes] = await Promise.all([
+                fetch('./users.json'),
+                fetch('./marks.json'),
+                fetch('./activities.json')
+            ]);
+            const users = await usersRes.json();
+            const marks = await marksRes.json();
+            const activities = await activitiesRes.json();
+            const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readwrite');
+            users.forEach(item => transaction.objectStore('users').put(item));
+            marks.forEach(item => transaction.objectStore('marks').put(item));
+            activities.forEach(item => transaction.objectStore('activities').put(item));
+            transaction.objectStore('metadata').put({ key: 'lastUpdated', value: new Date().toISOString() });
+            return new Promise((resolve, reject) => {
+                transaction.oncomplete = () => resolve();
+                transaction.onerror = e => reject(e.target.error);
+            });
+        }
 
-    if (Array.isArray(activityAdmNo)) {
-        return activityAdmNo.map(String).includes(studentAdmNoStr);
-    } else if (activityAdmNo) {
-        return activityAdmNo.toString() === studentAdmNoStr;
-    }
-    return false;
-}
+        async function getAllData() {
+            if (!db) await openDB();
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readonly');
+                const requests = {
+                    users: transaction.objectStore('users').getAll(),
+                    marks: transaction.objectStore('marks').getAll(),
+                    activities: transaction.objectStore('activities').getAll(),
+                    metadata: transaction.objectStore('metadata').get('lastUpdated')
+                };
+                const results = {};
+                transaction.oncomplete = () => resolve(results);
+                transaction.onerror = e => reject(e.target.error);
+                Object.keys(requests).forEach(key => {
+                    requests[key].onsuccess = () => { results[key] = requests[key].result; };
+                });
+            });
+        }
 
-function processStudentData(students, marksData, activities) {
-    const studentsByClass = students.reduce((acc, student) => {
-        const classKey = `${student.class}-${student.division}`;
-        if (!acc[classKey]) acc[classKey] = [];
-        acc[classKey].push(student);
-        return acc;
-    }, {});
+        async function setSession(user) {
+            if (!db) await openDB();
+            const transaction = db.transaction(['session'], 'readwrite');
+            transaction.objectStore('session').put({ id: 'currentUser', ...user });
+        }
 
-    let finalProcessedStudents = [];
-    for (const classKey in studentsByClass) {
-        const classStudents = studentsByClass[classKey];
-        const studentScores = classStudents.map(student => {
-            const studentMarksRecord = marksData.find(m => m.admissionNo.toString() === student.admissionNo.toString());
-            let academicTotal = 0;
-            if (studentMarksRecord && studentMarksRecord.terms) {
-                academicTotal = Object.values(studentMarksRecord.terms).reduce((sum, term) => sum + (typeof term.total === 'number' ? term.total : 0), 0);
+        async function getSession() {
+            if (!db) await openDB();
+            return new Promise((resolve, reject) => {
+                const request = db.transaction(['session'], 'readonly').objectStore('session').get('currentUser');
+                request.onsuccess = () => resolve(request.result || null);
+                request.onerror = e => reject(e.target.error);
+            });
+        }
+
+        async function clearSessionAndData() {
+            localStorage.clear(); 
+            if (db) {
+                db.close();
+                db = null;
+            }
+            return new Promise((resolve, reject) => {
+                const deleteRequest = indexedDB.deleteDatabase(DB_NAME);
+                deleteRequest.onsuccess = () => resolve();
+                deleteRequest.onerror = (e) => reject('Error deleting database.', e);
+                deleteRequest.onblocked = () => reject('Database delete blocked. Please close other tabs with this app open.');
+            });
+        }
+
+        // --- DATA PROCESSING & CALCULATIONS ---
+        function isActivityForStudent(activity, student) {
+            const studentAdmNoStr = student.admissionNo.toString();
+            const activityAdmNo = activity.admissionNo;
+
+            if (Array.isArray(activityAdmNo)) {
+                return activityAdmNo.map(String).includes(studentAdmNoStr);
+            } else if (activityAdmNo) {
+                return activityAdmNo.toString() === studentAdmNoStr;
+            }
+            return false;
+        }
+
+        function processStudentData(students, marksData, activities) {
+            const studentsByClass = students.reduce((acc, student) => {
+                const classKey = `${student.class}-${student.division}`;
+                if (!acc[classKey]) acc[classKey] = [];
+                acc[classKey].push(student);
+                return acc;
+            }, {});
+
+            let finalProcessedStudents = [];
+            for (const classKey in studentsByClass) {
+                const classStudents = studentsByClass[classKey];
+                const studentScores = classStudents.map(student => {
+                    const studentMarksRecord = marksData.find(m => m.admissionNo.toString() === student.admissionNo.toString());
+                    let academicTotal = 0;
+                    if (studentMarksRecord && studentMarksRecord.terms) {
+                        academicTotal = Object.values(studentMarksRecord.terms).reduce((sum, term) => sum + (typeof term.total === 'number' ? term.total : 0), 0);
+                    }
+                    
+                    const disciplinePoints = activities
+                        .filter(a => isActivityForStudent(a, student))
+                        .reduce((sum, act) => {
+                            const basePoints = activityRules[act.Activity] || 0;
+                            const calculatedPoints = (act.Rating / 5) * basePoints;
+                            return sum + calculatedPoints;
+                        }, 0);
+
+                    const housePoints = academicTotal + disciplinePoints;
+
+                    return { ...student, academicTotal, disciplinePoints, housePoints, marksRecord: studentMarksRecord };
+                });
+                studentScores.sort((a, b) => b.academicTotal - a.academicTotal).forEach((s, i) => s.academicRank = i + 1);
+                studentScores.sort((a, b) => b.disciplinePoints - a.disciplinePoints).forEach((s, i) => s.disciplineRank = i + 1);
+                finalProcessedStudents.push(...studentScores);
+            }
+            return finalProcessedStudents;
+        }
+
+        function getSection(className) {
+            const classNum = parseInt(className, 10);
+            if (classNum >= 1 && classNum <= 4) return 'LP';
+            if (classNum >= 5 && classNum <= 7) return 'UP';
+            if (classNum >= 8 && classNum <= 10) return 'HS';
+            return 'Other';
+        }
+            
+        function getTeacherSection(designation) {
+            if (designation === 'LPST') return 'LP';
+            if (designation === 'UPST') return 'UP';
+            if (designation && (designation.startsWith('HST') || designation === 'PET' || designation === 'Drawing Teacher')) return 'HS';
+            return null;
+        }
+
+        function customClassSort(a, b) {
+            const partsA = a.split('-');
+            const partsB = b.split('-');
+            const numA = parseInt(partsA[0], 10);
+            const numB = parseInt(partsB[0], 10);
+            if (numA !== numB) return numA - numB;
+            return (partsA[1] || '').localeCompare(partsB[1] || '');
+        }
+
+        function getGradeInfo(mark, subject, termKey, studentClass) {
+            const section = getSection(studentClass);
+            const classNum = parseInt(studentClass, 10);
+            let maxMark = 100;
+
+            const termLower = termKey.toLowerCase();
+            if (termLower.includes('monthly exam 01') || termLower.includes('first mid term')) {
+                maxMark = 20;
+            } else if (termLower.includes('first term')) {
+                if (section === 'UP') maxMark = 30;
+                else if (classNum === 8) maxMark = ['Physics', 'Chemistry', 'Biology'].includes(subject) ? 20 : 40;
+                else if (classNum === 9 || classNum === 10) maxMark = ['English', 'Social Science', 'Maths'].includes(subject) ? 80 : 40;
+                else if (section === 'LP') maxMark = 25;
             }
             
-            const disciplinePoints = activities
-                .filter(a => isActivityForStudent(a, student))
-                .reduce((sum, act) => {
-                    const basePoints = activityRules[act.Activity] || 0;
-                    const calculatedPoints = (act.Rating / 5) * basePoints;
-                    return sum + calculatedPoints;
-                }, 0);
+            if (typeof mark !== 'number' || mark === null || mark === undefined) return { grade: 'Ab', cssClass: '', maxMark };
 
-            const housePoints = academicTotal + disciplinePoints;
+            const percentage = (mark / maxMark) * 100;
 
-            return { ...student, academicTotal, disciplinePoints, housePoints, marksRecord: studentMarksRecord };
-        });
-        studentScores.sort((a, b) => b.academicTotal - a.academicTotal).forEach((s, i) => s.academicRank = i + 1);
-        studentScores.sort((a, b) => b.disciplinePoints - a.disciplinePoints).forEach((s, i) => s.disciplineRank = i + 1);
-        finalProcessedStudents.push(...studentScores);
-    }
-    return finalProcessedStudents;
-}
+            if (section === 'UP' || classNum === 8) {
+                if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
+                if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
+                if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
+                if (percentage >= 30) return { grade: 'D', cssClass: 'grade-d', maxMark };
+                return { grade: 'E', cssClass: 'grade-e', maxMark };
+            } else { // HS and LP
+                if (percentage >= 90) return { grade: 'A+', cssClass: 'grade-a-plus', maxMark };
+                if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
+                if (percentage >= 70) return { grade: 'B+', cssClass: 'grade-b-plus', maxMark };
+                if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
+                if (percentage >= 50) return { grade: 'C+', cssClass: 'grade-c-plus', maxMark };
+                if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
+                if (percentage >= 30) return { grade: 'D+', cssClass: 'grade-d-plus', maxMark };
+                if (percentage >= 20) return { grade: 'D', cssClass: 'grade-d', maxMark };
+                return { grade: 'E', cssClass: 'grade-e', maxMark };
+            }
+        }
 
-function getSection(className) {
-    const classNum = parseInt(className, 10);
-    if (classNum >= 1 && classNum <= 4) return 'LP';
-    if (classNum >= 5 && classNum <= 7) return 'UP';
-    if (classNum >= 8 && classNum <= 10) return 'HS';
-    return 'Other';
-}
-    
-function getTeacherSection(designation) {
-    if (designation === 'LPST') return 'LP';
-    if (designation === 'UPST') return 'UP';
-    if (designation && (designation.startsWith('HST') || designation === 'PET' || designation === 'Drawing Teacher')) return 'HS';
-    return null;
-}
+        // --- UI RENDERING ---
+        const dashboardContainer = document.getElementById('dashboard-container');
 
-function customClassSort(a, b) {
-    const partsA = a.split('-');
-    const partsB = b.split('-');
-    const numA = parseInt(partsA[0], 10);
-    const numB = parseInt(partsB[0], 10);
-    if (numA !== numB) return numA - numB;
-    return (partsA[1] || '').localeCompare(partsB[1] || '');
-}
+        function buildHMDashboard(user, allStudents, processedStudents, metadata) {
+            const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
+            dashboardContainer.innerHTML = `
+            <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a></div></div></div>
+            <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${lastUpdated}</p></div></div>
+            <div id="leaderboardCard"></div>
+            <div id="classToppersCard"></div>
+            <div id="subjectToppersCard"></div>`;
 
-function getGradeInfo(mark, subject, termKey, studentClass) {
-    const section = getSection(studentClass);
-    const classNum = parseInt(studentClass, 10);
-    let maxMark = 100;
+            buildStandingsChart(processedStudents);
+            buildLeaderboardCard(processedStudents, appData.activities, false);
+            buildClassToppersCard(processedStudents);
+            buildSubjectToppersCard(processedStudents);
+            dashboardContainer.addEventListener('click', handleDashboardClick);
+        }
 
-    const termLower = termKey.toLowerCase();
-    if (termLower.includes('monthly exam 01') || termLower.includes('first mid term')) {
-        maxMark = 20;
-    } else if (termLower.includes('first term')) {
-        if (section === 'UP') maxMark = 30;
-        else if (classNum === 8) maxMark = ['Physics', 'Chemistry', 'Biology'].includes(subject) ? 20 : 40;
-        else if (classNum === 9 || classNum === 10) maxMark = ['English', 'Social Science', 'Maths'].includes(subject) ? 80 : 40;
-        else if (section === 'LP') maxMark = 25;
-    }
-    
-    if (typeof mark !== 'number' || mark === null || mark === undefined) return { grade: 'Ab', cssClass: '', maxMark };
+        function buildTeacherDashboard(user, allStudents, processedStudents, metadata) {
+            const teacherSection = getTeacherSection(user.designation);
+            if (!teacherSection) {
+                dashboardContainer.innerHTML = `<div class="card text-danger shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div></div>`;
+                return;
+            }
 
-    const percentage = (mark / maxMark) * 100;
+            const sectionStudents = processedStudents.filter(s => getSection(s.class) === teacherSection);
+            const markEntryUrl = {
+                lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
+                up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
+                hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
+            }[teacherSection.toLowerCase()];
+            const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
 
-    if (section === 'UP' || classNum === 8) {
-        if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-        if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-        if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-        if (percentage >= 30) return { grade: 'D', cssClass: 'grade-d', maxMark };
-        return { grade: 'E', cssClass: 'grade-e', maxMark };
-    } else { // HS and LP
-        if (percentage >= 90) return { grade: 'A+', cssClass: 'grade-a-plus', maxMark };
-        if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-        if (percentage >= 70) return { grade: 'B+', cssClass: 'grade-b-plus', maxMark };
-        if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-        if (percentage >= 50) return { grade: 'C+', cssClass: 'grade-c-plus', maxMark };
-        if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-        if (percentage >= 30) return { grade: 'D+', cssClass: 'grade-d-plus', maxMark };
-        if (percentage >= 20) return { grade: 'D', cssClass: 'grade-d', maxMark };
-        return { grade: 'E', cssClass: 'grade-e', maxMark };
-    }
-}
+            dashboardContainer.innerHTML = `
+                <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="${markEntryUrl}" target="_blank" class="btn themed-bg action-btn rounded-pill">${teacherSection} Mark Entry</a></div></div></div>
+                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${lastUpdated}</p></div></div>
+                <div id="leaderboardCard"></div>
+                <div id="classToppersCard"></div>
+                <div id="subjectToppersCard"></div>
+                <div id="reportGeneratorCard"></div>`;
 
-// --- UI RENDERING ---
-const dashboardContainer = document.getElementById('dashboard-container');
-
-function buildHMDashboard(user, allStudents, processedStudents, metadata) {
-    const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
-    dashboardContainer.innerHTML = `
-    <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><button data-action="discipline" class="action-btn themed-bg">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="action-btn themed-bg">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="action-btn themed-bg">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="action-btn themed-bg">HS Marks</a></div></div>
-    <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
-    <div id="leaderboardCard"></div>
-    <div id="classToppersCard"></div>
-    <div id="subjectToppersCard"></div>`;
-
-    buildStandingsChart(processedStudents);
-    buildLeaderboardCard(processedStudents, appData.activities, false);
-    buildClassToppersCard(processedStudents);
-    buildSubjectToppersCard(processedStudents);
-    dashboardContainer.addEventListener('click', handleDashboardClick);
-}
-
-function buildTeacherDashboard(user, allStudents, processedStudents, metadata) {
-    const teacherSection = getTeacherSection(user.designation);
-    if (!teacherSection) {
-        dashboardContainer.innerHTML = `<div class="dashboard-card text-red-500"><h2 class="text-2xl font-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div>`;
-        return;
-    }
-
-    const sectionStudents = processedStudents.filter(s => getSection(s.class) === teacherSection);
-    const markEntryUrl = {
-        lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
-        up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
-        hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
-    }[teacherSection.toLowerCase()];
-    const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
-
-    dashboardContainer.innerHTML = `
-        <div class="dashboard-card"><h2 class="text-2xl font-bold mb-4">Quick Actions</h2><div class="flex flex-wrap gap-4"><button data-action="discipline" class="action-btn themed-bg">Discipline Entry</button><a href="${markEntryUrl}" target="_blank" class="action-btn themed-bg">${teacherSection} Mark Entry</a></div></div>
-        <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h2 class="text-2xl font-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="themed-select p-2 rounded-lg border"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-xs mt-2 text-right">Data last synced: ${lastUpdated}</p></div>
-        <div id="leaderboardCard"></div>
-        <div id="classToppersCard"></div>
-        <div id="subjectToppersCard"></div>
-        <div id="reportGeneratorCard"></div>`;
-
-    buildStandingsChart(sectionStudents, true);
-    buildLeaderboardCard(sectionStudents, appData.activities, true);
-    buildClassToppersCard(sectionStudents);
-    buildSubjectToppersCard(sectionStudents);
-    buildReportGeneratorCard(sectionStudents);
-    dashboardContainer.addEventListener('click', handleDashboardClick);
-}
-
-function buildParentDashboard(currentChild, siblings, processedStudents) {
-        const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
-        dashboardContainer.innerHTML = `
-            <div class="dashboard-card">
-                <h2 class="text-2xl font-bold mb-4">Parent Dashboard</h2>
-                <p class="mb-6">Select a child to view their detailed academic profile.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${allChildren.map(child => {
-                        const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
-                        return `
-                        <div class="p-6 rounded-lg border-2 ${child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-[var(--theme-text)]' : 'border-[var(--border-color)]'} flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-primary">${child.name}</h3>
-                                <p>Class ${child.class}-${child.division}</p>
-                                <p>House: ${child.house}</p>
-                                ${studentData ? `
-                                    <div class="mt-2 text-sm">
-                                        <p>Academic Rank: <span class="font-bold themed-text">#${studentData.academicRank}</span></p>
-                                        <p>Discipline Rank: <span class="font-bold themed-text">#${studentData.disciplineRank}</span></p>
-                                    </div>` : ''
-                                }
+            buildStandingsChart(sectionStudents, true);
+            buildLeaderboardCard(sectionStudents, appData.activities, true);
+            buildClassToppersCard(sectionStudents);
+            buildSubjectToppersCard(sectionStudents);
+            buildReportGeneratorCard(sectionStudents);
+            dashboardContainer.addEventListener('click', handleDashboardClick);
+        }
+        
+        // --- ALL OTHER JS FUNCTIONS RESTORED AND ADAPTED FOR BOOTSTRAP ---
+        
+        function buildParentDashboard(currentChild, siblings, processedStudents) {
+            const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
+            dashboardContainer.innerHTML = `
+            <div class="card shadow-sm dashboard-card">
+                <div class="card-body">
+                    <h2 class="h5 card-title fw-bold">Parent Dashboard</h2>
+                    <p class="card-text mb-4">Select a child to view their detailed academic profile.</p>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        ${allChildren.map(child => {
+                            const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
+                            const borderClass = child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-primary' : '';
+                            return `
+                            <div class="col">
+                                <div class="card h-100 ${borderClass}">
+                                    <div class="card-body d-flex flex-column">
+                                        <h3 class="h6 card-title fw-bold">${child.name}</h3>
+                                        <p class="small">Class ${child.class}-${child.division}</p>
+                                        <p class="small">House: ${child.house}</p>
+                                        ${studentData ? `
+                                            <div class="mt-2 small">
+                                                <p>Academic Rank: <span class="fw-bold themed-text">#${studentData.academicRank}</span></p>
+                                                <p>Discipline Rank: <span class="fw-bold themed-text">#${studentData.disciplineRank}</span></p>
+                                            </div>` : ''
+                                        }
+                                        <button class="btn btn-sm themed-bg w-100 mt-auto view-sibling-profile" data-admission-no="${child.admissionNo}">
+                                            ${child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'View Full Profile' : 'Switch to Profile'}
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="mt-4 w-full p-2 rounded-lg themed-bg text-white font-semibold view-sibling-profile" data-admission-no="${child.admissionNo}">
-                                ${child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'View Full Profile' : 'Switch to Profile'}
-                            </button>
-                        </div>
-                    `}).join('')}
+                        `}).join('')}
+                    </div>
                 </div>
             </div>`;
 
-        document.querySelectorAll('.view-sibling-profile').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const admNo = e.target.closest('button').dataset.admissionNo;
-                const studentData = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
+            document.querySelectorAll('.view-sibling-profile').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const admNo = e.target.closest('button').dataset.admissionNo;
+                    const studentData = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
 
-                if (admNo === currentUser.admissionNo.toString()) {
-                    const siblingsOfTarget = appData.users.filter(s => {
-                        if (s.role !== 'student' || !s.admissionNo || s.admissionNo.toString() === admNo) return false;
-                        const targetPhones = Array.isArray(studentData.phone) ? studentData.phone : [studentData.phone];
-                        const potentialPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
-                        return targetPhones.some(p => potentialPhones.includes(p));
-                    });
-                    if (studentData) buildStudentDashboard(studentData, appData.activities, null, siblingsOfTarget);
-                } else {
-                    document.getElementById('dobVerifyAdmissionNo').value = admNo;
-                    document.getElementById('dobError').textContent = '';
-                    document.getElementById('dobVerifyForm').reset();
-                    document.getElementById('dobVerifyModal').classList.remove('hidden');
-                    document.getElementById('dobVerifyModal').classList.add('flex');
-                }
+                    if (admNo === currentUser.admissionNo.toString()) {
+                        const siblingsOfTarget = appData.users.filter(s => {
+                            if (s.role !== 'student' || !s.admissionNo || s.admissionNo.toString() === admNo) return false;
+                            const targetPhones = Array.isArray(studentData.phone) ? studentData.phone : [studentData.phone];
+                            const potentialPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
+                            return targetPhones.some(p => potentialPhones.includes(p));
+                        });
+                        if (studentData) buildStudentDashboard(studentData, appData.activities, null, siblingsOfTarget);
+                    } else {
+                        document.getElementById('dobVerifyAdmissionNo').value = admNo;
+                        document.getElementById('dobError').textContent = '';
+                        document.getElementById('dobVerifyForm').reset();
+                        dobVerifyModal.show();
+                    }
+                });
             });
-        });
-    }
+        }
+        
+        function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
+            const { marksRecord } = student;
+            if (!marksRecord || !marksRecord.terms) {
+                dashboardContainer.innerHTML = `<div class="card shadow-sm dashboard-card"><div class="card-body"><p class="text-center">No marks data found for this student.</p></div></div>`;
+                return;
+            }
 
-function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
-    const { marksRecord } = student;
-    if (!marksRecord || !marksRecord.terms) {
-        dashboardContainer.innerHTML = `<div class="dashboard-card"><p class="text-center">No marks data found for this student.</p></div>`;
-        return;
-    }
+            const studentActivities = activities.filter(a => isActivityForStudent(a, student));
+            const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
+            const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
+            const allSubjects = [...new Set(termKeys.flatMap(key => marksRecord.terms[key].marks ? Object.keys(marksRecord.terms[key].marks) : []))];
+            
+            const getTrend = (subject, currentTermKey) => {
+                const currentTermIndex = termKeys.indexOf(currentTermKey);
+                if (currentTermIndex < 1) return '<span>-</span>';
+                const prevTermKey = termKeys[currentTermIndex - 1];
+                const currentMark = marksRecord.terms[currentTermKey]?.marks?.[subject];
+                const prevMark = marksRecord.terms[prevTermKey]?.marks?.[subject];
+                if (typeof currentMark !== 'number' || typeof prevMark !== 'number') return '<span>-</span>';
+                if (currentMark > prevMark) return `<span class="trend-up">&uarr; Improving</span>`;
+                if (currentMark < prevMark) return `<span class="trend-down">&darr; Declining</span>`;
+                return `<span class="trend-stable">&rarr; Stable</span>`;
+            };
 
-    const studentActivities = activities.filter(a => isActivityForStudent(a, student));
-    const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
-    const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
-    const allSubjects = [...new Set(termKeys.flatMap(key => marksRecord.terms[key].marks ? Object.keys(marksRecord.terms[key].marks) : []))];
+            let previousRank = null;
+            const termCardsHTML = termKeys.map(key => {
+                const term = marksRecord.terms[key];
+                if (!term) return '';
+                const maxTotal = Object.values(term.marks || {}).length * 25;
+                const percentage = maxTotal > 0 ? ((term.total / maxTotal) * 100).toFixed(1) : 0;
+                let rankChangeHTML = '';
+                if (previousRank !== null && typeof term.rank === 'number') {
+                    const change = previousRank - term.rank;
+                    if (change > 0) rankChangeHTML = `<span class="small trend-up fw-medium ms-2">(+${change})</span>`;
+                    else if (change < 0) rankChangeHTML = `<span class="small trend-down fw-medium ms-2">(${change})</span>`;
+                }
+                previousRank = term.rank;
+                return `<div class="col"><div class="card h-100 shadow-sm dashboard-card"><div class="card-body text-center"><h3 class="h6 card-title fw-semibold border-bottom pb-2 mb-3">${key}</h3><div class="d-grid gap-1"><p class="mb-0"><span class="fw-bold fs-5 text-primary">Total: ${term.total || 'N/A'}</span> marks</p><p class="mb-0">Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p class="mb-0">Percentage: ${percentage}%</p></div></div></div></div>`;
+            }).join('');
+
+            const detailedMarksHTML = allSubjects.map(subject => {
+                const cells = termKeys.map(k => {
+                    const mark = marksRecord.terms[k]?.marks?.[subject];
+                    const displayMark = (mark !== undefined && mark !== null) ? mark : '-';
+                    const { grade, cssClass } = getGradeInfo(mark, subject, k, student.class);
+                    return `<td class="text-center fw-medium">${displayMark}<br><span class="fw-bold ${cssClass}">${grade}</span></td>`;
+                }).join('');
+                const trend = getTrend(subject, termKeys[termKeys.length - 1]);
+                return `<tr><td class="fw-medium text-primary">${subject}</td>${cells}<td class="text-center small">${trend}</td></tr>`;
+            }).join('');
+            
+            const backButtonHTML = viewer && viewer.role === 'staff' 
+                ? `<div class="mb-3"><button id="backToDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></div>`
+                : (currentUser.role === 'student' && siblings.length > 0 ? `<div class="mb-3"><button id="backToParentDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Parent Dashboard</button></div>` : '');
+
+            dashboardContainer.innerHTML = backButtonHTML + `
+                <div class="card shadow-sm dashboard-card"><div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3"><div><h2 class="h4 fw-bold text-primary">${student.name}</h2><p class="mb-0">Class ${student.class}-${student.division} | Adm No: ${student.admissionNo} | House: ${student.house}</p></div><div class="d-flex align-items-center gap-4 text-center"><div><p class="h4 fw-bold themed-text">#${student.academicRank}</p><p class="small mb-0">Academic Rank (Class)</p></div><div><p class="h4 fw-bold themed-text">#${student.disciplineRank}</p><p class="small mb-0">Discipline Rank (Class)</p></div></div></div></div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">${termCardsHTML}</div>
+                <div class="row row-cols-1 row-cols-lg-2 g-4"><div class="col"><div class="card shadow-sm dashboard-card h-100"><div class="card-body"><h3 class="h6 card-title fw-semibold mb-3">Subject-wise Marks</h3><div style="height: 300px;"><canvas id="subjectChart"></canvas></div></div></div></div><div class="col"><div class="card shadow-sm dashboard-card h-100"><div class="card-body"><h3 class="h6 card-title fw-semibold mb-3">Term-wise Performance</h3><div style="height: 300px;"><canvas id="termChart"></canvas></div></div></div></div></div>
+                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h3 class="h6 card-title fw-semibold">Detailed Marks Summary</h3><button id="showDiscipline" class="btn btn-sm themed-bg rounded-pill">View Discipline Log (${student.disciplinePoints.toFixed(0)} pts)</button></div><div class="table-responsive"><table class="table table-striped table-hover"><thead><tr><th>Subject</th>${termKeys.map(k => `<th class="text-center">${k}</th>`).join('')}<th>Progress</th></tr></thead><tbody>${detailedMarksHTML}</tbody></table></div></div></div>`;
+            
+            if (viewer) {
+                document.getElementById('backToDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
+            } else {
+                document.getElementById('backToParentDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
+            }
+                const subjectChartCtx = document.getElementById('subjectChart').getContext('2d');
+                new Chart(subjectChartCtx, { type: 'radar', data: { labels: allSubjects, datasets: termKeys.map((key, index) => ({
+                    label: key,
+                    data: allSubjects.map(subject => marksRecord.terms[key]?.marks?.[subject] ?? 0),
+                    borderColor: `hsl(${(index * 100)}, 70%, 60%)`,
+                    backgroundColor: `hsla(${(index * 100)}, 70%, 60%, 0.2)`,
+                }))}, options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true } } } });
+
+                const termChartCtx = document.getElementById('termChart').getContext('2d');
+                const termData = termKeys.map(k => {
+                    const term = marksRecord.terms[k];
+                    const maxTotal = Object.keys(term.marks || {}).length * 25;
+                    return { total: term.total, rank: term.rank, percentage: maxTotal > 0 ? (term.total / maxTotal) * 100 : 0 };
+                });
+                new Chart(termChartCtx, { type: 'bar', data: { labels: termKeys, datasets: [
+                    { label: 'Total Marks', data: termData.map(d => d.total), backgroundColor: 'var(--house-blue)', yAxisID: 'y-total', order: 2 },
+                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: 'var(--grade-a)', yAxisID: 'y-percent', tension: 0.2, order: 1 },
+                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: 'var(--grade-e)', yAxisID: 'y-rank', tension: 0.2, order: 1 }
+                ]}, options: { responsive: true, maintainAspectRatio: false, scales: { 'y-total': { type: 'linear', position: 'left', title: { display: true, text: 'Total Marks' } }, 'y-percent': { type: 'linear', position: 'right', display: false, max: 100, min: 0 }, 'y-rank': { type: 'linear', position: 'right', reverse: true, title: { display: true, text: 'Rank' }, grid: { drawOnChartArea: false } } } }});
+            
+            document.getElementById('showDiscipline').addEventListener('click', () => {
+                document.getElementById('modal-content-body').innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-success' : 'text-danger'} fw-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
+                disciplineModal.show();
+            });
+        }
+        /**
+ * Builds and manages the House Standings bar chart.
+ * Note: This function assumes a <select> element with id="standingsFilter"
+ * is already on the page and styled with Bootstrap's `form-select` class.
+ */
+function buildStandingsChart(students, isSection = false) {
+    const filter = document.getElementById('standingsFilter');
+    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
     
-    const getTrend = (subject, currentTermKey) => {
-        const currentTermIndex = termKeys.indexOf(currentTermKey);
-        if (currentTermIndex < 1) return '<span>-</span>';
-        const prevTermKey = termKeys[currentTermIndex - 1];
-        const currentMark = marksRecord.terms[currentTermKey]?.marks?.[subject];
-        const prevMark = marksRecord.terms[prevTermKey]?.marks?.[subject];
-        if (typeof currentMark !== 'number' || typeof prevMark !== 'number') return '<span>-</span>';
-        if (currentMark > prevMark) return `<span class="trend-up">&uarr; Improving</span>`;
-        if (currentMark < prevMark) return `<span class="trend-down">&darr; Declining</span>`;
-        return `<span class="trend-stable">&rarr; Stable</span>`;
+    // Populate filter options
+    if (isSection) {
+        filter.innerHTML = `<option value="section">Section-wide</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
+    } else {
+        filter.innerHTML = `<option value="school">School-wide</option><option value="lp">LP Section</option><option value="up">UP Section</option><option value="hs">HS Section</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+
+    const updateChart = () => {
+        let filteredStudents = students;
+        const value = filter.value;
+        if (value === 'lp' || value === 'up' || value === 'hs') {
+            filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
+        } else if (value !== 'school' && value !== 'section') {
+            filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
+        }
+
+        const houseData = filteredStudents.reduce((acc, s) => {
+            if (!acc[s.house]) acc[s.house] = 0;
+            acc[s.house] += s.housePoints;
+            return acc;
+        }, {});
+
+        const labels = Object.keys(houseData).sort();
+        const data = labels.map(house => houseData[house]);
+        const backgroundColors = labels.map(house => ({
+            'Blue': '#0d6efd',   // Bootstrap Primary
+            'Green': '#198754', // Bootstrap Success
+            'Rose': '#dc3545',   // Bootstrap Danger
+            'Yellow': '#ffc107'// Bootstrap Warning
+        }[house] || '#6c757d')); // Bootstrap Secondary
+
+        if (standingsChart) standingsChart.destroy();
+        standingsChart = new Chart(document.getElementById('standingsChart').getContext('2d'), {
+            type: 'bar',
+            data: { labels, datasets: [{ label: 'Total House Points', data, backgroundColor: backgroundColors }] },
+            options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
+        });
     };
 
-    let previousRank = null;
-    const termCardsHTML = termKeys.map(key => {
-        const term = marksRecord.terms[key];
-        if (!term) return '';
-        const maxTotal = Object.values(term.marks || {}).length * 25;
-        const percentage = maxTotal > 0 ? ((term.total / maxTotal) * 100).toFixed(1) : 0;
-        let rankChangeHTML = '';
-        if (previousRank !== null && typeof term.rank === 'number') {
-            const change = previousRank - term.rank;
-            if (change > 0) rankChangeHTML = `<span class="text-sm trend-up font-medium ml-2">(+${change})</span>`;
-            else if (change < 0) rankChangeHTML = `<span class="text-sm trend-down font-medium ml-2">(${change})</span>`;
-        }
-        previousRank = term.rank;
-        return `<div class="dashboard-card p-4 flex flex-col"><h3 class="font-semibold text-center border-b border-[var(--border-color)] pb-2 mb-3">${key}</h3><div class="space-y-2"><p><span class="font-bold text-lg text-primary">Total: ${term.total || 'N/A'}</span> marks</p><p>Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p>Percentage: ${percentage}%</p></div></div>`;
-    }).join('');
-
-    const detailedMarksHTML = allSubjects.map(subject => {
-        const cells = termKeys.map(k => {
-            const mark = marksRecord.terms[k]?.marks?.[subject];
-            const displayMark = (mark !== undefined && mark !== null) ? mark : '-';
-            const { grade, cssClass } = getGradeInfo(mark, subject, k, student.class);
-            return `<td class="text-center font-medium">${displayMark}<br><span class="font-bold ${cssClass}">${grade}</span></td>`;
-        }).join('');
-        const trend = getTrend(subject, termKeys[termKeys.length - 1]);
-        return `<tr><td class="font-medium text-primary">${subject}</td>${cells}<td class="text-center">${trend}</td></tr>`;
-    }).join('');
-    
-    const backButtonHTML = viewer && viewer.role === 'staff' 
-        ? `<div class="mb-6"><button id="backToDashboardBtn" class="action-btn"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></div>`
-        : (currentUser.role === 'student' && siblings.length > 0 ? `<div class="mb-6"><button id="backToParentDashboardBtn" class="action-btn"><i class="fa-solid fa-arrow-left"></i> Back to Parent Dashboard</button></div>` : '');
-
-    dashboardContainer.innerHTML = backButtonHTML + `
-        <div class="dashboard-card flex flex-wrap justify-between items-center gap-4"><div><h2 class="text-3xl font-bold text-primary">${student.name}</h2><p>Class ${student.class}-${student.division} | Adm No: ${student.admissionNo} | House: ${student.house}</p></div><div class="flex items-center gap-4 text-center"><div><p class="text-2xl font-bold themed-text">#${student.academicRank}</p><p class="text-sm">Academic Rank (Class)</p></div><div><p class="text-2xl font-bold themed-text">#${student.disciplineRank}</p><p class="text-sm">Discipline Rank (Class)</p></div></div></div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">${termCardsHTML}</div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div class="dashboard-card"><h3 class="font-semibold mb-4">Subject-wise Marks</h3><div style="height: 300px;"><canvas id="subjectChart"></canvas></div></div><div class="dashboard-card"><h3 class="font-semibold mb-4">Term-wise Performance</h3><div style="height: 300px;"><canvas id="termChart"></canvas></div></div></div>
-        <div class="dashboard-card"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold">Detailed Marks Summary</h3><button id="showDiscipline" class="text-sm font-medium themed-bg px-4 py-2 rounded-lg">View Discipline Log (${student.disciplinePoints.toFixed(0)} pts)</button></div><div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Subject</th>${termKeys.map(k => `<th class="text-center">${k}</th>`).join('')}<th>Progress</th></tr></thead><tbody>${detailedMarksHTML}</tbody></table></div></div>`;
-    
-    if (viewer) {
-        document.getElementById('backToDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
-    } else {
-        document.getElementById('backToParentDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
-    }
-
-    // Chart logic remains here...
-
-
-        const subjectChartCtx = document.getElementById('subjectChart').getContext('2d');
-        const chartColors = ['#818cf880', '#f8717180', '#fbbf2480', '#4ade8080'];
-        const chartBorderColors = ['#6366f1', '#ef4444', '#d97706', '#22c55e'];
-        const subjectChartDatasets = termKeys.map((key, index) => ({
-            label: key,
-            data: allSubjects.map(subject => { const mark = marksRecord.terms[key].marks[subject]; return typeof mark === 'number' ? mark : 0; }),
-            backgroundColor: chartColors[index % chartColors.length],
-            borderColor: chartBorderColors[index % chartBorderColors.length],
-            borderWidth: 2,
-            pointBackgroundColor: chartBorderColors[index % chartBorderColors.length]
-        }));
-        new Chart(subjectChartCtx, { type: 'radar', data: { labels: allSubjects, datasets: subjectChartDatasets }, options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true } } } });
-
-        const termChartCtx = document.getElementById('termChart').getContext('2d');
-        const termData = termKeys.map(k => {
-            const term = marksRecord.terms[k];
-            const maxTotal = Object.keys(term.marks || {}).length * 25;
-            const percentage = maxTotal > 0 ? (term.total / maxTotal) * 100 : 0;
-            return { total: term.total, rank: term.rank, percentage: percentage };
-        });
-        new Chart(termChartCtx, {
-            type: 'bar',
-            data: {
-                labels: termKeys.map(k => k),
-                datasets: [
-                    { label: 'Total Marks', data: termData.map(d => d.total), backgroundColor: '#a5b4fc', yAxisID: 'y-total', order: 2 },
-                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: '#10b981', yAxisID: 'y-percent', tension: 0.2, order: 1 },
-                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: '#f43f5e', yAxisID: 'y-rank', tension: 0.2, order: 1 }
-                ]
-            },
-            options: { responsive: true, maintainAspectRatio: false, scales: { 'y-total': { type: 'linear', position: 'left', title: { display: true, text: 'Total Marks' } }, 'y-percent': { type: 'linear', position: 'right', display: false, max: 100, min: 0 }, 'y-rank': { type: 'linear', position: 'right', reverse: true, title: { display: true, text: 'Rank' }, grid: { drawOnChartArea: false } } } }
-        });
-    
-    const modal = document.getElementById('disciplineModal');
-    document.getElementById('showDiscipline').addEventListener('click', () => {
-        document.getElementById('modal-content-body').innerHTML = `<div class="overflow-x-auto"><table class="custom-table"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-green-500' : 'text-red-500'} font-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    });
+    filter.addEventListener('change', updateChart);
+    updateChart();
 }
 
-    function buildStandingsChart(students, isSection = false) {
-        const filter = document.getElementById('standingsFilter');
-        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-        if (isSection) {
-            filter.innerHTML = `<option value="section">Section-wide</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
-        } else {
-            filter.innerHTML = `<option value="school">School-wide</option><option value="lp">LP Section</option><option value="up">UP Section</option><option value="hs">HS Section</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
-        }
+/**
+ * Builds the discipline leaderboards card with Bootstrap styling.
+ */
+function buildLeaderboardCard(students, activities, isSection = false) {
+    const leaderboardCard = document.getElementById('leaderboardCard');
+    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    const filterOptions = isSection 
+        ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
+        : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
 
-        const updateChart = () => {
-            let filteredStudents = students;
-            const value = filter.value;
-            if (value === 'lp' || value === 'up' || value === 'hs') {
-                filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
-            } else if (value !== 'school' && value !== 'section') {
-                filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
-            }
-
-            const houseData = filteredStudents.reduce((acc, s) => {
-                if (!acc[s.house]) acc[s.house] = 0;
-                acc[s.house] += s.housePoints;
-                return acc;
-            }, {});
-
-            const labels = Object.keys(houseData).sort();
-            const data = labels.map(house => houseData[house]);
-            const backgroundColors = labels.map(house => ({
-                'Blue': '#3b82f6', 'Green': '#22c55e', 'Rose': '#f43f5e', 'Yellow': '#f59e0b'
-            }[house] || '#a5b4fc'));
-
-            if (standingsChart) standingsChart.destroy();
-            standingsChart = new Chart(document.getElementById('standingsChart').getContext('2d'), {
-                type: 'bar',
-                data: { labels, datasets: [{ label: 'Total House Points', data, backgroundColor: backgroundColors }] },
-                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
-            });
-        };
-
-        filter.addEventListener('change', updateChart);
-        updateChart();
-    }
-
-    function buildLeaderboardCard(students, activities, isSection = false) {
-        const leaderboardCard = document.getElementById('leaderboardCard');
-        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-        const filterOptions = isSection 
-            ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
-            : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
-
-        leaderboardCard.innerHTML = `
-            <div class="dashboard-card">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-bold text-gray-800">Discipline Leaderboards</h2>
-                    <select id="leaderboardFilter" class="p-2 rounded-lg border border-gray-300">${filterOptions}</select>
+    // Using Bootstrap card, flexbox, form-select, and row/col grid
+    leaderboardCard.innerHTML = `
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h4 card-title mb-0 fw-bold">Discipline Leaderboards</h2>
+                    <select id="leaderboardFilter" class="form-select w-auto">${filterOptions}</select>
                 </div>
                 <div id="leaderboardContent"></div>
+            </div>
+        </div>`;
+
+    const updateLeaderboards = () => {
+        const value = document.getElementById('leaderboardFilter').value;
+        let filteredStudents = students;
+        let filteredActivities = activities;
+
+        if (value === 'lp' || value === 'up' || value === 'hs') {
+            const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
+            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
+            filteredActivities = activities.filter(a => {
+                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
+                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
+            });
+        } else if (value !== 'school' && value !== 'section') {
+            const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
+            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
+             filteredActivities = activities.filter(a => {
+                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
+                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
+            });
+        }
+
+        const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
+        const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
+        
+        const activityPoints = filteredActivities.reduce((acc, act) => {
+            const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
+            if (!acc[act.Activity]) acc[act.Activity] = 0;
+            acc[act.Activity] += points;
+            return acc;
+        }, {});
+
+        const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
+        const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
+        const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
+
+        // Using Bootstrap list-group and text color utilities
+        document.getElementById('leaderboardContent').innerHTML = `
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h3 class="h6 fw-semibold mb-2 text-success">Top Students (Positive)</h3>
+                    <ul class="list-group list-group-flush">${topPositiveStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${s.name} (${s.class}-${s.division})</span><span class="fw-bold text-success">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h6 fw-semibold mb-2 text-danger">Top Students (Negative)</h3>
+                    <ul class="list-group list-group-flush">${topNegativeStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${s.name} (${s.class}-${s.division})</span><span class="fw-bold text-danger">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h6 fw-semibold mb-2 text-success">Top Positive Activities</h3>
+                    <ul class="list-group list-group-flush">${topPositiveActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${name}</span><span class="fw-bold text-success">${pts.toFixed(1)}</span></li>`).join('')}</ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h6 fw-semibold mb-2 text-danger">Top Negative Activities</h3>
+                    <ul class="list-group list-group-flush">${topNegativeActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${name}</span><span class="fw-bold text-danger">${pts.toFixed(1)}</span></li>`).join('')}</ul>
+                </div>
             </div>`;
-
-        const updateLeaderboards = () => {
-            const value = document.getElementById('leaderboardFilter').value;
-            let filteredStudents = students;
-            let filteredActivities = activities;
-
-            if (value === 'lp' || value === 'up' || value === 'hs') {
-                const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
-                filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                filteredActivities = activities.filter(a => { const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()]; return activityAdmNos.some(admNo => studentAdmNos.has(admNo)); });
-            } else if (value !== 'school' && value !== 'section') {
-                const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
-                filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                 filteredActivities = activities.filter(a => {
-                    const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                    return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-                });
-            }
-
-            const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
-            const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
-            
-            const activityPoints = filteredActivities.reduce((acc, act) => {
-                const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
-                if (!acc[act.Activity]) acc[act.Activity] = 0;
-                // For bulk entries, we only count the activity once, not per student
-                acc[act.Activity] += points;
-                return acc;
-            }, {});
-
-            const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
-            const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
-            const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
-
-            document.getElementById('leaderboardContent').innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="font-semibold mb-2 text-green-600">Top Students (Positive)</h3>
-                        <ul class="divide-y divide-gray-200">${topPositiveStudents.map(s => `<li class="py-2 flex justify-between"><span>${s.name} (${s.class}-${s.division})</span><span class="font-bold text-green-600">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold mb-2 text-red-600">Top Students (Negative)</h3>
-                        <ul class="divide-y divide-gray-200">${topNegativeStudents.map(s => `<li class="py-2 flex justify-between"><span>${s.name} (${s.class}-${s.division})</span><span class="font-bold text-red-600">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold mb-2 text-green-600">Top Positive Activities</h3>
-                        <ul class="divide-y divide-gray-200">${topPositiveActivities.map(([name, pts]) => `<li class="py-2 flex justify-between"><span>${name}</span><span class="font-bold text-green-600">${pts.toFixed(1)}</span></li>`).join('')}</ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold mb-2 text-red-600">Top Negative Activities</h3>
-                        <ul class="divide-y divide-gray-200">${topNegativeActivities.map(([name, pts]) => `<li class="py-2 flex justify-between"><span>${name}</span><span class="font-bold text-red-600">${pts.toFixed(1)}</span></li>`).join('')}</ul>
-                    </div>
-                </div>`;
-        };
-        
-        document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
-        updateLeaderboards();
-    }
+    };
     
-    // --- Universal Topper Filtering UI & Logic ---
-    function setupTopperFilters(cardId, students, title, updateFunction) {
-        const cardContainer = document.getElementById(cardId);
-        if (!cardContainer) return;
+    document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
+    updateLeaderboards();
+}
 
-        const allTerms = [...new Set(students.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-        
-        cardContainer.innerHTML = `
-            <div class="dashboard-card">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">${title}</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4 items-end">
-                    <div>
-                        <label class="text-xs font-medium text-gray-600">Ranking Basis</label>
-                        <select id="${cardId}-basis" class="mt-1 block w-full p-2 rounded-lg border border-gray-300">
+/**
+ * Builds the Class Toppers card.
+ */
+function buildClassToppersCard(students) {
+    setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);
+}
+
+/**
+ * Universal function to create filter UI for topper cards using Bootstrap.
+ */
+function setupTopperFilters(cardId, students, title, updateFunction) {
+    const cardContainer = document.getElementById(cardId);
+    if (!cardContainer) return;
+
+    const allTerms = [...new Set(students.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
+    
+    // Using Bootstrap card, row/col grid, form-label, form-select, and buttons
+    cardContainer.innerHTML = `
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="h4 card-title fw-bold mb-3">${title}</h2>
+                <div class="row g-3 mb-4 align-items-end">
+                    <div class="col-md-3">
+                        <label class="form-label small">Ranking Basis</label>
+                        <select id="${cardId}-basis" class="form-select mt-1">
                             <option value="all-time">All Time</option>
                             ${allTerms.map(t => `<option value="${t}">${t}</option>`).join('')}
                         </select>
                     </div>
-                    <div>
-                        <label class="text-xs font-medium text-gray-600">Student Group</label>
-                        <select id="${cardId}-scope" class="mt-1 block w-full p-2 rounded-lg border border-gray-300">
+                    <div class="col-md-3">
+                        <label class="form-label small">Student Group</label>
+                        <select id="${cardId}-scope" class="form-select mt-1">
                             <option value="school">School-wide</option>
                             <option value="section">By Section</option>
                             <option value="standard">By Standard</option>
                             <option value="division">By Division</option>
                         </select>
                     </div>
-                    <div>
-                        <label class="text-xs font-medium text-gray-600">Detail</label>
-                        <select id="${cardId}-detail" class="mt-1 block w-full p-2 rounded-lg border border-gray-300" disabled><option value="">-</option></select>
+                    <div class="col-md-3">
+                        <label class="form-label small">Detail</label>
+                        <select id="${cardId}-detail" class="form-select mt-1" disabled><option value="">-</option></select>
                     </div>
-                    <div>
-                        <button id="${cardId}-resetBtn" class="w-full bg-slate-200 text-slate-700 p-2 rounded-lg font-medium">Reset</button>
+                    <div class="col-md-3">
+                        <button id="${cardId}-resetBtn" class="w-100 btn btn-outline-secondary">Reset</button>
                     </div>
                 </div>
                 <div id="${cardId}-content">
-                    <p class="text-gray-500">Please make a selection to view toppers.</p>
+                    <p class="text-muted">Please make a selection to view toppers.</p>
                 </div>
-            </div>`;
+            </div>
+        </div>`;
+    
+    const basisEl = document.getElementById(`${cardId}-basis`);
+    const scopeEl = document.getElementById(`${cardId}-scope`);
+    const detailEl = document.getElementById(`${cardId}-detail`);
+    const resetBtn = document.getElementById(`${cardId}-resetBtn`);
+
+    const triggerUpdate = () => {
+        const basis = basisEl.value;
+        const scope = scopeEl.value;
+        const detail = detailEl.value;
+        updateFunction(students, basis, scope, detail, `${cardId}-content`);
+    };
+
+    scopeEl.addEventListener('change', () => {
+        const scope = scopeEl.value;
+        detailEl.innerHTML = '<option value="">Select</option>';
+        detailEl.disabled = true;
         
-        const basisEl = document.getElementById(`${cardId}-basis`);
-        const scopeEl = document.getElementById(`${cardId}-scope`);
-        const detailEl = document.getElementById(`${cardId}-detail`);
-        const resetBtn = document.getElementById(`${cardId}-resetBtn`);
+        let options = [];
+        if (scope === 'section') {
+            options = [...new Set(students.map(s => getSection(s.class)))];
+        } else if (scope === 'standard') {
+            options = [...new Set(students.map(s => s.class))].sort((a,b) => a-b);
+        } else if (scope === 'division') {
+            options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+        }
 
-        const triggerUpdate = () => {
-            const basis = basisEl.value;
-            const scope = scopeEl.value;
-            const detail = detailEl.value;
-            updateFunction(students, basis, scope, detail, `${cardId}-content`);
-        };
+        if (options.length > 0) {
+            detailEl.innerHTML = '<option value="">Select</option>' + options.map(o => `<option value="${o}">${o}</option>`).join('');
+            detailEl.disabled = false;
+        } else {
+            detailEl.innerHTML = '<option value="">-</option>';
+        }
+        triggerUpdate();
+    });
 
-        scopeEl.addEventListener('change', () => {
-            const scope = scopeEl.value;
-            detailEl.innerHTML = '<option value="">Select</option>';
-            detailEl.disabled = true;
-            
-            let options = [];
-            if (scope === 'section') {
-                options = [...new Set(students.map(s => getSection(s.class)))];
-            } else if (scope === 'standard') {
-                options = [...new Set(students.map(s => s.class))].sort((a,b) => a-b);
-            } else if (scope === 'division') {
-                options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-            }
+    resetBtn.addEventListener('click', () => {
+        basisEl.value = 'all-time';
+        scopeEl.value = 'school';
+        scopeEl.dispatchEvent(new Event('change'));
+    });
 
-            if (options.length > 0) {
-                detailEl.innerHTML = options.map(o => `<option value="${o}">${o}</option>`).join('');
-                detailEl.disabled = false;
-            } else {
-                detailEl.innerHTML = '<option value="">-</option>';
-            }
-            triggerUpdate();
-        });
+    basisEl.addEventListener('change', triggerUpdate);
+    detailEl.addEventListener('change', triggerUpdate);
+    triggerUpdate(); // Initial call
+}
 
-        resetBtn.addEventListener('click', () => {
-            basisEl.value = 'all-time';
-            scopeEl.value = 'school';
-            scopeEl.dispatchEvent(new Event('change'));
-        });
+/**
+ * Renders the Class Toppers view using Bootstrap tables.
+ */
+function updateClassToppersView(students, basis, scope, detail, contentId) {
+    const contentEl = document.getElementById(contentId);
+    let filteredStudents = students;
 
-        basisEl.addEventListener('change', triggerUpdate);
-        detailEl.addEventListener('change', triggerUpdate);
-        triggerUpdate(); // Initial call
+    if (scope === 'section' && detail) {
+        filteredStudents = students.filter(s => getSection(s.class) === detail);
+    } else if (scope === 'standard' && detail) {
+        filteredStudents = students.filter(s => s.class.toString() === detail.toString());
+    } else if (scope === 'division' && detail) {
+        filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
     }
     
-    function updateClassToppersView(students, basis, scope, detail, contentId) {
-        const contentEl = document.getElementById(contentId);
-        let filteredStudents = students;
+    let finalTopperList;
+    let isRankedList = false;
+    let rankHeader = "Rank";
 
-        if (scope === 'section' && detail) {
-            filteredStudents = students.filter(s => getSection(s.class) === detail);
-        } else if (scope === 'standard' && detail) {
-            filteredStudents = students.filter(s => s.class.toString() === detail.toString());
-        } else if (scope === 'division' && detail) {
-            filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
+    if ((scope === 'division' && detail) || (scope === 'standard' && detail)) {
+        isRankedList = true;
+        rankHeader = "Rank";
+        let sortedStudents;
+        if (basis === 'all-time') {
+            sortedStudents = [...filteredStudents].sort((a, b) => b.academicTotal - a.academicTotal);
+        } else {
+            sortedStudents = [...filteredStudents]
+                .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
+                .filter(s => s.termTotal !== -1)
+                .sort((a, b) => b.termTotal - a.termTotal);
         }
+        finalTopperList = sortedStudents.slice(0, 10);
+    } else {
+        isRankedList = false;
+        rankHeader = "Class";
+        const uniqueDivisions = [...new Set(filteredStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
         
-        let finalTopperList;
-        let isRankedList = false;
-        let rankHeader = "Rank";
-
-        if ((scope === 'division' && detail) || (scope === 'standard' && detail)) {
-            isRankedList = true;
-            rankHeader = "Rank";
-            let sortedStudents;
+        finalTopperList = uniqueDivisions.map(division => {
+            let divisionStudents = filteredStudents.filter(s => `${s.class}-${s.division}` === division);
+            let sortedDivisionStudents;
             if (basis === 'all-time') {
-                sortedStudents = [...filteredStudents].sort((a, b) => b.academicTotal - a.academicTotal);
+                sortedDivisionStudents = [...divisionStudents].sort((a, b) => b.academicTotal - a.academicTotal);
             } else {
-                sortedStudents = [...filteredStudents]
+                sortedDivisionStudents = [...divisionStudents]
                     .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
                     .filter(s => s.termTotal !== -1)
                     .sort((a, b) => b.termTotal - a.termTotal);
             }
-            finalTopperList = sortedStudents.slice(0, 10);
-        } else {
-            isRankedList = false;
-            rankHeader = "Class";
-            const uniqueDivisions = [...new Set(filteredStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-            
-            finalTopperList = uniqueDivisions.map(division => {
-                let divisionStudents = filteredStudents.filter(s => `${s.class}-${s.division}` === division);
-                let sortedDivisionStudents;
-                if (basis === 'all-time') {
-                    sortedDivisionStudents = [...divisionStudents].sort((a, b) => b.academicTotal - a.academicTotal);
-                } else {
-                    sortedDivisionStudents = [...divisionStudents]
-                        .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
-                        .filter(s => s.termTotal !== -1)
-                        .sort((a, b) => b.termTotal - a.termTotal);
-                }
-                return sortedDivisionStudents.length > 0 ? sortedDivisionStudents[0] : null;
-            }).filter(Boolean);
-        }
-
-        if (finalTopperList.length === 0) {
-            contentEl.innerHTML = `<p class="text-gray-500">No data available for this selection.</p>`;
-            return;
-        }
-
-        contentEl.innerHTML = `
-            <div class="overflow-x-auto">
-                <table class="custom-table">
-                    <thead><tr><th>${rankHeader}</th><th>Name</th><th>Score</th></tr></thead>
-                    <tbody>
-                        ${finalTopperList.map((s, i) => `
-                            <tr>
-                                <td class="font-bold">${isRankedList ? i + 1 : `${s.class}-${s.division}`}</td>
-                                <td>${s.name} ${!isRankedList ? '' : `(${s.class}-${s.division})`}</td>
-                                <td>${(basis === 'all-time' ? s.academicTotal : s.termTotal).toFixed(0)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>`;
+            return sortedDivisionStudents.length > 0 ? sortedDivisionStudents[0] : null;
+        }).filter(Boolean);
     }
 
-    function buildClassToppersCard(students) {
-        setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);
-    }
-    
-    function updateSubjectToppersView(students, basis, scope, detail, contentId) {
-        const contentEl = document.getElementById(contentId);
-        const term = (basis === 'all-time') ? null : basis;
-
-        if (!term) {
-            contentEl.innerHTML = `<p class="text-gray-500">Please select a specific exam to view subject toppers.</p>`;
-            return;
-        }
-
-        let filteredStudents = students;
-        if (scope === 'section' && detail) {
-            filteredStudents = students.filter(s => getSection(s.class) === detail);
-        } else if (scope === 'standard' && detail) {
-            filteredStudents = students.filter(s => s.class.toString() === detail.toString());
-        } else if (scope === 'division' && detail) {
-            filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
-        }
-        
-        if (!filteredStudents.length) {
-            contentEl.innerHTML = `<p class="text-gray-500">No students found for this selection.</p>`;
-            return;
-        }
-        
-        const subjects = [...new Set(filteredStudents.flatMap(s => 
-            s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []
-        ))].sort();
-
-        if (subjects.length === 0) {
-            contentEl.innerHTML = `<p class="text-gray-500">No subjects found for this selection.</p>`;
-            return;
-        }
-
-        let toppersHTML = '';
-        subjects.forEach(subject => {
-            let toppers = [];
-            
-            if (scope === 'school' || scope === 'section' || scope === 'standard') {
-                const groupingKeyFn = (scope === 'standard') 
-                    ? s => `${s.class}-${s.division}` 
-                    : s => s.class;
-                
-                const groupsToIterate = (scope === 'standard')
-                    ? [...new Set(filteredStudents.map(groupingKeyFn))].sort(customClassSort)
-                    : [...new Set(filteredStudents.map(groupingKeyFn))].sort((a,b) => parseInt(a, 10) - parseInt(b, 10));
-
-                groupsToIterate.forEach(group => {
-                    const groupStudents = filteredStudents.filter(s => groupingKeyFn(s) == group);
-                    
-                    let topScore = -1;
-                    let groupTopper = null; 
-                    groupStudents.forEach(student => {
-                        const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
-                        if (typeof mark === 'number' && mark > topScore) {
-                            topScore = mark;
-                            groupTopper = student;
-                        }
-                    });
-
-                    if (groupTopper) {
-                        toppers.push(`${groupTopper.name} (${groupTopper.class}-${groupTopper.division})`);
-                    }
-                });
-            } else { // scope === 'division'
-                let topScore = -1;
-                filteredStudents.forEach(student => {
-                    const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
-                    if (typeof mark === 'number') {
-                        if (mark > topScore) {
-                            topScore = mark;
-                            toppers = [`${student.name} (${student.class}-${student.division})`];
-                        } else if (mark === topScore) {
-                            toppers.push(`${student.name} (${student.class}-${student.division})`);
-                        }
-                    }
-                });
-            }
-            
-            if (toppers.length > 0) {
-                const firstTopperFullName = toppers[0];
-                const firstTopperData = filteredStudents.find(s => firstTopperFullName.startsWith(s.name));
-                if (firstTopperData) {
-                    const { maxMark } = getGradeInfo(0, subject, term, firstTopperData.class);
-                     toppersHTML += `
-                        <div class="bg-slate-50 p-3 rounded-lg">
-                            <h4 class="font-bold text-gray-700">${subject}</h4>
-                            <p class="text-sm text-gray-500">Max Mark: <span class="font-semibold themed-text">${maxMark}</span></p>
-                            <p class="text-sm">${toppers.join(', ')}</p>
-                        </div>`;
-                }
-            }
-        });
-
-        contentEl.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${toppersHTML}</div>`;
-        if(!toppersHTML) {
-             contentEl.innerHTML = `<p class="text-gray-500">No marks recorded for this selection.</p>`;
-        }
-    }
-
-    function buildSubjectToppersCard(students) {
-        setupTopperFilters('subjectToppersCard', students, 'Subject Toppers', updateSubjectToppersView);
-    }
-    
-    function buildReportGeneratorCard(students) {
-        const cardContainer = document.getElementById('reportGeneratorCard');
-        if (!cardContainer) return;
-
-        const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-        
-        cardContainer.innerHTML = `
-            <div class="dashboard-card">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Report Generator</h2>
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
-                    <div class="md:col-span-1"><label for="report-class" class="text-sm font-medium text-gray-700">Class</label><select id="report-class" class="mt-1 block w-full p-2 rounded-lg border border-gray-300"><option value="">Select Class</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
-                    <div class="md:col-span-1"><label for="report-term" class="text-sm font-medium text-gray-700">Term</label><select id="report-term" class="mt-1 block w-full p-2 rounded-lg border border-gray-300" disabled><option value="">Select Term</option></select></div>
-                    <div class="md:col-span-1"><label for="report-subject" class="text-sm font-medium text-gray-700">Subject</label><select id="report-subject" class="mt-1 block w-full p-2 rounded-lg border border-gray-300" disabled><option value="">Select Subject</option></select></div>
-                    <button id="generateReportBtn" class="w-full text-white themed-bg p-2 rounded-lg font-medium" disabled>Generate</button>
-                    <button id="resetReportBtn" class="w-full bg-slate-200 text-slate-700 p-2 rounded-lg font-medium">Reset</button>
-                </div>
-                <div id="reportResultContainer" class="mt-6"></div>
-            </div>`;
-
-        const classSelect = document.getElementById('report-class');
-        const termSelect = document.getElementById('report-term');
-        const subjectSelect = document.getElementById('report-subject');
-        const generateBtn = document.getElementById('generateReportBtn');
-        const resetBtn = document.getElementById('resetReportBtn');
-        const resultContainer = document.getElementById('reportResultContainer');
-
-        const resetGenerator = () => {
-            classSelect.value = '';
-            termSelect.innerHTML = '<option value="">Select Term</option>';
-            subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-            termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-            resultContainer.innerHTML = '';
-        };
-
-        classSelect.addEventListener('change', () => {
-            termSelect.innerHTML = '<option value="">Select Term</option>';
-            subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-            termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-            
-            const className = classSelect.value;
-            if (!className) return;
-
-            const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-            if (classStudents.length === 0) return;
-            
-            const terms = [...new Set(classStudents.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-            termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
-            termSelect.disabled = false;
-        });
-
-        termSelect.addEventListener('change', () => {
-            subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-            subjectSelect.disabled = true; generateBtn.disabled = true;
-            
-            const className = classSelect.value;
-            const term = termSelect.value;
-            if (!className || !term) return;
-
-            const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-            const subjects = [...new Set(classStudents.flatMap(s => s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []))].sort();
-            
-            subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
-            subjectSelect.disabled = false;
-        });
-
-        subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
-        resetBtn.addEventListener('click', resetGenerator);
-
-        generateBtn.addEventListener('click', () => {
-            const className = classSelect.value;
-            const term = termSelect.value;
-            const subject = subjectSelect.value;
-            
-            const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
-                .sort((a, b) => {
-                    return a.name.localeCompare(b.name); // Sort by name
-                });
-
-            let tableHTML = `<div class="overflow-x-auto"><table id="reportTable" class="custom-table"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
-            let clipboardText = ""; 
-
-            classStudents.forEach(s => {
-                const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
-                const displayMark = (typeof mark === 'number') ? mark : 'Ab';
-                const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
-                
-                tableHTML += `<tr><td>${s.name}</td><td>${displayMark} / ${maxMark}</td><td>${grade}</td></tr>`;
-                clipboardText += `${grade}\n`;
-            });
-
-            tableHTML += '</tbody></table></div><div class="mt-4 text-right"><button id="copyReportBtn" class="action-btn themed-bg">Copy Grades</button></div>';
-            resultContainer.innerHTML = tableHTML;
-
-            document.getElementById('copyReportBtn').addEventListener('click', (e) => {
-                navigator.clipboard.writeText(clipboardText.trim()).then(() => { // trim to remove last newline
-                    const btn = e.target;
-                    btn.textContent = 'Copied!';
-                    setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    alert('Could not copy text to clipboard.');
-                });
-            });
-        });
-    }
-    
-// ... (All other build... and update... functions are here)
-
-// --- MAIN APPLICATION FLOW ---
-function showView(viewName) {
-    homeView.classList.add('hidden');
-    loginView.classList.add('hidden');
-    loginView.classList.remove('flex');
-    dashboardView.classList.add('hidden');
-
-    if (viewName === 'home') homeView.classList.remove('hidden');
-    else if (viewName === 'login') {
-        loginView.classList.remove('hidden');
-        loginView.classList.add('flex');
-    }
-    else if (viewName === 'dashboard') dashboardView.classList.remove('hidden');
-}
-
-function showProgressBar() { if (progressBar) progressBar.classList.remove('hidden'); }
-function hideProgressBar() { if (progressBar) progressBar.classList.add('hidden'); }
-
-function showDashboard(user) {
-    showView('dashboard');
-    document.getElementById('userInfo').innerHTML = `<p class="font-semibold text-primary">${user.name}</p><p class="text-xs">${user.designation || 'Student'}</p>`;
-    document.body.className = '';
-    if (user.designation === 'HM') document.body.classList.add('theme-hm');
-    else if (user.role === 'staff') document.body.classList.add('theme-teacher');
-    else if (user.role === 'student' && user.house) document.body.classList.add(`theme-${user.house.toLowerCase()}`);
-}
-
-async function handleLogin(event) {
-    event.preventDefault();
-    showProgressBar();
-    const phone = document.getElementById('phone').value;
-    const dob = document.getElementById('dob').value;
-    const errorElement = document.getElementById('loginError');
-    errorElement.textContent = '';
-    try {
-        if (!(await isDataLoaded())) await populateDB();
-        const users = (await getAllData()).users;
-        const foundUser = users.find(user => {
-            if (!user.phone || !user.dob) return false;
-            const phoneMatch = Array.isArray(user.phone) ? user.phone.includes(phone) : user.phone === phone;
-            return phoneMatch && user.dob === dob;
-        });
-        if (foundUser) {
-            await setSession(foundUser);
-            initializeApp(foundUser);
-        } else {
-            errorElement.textContent = 'Invalid credentials. Please try again.';
-            hideProgressBar();
-        }
-    } catch (error) {
-        console.error('Login Error:', error);
-        errorElement.textContent = 'An error occurred. Please try again.';
-        hideProgressBar();
-    }
-}
-
-async function initializeApp(loggedInUser) {
-    const storedVersion = localStorage.getItem('appVersion');
-    if (storedVersion !== APP_VERSION) {
-        await clearSessionAndData();
-        localStorage.setItem('appVersion', APP_VERSION);
-        location.reload();
-        return; 
-    }
-
-    if (!loggedInUser) {
-        showView('home');
+    if (finalTopperList.length === 0) {
+        contentEl.innerHTML = `<p class="text-muted">No data available for this selection.</p>`;
         return;
     }
-    showProgressBar();
-    currentUser = loggedInUser;
-    showDashboard(loggedInUser);
-    
-    const { users, marks, activities, metadata } = await getAllData();
-    const allStudents = users.filter(u => u.role === 'student');
-    const processedStudents = processStudentData(allStudents, marks, activities);
-    
-    appData = { users, marks, activities, processedStudents };
 
-    const searchContainer = document.getElementById('header-search-container');
-    if (loggedInUser.designation === 'HM' || loggedInUser.role === 'staff') {
-        searchContainer.classList.remove('hidden');
-        let searchableStudents = loggedInUser.designation === 'HM' 
-                ? processedStudents 
-                : processedStudents.filter(s => getSection(s.class) === getTeacherSection(loggedInUser.designation));
+    // Using Bootstrap table classes
+    contentEl.innerHTML = `
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-light"><tr><th>${rankHeader}</th><th>Name</th><th>Score</th></tr></thead>
+                <tbody>
+                    ${finalTopperList.map((s, i) => `
+                        <tr>
+                            <td class="fw-bold">${isRankedList ? i + 1 : `${s.class}-${s.division}`}</td>
+                            <td>${s.name} ${!isRankedList ? '' : `(${s.class}-${s.division})`}</td>
+                            <td>${(basis === 'all-time' ? s.academicTotal : s.termTotal).toFixed(0)}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        </div>`;
+}
+
+/**
+ * Builds the Subject Toppers card.
+ */
+function buildSubjectToppersCard(students) {
+    setupTopperFilters('subjectToppersCard', students, 'Subject Toppers', updateSubjectToppersView);
+}
+
+/**
+ * Renders the Subject Toppers view using a Bootstrap grid of cards.
+ */
+function updateSubjectToppersView(students, basis, scope, detail, contentId) {
+    const contentEl = document.getElementById(contentId);
+    const term = (basis === 'all-time') ? null : basis;
+
+    if (!term) {
+        contentEl.innerHTML = `<p class="text-muted">Please select a specific exam to view subject toppers.</p>`;
+        return;
+    }
+
+    let filteredStudents = students;
+    if (scope === 'section' && detail) {
+        filteredStudents = students.filter(s => getSection(s.class) === detail);
+    } else if (scope === 'standard' && detail) {
+        filteredStudents = students.filter(s => s.class.toString() === detail.toString());
+    } else if (scope === 'division' && detail) {
+        filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
+    }
+    
+    if (!filteredStudents.length) {
+        contentEl.innerHTML = `<p class="text-muted">No students found for this selection.</p>`;
+        return;
+    }
+    
+    const subjects = [...new Set(filteredStudents.flatMap(s => 
+        s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []
+    ))].sort();
+
+    if (subjects.length === 0) {
+        contentEl.innerHTML = `<p class="text-muted">No subjects found for this selection.</p>`;
+        return;
+    }
+
+    let toppersHTML = '';
+    subjects.forEach(subject => {
+        let toppers = [];
         
-        document.getElementById('headerSearch').addEventListener('input', e => {
-            const query = e.target.value.toLowerCase();
-            const searchResultsEl = document.getElementById('headerSearchResults');
-            if (!query) { searchResultsEl.innerHTML = ''; return; }
-            const results = searchableStudents.filter(s => s.name.toLowerCase().includes(query) || s.admissionNo.toString().includes(query));
-            searchResultsEl.innerHTML = results.length > 0 ? `<ul class="divide-y divide-[var(--border-color)]">${results.map(s => `<li class="p-2 hover:bg-[var(--bg-primary)] cursor-pointer view-student-btn" data-admission-no="${s.admissionNo}">${s.name} - ${s.class}${s.division}</li>`).join('')}</ul>` : `<div class="p-2">No students found.</div>`;
+        if (scope === 'school' || scope === 'section' || scope === 'standard') {
+            const groupingKeyFn = (scope === 'standard') 
+                ? s => `${s.class}-${s.division}` 
+                : s => s.class;
+            
+            const groupsToIterate = (scope === 'standard')
+                ? [...new Set(filteredStudents.map(groupingKeyFn))].sort(customClassSort)
+                : [...new Set(filteredStudents.map(groupingKeyFn))].sort((a,b) => parseInt(a, 10) - parseInt(b, 10));
+
+            groupsToIterate.forEach(group => {
+                const groupStudents = filteredStudents.filter(s => groupingKeyFn(s) == group);
+                
+                let topScore = -1;
+                let groupTopper = null; 
+                groupStudents.forEach(student => {
+                    const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
+                    if (typeof mark === 'number' && mark > topScore) {
+                        topScore = mark;
+                        groupTopper = student;
+                    }
+                });
+
+                if (groupTopper) {
+                    toppers.push(`${groupTopper.name} (${groupTopper.class}-${groupTopper.division})`);
+                }
+            });
+        } else { // scope === 'division'
+            let topScore = -1;
+            filteredStudents.forEach(student => {
+                const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
+                if (typeof mark === 'number') {
+                    if (mark > topScore) {
+                        topScore = mark;
+                        toppers = [`${student.name} (${student.class}-${s.division})`];
+                    } else if (mark === topScore) {
+                        toppers.push(`${student.name} (${student.class}-${s.division})`);
+                    }
+                }
+            });
+        }
+        
+        if (toppers.length > 0) {
+            const firstTopperFullName = toppers[0];
+            const firstTopperData = filteredStudents.find(s => firstTopperFullName.startsWith(s.name));
+            if (firstTopperData) {
+                const { maxMark } = getGradeInfo(0, subject, term, firstTopperData.class);
+                 // Using Bootstrap grid column and background/text utilities
+                 toppersHTML += `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="bg-light p-3 rounded h-100">
+                            <h4 class="h6 fw-bold text-dark">${subject}</h4>
+                            <p class="small text-muted mb-1">Max Mark: <span class="fw-semibold text-primary">${maxMark}</span></p>
+                            <p class="small mb-0">${toppers.join(', ')}</p>
+                        </div>
+                    </div>`;
+            }
+        }
+    });
+
+    contentEl.innerHTML = `<div class="row g-3">${toppersHTML}</div>`;
+    if(!toppersHTML) {
+         contentEl.innerHTML = `<p class="text-muted">No marks recorded for this selection.</p>`;
+    }
+}
+
+/**
+ * Builds the Report Generator card using Bootstrap.
+ */
+function buildReportGeneratorCard(students) {
+    const cardContainer = document.getElementById('reportGeneratorCard');
+    if (!cardContainer) return;
+
+    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    
+    // Using Bootstrap card, form controls, and grid for layout
+    cardContainer.innerHTML = `
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="h4 card-title fw-bold mb-3">Report Generator</h2>
+                <div class="row g-3 align-items-end">
+                    <div class="col-lg col-md-4"><label for="report-class" class="form-label small">Class</label><select id="report-class" class="form-select"><option value="">Select Class</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
+                    <div class="col-lg col-md-4"><label for="report-term" class="form-label small">Term</label><select id="report-term" class="form-select" disabled><option value="">Select Term</option></select></div>
+                    <div class="col-lg col-md-4"><label for="report-subject" class="form-label small">Subject</label><select id="report-subject" class="form-select" disabled><option value="">Select Subject</option></select></div>
+                    <div class="col-lg-auto col-md-6"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
+                    <div class="col-lg-auto col-md-6"><button id="resetReportBtn" class="w-100 btn btn-outline-secondary">Reset</button></div>
+                </div>
+                <div id="reportResultContainer" class="mt-4"></div>
+            </div>
+        </div>`;
+
+    const classSelect = document.getElementById('report-class');
+    const termSelect = document.getElementById('report-term');
+    const subjectSelect = document.getElementById('report-subject');
+    const generateBtn = document.getElementById('generateReportBtn');
+    const resetBtn = document.getElementById('resetReportBtn');
+    const resultContainer = document.getElementById('reportResultContainer');
+
+    const resetGenerator = () => {
+        classSelect.value = '';
+        termSelect.innerHTML = '<option value="">Select Term</option>';
+        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+        termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
+        resultContainer.innerHTML = '';
+    };
+
+    classSelect.addEventListener('change', () => {
+        termSelect.innerHTML = '<option value="">Select Term</option>';
+        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+        termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
+        
+        const className = classSelect.value;
+        if (!className) return;
+
+        const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
+        if (classStudents.length === 0) return;
+        
+        const terms = [...new Set(classStudents.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
+        termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
+        termSelect.disabled = false;
+    });
+
+    termSelect.addEventListener('change', () => {
+        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+        subjectSelect.disabled = true; generateBtn.disabled = true;
+        
+        const className = classSelect.value;
+        const term = termSelect.value;
+        if (!className || !term) return;
+
+        const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
+        const subjects = [...new Set(classStudents.flatMap(s => s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []))].sort();
+        
+        subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+        subjectSelect.disabled = false;
+    });
+
+    subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
+    resetBtn.addEventListener('click', resetGenerator);
+
+    generateBtn.addEventListener('click', () => {
+        const className = classSelect.value;
+        const term = termSelect.value;
+        const subject = subjectSelect.value;
+        
+        const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
+            .sort((a, b) => {
+                if (a.gender < b.gender) return -1;
+                if (a.gender > b.gender) return 1;
+                return a.name.localeCompare(b.name);
+            });
+
+        // Using Bootstrap responsive table and button
+        let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
+        let clipboardText = "";
+
+        classStudents.forEach(s => {
+            const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
+            const displayMark = (typeof mark === 'number') ? mark : 'Ab';
+            const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
+            
+            tableHTML += `<tr><td>${s.name}</td><td>${displayMark} / ${maxMark}</td><td>${grade}</td></tr>`;
+            clipboardText += `${grade}\n`;
         });
-         document.getElementById('headerSearchResults').addEventListener('click', e => {
-            if (e.target.classList.contains('view-student-btn')) {
-                const student = appData.processedStudents.find(s => s.admissionNo.toString() === e.target.dataset.admissionNo.toString());
+
+        tableHTML += '</tbody></table></div><div class="mt-3 text-end"><button id="copyReportBtn" class="btn btn-success">Copy Grades</button></div>';
+        resultContainer.innerHTML = tableHTML;
+
+        document.getElementById('copyReportBtn').addEventListener('click', (e) => {
+            navigator.clipboard.writeText(clipboardText.trim()).then(() => {
+                const btn = e.target;
+                btn.textContent = 'Copied!';
+                setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Could not copy text to clipboard.');
+            });
+        });
+    });
+}
+        
+        function showView(viewName) {
+            homeView.classList.add('d-none');
+            loginView.classList.remove('d-flex');
+            loginView.classList.add('d-none');
+            dashboardView.classList.add('d-none');
+
+            if (viewName === 'home') homeView.classList.remove('d-none');
+            else if (viewName === 'login') {
+                loginView.classList.remove('d-none');
+                loginView.classList.add('d-flex');
+            }
+            else if (viewName === 'dashboard') dashboardView.classList.remove('d-none');
+        }
+
+        function showProgressBar() { if (progressBar) progressBar.classList.remove('d-none'); }
+        function hideProgressBar() { if (progressBar) progressBar.classList.add('d-none'); }
+
+        function showDashboard(user) {
+            showView('dashboard');
+            document.getElementById('userInfo').innerHTML = `<p class="fw-semibold text-primary mb-0">${user.name}</p><p class="small text-muted mb-0">${user.designation || 'Student'}</p>`;
+            document.body.className = '';
+            if (user.designation === 'HM') document.body.classList.add('theme-hm');
+            else if (user.role === 'staff') document.body.classList.add('theme-teacher');
+            else if (user.role === 'student' && user.house) document.body.classList.add(`theme-${user.house.toLowerCase()}`);
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+            showProgressBar();
+            const phone = document.getElementById('phone').value;
+            const dob = document.getElementById('dob').value;
+            const errorElement = document.getElementById('loginError');
+            errorElement.textContent = '';
+            try {
+                if (!(await isDataLoaded())) await populateDB();
+                const users = (await getAllData()).users;
+                const foundUser = users.find(user => {
+                    if (!user.phone || !user.dob) return false;
+                    const phoneMatch = Array.isArray(user.phone) ? user.phone.includes(phone) : user.phone === phone;
+                    return phoneMatch && user.dob === dob;
+                });
+                if (foundUser) {
+                    await setSession(foundUser);
+                    initializeApp(foundUser);
+                } else {
+                    errorElement.textContent = 'Invalid credentials. Please try again.';
+                    hideProgressBar();
+                }
+            } catch (error) {
+                console.error('Login Error:', error);
+                errorElement.textContent = 'An error occurred. Please try again.';
+                hideProgressBar();
+            }
+        }
+
+        async function initializeApp(loggedInUser) {
+            const storedVersion = localStorage.getItem('appVersion');
+            if (storedVersion !== APP_VERSION) {
+                await clearSessionAndData();
+                localStorage.setItem('appVersion', APP_VERSION);
+                location.reload();
+                return; 
+            }
+
+            if (!loggedInUser) {
+                showView('home');
+                return;
+            }
+            showProgressBar();
+            currentUser = loggedInUser;
+            showDashboard(loggedInUser);
+            
+            const { users, marks, activities, metadata } = await getAllData();
+            const allStudents = users.filter(u => u.role === 'student');
+            const processedStudents = processStudentData(allStudents, marks, activities);
+            
+            appData = { users, marks, activities, processedStudents };
+
+            const searchContainer = document.getElementById('header-search-container');
+            if (loggedInUser.designation === 'HM' || loggedInUser.role === 'staff') {
+                searchContainer.classList.remove('d-none');
+                let searchableStudents = loggedInUser.designation === 'HM' 
+                        ? processedStudents 
+                        : processedStudents.filter(s => getSection(s.class) === getTeacherSection(loggedInUser.designation));
+                
+                document.getElementById('headerSearch').addEventListener('input', e => {
+                    const query = e.target.value.toLowerCase();
+                    const searchResultsEl = document.getElementById('headerSearchResults');
+                    if (!query) { searchResultsEl.innerHTML = ''; return; }
+                    const results = searchableStudents.filter(s => s.name.toLowerCase().includes(query) || s.admissionNo.toString().includes(query));
+                    searchResultsEl.innerHTML = results.length > 0 ? `<ul class="list-group">${results.map(s => `<li class="list-group-item list-group-item-action view-student-btn" style="cursor: pointer;" data-admission-no="${s.admissionNo}">${s.name} - ${s.class}${s.division}</li>`).join('')}</ul>` : `<div class="p-2 text-muted small">No students found.</div>`;
+                });
+                 document.getElementById('headerSearchResults').addEventListener('click', e => {
+                    if (e.target.classList.contains('view-student-btn')) {
+                        const student = appData.processedStudents.find(s => s.admissionNo.toString() === e.target.dataset.admissionNo.toString());
+                        if (student) buildStudentDashboard(student, appData.activities, currentUser);
+                        document.getElementById('headerSearch').value = '';
+                        document.getElementById('headerSearchResults').innerHTML = '';
+                    }
+                });
+            } else {
+                searchContainer.classList.add('d-none');
+            }
+
+            if (loggedInUser.designation === 'HM') {
+                buildHMDashboard(loggedInUser, allStudents, processedStudents, metadata);
+            } else if (loggedInUser.role === 'staff') {
+                buildTeacherDashboard(loggedInUser, allStudents, processedStudents, metadata);
+            } else if (loggedInUser.role === 'student') {
+                const currentUserPhones = Array.isArray(loggedInUser.phone) ? loggedInUser.phone : [loggedInUser.phone];
+                const siblings = allStudents.filter(s => {
+                    if (s.admissionNo.toString() === loggedInUser.admissionNo.toString()) return false;
+                    const potentialSiblingPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
+                    return currentUserPhones.some(p => potentialSiblingPhones.includes(p));
+                });
+
+                if (siblings.length > 0) {
+                    buildParentDashboard(loggedInUser, siblings, processedStudents);
+                } else {
+                    const studentData = processedStudents.find(s => s.admissionNo.toString() === loggedInUser.admissionNo.toString());
+                    if (studentData) buildStudentDashboard(studentData, activities, null, []);
+                }
+            }
+            hideProgressBar();
+        }
+
+        function handleDashboardClick(event) {
+            const target = event.target.closest('button, a');
+            if (!target) return;
+
+            if (target.classList.contains('view-student-btn')) {
+                const student = appData.processedStudents.find(s => s.admissionNo.toString() === target.dataset.admissionNo.toString());
                 if (student) buildStudentDashboard(student, appData.activities, currentUser);
-                document.getElementById('headerSearch').value = '';
-                document.getElementById('headerSearchResults').innerHTML = '';
             }
-        });
-    } else {
-        searchContainer.classList.add('hidden');
-    }
-
-    if (loggedInUser.designation === 'HM') {
-        buildHMDashboard(loggedInUser, allStudents, processedStudents, metadata);
-    } else if (loggedInUser.role === 'staff') {
-        buildTeacherDashboard(loggedInUser, allStudents, processedStudents, metadata);
-    } else if (loggedInUser.role === 'student') {
-        const currentUserPhones = Array.isArray(loggedInUser.phone) ? loggedInUser.phone : [loggedInUser.phone];
-        const siblings = allStudents.filter(s => {
-            if (s.admissionNo.toString() === loggedInUser.admissionNo.toString()) return false;
-            const potentialSiblingPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
-            return currentUserPhones.some(p => potentialSiblingPhones.includes(p));
-        });
-
-        if (siblings.length > 0) {
-            buildParentDashboard(loggedInUser, siblings, processedStudents);
-        } else {
-            const studentData = processedStudents.find(s => s.admissionNo.toString() === loggedInUser.admissionNo.toString());
-            if (studentData) buildStudentDashboard(studentData, activities, null, []);
-        }
-    }
-    hideProgressBar();
-}
-    
-
-    function openIframeModal(url, title) {
-        const modal = document.getElementById('iframeModal');
-        document.getElementById('iframeModalTitle').textContent = title;
-        document.getElementById('modalIframe').src = url;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-
-    function handleDashboardClick(event) {
-        const target = event.target.closest('button, a');
-        if (!target) return;
-
-        if (target.classList.contains('view-student-btn')) {
-            const student = appData.processedStudents.find(s => s.admissionNo.toString() === target.dataset.admissionNo.toString());
-            if (student) buildStudentDashboard(student, appData.activities, currentUser);
-        }
-        if (target.classList.contains('action-btn')) {
-            const action = target.dataset.action;
-            if (action === 'discipline') {
-                const url = "https://forms.gle/MifhWNaqjoN3feeLA"; // <-- CORRECT URL APPLIED HERE
-                openIframeModal(url, "Record Discipline Points");
+            if (target.dataset.action === 'discipline') {
+                const url = "https://forms.gle/MifhWNaqjoN3feeLA";
+                document.getElementById('iframeModalTitle').textContent = "Record Discipline Points";
+                document.getElementById('modalIframe').src = url;
+                iframeModal.show();
             }
         }
-    }
 
-function setLanguage(lang) {
-    document.querySelectorAll('[data-translate-key]').forEach(el => {
-        const key = el.dataset.translateKey;
-        if (translations[lang] && translations[lang][key]) {
-            el.innerText = translations[lang][key];
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.dataset.translateKey;
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            localStorage.setItem('language', lang);
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === lang);
+            });
         }
-    });
-    localStorage.setItem('language', lang);
-    document.querySelectorAll('.lang-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.lang === lang);
-    });
-}
 
-// --- EVENT LISTENERS & INITIALIZATION ---
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize element variables
-    homeView = document.getElementById('homeView');
-    loginView = document.getElementById('loginView');
-    dashboardView = document.getElementById('dashboardView');
-    progressBar = document.getElementById('progressBarContainer');
+        // --- EVENT LISTENERS & INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            homeView = document.getElementById('homeView');
+            loginView = document.getElementById('loginView');
+            dashboardView = document.getElementById('dashboardView');
+            progressBar = document.getElementById('progressBarContainer');
 
-    // Setup event listeners
-    document.getElementById('goToLoginBtn').addEventListener('click', () => showView('login'));
-    document.getElementById('backToHomeBtn').addEventListener('click', () => showView('home'));
-    
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
-    });
+            // Initialize Bootstrap Modals
+            disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
+            iframeModal = new bootstrap.Modal(document.getElementById('iframeModal'));
+            dobVerifyModal = new bootstrap.Modal(document.getElementById('dobVerifyModal'));
 
-    document.getElementById('loginForm').addEventListener('submit', handleLogin);
-    document.getElementById('logoutButton').addEventListener('click', async () => {
-        await clearSessionAndData();
-        showView('home');
-    });
-    
-    document.getElementById('closeModal').addEventListener('click', () => document.getElementById('disciplineModal').classList.add('hidden'));
-    document.getElementById('closeIframeModal').addEventListener('click', () => {
-        document.getElementById('modalIframe').src = "about:blank";
-        document.getElementById('iframeModal').classList.add('hidden');
-    });
-    
-    document.getElementById('closeSwitchChildModal').addEventListener('click', () => document.getElementById('switchChildModal').classList.add('hidden'));
-    document.getElementById('closeDobVerifyModal').addEventListener('click', () => document.getElementById('dobVerifyModal').classList.add('hidden'));
+            document.getElementById('goToLoginBtn').addEventListener('click', () => showView('login'));
+            document.getElementById('backToHomeBtn').addEventListener('click', () => showView('home'));
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
+            });
 
-    document.getElementById('dobVerifyForm').addEventListener('submit', async e => {
-        e.preventDefault();
-        const admNo = document.getElementById('dobVerifyAdmissionNo').value;
-        const dob = document.getElementById('dobVerifyInput').value;
-        const errorEl = document.getElementById('dobError');
-        errorEl.textContent = '';
-        
-        const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
-        if (targetStudent && targetStudent.dob === dob) {
-            await setSession(targetStudent);
-            document.getElementById('dobVerifyModal').classList.add('hidden');
-            initializeApp(targetStudent);
-        } else {
-            errorEl.textContent = "Incorrect date of birth. Please try again.";
-        }
-    });
-    
-    document.getElementById('theme-switcher').addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    });
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('logoutButton').addEventListener('click', async () => {
+                await clearSessionAndData();
+                showView('home');
+            });
+            
+            document.getElementById('iframeModal').addEventListener('hidden.bs.modal', () => {
+                 document.getElementById('modalIframe').src = "about:blank";
+            });
+            
+            document.getElementById('dobVerifyForm').addEventListener('submit', async e => {
+                e.preventDefault();
+                const admNo = document.getElementById('dobVerifyAdmissionNo').value;
+                const dob = document.getElementById('dobVerifyInput').value;
+                const errorEl = document.getElementById('dobError');
+                errorEl.textContent = '';
+                
+                const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
+                if (targetStudent && targetStudent.dob === dob) {
+                    await setSession(targetStudent);
+                    dobVerifyModal.hide();
+                    initializeApp(targetStudent);
+                } else {
+                    errorEl.textContent = "Incorrect date of birth. Please try again.";
+                }
+            });
+            
+            document.getElementById('theme-switcher').addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
 
-    const savedLang = localStorage.getItem('language') || 'en';
-    setLanguage(savedLang);
+            const savedLang = localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
 
-    getSession().then(user => initializeApp(user));
-});
-</script>
+            getSession().then(user => initializeApp(user));
+        });
+    </script>
 </body>
 </html>
-
