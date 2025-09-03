@@ -27941,8 +27941,8 @@
                     "B.S.": 19,
                     "Maths": 11
                 },
-                "total": 94,
-                "rank": 3
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -27954,8 +27954,8 @@
                     "B.S.": 11,
                     "Maths": 13
                 },
-                "total": 92,
-                "rank": 4
+                "total": 94,
+                "rank": 3
             },
             "First Term Exam": {
                 "marks": {
@@ -27964,14 +27964,14 @@
                     "English": 0,
                     "Hindi": "22B",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 92,
+                "rank": 4
             }
         }
     },
@@ -27988,8 +27988,8 @@
                     "B.S.": 3,
                     "Maths": 6
                 },
-                "total": 56,
-                "rank": 19
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28001,8 +28001,8 @@
                     "B.S.": 12,
                     "Maths": 5
                 },
-                "total": 58,
-                "rank": 12
+                "total": 56,
+                "rank": 19
             },
             "First Term Exam": {
                 "marks": {
@@ -28011,14 +28011,14 @@
                     "English": 0,
                     "Hindi": "14C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 58,
+                "rank": 12
             }
         }
     },
@@ -28035,8 +28035,8 @@
                     "B.S.": 4,
                     "Maths": 12
                 },
-                "total": 59,
-                "rank": 17
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28048,7 +28048,7 @@
                     "B.S.": 4,
                     "Maths": 12
                 },
-                "total": 51,
+                "total": 59,
                 "rank": 17
             },
             "First Term Exam": {
@@ -28058,14 +28058,14 @@
                     "English": 0,
                     "Hindi": "16C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 51,
+                "rank": 17
             }
         }
     },
@@ -28082,8 +28082,8 @@
                     "B.S.": 10,
                     "Maths": 9
                 },
-                "total": 53,
-                "rank": 21
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28095,8 +28095,8 @@
                     "B.S.": 5,
                     "Maths": 8
                 },
-                "total": 50,
-                "rank": 18
+                "total": 53,
+                "rank": 21
             },
             "First Term Exam": {
                 "marks": {
@@ -28105,14 +28105,14 @@
                     "English": 0,
                     "Hindi": "14C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 50,
+                "rank": 18
             }
         }
     },
@@ -28129,8 +28129,8 @@
                     "B.S.": 15,
                     "Maths": 4
                 },
-                "total": 53,
-                "rank": 21
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28142,8 +28142,8 @@
                     "B.S.": 8,
                     "Maths": 8
                 },
-                "total": 41,
-                "rank": 22
+                "total": 53,
+                "rank": 21
             },
             "First Term Exam": {
                 "marks": {
@@ -28152,14 +28152,14 @@
                     "English": 0,
                     "Hindi": "17C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 41,
+                "rank": 22
             }
         }
     },
@@ -28176,8 +28176,8 @@
                     "B.S.": 4,
                     "Maths": 6
                 },
-                "total": 19,
-                "rank": 29
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28189,8 +28189,8 @@
                     "B.S.": 1,
                     "Maths": 3
                 },
-                "total": 18,
-                "rank": 28
+                "total": 19,
+                "rank": 29
             },
             "First Term Exam": {
                 "marks": {
@@ -28199,14 +28199,14 @@
                     "English": 0,
                     "Hindi": "9D",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 18,
+                "rank": 28
             }
         }
     },
@@ -28223,8 +28223,8 @@
                     "B.S.": 18,
                     "Maths": 14
                 },
-                "total": 88,
-                "rank": 5
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28236,8 +28236,8 @@
                     "B.S.": "Ab",
                     "Maths": 7
                 },
-                "total": 53,
-                "rank": 15
+                "total": 88,
+                "rank": 5
             },
             "First Term Exam": {
                 "marks": {
@@ -28246,14 +28246,14 @@
                     "English": 0,
                     "Hindi": "17C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 53,
+                "rank": 15
             }
         }
     },
@@ -28270,8 +28270,8 @@
                     "B.S.": 4,
                     "Maths": 11
                 },
-                "total": 41,
-                "rank": 25
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28283,8 +28283,8 @@
                     "B.S.": "Ab",
                     "Maths": 9
                 },
-                "total": 63,
-                "rank": 9
+                "total": 41,
+                "rank": 25
             },
             "First Term Exam": {
                 "marks": {
@@ -28293,14 +28293,14 @@
                     "English": 0,
                     "Hindi": "15C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 63,
+                "rank": 9
             }
         }
     },
@@ -28317,8 +28317,8 @@
                     "B.S.": 18,
                     "Maths": 19
                 },
-                "total": 121,
-                "rank": 1
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28330,8 +28330,8 @@
                     "B.S.": 14,
                     "Maths": 20
                 },
-                "total": 116,
-                "rank": 2
+                "total": 121,
+                "rank": 1
             },
             "First Term Exam": {
                 "marks": {
@@ -28340,14 +28340,14 @@
                     "English": 0,
                     "Hindi": "30A",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 116,
+                "rank": 2
             }
         }
     },
@@ -28364,8 +28364,8 @@
                     "B.S.": 10,
                     "Maths": 11
                 },
-                "total": 72,
-                "rank": 8
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28377,8 +28377,8 @@
                     "B.S.": "Ab",
                     "Maths": 6
                 },
-                "total": 63,
-                "rank": 9
+                "total": 72,
+                "rank": 8
             },
             "First Term Exam": {
                 "marks": {
@@ -28387,14 +28387,14 @@
                     "English": 0,
                     "Hindi": "9D",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 63,
+                "rank": 9
             }
         }
     },
@@ -28411,8 +28411,8 @@
                     "B.S.": 9,
                     "Maths": 13
                 },
-                "total": 69,
-                "rank": 11
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28424,8 +28424,8 @@
                     "B.S.": 10,
                     "Maths": 18
                 },
-                "total": 84,
-                "rank": 5
+                "total": 69,
+                "rank": 11
             },
             "First Term Exam": {
                 "marks": {
@@ -28434,14 +28434,14 @@
                     "English": 0,
                     "Hindi": "24A",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 84,
+                "rank": 5
             }
         }
     },
@@ -28458,8 +28458,8 @@
                     "B.S.": 14,
                     "Maths": 13
                 },
-                "total": 61,
-                "rank": 16
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28471,8 +28471,8 @@
                     "B.S.": "Ab",
                     "Maths": 8
                 },
-                "total": 56,
-                "rank": 13
+                "total": 61,
+                "rank": 16
             },
             "First Term Exam": {
                 "marks": {
@@ -28481,14 +28481,14 @@
                     "English": 0,
                     "Hindi": "16C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 56,
+                "rank": 13
             }
         }
     },
@@ -28505,8 +28505,8 @@
                     "B.S.": 10,
                     "Maths": 10
                 },
-                "total": 70,
-                "rank": 10
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28518,24 +28518,24 @@
                     "B.S.": "Ab",
                     "Maths": 10
                 },
-                "total": 60,
-                "rank": 11
+                "total": 70,
+                "rank": 10
             },
             "First Term Exam": {
                 "marks": {
                     "Mal I": 0,
                     "Mal II": 0,
                     "English": 0,
-                    "Hindi": 0,
+                    "Hindi": "10D",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 60,
+                "rank": 11
             }
         }
     },
@@ -28552,8 +28552,8 @@
                     "B.S.": 4,
                     "Maths": 7
                 },
-                "total": 26,
-                "rank": 28
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28565,8 +28565,8 @@
                     "B.S.": "Ab",
                     "Maths": "Ab"
                 },
-                "total": "Ab",
-                "rank": 30
+                "total": 26,
+                "rank": 28
             },
             "First Term Exam": {
                 "marks": {
@@ -28575,14 +28575,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
                 "total": "Ab",
-                "rank": 1
+                "rank": 30
             }
         }
     },
@@ -28599,8 +28599,8 @@
                     "B.S.": 5,
                     "Maths": 13
                 },
-                "total": 64,
-                "rank": 13
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28612,7 +28612,7 @@
                     "B.S.": 3,
                     "Maths": 11
                 },
-                "total": 56,
+                "total": 64,
                 "rank": 13
             },
             "First Term Exam": {
@@ -28620,16 +28620,16 @@
                     "Mal I": 0,
                     "Mal II": 0,
                     "English": 0,
-                    "Hindi": 0,
+                    "Hindi": "19B",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 56,
+                "rank": 13
             }
         }
     },
@@ -28646,8 +28646,8 @@
                     "B.S.": 19,
                     "Maths": 13
                 },
-                "total": 84,
-                "rank": 7
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28659,24 +28659,24 @@
                     "B.S.": 18,
                     "Maths": 9
                 },
-                "total": 79,
-                "rank": 6
+                "total": 84,
+                "rank": 7
             },
             "First Term Exam": {
                 "marks": {
                     "Mal I": 0,
                     "Mal II": 0,
                     "English": 0,
-                    "Hindi": 0,
+                    "Hindi": "21B",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 79,
+                "rank": 6
             }
         }
     },
@@ -28693,8 +28693,8 @@
                     "B.S.": 17,
                     "Maths": 11
                 },
-                "total": 90,
-                "rank": 4
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28706,24 +28706,24 @@
                     "B.S.": 12,
                     "Maths": 11
                 },
-                "total": 76,
-                "rank": 7
+                "total": 90,
+                "rank": 4
             },
             "First Term Exam": {
                 "marks": {
                     "Mal I": 0,
                     "Mal II": 0,
                     "English": 0,
-                    "Hindi": 0,
+                    "Hindi": "16C",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 76,
+                "rank": 7
             }
         }
     },
@@ -28740,8 +28740,8 @@
                     "B.S.": 9,
                     "Maths": 6
                 },
-                "total": 37,
-                "rank": 26
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28754,23 +28754,23 @@
                     "Maths": 5
                 },
                 "total": 37,
-                "rank": 24
+                "rank": 26
             },
             "First Term Exam": {
                 "marks": {
                     "Mal I": 0,
                     "Mal II": 0,
                     "English": 0,
-                    "Hindi": 0,
+                    "Hindi": "5E",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 37,
+                "rank": 24
             }
         }
     },
@@ -28787,8 +28787,8 @@
                     "B.S.": 8,
                     "Maths": 5
                 },
-                "total": 59,
-                "rank": 17
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28800,8 +28800,8 @@
                     "B.S.": 14,
                     "Maths": 7
                 },
-                "total": 69,
-                "rank": 8
+                "total": 59,
+                "rank": 17
             },
             "First Term Exam": {
                 "marks": {
@@ -28810,14 +28810,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 69,
+                "rank": 8
             }
         }
     },
@@ -28834,8 +28834,8 @@
                     "B.S.": 10,
                     "Maths": 7
                 },
-                "total": 47,
-                "rank": 24
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28847,8 +28847,8 @@
                     "B.S.": 1,
                     "Maths": 5
                 },
-                "total": 31,
-                "rank": 27
+                "total": 47,
+                "rank": 24
             },
             "First Term Exam": {
                 "marks": {
@@ -28857,14 +28857,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 31,
+                "rank": 27
             }
         }
     },
@@ -28881,8 +28881,8 @@
                     "B.S.": 20,
                     "Maths": 16
                 },
-                "total": 121,
-                "rank": 1
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28894,7 +28894,7 @@
                     "B.S.": 16,
                     "Maths": 16
                 },
-                "total": 122,
+                "total": 121,
                 "rank": 1
             },
             "First Term Exam": {
@@ -28904,13 +28904,13 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
+                "total": 122,
                 "rank": 1
             }
         }
@@ -28928,8 +28928,8 @@
                     "B.S.": 12,
                     "Maths": 11
                 },
-                "total": 62,
-                "rank": 15
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28941,8 +28941,8 @@
                     "B.S.": 2,
                     "Maths": 8
                 },
-                "total": 50,
-                "rank": 18
+                "total": 62,
+                "rank": 15
             },
             "First Term Exam": {
                 "marks": {
@@ -28951,14 +28951,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 50,
+                "rank": 18
             }
         }
     },
@@ -28975,8 +28975,8 @@
                     "B.S.": 3,
                     "Maths": "Ab"
                 },
-                "total": 17,
-                "rank": 30
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -28988,8 +28988,8 @@
                     "B.S.": 4,
                     "Maths": 7
                 },
-                "total": 49,
-                "rank": 20
+                "total": 17,
+                "rank": 30
             },
             "First Term Exam": {
                 "marks": {
@@ -28998,14 +28998,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 49,
+                "rank": 20
             }
         }
     },
@@ -29022,8 +29022,8 @@
                     "B.S.": 8,
                     "Maths": 13
                 },
-                "total": 65,
-                "rank": 12
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29035,8 +29035,8 @@
                     "B.S.": "Ab",
                     "Maths": 11
                 },
-                "total": 52,
-                "rank": 16
+                "total": 65,
+                "rank": 12
             },
             "First Term Exam": {
                 "marks": {
@@ -29045,14 +29045,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 52,
+                "rank": 16
             }
         }
     },
@@ -29069,8 +29069,8 @@
                     "B.S.": 14,
                     "Maths": 8
                 },
-                "total": 64,
-                "rank": 13
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29082,8 +29082,8 @@
                     "B.S.": "Ab",
                     "Maths": 8
                 },
-                "total": 48,
-                "rank": 21
+                "total": 64,
+                "rank": 13
             },
             "First Term Exam": {
                 "marks": {
@@ -29092,14 +29092,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 48,
+                "rank": 21
             }
         }
     },
@@ -29116,8 +29116,8 @@
                     "B.S.": 12,
                     "Maths": 4
                 },
-                "total": 49,
-                "rank": 23
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29129,8 +29129,8 @@
                     "B.S.": "Ab",
                     "Maths": 5
                 },
-                "total": 37,
-                "rank": 24
+                "total": 49,
+                "rank": 23
             },
             "First Term Exam": {
                 "marks": {
@@ -29139,14 +29139,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 37,
+                "rank": 24
             }
         }
     },
@@ -29163,8 +29163,8 @@
                     "B.S.": 13,
                     "Maths": 3
                 },
-                "total": 55,
-                "rank": 20
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29176,8 +29176,8 @@
                     "B.S.": 10,
                     "Maths": 8
                 },
-                "total": 40,
-                "rank": 23
+                "total": 55,
+                "rank": 20
             },
             "First Term Exam": {
                 "marks": {
@@ -29186,14 +29186,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 40,
+                "rank": 23
             }
         }
     },
@@ -29210,8 +29210,8 @@
                     "B.S.": 20,
                     "Maths": 14
                 },
-                "total": 86,
-                "rank": 6
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29223,8 +29223,8 @@
                     "B.S.": 17,
                     "Maths": 13
                 },
-                "total": 94,
-                "rank": 3
+                "total": 86,
+                "rank": 6
             },
             "First Term Exam": {
                 "marks": {
@@ -29233,14 +29233,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 94,
+                "rank": 3
             }
         }
     },
@@ -29257,8 +29257,8 @@
                     "B.S.": 1,
                     "Maths": 5
                 },
-                "total": 33,
-                "rank": 27
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29270,8 +29270,8 @@
                     "B.S.": 1,
                     "Maths": 4
                 },
-                "total": 14,
-                "rank": 29
+                "total": 33,
+                "rank": 27
             },
             "First Term Exam": {
                 "marks": {
@@ -29280,14 +29280,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 14,
+                "rank": 29
             }
         }
     },
@@ -29304,8 +29304,8 @@
                     "B.S.": 14,
                     "Maths": 5
                 },
-                "total": 71,
-                "rank": 9
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -29317,8 +29317,8 @@
                     "B.S.": 2,
                     "Maths": 7
                 },
-                "total": 33,
-                "rank": 26
+                "total": 71,
+                "rank": 9
             },
             "First Term Exam": {
                 "marks": {
@@ -29327,14 +29327,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 33,
+                "rank": 26
             }
         }
     },
