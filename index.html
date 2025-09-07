@@ -88,7 +88,7 @@
         
         /* Apply themed colors */
         body { background-color: var(--bg-primary); color: var(--text-primary); }
-        .card, .modal-content, header { background-color: var(--bg-secondary); border-color: var(--border-color); }
+        .card, .modal-content, header, .offcanvas { background-color: var(--bg-secondary); border-color: var(--border-color); }
         .form-control, .form-select { background-color: var(--bg-primary) !important; color: var(--text-primary); border-color: var(--border-color); }
         h1, h2, h3, h4, h5, h6, .text-primary { color: var(--text-primary) !important; }
         p, label, span, button, a, div, li, i { color: var(--text-secondary); }
@@ -122,11 +122,10 @@
         .action-btn { font-weight: 500; }
         
         /* Theme Switcher */
-        .top-controls { z-index: 1051; } /* Sit on top of most elements */
-        #theme-switcher { cursor: pointer; background-color: var(--bg-secondary); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; border: 1px solid var(--border-color); }
-        #theme-switcher-thumb { position: absolute; width: 24px; height: 24px; background-color: var(--theme-text); border-radius: 50%; transition: transform 0.3s ease-out; }
-        html[data-bs-theme="light"] #theme-switcher-thumb { transform: translateX(0px); }
-        html[data-bs-theme="dark"] #theme-switcher-thumb { transform: translateX(24px); }
+        .theme-switcher-btn { cursor: pointer; background-color: var(--bg-secondary); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; border: 1px solid var(--border-color); }
+        .theme-switcher-thumb { position: absolute; width: 24px; height: 24px; background-color: var(--theme-text); border-radius: 50%; transition: transform 0.3s ease-out; }
+        html[data-bs-theme="light"] .theme-switcher-thumb { transform: translateX(0px); }
+        html[data-bs-theme="dark"] .theme-switcher-thumb { transform: translateX(24px); }
         .lang-btn { padding: 0.25rem 0.5rem; border-radius: 0.5rem; border: none; background: transparent; }
         .lang-btn.active { background-color: var(--theme-text); color: white !important; }
 
@@ -159,16 +158,16 @@
         </div>
     </noscript>
 
-    <div class="top-controls position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3">
-        <div id="lang-switcher" class="card p-1 d-flex flex-row gap-1">
+    <div id="globalControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
+        <div class="card p-1 d-flex flex-row gap-1">
             <button class="lang-btn btn-sm" data-lang="en">EN</button>
             <button class="lang-btn btn-sm" data-lang="ml">മല</button>
         </div>
-        <button id="theme-switcher">
-            <div id="theme-switcher-thumb"></div>
+        <button class="theme-switcher-btn">
+            <div class="theme-switcher-thumb"></div>
         </button>
     </div>
-
+    
     <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
         <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
     </div>
@@ -241,18 +240,33 @@
     </div>
 
     <div id="dashboardView" class="d-none">
-        <header class="shadow-sm">
+        <header class="shadow-sm sticky-top" style="background-color: var(--bg-secondary);">
             <nav class="container">
                 <div class="d-flex justify-content-between align-items-center" style="height: 4rem;">
                     <div class="flex-shrink-0"><span id="headerTitle" class="fw-bold fs-5 themed-text">E-Value V.1.0</span></div>
-                    <div id="header-search-container" class="position-relative d-none w-50 mx-4">
+                    
+                    <div id="header-search-container" class="position-relative flex-grow-1 mx-2 mx-md-4">
                         <input type="search" id="headerSearch" placeholder="Find a student..." class="form-control rounded-pill">
                         <div id="headerSearchResults" class="position-absolute top-100 mt-1 w-100 rounded shadow-lg bg-body" style="z-index: 1050; max-height: 300px; overflow-y: auto;"></div>
                     </div>
-                    <div class="d-flex align-items-center gap-3" style="margin-right: 180px;">
-                        <div id="userInfo" class="text-end"></div>
-                        <button id="logoutButton" class="btn btn-sm themed-bg text-white rounded-pill px-3">Logout</button>
+
+                    <!-- Desktop Controls -->
+                    <div id="desktopControls" class="d-none d-md-flex align-items-center gap-3">
+                        <div id="userInfoDesktop"></div>
+                        <div class="card p-1 d-flex flex-row gap-1">
+                            <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                            <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+                        </div>
+                        <button class="theme-switcher-btn">
+                            <div class="theme-switcher-thumb"></div>
+                        </button>
+                        <button class="btn btn-sm themed-bg text-white rounded-pill px-3 logout-btn">Logout</button>
                     </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="settingsOffcanvas">
+                        <i class="fas fa-bars fs-4"></i>
+                    </button>
                 </div>
             </nav>
         </header>
@@ -307,17 +321,50 @@
         </div>
       </div>
     </div>
+
+    <!-- Offcanvas Menu for Mobile -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffcanvas" aria-labelledby="settingsOffcanvasLabel">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="settingsOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="userInfoMobile" class="p-3 mb-3 rounded text-center" style="background-color: var(--bg-primary);">
+            <!-- Mobile user info injected here -->
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center p-2">
+            <span>Language</span>
+            <div class="card p-1 d-flex flex-row gap-1">
+                 <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                 <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center p-2">
+            <span>Theme</span>
+            <button class="theme-switcher-btn">
+                <div class="theme-switcher-thumb"></div>
+            </button>
+        </div>
+        <hr>
+        <div class="d-grid">
+            <button class="btn themed-bg text-white rounded-pill logout-btn">Logout</button>
+        </div>
+      </div>
+    </div>
+
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module">
         // --- GLOBAL STATE ---
-        const APP_VERSION = '1.8-localstorage'; // Updated Version
+        const APP_VERSION = '1.9-mobile-nav'; // Updated Version
         let currentUser = null;
         let appData = { users: [], marks: [], activities: [], processedStudents: [] };
         let standingsChart = null;
-        let loginView, dashboardView, progressBar, homeView;
-        let disciplineModal, iframeModal, dobVerifyModal;
+        let loginView, dashboardView, progressBar, homeView, globalControls;
+        let disciplineModal, iframeModal, dobVerifyModal, settingsOffcanvas;
 
         // --- TRANSLATION DATA ---
         const translations = {
@@ -716,66 +763,65 @@
             });
         }
         
-
         function buildStandingsChart(students, isSection = false) {
-    const filter = document.getElementById('standingsFilter');
-    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-    
-    // Populate filter options
-    if (isSection) {
-        filter.innerHTML = `<option value="section">Section-wide</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
-    } else {
-        filter.innerHTML = `<option value="school">School-wide</option><option value="lp">LP Section</option><option value="up">UP Section</option><option value="hs">HS Section</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
-    }
+            const filter = document.getElementById('standingsFilter');
+            const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
 
-    const updateChart = () => {
-        let filteredStudents = students;
-        const value = filter.value;
-        if (value === 'lp' || value === 'up' || value === 'hs') {
-            filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
-        } else if (value !== 'school' && value !== 'section') {
-            filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
+            // Populate filter options
+            if (isSection) {
+                filter.innerHTML = `<option value="section">Section-wide</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
+            } else {
+                filter.innerHTML = `<option value="school">School-wide</option><option value="lp">LP Section</option><option value="up">UP Section</option><option value="hs">HS Section</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
+            }
+
+            const updateChart = () => {
+                let filteredStudents = students;
+                const value = filter.value;
+                if (value === 'lp' || value === 'up' || value === 'hs') {
+                    filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
+                } else if (value !== 'school' && value !== 'section') {
+                    filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
+                }
+
+                const houseData = filteredStudents.reduce((acc, s) => {
+                    if (!acc[s.house]) acc[s.house] = 0;
+                    acc[s.house] += s.housePoints;
+                    return acc;
+                }, {});
+
+                const labels = Object.keys(houseData).sort();
+                const data = labels.map(house => houseData[house]);
+                const backgroundColors = labels.map(house => ({
+                    'Blue': '#0d6efd',   // Bootstrap Primary
+                    'Green': '#198754', // Bootstrap Success
+                    'Rose': '#dc3545',   // Bootstrap Danger
+                    'Yellow': '#ffc107'// Bootstrap Warning
+                }[house] || '#6c757d')); // Bootstrap Secondary
+
+                if (standingsChart) standingsChart.destroy();
+                standingsChart = new Chart(document.getElementById('standingsChart').getContext('2d'), {
+                    type: 'bar',
+                    data: { labels, datasets: [{ label: 'Total House Points', data, backgroundColor: backgroundColors }] },
+                    options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
+                });
+            };
+
+            filter.addEventListener('change', updateChart);
+            updateChart();
         }
 
-        const houseData = filteredStudents.reduce((acc, s) => {
-            if (!acc[s.house]) acc[s.house] = 0;
-            acc[s.house] += s.housePoints;
-            return acc;
-        }, {});
+        /**
+         * Builds the discipline leaderboards card with Bootstrap styling.
+         */
+        function buildLeaderboardCard(students, activities, isSection = false) {
+            const leaderboardCard = document.getElementById('leaderboardCard');
+            const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+            const filterOptions = isSection
+                ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
+                : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
 
-        const labels = Object.keys(houseData).sort();
-        const data = labels.map(house => houseData[house]);
-        const backgroundColors = labels.map(house => ({
-            'Blue': '#0d6efd',   // Bootstrap Primary
-            'Green': '#198754', // Bootstrap Success
-            'Rose': '#dc3545',   // Bootstrap Danger
-            'Yellow': '#ffc107'// Bootstrap Warning
-        }[house] || '#6c757d')); // Bootstrap Secondary
-
-        if (standingsChart) standingsChart.destroy();
-        standingsChart = new Chart(document.getElementById('standingsChart').getContext('2d'), {
-            type: 'bar',
-            data: { labels, datasets: [{ label: 'Total House Points', data, backgroundColor: backgroundColors }] },
-            options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
-        });
-    };
-
-    filter.addEventListener('change', updateChart);
-    updateChart();
-}
-
-/**
- * Builds the discipline leaderboards card with Bootstrap styling.
- */
-function buildLeaderboardCard(students, activities, isSection = false) {
-    const leaderboardCard = document.getElementById('leaderboardCard');
-    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-    const filterOptions = isSection 
-        ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
-        : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
-
-    // Using Bootstrap card, flexbox, form-select, and row/col grid
-    leaderboardCard.innerHTML = `
+            // Using Bootstrap card, flexbox, form-select, and row/col grid
+            leaderboardCard.innerHTML = `
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -786,43 +832,43 @@ function buildLeaderboardCard(students, activities, isSection = false) {
             </div>
         </div>`;
 
-    const updateLeaderboards = () => {
-        const value = document.getElementById('leaderboardFilter').value;
-        let filteredStudents = students;
-        let filteredActivities = activities;
+            const updateLeaderboards = () => {
+                const value = document.getElementById('leaderboardFilter').value;
+                let filteredStudents = students;
+                let filteredActivities = activities;
 
-        if (value === 'lp' || value === 'up' || value === 'hs') {
-            const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
-            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-            filteredActivities = activities.filter(a => {
-                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-            });
-        } else if (value !== 'school' && value !== 'section') {
-            const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
-            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-             filteredActivities = activities.filter(a => {
-                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-            });
-        }
+                if (value === 'lp' || value === 'up' || value === 'hs') {
+                    const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
+                    filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
+                    filteredActivities = activities.filter(a => {
+                        const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
+                        return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
+                    });
+                } else if (value !== 'school' && value !== 'section') {
+                    const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
+                    filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
+                    filteredActivities = activities.filter(a => {
+                        const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
+                        return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
+                    });
+                }
 
-        const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
-        const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
-        
-        const activityPoints = filteredActivities.reduce((acc, act) => {
-            const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
-            if (!acc[act.Activity]) acc[act.Activity] = 0;
-            acc[act.Activity] += points;
-            return acc;
-        }, {});
+                const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
+                const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
 
-        const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
-        const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
-        const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
+                const activityPoints = filteredActivities.reduce((acc, act) => {
+                    const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
+                    if (!acc[act.Activity]) acc[act.Activity] = 0;
+                    acc[act.Activity] += points;
+                    return acc;
+                }, {});
 
-        // Using Bootstrap list-group and text color utilities
-        document.getElementById('leaderboardContent').innerHTML = `
+                const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
+                const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
+                const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
+
+                // Using Bootstrap list-group and text color utilities
+                document.getElementById('leaderboardContent').innerHTML = `
             <div class="row g-4">
                 <div class="col-md-6">
                     <h3 class="h6 fw-semibold mb-2 text-success">Top Students (Positive)</h3>
@@ -841,30 +887,30 @@ function buildLeaderboardCard(students, activities, isSection = false) {
                     <ul class="list-group list-group-flush">${topNegativeActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${name}</span><span class="fw-bold text-danger">${pts.toFixed(1)}</span></li>`).join('')}</ul>
                 </div>
             </div>`;
-    };
-    
-    document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
-    updateLeaderboards();
-}
+            };
 
-/**
- * Builds the Class Toppers card.
- */
-function buildClassToppersCard(students) {
-    setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);
-}
+            document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
+            updateLeaderboards();
+        }
 
-/**
- * Universal function to create filter UI for topper cards using Bootstrap.
- */
-function setupTopperFilters(cardId, students, title, updateFunction) {
-    const cardContainer = document.getElementById(cardId);
-    if (!cardContainer) return;
+        /**
+         * Builds the Class Toppers card.
+         */
+        function buildClassToppersCard(students) {
+            setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);
+        }
 
-    const allTerms = [...new Set(students.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-    
-    // Using Bootstrap card, row/col grid, form-label, form-select, and buttons
-    cardContainer.innerHTML = `
+        /**
+         * Universal function to create filter UI for topper cards using Bootstrap.
+         */
+        function setupTopperFilters(cardId, students, title, updateFunction) {
+            const cardContainer = document.getElementById(cardId);
+            if (!cardContainer) return;
+
+            const allTerms = [...new Set(students.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
+
+            // Using Bootstrap card, row/col grid, form-label, form-select, and buttons
+            cardContainer.innerHTML = `
         <div class="card shadow-sm">
             <div class="card-body">
                 <h2 class="h4 card-title fw-bold mb-3">${title}</h2>
@@ -898,112 +944,112 @@ function setupTopperFilters(cardId, students, title, updateFunction) {
                 </div>
             </div>
         </div>`;
-    
-    const basisEl = document.getElementById(`${cardId}-basis`);
-    const scopeEl = document.getElementById(`${cardId}-scope`);
-    const detailEl = document.getElementById(`${cardId}-detail`);
-    const resetBtn = document.getElementById(`${cardId}-resetBtn`);
 
-    const triggerUpdate = () => {
-        const basis = basisEl.value;
-        const scope = scopeEl.value;
-        const detail = detailEl.value;
-        updateFunction(students, basis, scope, detail, `${cardId}-content`);
-    };
+            const basisEl = document.getElementById(`${cardId}-basis`);
+            const scopeEl = document.getElementById(`${cardId}-scope`);
+            const detailEl = document.getElementById(`${cardId}-detail`);
+            const resetBtn = document.getElementById(`${cardId}-resetBtn`);
 
-    scopeEl.addEventListener('change', () => {
-        const scope = scopeEl.value;
-        detailEl.innerHTML = '<option value="">Select</option>';
-        detailEl.disabled = true;
-        
-        let options = [];
-        if (scope === 'section') {
-            options = [...new Set(students.map(s => getSection(s.class)))];
-        } else if (scope === 'standard') {
-            options = [...new Set(students.map(s => s.class))].sort((a,b) => a-b);
-        } else if (scope === 'division') {
-            options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+            const triggerUpdate = () => {
+                const basis = basisEl.value;
+                const scope = scopeEl.value;
+                const detail = detailEl.value;
+                updateFunction(students, basis, scope, detail, `${cardId}-content`);
+            };
+
+            scopeEl.addEventListener('change', () => {
+                const scope = scopeEl.value;
+                detailEl.innerHTML = '<option value="">Select</option>';
+                detailEl.disabled = true;
+
+                let options = [];
+                if (scope === 'section') {
+                    options = [...new Set(students.map(s => getSection(s.class)))];
+                } else if (scope === 'standard') {
+                    options = [...new Set(students.map(s => s.class))].sort((a, b) => a - b);
+                } else if (scope === 'division') {
+                    options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+                }
+
+                if (options.length > 0) {
+                    detailEl.innerHTML = '<option value="">Select</option>' + options.map(o => `<option value="${o}">${o}</option>`).join('');
+                    detailEl.disabled = false;
+                } else {
+                    detailEl.innerHTML = '<option value="">-</option>';
+                }
+                triggerUpdate();
+            });
+
+            resetBtn.addEventListener('click', () => {
+                basisEl.value = 'all-time';
+                scopeEl.value = 'school';
+                scopeEl.dispatchEvent(new Event('change'));
+            });
+
+            basisEl.addEventListener('change', triggerUpdate);
+            detailEl.addEventListener('change', triggerUpdate);
+            triggerUpdate(); // Initial call
         }
 
-        if (options.length > 0) {
-            detailEl.innerHTML = '<option value="">Select</option>' + options.map(o => `<option value="${o}">${o}</option>`).join('');
-            detailEl.disabled = false;
-        } else {
-            detailEl.innerHTML = '<option value="">-</option>';
-        }
-        triggerUpdate();
-    });
+        /**
+         * Renders the Class Toppers view using Bootstrap tables.
+         */
+        function updateClassToppersView(students, basis, scope, detail, contentId) {
+            const contentEl = document.getElementById(contentId);
+            let filteredStudents = students;
 
-    resetBtn.addEventListener('click', () => {
-        basisEl.value = 'all-time';
-        scopeEl.value = 'school';
-        scopeEl.dispatchEvent(new Event('change'));
-    });
-
-    basisEl.addEventListener('change', triggerUpdate);
-    detailEl.addEventListener('change', triggerUpdate);
-    triggerUpdate(); // Initial call
-}
-
-/**
- * Renders the Class Toppers view using Bootstrap tables.
- */
-function updateClassToppersView(students, basis, scope, detail, contentId) {
-    const contentEl = document.getElementById(contentId);
-    let filteredStudents = students;
-
-    if (scope === 'section' && detail) {
-        filteredStudents = students.filter(s => getSection(s.class) === detail);
-    } else if (scope === 'standard' && detail) {
-        filteredStudents = students.filter(s => s.class.toString() === detail.toString());
-    } else if (scope === 'division' && detail) {
-        filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
-    }
-    
-    let finalTopperList;
-    let isRankedList = false;
-    let rankHeader = "Rank";
-
-    if ((scope === 'division' && detail) || (scope === 'standard' && detail)) {
-        isRankedList = true;
-        rankHeader = "Rank";
-        let sortedStudents;
-        if (basis === 'all-time') {
-            sortedStudents = [...filteredStudents].sort((a, b) => b.academicTotal - a.academicTotal);
-        } else {
-            sortedStudents = [...filteredStudents]
-                .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
-                .filter(s => s.termTotal !== -1)
-                .sort((a, b) => b.termTotal - a.termTotal);
-        }
-        finalTopperList = sortedStudents.slice(0, 10);
-    } else {
-        isRankedList = false;
-        rankHeader = "Class";
-        const uniqueDivisions = [...new Set(filteredStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-        
-        finalTopperList = uniqueDivisions.map(division => {
-            let divisionStudents = filteredStudents.filter(s => `${s.class}-${s.division}` === division);
-            let sortedDivisionStudents;
-            if (basis === 'all-time') {
-                sortedDivisionStudents = [...divisionStudents].sort((a, b) => b.academicTotal - a.academicTotal);
-            } else {
-                sortedDivisionStudents = [...divisionStudents]
-                    .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
-                    .filter(s => s.termTotal !== -1)
-                    .sort((a, b) => b.termTotal - a.termTotal);
+            if (scope === 'section' && detail) {
+                filteredStudents = students.filter(s => getSection(s.class) === detail);
+            } else if (scope === 'standard' && detail) {
+                filteredStudents = students.filter(s => s.class.toString() === detail.toString());
+            } else if (scope === 'division' && detail) {
+                filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
             }
-            return sortedDivisionStudents.length > 0 ? sortedDivisionStudents[0] : null;
-        }).filter(Boolean);
-    }
 
-    if (finalTopperList.length === 0) {
-        contentEl.innerHTML = `<p class="text-muted">No data available for this selection.</p>`;
-        return;
-    }
+            let finalTopperList;
+            let isRankedList = false;
+            let rankHeader = "Rank";
 
-    // Using Bootstrap table classes
-    contentEl.innerHTML = `
+            if ((scope === 'division' && detail) || (scope === 'standard' && detail)) {
+                isRankedList = true;
+                rankHeader = "Rank";
+                let sortedStudents;
+                if (basis === 'all-time') {
+                    sortedStudents = [...filteredStudents].sort((a, b) => b.academicTotal - a.academicTotal);
+                } else {
+                    sortedStudents = [...filteredStudents]
+                        .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
+                        .filter(s => s.termTotal !== -1)
+                        .sort((a, b) => b.termTotal - a.termTotal);
+                }
+                finalTopperList = sortedStudents.slice(0, 10);
+            } else {
+                isRankedList = false;
+                rankHeader = "Class";
+                const uniqueDivisions = [...new Set(filteredStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+
+                finalTopperList = uniqueDivisions.map(division => {
+                    let divisionStudents = filteredStudents.filter(s => `${s.class}-${s.division}` === division);
+                    let sortedDivisionStudents;
+                    if (basis === 'all-time') {
+                        sortedDivisionStudents = [...divisionStudents].sort((a, b) => b.academicTotal - a.academicTotal);
+                    } else {
+                        sortedDivisionStudents = [...divisionStudents]
+                            .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
+                            .filter(s => s.termTotal !== -1)
+                            .sort((a, b) => b.termTotal - a.termTotal);
+                    }
+                    return sortedDivisionStudents.length > 0 ? sortedDivisionStudents[0] : null;
+                }).filter(Boolean);
+            }
+
+            if (finalTopperList.length === 0) {
+                contentEl.innerHTML = `<p class="text-muted">No data available for this selection.</p>`;
+                return;
+            }
+
+            // Using Bootstrap table classes
+            contentEl.innerHTML = `
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead class="table-light"><tr><th>${rankHeader}</th><th>Name</th><th>Score</th></tr></thead>
@@ -1018,102 +1064,102 @@ function updateClassToppersView(students, basis, scope, detail, contentId) {
                 </tbody>
             </table>
         </div>`;
-}
-
-/**
- * Builds the Subject Toppers card.
- */
-function buildSubjectToppersCard(students) {
-    setupTopperFilters('subjectToppersCard', students, 'Subject Toppers', updateSubjectToppersView);
-}
-
-/**
- * Renders the Subject Toppers view using a Bootstrap grid of cards.
- */
-function updateSubjectToppersView(students, basis, scope, detail, contentId) {
-    const contentEl = document.getElementById(contentId);
-    const term = (basis === 'all-time') ? null : basis;
-
-    if (!term) {
-        contentEl.innerHTML = `<p class="text-muted">Please select a specific exam to view subject toppers.</p>`;
-        return;
-    }
-
-    let filteredStudents = students;
-    if (scope === 'section' && detail) {
-        filteredStudents = students.filter(s => getSection(s.class) === detail);
-    } else if (scope === 'standard' && detail) {
-        filteredStudents = students.filter(s => s.class.toString() === detail.toString());
-    } else if (scope === 'division' && detail) {
-        filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
-    }
-    
-    if (!filteredStudents.length) {
-        contentEl.innerHTML = `<p class="text-muted">No students found for this selection.</p>`;
-        return;
-    }
-    
-    const subjects = [...new Set(filteredStudents.flatMap(s => 
-        s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []
-    ))].sort();
-
-    if (subjects.length === 0) {
-        contentEl.innerHTML = `<p class="text-muted">No subjects found for this selection.</p>`;
-        return;
-    }
-
-    let toppersHTML = '';
-    subjects.forEach(subject => {
-        let toppers = [];
-        
-        if (scope === 'school' || scope === 'section' || scope === 'standard') {
-            const groupingKeyFn = (scope === 'standard') 
-                ? s => `${s.class}-${s.division}` 
-                : s => s.class;
-            
-            const groupsToIterate = (scope === 'standard')
-                ? [...new Set(filteredStudents.map(groupingKeyFn))].sort(customClassSort)
-                : [...new Set(filteredStudents.map(groupingKeyFn))].sort((a,b) => parseInt(a, 10) - parseInt(b, 10));
-
-            groupsToIterate.forEach(group => {
-                const groupStudents = filteredStudents.filter(s => groupingKeyFn(s) == group);
-                
-                let topScore = -1;
-                let groupTopper = null; 
-                groupStudents.forEach(student => {
-                    const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
-                    if (typeof mark === 'number' && mark > topScore) {
-                        topScore = mark;
-                        groupTopper = student;
-                    }
-                });
-
-                if (groupTopper) {
-                    toppers.push(`${groupTopper.name} (${groupTopper.class}-${groupTopper.division})`);
-                }
-            });
-        } else { // scope === 'division'
-            let topScore = -1;
-            filteredStudents.forEach(student => {
-                const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
-                if (typeof mark === 'number') {
-                    if (mark > topScore) {
-                        topScore = mark;
-                        toppers = [`${student.name} (${student.class}-${s.division})`];
-                    } else if (mark === topScore) {
-                        toppers.push(`${student.name} (${student.class}-${s.division})`);
-                    }
-                }
-            });
         }
-        
-        if (toppers.length > 0) {
-            const firstTopperFullName = toppers[0];
-            const firstTopperData = filteredStudents.find(s => firstTopperFullName.startsWith(s.name));
-            if (firstTopperData) {
-                const { maxMark } = getGradeInfo(0, subject, term, firstTopperData.class);
-                 // Using Bootstrap grid column and background/text utilities
-                 toppersHTML += `
+
+        /**
+         * Builds the Subject Toppers card.
+         */
+        function buildSubjectToppersCard(students) {
+            setupTopperFilters('subjectToppersCard', students, 'Subject Toppers', updateSubjectToppersView);
+        }
+
+        /**
+         * Renders the Subject Toppers view using a Bootstrap grid of cards.
+         */
+        function updateSubjectToppersView(students, basis, scope, detail, contentId) {
+            const contentEl = document.getElementById(contentId);
+            const term = (basis === 'all-time') ? null : basis;
+
+            if (!term) {
+                contentEl.innerHTML = `<p class="text-muted">Please select a specific exam to view subject toppers.</p>`;
+                return;
+            }
+
+            let filteredStudents = students;
+            if (scope === 'section' && detail) {
+                filteredStudents = students.filter(s => getSection(s.class) === detail);
+            } else if (scope === 'standard' && detail) {
+                filteredStudents = students.filter(s => s.class.toString() === detail.toString());
+            } else if (scope === 'division' && detail) {
+                filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
+            }
+
+            if (!filteredStudents.length) {
+                contentEl.innerHTML = `<p class="text-muted">No students found for this selection.</p>`;
+                return;
+            }
+
+            const subjects = [...new Set(filteredStudents.flatMap(s =>
+                s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []
+            ))].sort();
+
+            if (subjects.length === 0) {
+                contentEl.innerHTML = `<p class="text-muted">No subjects found for this selection.</p>`;
+                return;
+            }
+
+            let toppersHTML = '';
+            subjects.forEach(subject => {
+                let toppers = [];
+
+                if (scope === 'school' || scope === 'section' || scope === 'standard') {
+                    const groupingKeyFn = (scope === 'standard')
+                        ? s => `${s.class}-${s.division}`
+                        : s => s.class;
+
+                    const groupsToIterate = (scope === 'standard')
+                        ? [...new Set(filteredStudents.map(groupingKeyFn))].sort(customClassSort)
+                        : [...new Set(filteredStudents.map(groupingKeyFn))].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+
+                    groupsToIterate.forEach(group => {
+                        const groupStudents = filteredStudents.filter(s => groupingKeyFn(s) == group);
+
+                        let topScore = -1;
+                        let groupTopper = null;
+                        groupStudents.forEach(student => {
+                            const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
+                            if (typeof mark === 'number' && mark > topScore) {
+                                topScore = mark;
+                                groupTopper = student;
+                            }
+                        });
+
+                        if (groupTopper) {
+                            toppers.push(`${groupTopper.name} (${groupTopper.class}-${groupTopper.division})`);
+                        }
+                    });
+                } else { // scope === 'division'
+                    let topScore = -1;
+                    filteredStudents.forEach(student => {
+                        const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
+                        if (typeof mark === 'number') {
+                            if (mark > topScore) {
+                                topScore = mark;
+                                toppers = [`${student.name} (${student.class}-${s.division})`];
+                            } else if (mark === topScore) {
+                                toppers.push(`${student.name} (${student.class}-${s.division})`);
+                            }
+                        }
+                    });
+                }
+
+                if (toppers.length > 0) {
+                    const firstTopperFullName = toppers[0];
+                    const firstTopperData = filteredStudents.find(s => firstTopperFullName.startsWith(s.name));
+                    if (firstTopperData) {
+                        const { maxMark } = getGradeInfo(0, subject, term, firstTopperData.class);
+                        // Using Bootstrap grid column and background/text utilities
+                        toppersHTML += `
                     <div class="col-lg-4 col-md-6">
                         <div class="bg-light p-3 rounded h-100">
                             <h4 class="h6 fw-bold text-dark">${subject}</h4>
@@ -1121,27 +1167,27 @@ function updateSubjectToppersView(students, basis, scope, detail, contentId) {
                             <p class="small mb-0">${toppers.join(', ')}</p>
                         </div>
                     </div>`;
+                    }
+                }
+            });
+
+            contentEl.innerHTML = `<div class="row g-3">${toppersHTML}</div>`;
+            if (!toppersHTML) {
+                contentEl.innerHTML = `<p class="text-muted">No marks recorded for this selection.</p>`;
             }
         }
-    });
 
-    contentEl.innerHTML = `<div class="row g-3">${toppersHTML}</div>`;
-    if(!toppersHTML) {
-         contentEl.innerHTML = `<p class="text-muted">No marks recorded for this selection.</p>`;
-    }
-}
+        /**
+         * Builds the Report Generator card using Bootstrap.
+         */
+        function buildReportGeneratorCard(students) {
+            const cardContainer = document.getElementById('reportGeneratorCard');
+            if (!cardContainer) return;
 
-/**
- * Builds the Report Generator card using Bootstrap.
- */
-function buildReportGeneratorCard(students) {
-    const cardContainer = document.getElementById('reportGeneratorCard');
-    if (!cardContainer) return;
+            const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
 
-    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-    
-    // Using Bootstrap card, form controls, and grid for layout
-    cardContainer.innerHTML = `
+            // Using Bootstrap card, form controls, and grid for layout
+            cardContainer.innerHTML = `
         <div class="card shadow-sm">
             <div class="card-body">
                 <h2 class="h4 card-title fw-bold mb-3">Report Generator</h2>
@@ -1156,101 +1202,106 @@ function buildReportGeneratorCard(students) {
             </div>
         </div>`;
 
-    const classSelect = document.getElementById('report-class');
-    const termSelect = document.getElementById('report-term');
-    const subjectSelect = document.getElementById('report-subject');
-    const generateBtn = document.getElementById('generateReportBtn');
-    const resetBtn = document.getElementById('resetReportBtn');
-    const resultContainer = document.getElementById('reportResultContainer');
+            const classSelect = document.getElementById('report-class');
+            const termSelect = document.getElementById('report-term');
+            const subjectSelect = document.getElementById('report-subject');
+            const generateBtn = document.getElementById('generateReportBtn');
+            const resetBtn = document.getElementById('resetReportBtn');
+            const resultContainer = document.getElementById('reportResultContainer');
 
-    const resetGenerator = () => {
-        classSelect.value = '';
-        termSelect.innerHTML = '<option value="">Select Term</option>';
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-        resultContainer.innerHTML = '';
-    };
+            const resetGenerator = () => {
+                classSelect.value = '';
+                termSelect.innerHTML = '<option value="">Select Term</option>';
+                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+                termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
+                resultContainer.innerHTML = '';
+            };
 
-    classSelect.addEventListener('change', () => {
-        termSelect.innerHTML = '<option value="">Select Term</option>';
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-        
-        const className = classSelect.value;
-        if (!className) return;
+            classSelect.addEventListener('change', () => {
+                termSelect.innerHTML = '<option value="">Select Term</option>';
+                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+                termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
 
-        const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-        if (classStudents.length === 0) return;
-        
-        const terms = [...new Set(classStudents.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-        termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
-        termSelect.disabled = false;
-    });
+                const className = classSelect.value;
+                if (!className) return;
 
-    termSelect.addEventListener('change', () => {
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        subjectSelect.disabled = true; generateBtn.disabled = true;
-        
-        const className = classSelect.value;
-        const term = termSelect.value;
-        if (!className || !term) return;
+                const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
+                if (classStudents.length === 0) return;
 
-        const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-        const subjects = [...new Set(classStudents.flatMap(s => s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []))].sort();
-        
-        subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
-        subjectSelect.disabled = false;
-    });
-
-    subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
-    resetBtn.addEventListener('click', resetGenerator);
-
-    generateBtn.addEventListener('click', () => {
-        const className = classSelect.value;
-        const term = termSelect.value;
-        const subject = subjectSelect.value;
-        
-        const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
-            .sort((a, b) => {
-                if (a.gender < b.gender) return -1;
-                if (a.gender > b.gender) return 1;
-                return a.name.localeCompare(b.name);
+                const terms = [...new Set(classStudents.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
+                termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
+                termSelect.disabled = false;
             });
 
-        // Using Bootstrap responsive table and button
-        let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
-        let clipboardText = "";
+            termSelect.addEventListener('change', () => {
+                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+                subjectSelect.disabled = true; generateBtn.disabled = true;
 
-        classStudents.forEach(s => {
-            const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
-            const displayMark = (typeof mark === 'number') ? mark : 'Ab';
-            const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
-            
-            tableHTML += `<tr><td>${s.name}</td><td>${displayMark} / ${maxMark}</td><td>${grade}</td></tr>`;
-            clipboardText += `${grade}\n`;
-        });
+                const className = classSelect.value;
+                const term = termSelect.value;
+                if (!className || !term) return;
 
-        tableHTML += '</tbody></table></div><div class="mt-3 text-end"><button id="copyReportBtn" class="btn btn-success">Copy Grades</button></div>';
-        resultContainer.innerHTML = tableHTML;
+                const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
+                const subjects = [...new Set(classStudents.flatMap(s => s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []))].sort();
 
-        document.getElementById('copyReportBtn').addEventListener('click', (e) => {
-            navigator.clipboard.writeText(clipboardText.trim()).then(() => {
-                const btn = e.target;
-                btn.textContent = 'Copied!';
-                setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-                alert('Could not copy text to clipboard.');
+                subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+                subjectSelect.disabled = false;
             });
-        });
-    });
-}
-        
+
+            subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
+            resetBtn.addEventListener('click', resetGenerator);
+
+            generateBtn.addEventListener('click', () => {
+                const className = classSelect.value;
+                const term = termSelect.value;
+                const subject = subjectSelect.value;
+
+                const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
+                    .sort((a, b) => {
+                        if (a.gender < b.gender) return -1;
+                        if (a.gender > b.gender) return 1;
+                        return a.name.localeCompare(b.name);
+                    });
+
+                // Using Bootstrap responsive table and button
+                let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
+                let clipboardText = "";
+
+                classStudents.forEach(s => {
+                    const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
+                    const displayMark = (typeof mark === 'number') ? mark : 'Ab';
+                    const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
+
+                    tableHTML += `<tr><td>${s.name}</td><td>${displayMark} / ${maxMark}</td><td>${grade}</td></tr>`;
+                    clipboardText += `${grade}\n`;
+                });
+
+                tableHTML += '</tbody></table></div><div class="mt-3 text-end"><button id="copyReportBtn" class="btn btn-success">Copy Grades</button></div>';
+                resultContainer.innerHTML = tableHTML;
+
+                document.getElementById('copyReportBtn').addEventListener('click', (e) => {
+                    navigator.clipboard.writeText(clipboardText.trim()).then(() => {
+                        const btn = e.target;
+                        btn.textContent = 'Copied!';
+                        setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        alert('Could not copy text to clipboard.');
+                    });
+                });
+            });
+        }
+
         function showView(viewName) {
             homeView.classList.add('d-none');
             loginView.classList.remove('d-flex');
             loginView.classList.add('d-none');
             dashboardView.classList.add('d-none');
+            globalControls.classList.add('d-none');
+
+            if (viewName === 'home' || viewName === 'login') {
+                globalControls.classList.remove('d-none');
+            }
 
             if (viewName === 'home') homeView.classList.remove('d-none');
             else if (viewName === 'login') {
@@ -1265,7 +1316,9 @@ function buildReportGeneratorCard(students) {
 
         function showDashboard(user) {
             showView('dashboard');
-            document.getElementById('userInfo').innerHTML = `<p class="fw-semibold text-primary mb-0">${user.name}</p><p class="small text-muted mb-0">${user.designation || 'Student'}</p>`;
+            const userInfoHTML = `<p class="fw-semibold text-primary mb-0">${user.name}</p><p class="small text-muted mb-0">${user.designation || 'Student'}</p>`;
+            document.getElementById('userInfoMobile').innerHTML = userInfoHTML;
+            document.getElementById('userInfoDesktop').innerHTML = userInfoHTML;
             document.body.className = '';
             if (user.designation === 'HM') document.body.classList.add('theme-hm');
             else if (user.role === 'staff') document.body.classList.add('theme-teacher');
@@ -1311,13 +1364,12 @@ function buildReportGeneratorCard(students) {
             if (fetchedData) {
                 ({ users, marks, activities } = fetchedData);
             } else {
-                // Fetch data if not provided (e.g., on page refresh with existing session)
                 try {
                     ({ users, marks, activities } = await fetchAllData());
                 } catch (error) {
-                    alert(error.message); // Simple alert for critical failure
+                    alert(error.message); 
                     hideProgressBar();
-                    logout(); // Log out if data fails
+                    logout(); 
                     return;
                 }
             }
@@ -1412,11 +1464,14 @@ function buildReportGeneratorCard(students) {
             loginView = document.getElementById('loginView');
             dashboardView = document.getElementById('dashboardView');
             progressBar = document.getElementById('progressBarContainer');
+            globalControls = document.getElementById('globalControls');
 
-            // Initialize Bootstrap Modals
+            // Initialize Bootstrap Modals & Offcanvas
             disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
             iframeModal = new bootstrap.Modal(document.getElementById('iframeModal'));
             dobVerifyModal = new bootstrap.Modal(document.getElementById('dobVerifyModal'));
+            settingsOffcanvas = new bootstrap.Offcanvas(document.getElementById('settingsOffcanvas'));
+
 
             document.getElementById('goToLoginBtn').addEventListener('click', () => showView('login'));
             document.getElementById('backToHomeBtn').addEventListener('click', () => showView('home'));
@@ -1424,9 +1479,22 @@ function buildReportGeneratorCard(students) {
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
             });
+            document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-bs-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            });
+
 
             document.getElementById('loginForm').addEventListener('submit', handleLogin);
-            document.getElementById('logoutButton').addEventListener('click', logout);
+            
+            document.querySelectorAll('.logout-btn').forEach(btn => {
+                btn.addEventListener('click', logout);
+            });
+
             
             document.getElementById('iframeModal').addEventListener('hidden.bs.modal', () => {
                  document.getElementById('modalIframe').src = "about:blank";
@@ -1447,13 +1515,6 @@ function buildReportGeneratorCard(students) {
                 } else {
                     errorEl.textContent = "Incorrect date of birth. Please try again.";
                 }
-            });
-            
-            document.getElementById('theme-switcher').addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                document.documentElement.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
             });
 
             const savedLang = localStorage.getItem('language') || 'en';
