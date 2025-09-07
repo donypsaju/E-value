@@ -312,7 +312,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module">
         // --- GLOBAL STATE ---
-        const APP_VERSION = '1.7-bootstrap'; // Increment this number when you deploy changes
+        const APP_VERSION = '1.8-localstorage'; // Updated Version
         let currentUser = null;
         let appData = { users: [], marks: [], activities: [], processedStudents: [] };
         let standingsChart = null;
@@ -367,106 +367,44 @@
             "Play during interval": -5
         };
 
-        // --- DATABASE (IndexedDB) HELPER ---
-        const DB_NAME = 'StudentPortalDB_SPA';
-        const DB_VERSION = 3; 
-        let db;
+        // --- DATA & SESSION MANAGEMENT (Local Storage) ---
 
-        function openDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
-                request.onupgradeneeded = e => {
-                    const db = e.target.result;
-                    if (db.objectStoreNames.contains('users')) db.deleteObjectStore('users');
-                    db.createObjectStore('users', { autoIncrement: true });
-                    if (!db.objectStoreNames.contains('marks')) db.createObjectStore('marks', { keyPath: 'admissionNo' });
-                    if (!db.objectStoreNames.contains('activities')) db.createObjectStore('activities', { autoIncrement: true });
-                    if (!db.objectStoreNames.contains('session')) db.createObjectStore('session', { keyPath: 'id' });
-                    if (!db.objectStoreNames.contains('metadata')) db.createObjectStore('metadata', { keyPath: 'key' });
-                };
-                request.onsuccess = e => { db = e.target.result; resolve(db); };
-                request.onerror = e => { console.error('DB error:', e.target.error); reject('Error opening DB'); };
-            });
+        function setSession(user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
         }
 
-        async function isDataLoaded() {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction(['users'], 'readonly');
-                const countRequest = transaction.objectStore('users').count();
-                countRequest.onsuccess = () => resolve(countRequest.result > 0);
-                countRequest.onerror = e => reject(e.target.error);
-            });
+        function getSession() {
+            const user = localStorage.getItem('currentUser');
+            return user ? JSON.parse(user) : null;
         }
 
-        async function populateDB() {
-            if (!db) await openDB();
-            const [usersRes, marksRes, activitiesRes] = await Promise.all([
-                fetch('./users.json'),
-                fetch('./marks.json'),
-                fetch('./activities.json')
-            ]);
-            const users = await usersRes.json();
-            const marks = await marksRes.json();
-            const activities = await activitiesRes.json();
-            const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readwrite');
-            users.forEach(item => transaction.objectStore('users').put(item));
-            marks.forEach(item => transaction.objectStore('marks').put(item));
-            activities.forEach(item => transaction.objectStore('activities').put(item));
-            transaction.objectStore('metadata').put({ key: 'lastUpdated', value: new Date().toISOString() });
-            return new Promise((resolve, reject) => {
-                transaction.oncomplete = () => resolve();
-                transaction.onerror = e => reject(e.target.error);
-            });
+        function logout() {
+            localStorage.removeItem('currentUser');
+            // Clear appData to ensure fresh data on next login
+            appData = { users: [], marks: [], activities: [], processedStudents: [] };
+            showView('home');
         }
 
-        async function getAllData() {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction(['users', 'marks', 'activities', 'metadata'], 'readonly');
-                const requests = {
-                    users: transaction.objectStore('users').getAll(),
-                    marks: transaction.objectStore('marks').getAll(),
-                    activities: transaction.objectStore('activities').getAll(),
-                    metadata: transaction.objectStore('metadata').get('lastUpdated')
-                };
-                const results = {};
-                transaction.oncomplete = () => resolve(results);
-                transaction.onerror = e => reject(e.target.error);
-                Object.keys(requests).forEach(key => {
-                    requests[key].onsuccess = () => { results[key] = requests[key].result; };
-                });
-            });
-        }
-
-        async function setSession(user) {
-            if (!db) await openDB();
-            const transaction = db.transaction(['session'], 'readwrite');
-            transaction.objectStore('session').put({ id: 'currentUser', ...user });
-        }
-
-        async function getSession() {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const request = db.transaction(['session'], 'readonly').objectStore('session').get('currentUser');
-                request.onsuccess = () => resolve(request.result || null);
-                request.onerror = e => reject(e.target.error);
-            });
-        }
-
-        async function clearSessionAndData() {
-            localStorage.clear(); 
-            if (db) {
-                db.close();
-                db = null;
+        async function fetchAllData() {
+            try {
+                const [usersRes, marksRes, activitiesRes] = await Promise.all([
+                    fetch('./users.json'),
+                    fetch('./marks.json'),
+                    fetch('./activities.json')
+                ]);
+                if (!usersRes.ok || !marksRes.ok || !activitiesRes.ok) {
+                     throw new Error('Network response was not ok');
+                }
+                const users = await usersRes.json();
+                const marks = await marksRes.json();
+                const activities = await activitiesRes.json();
+                return { users, marks, activities };
+            } catch (error) {
+                console.error("Failed to fetch critical data:", error);
+                throw new Error("Could not load school data. Please check the network connection.");
             }
-            return new Promise((resolve, reject) => {
-                const deleteRequest = indexedDB.deleteDatabase(DB_NAME);
-                deleteRequest.onsuccess = () => resolve();
-                deleteRequest.onerror = (e) => reject('Error deleting database.', e);
-                deleteRequest.onblocked = () => reject('Database delete blocked. Please close other tabs with this app open.');
-            });
         }
+
 
         // --- DATA PROCESSING & CALCULATIONS ---
         function isActivityForStudent(activity, student) {
@@ -583,11 +521,10 @@
         // --- UI RENDERING ---
         const dashboardContainer = document.getElementById('dashboard-container');
 
-        function buildHMDashboard(user, allStudents, processedStudents, metadata) {
-            const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
+        function buildHMDashboard(user, allStudents, processedStudents) {
             dashboardContainer.innerHTML = `
             <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a></div></div></div>
-            <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${lastUpdated}</p></div></div>
+            <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
             <div id="leaderboardCard"></div>
             <div id="classToppersCard"></div>
             <div id="subjectToppersCard"></div>`;
@@ -599,7 +536,7 @@
             dashboardContainer.addEventListener('click', handleDashboardClick);
         }
 
-        function buildTeacherDashboard(user, allStudents, processedStudents, metadata) {
+        function buildTeacherDashboard(user, allStudents, processedStudents) {
             const teacherSection = getTeacherSection(user.designation);
             if (!teacherSection) {
                 dashboardContainer.innerHTML = `<div class="card text-danger shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div></div>`;
@@ -612,11 +549,10 @@
                 up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
                 hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
             }[teacherSection.toLowerCase()];
-            const lastUpdated = metadata ? new Date(metadata.value).toLocaleString() : 'Not available';
-
+            
             dashboardContainer.innerHTML = `
                 <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="${markEntryUrl}" target="_blank" class="btn themed-bg action-btn rounded-pill">${teacherSection} Mark Entry</a></div></div></div>
-                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${lastUpdated}</p></div></div>
+                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
                 <div id="leaderboardCard"></div>
                 <div id="classToppersCard"></div>
                 <div id="subjectToppersCard"></div>
@@ -629,8 +565,6 @@
             buildReportGeneratorCard(sectionStudents);
             dashboardContainer.addEventListener('click', handleDashboardClick);
         }
-        
-        // --- ALL OTHER JS FUNCTIONS RESTORED AND ADAPTED FOR BOOTSTRAP ---
         
         function buildParentDashboard(currentChild, siblings, processedStudents) {
             const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
@@ -781,6 +715,7 @@
                 disciplineModal.show();
             });
         }
+        
 
         function buildStandingsChart(students, isSection = false) {
     const filter = document.getElementById('standingsFilter');
@@ -1345,45 +1280,50 @@ function buildReportGeneratorCard(students) {
             const errorElement = document.getElementById('loginError');
             errorElement.textContent = '';
             try {
-                if (!(await isDataLoaded())) await populateDB();
-                const users = (await getAllData()).users;
+                const { users, marks, activities } = await fetchAllData();
+                
                 const foundUser = users.find(user => {
                     if (!user.phone || !user.dob) return false;
                     const phoneMatch = Array.isArray(user.phone) ? user.phone.includes(phone) : user.phone === phone;
                     return phoneMatch && user.dob === dob;
                 });
+                
                 if (foundUser) {
-                    await setSession(foundUser);
-                    initializeApp(foundUser);
+                    setSession(foundUser);
+                    // Pass fetched data to initializeApp
+                    initializeApp(foundUser, { users, marks, activities });
                 } else {
                     errorElement.textContent = 'Invalid credentials. Please try again.';
                     hideProgressBar();
                 }
             } catch (error) {
                 console.error('Login Error:', error);
-                errorElement.textContent = 'An error occurred. Please try again.';
+                errorElement.textContent = error.message || 'An error occurred. Please try again.';
                 hideProgressBar();
             }
         }
-
-        async function initializeApp(loggedInUser) {
-            const storedVersion = localStorage.getItem('appVersion');
-            if (storedVersion !== APP_VERSION) {
-                await clearSessionAndData();
-                localStorage.setItem('appVersion', APP_VERSION);
-                location.reload();
-                return; 
-            }
-
-            if (!loggedInUser) {
-                showView('home');
-                return;
-            }
+        async function initializeApp(loggedInUser, fetchedData = null) {
             showProgressBar();
             currentUser = loggedInUser;
+            
+            let users, marks, activities;
+
+            if (fetchedData) {
+                ({ users, marks, activities } = fetchedData);
+            } else {
+                // Fetch data if not provided (e.g., on page refresh with existing session)
+                try {
+                    ({ users, marks, activities } = await fetchAllData());
+                } catch (error) {
+                    alert(error.message); // Simple alert for critical failure
+                    hideProgressBar();
+                    logout(); // Log out if data fails
+                    return;
+                }
+            }
+            
             showDashboard(loggedInUser);
             
-            const { users, marks, activities, metadata } = await getAllData();
             const allStudents = users.filter(u => u.role === 'student');
             const processedStudents = processStudentData(allStudents, marks, activities);
             
@@ -1416,9 +1356,9 @@ function buildReportGeneratorCard(students) {
             }
 
             if (loggedInUser.designation === 'HM') {
-                buildHMDashboard(loggedInUser, allStudents, processedStudents, metadata);
+                buildHMDashboard(loggedInUser, allStudents, processedStudents);
             } else if (loggedInUser.role === 'staff') {
-                buildTeacherDashboard(loggedInUser, allStudents, processedStudents, metadata);
+                buildTeacherDashboard(loggedInUser, allStudents, processedStudents);
             } else if (loggedInUser.role === 'student') {
                 const currentUserPhones = Array.isArray(loggedInUser.phone) ? loggedInUser.phone : [loggedInUser.phone];
                 const siblings = allStudents.filter(s => {
@@ -1486,10 +1426,7 @@ function buildReportGeneratorCard(students) {
             });
 
             document.getElementById('loginForm').addEventListener('submit', handleLogin);
-            document.getElementById('logoutButton').addEventListener('click', async () => {
-                await clearSessionAndData();
-                showView('home');
-            });
+            document.getElementById('logoutButton').addEventListener('click', logout);
             
             document.getElementById('iframeModal').addEventListener('hidden.bs.modal', () => {
                  document.getElementById('modalIframe').src = "about:blank";
@@ -1504,7 +1441,7 @@ function buildReportGeneratorCard(students) {
                 
                 const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
                 if (targetStudent && targetStudent.dob === dob) {
-                    await setSession(targetStudent);
+                    setSession(targetStudent);
                     dobVerifyModal.hide();
                     initializeApp(targetStudent);
                 } else {
@@ -1522,7 +1459,12 @@ function buildReportGeneratorCard(students) {
             const savedLang = localStorage.getItem('language') || 'en';
             setLanguage(savedLang);
 
-            getSession().then(user => initializeApp(user));
+            const user = getSession();
+            if (user) {
+                initializeApp(user);
+            } else {
+                showView('home');
+            }
         });
     </script>
 </body>
