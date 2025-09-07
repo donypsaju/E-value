@@ -23,6 +23,22 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        #noscript-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary, #F7F9FB);
+            color: var(--text-primary, #3D405B);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+            padding: 2rem;
+        }
+
         /* --- THEME COLORS using CSS Variables --- */
         [data-bs-theme="light"] {
             --bg-primary: #F7F9FB;      
@@ -106,7 +122,7 @@
         .action-btn { font-weight: 500; }
         
         /* Theme Switcher */
-        .top-controls { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 100; }
+        .top-controls { z-index: 1051; } /* Sit on top of most elements */
         #theme-switcher { cursor: pointer; background-color: var(--bg-secondary); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; border: 1px solid var(--border-color); }
         #theme-switcher-thumb { position: absolute; width: 24px; height: 24px; background-color: var(--theme-text); border-radius: 50%; transition: transform 0.3s ease-out; }
         html[data-bs-theme="light"] #theme-switcher-thumb { transform: translateX(0px); }
@@ -134,23 +150,31 @@
     </script>
 </head>
 <body>
-    
+    <noscript>
+        <div id="noscript-overlay">
+            <div>
+                <h1 class="display-5 fw-bold">JavaScript Required</h1>
+                <p class="fs-5 mt-3">This web application relies on JavaScript to function. Please enable it in your browser settings and refresh the page to continue.</p>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="top-controls position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3">
+        <div id="lang-switcher" class="card p-1 d-flex flex-row gap-1">
+            <button class="lang-btn btn-sm" data-lang="en">EN</button>
+            <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+        </div>
+        <button id="theme-switcher">
+            <div id="theme-switcher-thumb"></div>
+        </button>
+    </div>
+
     <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
         <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
     </div>
 
     <div id="homeView" class="min-vh-100 d-flex align-items-center justify-content-center p-4">
-        <div class="top-controls d-flex align-items-center gap-3">
-            <div id="lang-switcher" class="card p-1 d-flex flex-row gap-1">
-                <button class="lang-btn btn-sm" data-lang="en">EN</button>
-                <button class="lang-btn btn-sm" data-lang="ml">മല</button>
-            </div>
-            <button id="theme-switcher">
-                <div id="theme-switcher-thumb"></div>
-            </button>
-        </div>
-
-        <div class="container-lg">
+        <div class="container-lg pt-5">
             <div class="text-center mb-5">
                 <h1 class="display-4 fw-bold">Emmanuel's HSS Kothanalloor</h1>
                 <p class="mt-2 fs-5" data-translate-key="subtitle">Student Evaluation Portal</p>
@@ -225,7 +249,7 @@
                         <input type="search" id="headerSearch" placeholder="Find a student..." class="form-control rounded-pill">
                         <div id="headerSearchResults" class="position-absolute top-100 mt-1 w-100 rounded shadow-lg bg-body" style="z-index: 1050; max-height: 300px; overflow-y: auto;"></div>
                     </div>
-                    <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3" style="margin-right: 180px;">
                         <div id="userInfo" class="text-end"></div>
                         <button id="logoutButton" class="btn btn-sm themed-bg text-white rounded-pill px-3">Logout</button>
                     </div>
@@ -288,7 +312,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module">
         // --- GLOBAL STATE ---
-        const APP_VERSION = '1.8'; // Increment this number when you deploy changes
+        const APP_VERSION = '1.7-bootstrap'; // Increment this number when you deploy changes
         let currentUser = null;
         let appData = { users: [], marks: [], activities: [], processedStudents: [] };
         let standingsChart = null;
@@ -757,12 +781,8 @@
                 disciplineModal.show();
             });
         }
-        /**
- * Builds and manages the House Standings bar chart.
- * Note: This function assumes a <select> element with id="standingsFilter"
- * is already on the page and styled with Bootstrap's `form-select` class.
- */
-function buildStandingsChart(students, isSection = false) {
+
+        function buildStandingsChart(students, isSection = false) {
     const filter = document.getElementById('standingsFilter');
     const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
     
@@ -1507,3 +1527,4 @@ function buildReportGeneratorCard(students) {
     </script>
 </body>
 </html>
+
