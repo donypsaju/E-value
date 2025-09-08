@@ -5367,8 +5367,8 @@
                     "Bio": 6,
                     "Maths": 1
                 },
-                "total": 49,
-                "rank": 20
+                "total": "Ab",
+                "rank": 35
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5382,8 +5382,8 @@
                     "Bio": "ab",
                     "Maths": "ab"
                 },
-                "total": "Ab",
-                "rank": 36
+                "total": 49,
+                "rank": 20
             },
             "First Term Exam": {
                 "marks": {
@@ -5397,11 +5397,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 35,
+                    "Work": "Ab"
                 },
                 "total": "Ab",
-                "rank": 1
+                "rank": 36
             }
         }
     },
@@ -5420,8 +5420,8 @@
                     "Bio": 16,
                     "Maths": 15
                 },
-                "total": 102,
-                "rank": 6
+                "total": "Ab",
+                "rank": 37
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5435,7 +5435,7 @@
                     "Bio": 17,
                     "Maths": 14
                 },
-                "total": 137,
+                "total": 102,
                 "rank": 6
             },
             "First Term Exam": {
@@ -5450,11 +5450,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 37,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 137,
+                "rank": 6
             }
         }
     },
@@ -5473,8 +5473,8 @@
                     "Bio": 16,
                     "Maths": 7
                 },
-                "total": 82,
-                "rank": 9
+                "total": "Ab",
+                "rank": 39
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5488,8 +5488,8 @@
                     "Bio": 12,
                     "Maths": 7
                 },
-                "total": 117,
-                "rank": 10
+                "total": 82,
+                "rank": 9
             },
             "First Term Exam": {
                 "marks": {
@@ -5503,11 +5503,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 39,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 117,
+                "rank": 10
             }
         }
     },
@@ -5526,8 +5526,8 @@
                     "Bio": 13,
                     "Maths": 20
                 },
-                "total": 85,
-                "rank": 8
+                "total": "Ab",
+                "rank": 46
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5541,7 +5541,7 @@
                     "Bio": 12,
                     "Maths": 17
                 },
-                "total": 129,
+                "total": 85,
                 "rank": 8
             },
             "First Term Exam": {
@@ -5556,11 +5556,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 46,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 129,
+                "rank": 8
             }
         }
     },
@@ -5579,8 +5579,8 @@
                     "Bio": 19,
                     "Maths": 20
                 },
-                "total": 124,
-                "rank": 2
+                "total": "Ab",
+                "rank": 43
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5594,8 +5594,8 @@
                     "Bio": 17,
                     "Maths": 18
                 },
-                "total": 146,
-                "rank": 4
+                "total": 124,
+                "rank": 2
             },
             "First Term Exam": {
                 "marks": {
@@ -5609,11 +5609,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 43,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 146,
+                "rank": 4
             }
         }
     },
@@ -5632,8 +5632,8 @@
                     "Bio": 5,
                     "Maths": 14
                 },
-                "total": 60,
-                "rank": 15
+                "total": "Ab",
+                "rank": 41
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5647,8 +5647,8 @@
                     "Bio": 7,
                     "Maths": 10
                 },
-                "total": 70,
-                "rank": 21
+                "total": 60,
+                "rank": 15
             },
             "First Term Exam": {
                 "marks": {
@@ -5662,11 +5662,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 41,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 70,
+                "rank": 21
             }
         }
     },
@@ -5685,8 +5685,8 @@
                     "Bio": "Ab",
                     "Maths": 20
                 },
-                "total": 56,
-                "rank": 16
+                "total": "Ab",
+                "rank": 44
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5700,8 +5700,8 @@
                     "Bio": 15,
                     "Maths": 18
                 },
-                "total": 144,
-                "rank": 5
+                "total": 56,
+                "rank": 16
             },
             "First Term Exam": {
                 "marks": {
@@ -5715,11 +5715,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 44,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 144,
+                "rank": 5
             }
         }
     },
@@ -5738,8 +5738,8 @@
                     "Bio": 5,
                     "Maths": 7
                 },
-                "total": 49,
-                "rank": 20
+                "total": "Ab",
+                "rank": 40
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5753,8 +5753,8 @@
                     "Bio": 4,
                     "Maths": 10
                 },
-                "total": 69,
-                "rank": 22
+                "total": 49,
+                "rank": 20
             },
             "First Term Exam": {
                 "marks": {
@@ -5768,11 +5768,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 40,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 69,
+                "rank": 22
             }
         }
     },
@@ -5792,7 +5792,7 @@
                     "Maths": "Ab"
                 },
                 "total": "Ab",
-                "rank": 37
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5807,7 +5807,7 @@
                     "Maths": "Ab"
                 },
                 "total": "Ab",
-                "rank": 36
+                "rank": 37
             },
             "First Term Exam": {
                 "marks": {
@@ -5822,10 +5822,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
                 "total": "Ab",
-                "rank": 1
+                "rank": 36
             }
         }
     },
@@ -5844,8 +5844,8 @@
                     "Bio": 10,
                     "Maths": 18
                 },
-                "total": 74,
-                "rank": 12
+                "total": "Ab",
+                "rank": 39
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5859,8 +5859,8 @@
                     "Bio": 10,
                     "Maths": 6
                 },
-                "total": 78,
-                "rank": 17
+                "total": 74,
+                "rank": 12
             },
             "First Term Exam": {
                 "marks": {
@@ -5874,11 +5874,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 39,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 78,
+                "rank": 17
             }
         }
     },
@@ -5897,8 +5897,8 @@
                     "Bio": 16,
                     "Maths": 10
                 },
-                "total": 92,
-                "rank": 7
+                "total": "Ab",
+                "rank": 42
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5912,8 +5912,8 @@
                     "Bio": 15,
                     "Maths": 12
                 },
-                "total": 118,
-                "rank": 9
+                "total": 92,
+                "rank": 7
             },
             "First Term Exam": {
                 "marks": {
@@ -5927,11 +5927,11 @@
                     "Bio": 0,
                     "Maths": 0,
                     "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "H.E.": 42,
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 118,
+                "rank": 9
             }
         }
     },
@@ -5950,8 +5950,8 @@
                     "Bio": 9,
                     "Maths": 5
                 },
-                "total": 66,
-                "rank": 13
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5965,8 +5965,8 @@
                     "Bio": 8,
                     "Maths": 8
                 },
-                "total": 76,
-                "rank": 19
+                "total": 66,
+                "rank": 13
             },
             "First Term Exam": {
                 "marks": {
@@ -5981,10 +5981,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 76,
+                "rank": 19
             }
         }
     },
@@ -6003,8 +6003,8 @@
                     "Bio": 3,
                     "Maths": 1
                 },
-                "total": 47,
-                "rank": 22
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6018,8 +6018,8 @@
                     "Bio": 12,
                     "Maths": 7
                 },
-                "total": 80,
-                "rank": 16
+                "total": 47,
+                "rank": 22
             },
             "First Term Exam": {
                 "marks": {
@@ -6034,10 +6034,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 80,
+                "rank": 16
             }
         }
     },
@@ -6056,8 +6056,8 @@
                     "Bio": 11,
                     "Maths": 1
                 },
-                "total": 39,
-                "rank": 24
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6071,8 +6071,8 @@
                     "Bio": 6,
                     "Maths": 3
                 },
-                "total": 87,
-                "rank": 15
+                "total": 39,
+                "rank": 24
             },
             "First Term Exam": {
                 "marks": {
@@ -6087,10 +6087,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 87,
+                "rank": 15
             }
         }
     },
@@ -6109,8 +6109,8 @@
                     "Bio": 14,
                     "Maths": 13
                 },
-                "total": 77,
-                "rank": 11
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6124,8 +6124,8 @@
                     "Bio": 14,
                     "Maths": 9
                 },
-                "total": 88,
-                "rank": 14
+                "total": 77,
+                "rank": 11
             },
             "First Term Exam": {
                 "marks": {
@@ -6140,10 +6140,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 88,
+                "rank": 14
             }
         }
     },
@@ -6162,8 +6162,8 @@
                     "Bio": 2,
                     "Maths": 7
                 },
-                "total": 19,
-                "rank": 31
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6177,8 +6177,8 @@
                     "Bio": "Ab",
                     "Maths": "ab"
                 },
-                "total": "Ab",
-                "rank": 36
+                "total": 19,
+                "rank": 31
             },
             "First Term Exam": {
                 "marks": {
@@ -6193,10 +6193,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
                 "total": "Ab",
-                "rank": 1
+                "rank": 36
             }
         }
     },
@@ -6215,8 +6215,8 @@
                     "Bio": 1,
                     "Maths": 10
                 },
-                "total": 38,
-                "rank": 25
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6230,7 +6230,7 @@
                     "Bio": 3,
                     "Maths": 9
                 },
-                "total": 62,
+                "total": 38,
                 "rank": 25
             },
             "First Term Exam": {
@@ -6246,10 +6246,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 62,
+                "rank": 25
             }
         }
     },
@@ -6268,8 +6268,8 @@
                     "Bio": "Ab",
                     "Maths": "-"
                 },
-                "total": 17,
-                "rank": 32
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6283,8 +6283,8 @@
                     "Bio": 20,
                     "Maths": 12
                 },
-                "total": 149,
-                "rank": 3
+                "total": 17,
+                "rank": 32
             },
             "First Term Exam": {
                 "marks": {
@@ -6299,10 +6299,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 149,
+                "rank": 3
             }
         }
     },
@@ -6321,8 +6321,8 @@
                     "Bio": 15,
                     "Maths": 20
                 },
-                "total": 120,
-                "rank": 4
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6336,8 +6336,8 @@
                     "Bio": 16,
                     "Maths": 13
                 },
-                "total": 133,
-                "rank": 7
+                "total": 120,
+                "rank": 4
             },
             "First Term Exam": {
                 "marks": {
@@ -6352,10 +6352,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 133,
+                "rank": 7
             }
         }
     },
@@ -6374,8 +6374,8 @@
                     "Bio": 1,
                     "Maths": 1
                 },
-                "total": 6,
-                "rank": 34
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6389,8 +6389,8 @@
                     "Bio": 2,
                     "Maths": 7
                 },
-                "total": 38,
-                "rank": 30
+                "total": 6,
+                "rank": 34
             },
             "First Term Exam": {
                 "marks": {
@@ -6405,10 +6405,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 38,
+                "rank": 30
             }
         }
     },
@@ -6427,8 +6427,8 @@
                     "Bio": 1,
                     "Maths": 4
                 },
-                "total": 27,
-                "rank": 30
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6442,8 +6442,8 @@
                     "Bio": 6,
                     "Maths": 1
                 },
-                "total": 47,
-                "rank": 26
+                "total": 27,
+                "rank": 30
             },
             "First Term Exam": {
                 "marks": {
@@ -6458,10 +6458,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 47,
+                "rank": 26
             }
         }
     },
@@ -6480,8 +6480,8 @@
                     "Bio": 20,
                     "Maths": 18
                 },
-                "total": 122,
-                "rank": 3
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6495,8 +6495,8 @@
                     "Bio": 20,
                     "Maths": 18
                 },
-                "total": 152,
-                "rank": 2
+                "total": 122,
+                "rank": 3
             },
             "First Term Exam": {
                 "marks": {
@@ -6511,10 +6511,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 152,
+                "rank": 2
             }
         }
     },
@@ -6533,8 +6533,8 @@
                     "Bio": 3,
                     "Maths": 4
                 },
-                "total": 29,
-                "rank": 28
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6548,8 +6548,8 @@
                     "Bio": 5,
                     "Maths": 4
                 },
-                "total": 44,
-                "rank": 27
+                "total": 29,
+                "rank": 28
             },
             "First Term Exam": {
                 "marks": {
@@ -6564,10 +6564,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 44,
+                "rank": 27
             }
         }
     },
@@ -6586,8 +6586,8 @@
                     "Bio": 5,
                     "Maths": 11
                 },
-                "total": 65,
-                "rank": 14
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6601,8 +6601,8 @@
                     "Bio": 12,
                     "Maths": 9
                 },
-                "total": 27,
-                "rank": 33
+                "total": 65,
+                "rank": 14
             },
             "First Term Exam": {
                 "marks": {
@@ -6617,10 +6617,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 27,
+                "rank": 33
             }
         }
     },
@@ -6639,8 +6639,8 @@
                     "Bio": 10,
                     "Maths": 9
                 },
-                "total": 55,
-                "rank": 18
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6654,8 +6654,8 @@
                     "Bio": 7,
                     "Maths": 9
                 },
-                "total": 72,
-                "rank": 20
+                "total": 55,
+                "rank": 18
             },
             "First Term Exam": {
                 "marks": {
@@ -6670,10 +6670,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 72,
+                "rank": 20
             }
         }
     },
@@ -6692,8 +6692,8 @@
                     "Bio": 2,
                     "Maths": 14
                 },
-                "total": 40,
-                "rank": 23
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6707,7 +6707,7 @@
                     "Bio": 11,
                     "Maths": 6
                 },
-                "total": 63,
+                "total": 40,
                 "rank": 23
             },
             "First Term Exam": {
@@ -6723,10 +6723,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 63,
+                "rank": 23
             }
         }
     },
@@ -6745,8 +6745,8 @@
                     "Bio": 5,
                     "Maths": "-"
                 },
-                "total": 29,
-                "rank": 28
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6760,8 +6760,8 @@
                     "Bio": 7,
                     "Maths": 9
                 },
-                "total": 77,
-                "rank": 18
+                "total": 29,
+                "rank": 28
             },
             "First Term Exam": {
                 "marks": {
@@ -6776,10 +6776,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 77,
+                "rank": 18
             }
         }
     },
@@ -6798,8 +6798,8 @@
                     "Bio": 20,
                     "Maths": 20
                 },
-                "total": 135,
-                "rank": 1
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6813,7 +6813,7 @@
                     "Bio": 17,
                     "Maths": 20
                 },
-                "total": 155,
+                "total": 135,
                 "rank": 1
             },
             "First Term Exam": {
@@ -6829,9 +6829,9 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
+                "total": 155,
                 "rank": 1
             }
         }
@@ -6851,8 +6851,8 @@
                     "Bio": "Ab",
                     "Maths": 1
                 },
-                "total": 1,
-                "rank": 36
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6866,8 +6866,8 @@
                     "Bio": "Ab",
                     "Maths": "ab"
                 },
-                "total": 28,
-                "rank": 32
+                "total": 1,
+                "rank": 36
             },
             "First Term Exam": {
                 "marks": {
@@ -6882,10 +6882,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 28,
+                "rank": 32
             }
         }
     },
@@ -6904,8 +6904,8 @@
                     "Bio": 18,
                     "Maths": 20
                 },
-                "total": 110,
-                "rank": 5
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6919,8 +6919,8 @@
                     "Bio": 9,
                     "Maths": 16
                 },
-                "total": 113,
-                "rank": 11
+                "total": 110,
+                "rank": 5
             },
             "First Term Exam": {
                 "marks": {
@@ -6935,10 +6935,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 113,
+                "rank": 11
             }
         }
     },
@@ -6957,8 +6957,8 @@
                     "Bio": 1,
                     "Maths": 0
                 },
-                "total": 4,
-                "rank": 35
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6972,8 +6972,8 @@
                     "Bio": 1,
                     "Maths": 1
                 },
-                "total": 8,
-                "rank": 34
+                "total": 4,
+                "rank": 35
             },
             "First Term Exam": {
                 "marks": {
@@ -6988,10 +6988,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 8,
+                "rank": 34
             }
         }
     },
@@ -7010,8 +7010,8 @@
                     "Bio": 15,
                     "Maths": 2
                 },
-                "total": 78,
-                "rank": 10
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7025,8 +7025,8 @@
                     "Bio": 15,
                     "Maths": 13
                 },
-                "total": 112,
-                "rank": 12
+                "total": 78,
+                "rank": 10
             },
             "First Term Exam": {
                 "marks": {
@@ -7041,10 +7041,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 112,
+                "rank": 12
             }
         }
     },
@@ -7063,8 +7063,8 @@
                     "Bio": 1,
                     "Maths": 0
                 },
-                "total": 17,
-                "rank": 32
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7078,8 +7078,8 @@
                     "Bio": 6,
                     "Maths": 8
                 },
-                "total": 63,
-                "rank": 23
+                "total": 17,
+                "rank": 32
             },
             "First Term Exam": {
                 "marks": {
@@ -7094,10 +7094,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 63,
+                "rank": 23
             }
         }
     },
@@ -7116,8 +7116,8 @@
                     "Bio": 10,
                     "Maths": 11
                 },
-                "total": 56,
-                "rank": 16
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7131,8 +7131,8 @@
                     "Bio": 5,
                     "Maths": 7
                 },
-                "total": 41,
-                "rank": 29
+                "total": 56,
+                "rank": 16
             },
             "First Term Exam": {
                 "marks": {
@@ -7147,10 +7147,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 41,
+                "rank": 29
             }
         }
     },
@@ -7169,8 +7169,8 @@
                     "Bio": 1,
                     "Maths": 9
                 },
-                "total": 32,
-                "rank": 27
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7184,8 +7184,8 @@
                     "Bio": 2,
                     "Maths": 4
                 },
-                "total": 35,
-                "rank": 31
+                "total": 32,
+                "rank": 27
             },
             "First Term Exam": {
                 "marks": {
@@ -7200,10 +7200,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 35,
+                "rank": 31
             }
         }
     },
@@ -7222,8 +7222,8 @@
                     "Bio": 6,
                     "Maths": 4
                 },
-                "total": 51,
-                "rank": 19
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7237,8 +7237,8 @@
                     "Bio": 11,
                     "Maths": 10
                 },
-                "total": 93,
-                "rank": 13
+                "total": 51,
+                "rank": 19
             },
             "First Term Exam": {
                 "marks": {
@@ -7253,10 +7253,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 93,
+                "rank": 13
             }
         }
     },
@@ -7276,7 +7276,7 @@
                     "Maths": "Ab"
                 },
                 "total": "Ab",
-                "rank": 37
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7290,8 +7290,8 @@
                     "Bio": "Ab",
                     "Maths": "Ab"
                 },
-                "total": 4,
-                "rank": 35
+                "total": "Ab",
+                "rank": 37
             },
             "First Term Exam": {
                 "marks": {
@@ -7306,10 +7306,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 4,
+                "rank": 35
             }
         }
     },
@@ -7328,8 +7328,8 @@
                     "Bio": 6,
                     "Maths": 6
                 },
-                "total": 33,
-                "rank": 26
+                "total": "Ab",
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7343,8 +7343,8 @@
                     "Bio": "Ab",
                     "Maths": 9
                 },
-                "total": 43,
-                "rank": 28
+                "total": 33,
+                "rank": 26
             },
             "First Term Exam": {
                 "marks": {
@@ -7359,10 +7359,10 @@
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
-                    "Work": 0
+                    "Work": "Ab"
                 },
-                "total": "Ab",
-                "rank": 1
+                "total": 43,
+                "rank": 28
             }
         }
     },
@@ -20073,7 +20073,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 47,
-                    "Phy": 27,
+                    "Phy": 28,
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 48,
@@ -20081,7 +20081,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 122,
+                "total": 123,
                 "rank": 13
             }
         }
@@ -20126,7 +20126,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 38,
-                    "Phy": 19,
+                    "Phy": 20,
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 22,
@@ -20134,7 +20134,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 79,
+                "total": 80,
                 "rank": 27
             }
         }
@@ -20497,7 +20497,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 66,
-                    "Phy": 28,
+                    "Phy": 29,
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 46,
@@ -20505,7 +20505,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 140,
+                "total": 141,
                 "rank": 8
             }
         }
@@ -20550,7 +20550,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 46,
-                    "Phy": 17,
+                    "Phy": 19,
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 42,
@@ -20558,8 +20558,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 105,
-                "rank": 19
+                "total": 107,
+                "rank": 18
             }
         }
     },
@@ -21036,7 +21036,7 @@
                     "Work": 0
                 },
                 "total": 122,
-                "rank": 13
+                "rank": 14
             }
         }
     },
@@ -21407,7 +21407,7 @@
                     "Work": 0
                 },
                 "total": 115,
-                "rank": 16
+                "rank": 17
             }
         }
     },
@@ -21451,7 +21451,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 57,
-                    "Phy": 31,
+                    "Phy": 32,
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 27,
@@ -21459,7 +21459,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 115,
+                "total": 116,
                 "rank": 16
             }
         }
@@ -21504,7 +21504,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 16,
-                    "Phy": 12,
+                    "Phy": 13,
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 12,
@@ -21512,7 +21512,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 40,
+                "total": 41,
                 "rank": 39
             }
         }
@@ -21619,7 +21619,7 @@
                     "Work": 0
                 },
                 "total": 79,
-                "rank": 27
+                "rank": 28
             }
         }
     },
@@ -21672,7 +21672,7 @@
                     "Work": 0
                 },
                 "total": 106,
-                "rank": 18
+                "rank": 19
             }
         }
     },
@@ -31449,7 +31449,7 @@
                     "Work": 0
                 },
                 "total": 51,
-                "rank": 29
+                "rank": 30
             }
         }
     },
@@ -32524,13 +32524,13 @@
                     "Hindi": 12,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 0,
+                    "Maths": 7,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 56,
-                "rank": 27
+                "total": 63,
+                "rank": 26
             }
         }
     },
@@ -32571,13 +32571,13 @@
                     "Hindi": 15,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 0,
+                    "Maths": 7,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 50,
-                "rank": 30
+                "total": 57,
+                "rank": 28
             }
         }
     },
@@ -32718,7 +32718,7 @@
                     "Work": 0
                 },
                 "total": 55,
-                "rank": 28
+                "rank": 29
             }
         }
     },
@@ -33094,7 +33094,7 @@
                     "Work": 0
                 },
                 "total": 60,
-                "rank": 26
+                "rank": 27
             }
         }
     },
