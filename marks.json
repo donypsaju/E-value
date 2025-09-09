@@ -14722,14 +14722,14 @@
                     "S.S.": 1,
                     "Phy": 0,
                     "Chem": 3,
-                    "Bio": 12,
+                    "Bio": 4,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 19,
-                "rank": 13
+                "total": 11,
+                "rank": 16
             }
         }
     },
@@ -14775,14 +14775,14 @@
                     "S.S.": 14,
                     "Phy": 0,
                     "Chem": 5,
-                    "Bio": 21,
+                    "Bio": 12,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 45,
-                "rank": 6
+                "total": 36,
+                "rank": 9
             }
         }
     },
@@ -14828,13 +14828,13 @@
                     "S.S.": 40,
                     "Phy": 0,
                     "Chem": 16,
-                    "Bio": 14,
+                    "Bio": 21,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 76,
+                "total": 83,
                 "rank": 3
             }
         }
@@ -14881,14 +14881,14 @@
                     "S.S.": 5,
                     "Phy": 0,
                     "Chem": 5,
-                    "Bio": "ab",
+                    "Bio": 14,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 13,
-                "rank": 15
+                "total": 27,
+                "rank": 12
             }
         }
     },
@@ -14934,14 +14934,14 @@
                     "S.S.": 5,
                     "Phy": 0,
                     "Chem": 3,
-                    "Bio": 9,
+                    "Bio": "ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 18,
-                "rank": 14
+                "total": 9,
+                "rank": 17
             }
         }
     },
@@ -14987,14 +14987,14 @@
                     "S.S.": 10,
                     "Phy": 0,
                     "Chem": 4,
-                    "Bio": 23,
+                    "Bio": 9,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 41,
-                "rank": 7
+                "total": 27,
+                "rank": 12
             }
         }
     },
@@ -15040,14 +15040,14 @@
                     "S.S.": 18,
                     "Phy": 0,
                     "Chem": 13,
-                    "Bio": 0,
+                    "Bio": 23,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 36,
-                "rank": 8
+                "total": 59,
+                "rank": 6
             }
         }
     },
@@ -15093,14 +15093,14 @@
                     "S.S.": 9,
                     "Phy": 0,
                     "Chem": 12,
-                    "Bio": 0,
+                    "Bio": 10,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 33,
-                "rank": 9
+                "total": 43,
+                "rank": 7
             }
         }
     },
@@ -15146,13 +15146,13 @@
                     "S.S.": 25,
                     "Phy": 0,
                     "Chem": 13,
-                    "Bio": 0,
+                    "Bio": 10,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 51,
+                "total": 61,
                 "rank": 5
             }
         }
@@ -15199,14 +15199,14 @@
                     "S.S.": 16,
                     "Phy": 0,
                     "Chem": 1,
-                    "Bio": 0,
+                    "Bio": 15,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 24,
-                "rank": 11
+                "total": 39,
+                "rank": 8
             }
         }
     },
@@ -15252,14 +15252,14 @@
                     "S.S.": 7,
                     "Phy": 0,
                     "Chem": 1,
-                    "Bio": 0,
+                    "Bio": 8,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 9,
-                "rank": 17
+                "total": 17,
+                "rank": 15
             }
         }
     },
@@ -15305,14 +15305,14 @@
                     "S.S.": 8,
                     "Phy": 0,
                     "Chem": 8,
-                    "Bio": 0,
+                    "Bio": 9,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 20,
-                "rank": 12
+                "total": 29,
+                "rank": 11
             }
         }
     },
@@ -15358,14 +15358,14 @@
                     "S.S.": 8,
                     "Phy": 0,
                     "Chem": 1,
-                    "Bio": 0,
+                    "Bio": 8,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 13,
-                "rank": 15
+                "total": 21,
+                "rank": 14
             }
         }
     },
@@ -15411,7 +15411,7 @@
                     "S.S.": "ab",
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": "ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
@@ -17690,14 +17690,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 28,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 135,
-                "rank": 4
+                "total": 163,
+                "rank": 2
             }
         }
     },
@@ -17743,14 +17743,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 24,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 119,
-                "rank": 7
+                "total": 143,
+                "rank": 8
             }
         }
     },
@@ -17796,14 +17796,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 20,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 95,
-                "rank": 15
+                "total": 115,
+                "rank": 16
             }
         }
     },
@@ -17849,13 +17849,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 25,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 118,
+                "total": 143,
                 "rank": 8
             }
         }
@@ -17902,14 +17902,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 25,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 108,
-                "rank": 11
+                "total": 133,
+                "rank": 10
             }
         }
     },
@@ -17955,14 +17955,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 15,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 91,
-                "rank": 18
+                "total": 106,
+                "rank": 19
             }
         }
     },
@@ -18008,13 +18008,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 17,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 91,
+                "total": 108,
                 "rank": 18
             }
         }
@@ -18061,13 +18061,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 21,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 123,
+                "total": 144,
                 "rank": 6
             }
         }
@@ -18114,14 +18114,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 20,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 139,
-                "rank": 2
+                "total": 159,
+                "rank": 4
             }
         }
     },
@@ -18167,14 +18167,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 9,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 92,
-                "rank": 17
+                "total": 101,
+                "rank": 21
             }
         }
     },
@@ -18220,14 +18220,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 14,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 117,
-                "rank": 9
+                "total": 131,
+                "rank": 11
             }
         }
     },
@@ -18273,13 +18273,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 20,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 126,
+                "total": 146,
                 "rank": 5
             }
         }
@@ -18326,13 +18326,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 22,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 138,
+                "total": 160,
                 "rank": 3
             }
         }
@@ -18379,14 +18379,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 15,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 56,
-                "rank": 29
+                "total": 71,
+                "rank": 28
             }
         }
     },
@@ -18432,14 +18432,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 12,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 65,
-                "rank": 26
+                "total": 77,
+                "rank": 25
             }
         }
     },
@@ -18485,14 +18485,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 6,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 72,
-                "rank": 22
+                "total": 78,
+                "rank": 24
             }
         }
     },
@@ -18538,14 +18538,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 7,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 41,
-                "rank": 33
+                "total": 48,
+                "rank": 35
             }
         }
     },
@@ -18591,14 +18591,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 10,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 51,
-                "rank": 31
+                "total": 61,
+                "rank": 30
             }
         }
     },
@@ -18644,13 +18644,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 2,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 14,
+                "total": 16,
                 "rank": 40
             }
         }
@@ -18697,13 +18697,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 8,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 34,
+                "total": 42,
                 "rank": 36
             }
         }
@@ -18750,14 +18750,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 13,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 62,
-                "rank": 27
+                "total": 75,
+                "rank": 26
             }
         }
     },
@@ -18803,14 +18803,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 13,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 37,
-                "rank": 35
+                "total": 50,
+                "rank": 34
             }
         }
     },
@@ -18856,14 +18856,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 15,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 105,
-                "rank": 12
+                "total": 120,
+                "rank": 14
             }
         }
     },
@@ -18909,13 +18909,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 7,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 29,
+                "total": 36,
                 "rank": 39
             }
         }
@@ -18962,7 +18962,7 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": "ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
@@ -19015,13 +19015,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 8,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 34,
+                "total": 42,
                 "rank": 36
             }
         }
@@ -19068,14 +19068,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 14,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 71,
-                "rank": 23
+                "total": 85,
+                "rank": 22
             }
         }
     },
@@ -19121,14 +19121,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 26,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 95,
-                "rank": 15
+                "total": 121,
+                "rank": 13
             }
         }
     },
@@ -19174,14 +19174,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 34,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 110,
-                "rank": 10
+                "total": 144,
+                "rank": 6
             }
         }
     },
@@ -19227,14 +19227,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 14,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 40,
-                "rank": 34
+                "total": 54,
+                "rank": 32
             }
         }
     },
@@ -19280,14 +19280,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 20,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 89,
-                "rank": 21
+                "total": 109,
+                "rank": 17
             }
         }
     },
@@ -19333,14 +19333,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 14,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 91,
-                "rank": 18
+                "total": 105,
+                "rank": 20
             }
         }
     },
@@ -19386,14 +19386,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 18,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 104,
-                "rank": 13
+                "total": 122,
+                "rank": 12
             }
         }
     },
@@ -19439,13 +19439,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 35,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 150,
+                "total": 185,
                 "rank": 1
             }
         }
@@ -19492,13 +19492,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 7,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 54,
+                "total": 61,
                 "rank": 30
             }
         }
@@ -19545,13 +19545,13 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 6,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 48,
+                "total": 54,
                 "rank": 32
             }
         }
@@ -19598,14 +19598,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 7,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 34,
-                "rank": 36
+                "total": 41,
+                "rank": 38
             }
         }
     },
@@ -19651,14 +19651,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 6,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 60,
-                "rank": 28
+                "total": 66,
+                "rank": 29
             }
         }
     },
@@ -19704,14 +19704,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 18,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 98,
-                "rank": 14
+                "total": 116,
+                "rank": 15
             }
         }
     },
@@ -19757,7 +19757,7 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": "ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
@@ -19810,14 +19810,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 15,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 66,
-                "rank": 25
+                "total": 81,
+                "rank": 23
             }
         }
     },
@@ -19863,14 +19863,14 @@
                     "S.S.": 0,
                     "Phy": 0,
                     "Chem": 0,
-                    "Bio": 0,
+                    "Bio": 7,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 68,
-                "rank": 24
+                "total": 75,
+                "rank": 26
             }
         }
     },
