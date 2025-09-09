@@ -157,22 +157,22 @@
             </div>
         </div>
     </noscript>
-
-    <div id="globalControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
-        <div class="card p-1 d-flex flex-row gap-1">
-            <button class="lang-btn btn-sm" data-lang="en">EN</button>
-            <button class="lang-btn btn-sm" data-lang="ml">മല</button>
-        </div>
-        <button class="theme-switcher-btn">
-            <div class="theme-switcher-thumb"></div>
-        </button>
-    </div>
     
     <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
         <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
     </div>
 
     <div id="homeView" class="min-vh-100 d-flex align-items-center justify-content-center p-4">
+        <div id="homeLoginControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
+             <div class="card p-1 d-flex flex-row gap-1">
+                <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+            </div>
+            <button class="theme-switcher-btn">
+                <div class="theme-switcher-thumb"></div>
+            </button>
+        </div>
+
         <div class="container-lg pt-5">
             <div class="text-center mb-5">
                 <h1 class="display-4 fw-bold">Emmanuel's HSS Kothanalloor</h1>
@@ -363,7 +363,7 @@
         let currentUser = null;
         let appData = { users: [], marks: [], activities: [], processedStudents: [] };
         let standingsChart = null;
-        let loginView, dashboardView, progressBar, homeView, globalControls;
+        let loginView, dashboardView, progressBar, homeView, homeLoginControls;
         let disciplineModal, iframeModal, dobVerifyModal, settingsOffcanvas;
 
         // --- TRANSLATION DATA ---
@@ -512,9 +512,10 @@
         }
             
         function getTeacherSection(designation) {
-            if (designation === 'LPST') return 'LP';
-            if (designation === 'UPST') return 'UP';
-            if (designation && (designation.startsWith('HST') || designation === 'PET' || designation === 'Drawing Teacher')) return 'HS';
+            if (designation === 'LPST') return ['LP'];
+            if (designation === 'UPST') return ['UP'];
+            if (designation && (designation.startsWith('HST'))) return ['HS'];
+            if (designation === 'PET' || designation === 'Drawing Teacher') return ['UP', 'HS']; // FIX: Return array for multiple sections
             return null;
         }
 
@@ -584,22 +585,27 @@
         }
 
         function buildTeacherDashboard(user, allStudents, processedStudents) {
-            const teacherSection = getTeacherSection(user.designation);
-            if (!teacherSection) {
+            const teacherSections = getTeacherSection(user.designation);
+            if (!teacherSections || teacherSections.length === 0) {
                 dashboardContainer.innerHTML = `<div class="card text-danger shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div></div>`;
                 return;
             }
+            
+            const markEntryUrls = {
+                LP: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
+                UP: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
+                HS: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
+            };
 
-            const sectionStudents = processedStudents.filter(s => getSection(s.class) === teacherSection);
-            const markEntryUrl = {
-                lp: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
-                up: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
-                hs: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
-            }[teacherSection.toLowerCase()];
+            const markEntryButtons = teacherSections.map(section => 
+                `<a href="${markEntryUrls[section]}" target="_blank" class="btn themed-bg action-btn rounded-pill">${section} Mark Entry</a>`
+            ).join('');
+
+            const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
             
             dashboardContainer.innerHTML = `
-                <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="${markEntryUrl}" target="_blank" class="btn themed-bg action-btn rounded-pill">${teacherSection} Mark Entry</a></div></div></div>
-                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings (${teacherSection})</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
+                <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>${markEntryButtons}</div></div></div>
+                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings (${teacherSections.join(' & ')})</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
                 <div id="leaderboardCard"></div>
                 <div id="classToppersCard"></div>
                 <div id="subjectToppersCard"></div>
@@ -752,9 +758,9 @@
                     return { total: term.total, rank: term.rank, percentage: maxTotal > 0 ? (term.total / maxTotal) * 100 : 0 };
                 });
                 new Chart(termChartCtx, { type: 'bar', data: { labels: termKeys, datasets: [
-                    { label: 'Total Marks', data: termData.map(d => d.total), backgroundColor: 'var(--house-blue)', yAxisID: 'y-total', order: 2 },
-                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: 'var(--grade-a)', yAxisID: 'y-percent', tension: 0.2, order: 1 },
-                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: 'var(--grade-e)', yAxisID: 'y-rank', tension: 0.2, order: 1 }
+                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: 'var(--house-green)', yAxisID: 'y-percent', tension: 0.2, order: 0 },
+                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: 'var(--house-rose)', yAxisID: 'y-rank', tension: 0.2, order: 1 },
+                    { label: 'Total Marks', data: termData.map(d => d.total), backgroundColor: 'var(--house-blue)', yAxisID: 'y-total', order: 2 }
                 ]}, options: { responsive: true, maintainAspectRatio: false, scales: { 'y-total': { type: 'linear', position: 'left', title: { display: true, text: 'Total Marks' } }, 'y-percent': { type: 'linear', position: 'right', display: false, max: 100, min: 0 }, 'y-rank': { type: 'linear', position: 'right', reverse: true, title: { display: true, text: 'Rank' }, grid: { drawOnChartArea: false } } } }});
             
             document.getElementById('showDiscipline').addEventListener('click', () => {
@@ -762,7 +768,6 @@
                 disciplineModal.show();
             });
         }
-        
         function buildStandingsChart(students, isSection = false) {
             const filter = document.getElementById('standingsFilter');
             const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
@@ -1291,16 +1296,16 @@
                 });
             });
         }
-
+        
         function showView(viewName) {
             homeView.classList.add('d-none');
             loginView.classList.remove('d-flex');
             loginView.classList.add('d-none');
             dashboardView.classList.add('d-none');
-            globalControls.classList.add('d-none');
+            homeLoginControls.classList.add('d-none');
 
             if (viewName === 'home' || viewName === 'login') {
-                globalControls.classList.remove('d-none');
+                homeLoginControls.classList.remove('d-none');
             }
 
             if (viewName === 'home') homeView.classList.remove('d-none');
@@ -1386,7 +1391,7 @@
                 searchContainer.classList.remove('d-none');
                 let searchableStudents = loggedInUser.designation === 'HM' 
                         ? processedStudents 
-                        : processedStudents.filter(s => getSection(s.class) === getTeacherSection(loggedInUser.designation));
+                        : processedStudents.filter(s => getTeacherSection(loggedInUser.designation)?.includes(getSection(s.class)));
                 
                 document.getElementById('headerSearch').addEventListener('input', e => {
                     const query = e.target.value.toLowerCase();
@@ -1464,7 +1469,7 @@
             loginView = document.getElementById('loginView');
             dashboardView = document.getElementById('dashboardView');
             progressBar = document.getElementById('progressBarContainer');
-            globalControls = document.getElementById('globalControls');
+            homeLoginControls = document.getElementById('homeLoginControls');
 
             // Initialize Bootstrap Modals & Offcanvas
             disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
