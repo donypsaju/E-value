@@ -12561,59 +12561,6 @@
         }
     },
     {
-        "admissionNo": 15252,
-        "terms": {
-            "Monthly Exam 01": {
-                "marks": {
-                    "Mal I": 12,
-                    "Mal II": "Ab",
-                    "English": 10,
-                    "Hindi": 13,
-                    "S.S.": 12,
-                    "Phy.": 11,
-                    "Chem.": 13,
-                    "Bio": 17,
-                    "Maths": 9
-                },
-                "total": 97,
-                "rank": 19
-            },
-            "First Mid Term Exam": {
-                "marks": {
-                    "Mal I": "-",
-                    "Mal II": "Ab",
-                    "English": "-",
-                    "Hindi": "-",
-                    "S.S.": "ab",
-                    "Phy": "ab",
-                    "Chem": "ab",
-                    "Bio": "Ab",
-                    "Maths": "ab"
-                },
-                "total": "Ab",
-                "rank": 38
-            },
-            "First Term Exam": {
-                "marks": {
-                    "Mal I": "0--",
-                    "Mal II": "0--",
-                    "English": 0,
-                    "Hindi": 0,
-                    "S.S.": 0,
-                    "Phy": 0,
-                    "Chem": "AB",
-                    "Bio": "AB",
-                    "Maths": 0,
-                    "Art": 0,
-                    "H.E.": "Ab",
-                    "Work": 0
-                },
-                "total": "Ab",
-                "rank": 38
-            }
-        }
-    },
-    {
         "admissionNo": 14775,
         "terms": {
             "Monthly Exam 01": {
@@ -12682,7 +12629,7 @@
                     "Maths": 8
                 },
                 "total": 95,
-                "rank": 21
+                "rank": 20
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -12788,7 +12735,7 @@
                     "Maths": 8
                 },
                 "total": 85,
-                "rank": 26
+                "rank": 25
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13053,7 +13000,7 @@
                     "Maths": 10
                 },
                 "total": 87,
-                "rank": 24
+                "rank": 23
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13106,7 +13053,7 @@
                     "Maths": 6
                 },
                 "total": 71,
-                "rank": 31
+                "rank": 30
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13159,7 +13106,7 @@
                     "Maths": 7
                 },
                 "total": 84,
-                "rank": 27
+                "rank": 26
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13212,7 +13159,7 @@
                     "Maths": 17
                 },
                 "total": 71,
-                "rank": 31
+                "rank": 30
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13265,7 +13212,7 @@
                     "Maths": 4
                 },
                 "total": 86,
-                "rank": 25
+                "rank": 24
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13424,7 +13371,7 @@
                     "Maths": 6
                 },
                 "total": 67,
-                "rank": 33
+                "rank": 32
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13477,7 +13424,7 @@
                     "Maths": 6
                 },
                 "total": 64,
-                "rank": 34
+                "rank": 33
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13530,7 +13477,7 @@
                     "Maths": 6
                 },
                 "total": 89,
-                "rank": 22
+                "rank": 21
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13583,7 +13530,7 @@
                     "Maths": 17
                 },
                 "total": 81,
-                "rank": 29
+                "rank": 28
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13689,7 +13636,7 @@
                     "Maths": 4
                 },
                 "total": 41,
-                "rank": 37
+                "rank": 36
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13742,7 +13689,7 @@
                     "Maths": 8
                 },
                 "total": 74,
-                "rank": 30
+                "rank": 29
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13848,7 +13795,7 @@
                     "Maths": 6
                 },
                 "total": 60,
-                "rank": 35
+                "rank": 34
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -13886,59 +13833,6 @@
         }
     },
     {
-        "admissionNo": 16045,
-        "terms": {
-            "Monthly Exam 01": {
-                "marks": {
-                    "Mal I": "Ab",
-                    "Mal II": "Ab",
-                    "English": "Ab",
-                    "Hindi": "Ab",
-                    "S.S.": "Ab",
-                    "Phy.": "Ab",
-                    "Chem.": "Ab",
-                    "Bio": "Ab",
-                    "Maths": "Ab"
-                },
-                "total": "Ab",
-                "rank": 39
-            },
-            "First Mid Term Exam": {
-                "marks": {
-                    "Mal I": "Ab",
-                    "Mal II": "Ab",
-                    "English": "Ab",
-                    "Hindi": "Ab",
-                    "S.S.": "Ab",
-                    "Phy": "Ab",
-                    "Chem": "Ab",
-                    "Bio": "Ab",
-                    "Maths": "Ab"
-                },
-                "total": "Ab",
-                "rank": 38
-            },
-            "First Term Exam": {
-                "marks": {
-                    "Mal I": "--",
-                    "Mal II": "--",
-                    "English": 0,
-                    "Hindi": "Ab",
-                    "S.S.": 0,
-                    "Phy": 0,
-                    "Chem": "AB",
-                    "Bio": "AB",
-                    "Maths": 0,
-                    "Art": 0,
-                    "H.E.": "Ab",
-                    "Work": 0
-                },
-                "total": "Ab",
-                "rank": 38
-            }
-        }
-    },
-    {
         "admissionNo": 14572,
         "terms": {
             "Monthly Exam 01": {
@@ -13954,7 +13848,7 @@
                     "Maths": 12
                 },
                 "total": 82,
-                "rank": 28
+                "rank": 27
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -14007,7 +13901,7 @@
                     "Maths": "-"
                 },
                 "total": "Ab",
-                "rank": 39
+                "rank": 38
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -14166,7 +14060,7 @@
                     "Maths": 7
                 },
                 "total": 89,
-                "rank": 22
+                "rank": 21
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -14272,7 +14166,7 @@
                     "Maths": 3
                 },
                 "total": 48,
-                "rank": 36
+                "rank": 35
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -14325,7 +14219,7 @@
                     "Maths": "-"
                 },
                 "total": 13.5,
-                "rank": 38
+                "rank": 37
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -31778,7 +31672,7 @@
                     "Work": 0
                 },
                 "total": 136,
-                "rank": 1
+                "rank": 2
             }
         }
     },
@@ -32054,12 +31948,12 @@
                     "Hindi": 29,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 24,
+                    "Maths": 25,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 136,
+                "total": 137,
                 "rank": 1
             }
         }
@@ -32759,12 +32653,12 @@
                     "Hindi": 30,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 22,
+                    "Maths": 23,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 130,
+                "total": 131,
                 "rank": 5
             }
         }
