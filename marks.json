@@ -34,8 +34,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 12,
+                    "Mal II": 12,
                     "English": 6,
                     "Hindi": 12,
                     "S.S.": 12,
@@ -47,7 +47,7 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 88,
+                "total": 112,
                 "rank": 9
             }
         }
@@ -87,8 +87,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 33,
+                    "Mal II": 39,
                     "English": 30,
                     "Hindi": 25,
                     "S.S.": 29,
@@ -100,7 +100,7 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 190,
+                "total": 262,
                 "rank": 1
             }
         }
@@ -140,8 +140,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 17,
+                    "Mal II": 19,
                     "English": 15,
                     "Hindi": 14,
                     "S.S.": 13,
@@ -153,7 +153,7 @@
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 126,
+                "total": 162,
                 "rank": 4
             }
         }
@@ -193,8 +193,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 15,
+                    "Mal II": 18,
                     "English": 7,
                     "Hindi": 12,
                     "S.S.": 13,
@@ -206,8 +206,8 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 98,
-                "rank": 7
+                "total": 131,
+                "rank": 6
             }
         }
     },
@@ -246,8 +246,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 14,
+                    "Mal II": 25,
                     "English": 13,
                     "Hindi": 20,
                     "S.S.": 14,
@@ -259,8 +259,8 @@
                     "H.E.": 42,
                     "Work": 0
                 },
-                "total": 119,
-                "rank": 6
+                "total": 158,
+                "rank": 5
             }
         }
     },
@@ -299,8 +299,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 14,
+                    "Mal II": 27,
                     "English": 14,
                     "Hindi": 17,
                     "S.S.": 21,
@@ -312,7 +312,7 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 158,
+                "total": 199,
                 "rank": 2
             }
         }
@@ -352,8 +352,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 27,
+                    "Mal II": 29,
                     "English": 14,
                     "Hindi": 18,
                     "S.S.": 14,
@@ -365,7 +365,7 @@
                     "H.E.": 38,
                     "Work": 0
                 },
-                "total": 135,
+                "total": 191,
                 "rank": 3
             }
         }
@@ -405,8 +405,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 12,
+                    "Mal II": 12,
                     "English": 15,
                     "Hindi": 9,
                     "S.S.": 7,
@@ -418,7 +418,7 @@
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 93,
+                "total": 117,
                 "rank": 8
             }
         }
@@ -458,8 +458,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 15,
+                    "Mal II": 18,
                     "English": 9,
                     "Hindi": 4,
                     "S.S.": 4,
@@ -471,8 +471,8 @@
                     "H.E.": 38,
                     "Work": 0
                 },
-                "total": 64,
-                "rank": 13
+                "total": 97,
+                "rank": 10
             }
         }
     },
@@ -511,8 +511,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 12,
+                    "Mal II": 12,
                     "English": 9,
                     "Hindi": 6,
                     "S.S.": 2,
@@ -524,8 +524,8 @@
                     "H.E.": 33,
                     "Work": 0
                 },
-                "total": 66,
-                "rank": 12
+                "total": 90,
+                "rank": 11
             }
         }
     },
@@ -564,8 +564,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 7,
+                    "Mal II": 12,
                     "English": 10,
                     "Hindi": "-",
                     "S.S.": 2,
@@ -577,7 +577,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 17,
+                "total": 36,
                 "rank": 18
             }
         }
@@ -617,8 +617,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 12,
+                    "Mal II": 12,
                     "English": 1,
                     "Hindi": 1,
                     "S.S.": 2,
@@ -630,8 +630,8 @@
                     "H.E.": 11,
                     "Work": 0
                 },
-                "total": 20,
-                "rank": 17
+                "total": 44,
+                "rank": 15
             }
         }
     },
@@ -737,7 +737,7 @@
                     "Work": 0
                 },
                 "total": 79,
-                "rank": 10
+                "rank": 12
             }
         }
     },
@@ -790,7 +790,7 @@
                     "Work": 0
                 },
                 "total": 122,
-                "rank": 5
+                "rank": 7
             }
         }
     },
@@ -843,7 +843,7 @@
                     "Work": 0
                 },
                 "total": 69,
-                "rank": 11
+                "rank": 13
             }
         }
     },
@@ -896,7 +896,7 @@
                     "Work": 0
                 },
                 "total": 40,
-                "rank": 16
+                "rank": 17
             }
         }
     },
@@ -4500,7 +4500,7 @@
                     "Work": 0
                 },
                 "total": 128,
-                "rank": 31
+                "rank": 32
             }
         }
     },
@@ -4606,7 +4606,7 @@
                     "Work": 0
                 },
                 "total": 130,
-                "rank": 30
+                "rank": 31
             }
         }
     },
@@ -5341,14 +5341,14 @@
                     "S.S.": 12,
                     "Phy": 10,
                     "Chem": 6,
-                    "Bio": "Ab",
+                    "Bio": 7,
                     "Maths": 10,
                     "Art": 0,
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 124,
-                "rank": 32
+                "total": 131,
+                "rank": 29
             }
         }
     },
@@ -6163,7 +6163,7 @@
                     "Maths": 7
                 },
                 "total": "Ab",
-                "rank": 55
+                "rank": 56
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6186,7 +6186,7 @@
                     "Mal II": 0,
                     "English": 0,
                     "Hindi": 13,
-                    "S.S.": 11,
+                    "S.S.": 12,
                     "Phy": 3,
                     "Chem": 1,
                     "Bio": 1,
@@ -15779,7 +15779,7 @@
                     "Mal II": 38,
                     "English": 76,
                     "Hindi": 30,
-                    "S.S.": 76,
+                    "S.S.": 72,
                     "Phy": 37,
                     "Chem": 36,
                     "Bio": 37,
@@ -15788,7 +15788,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 425,
+                "total": 421,
                 "rank": 2
             }
         }
@@ -17369,7 +17369,7 @@
                     "Mal II": 5,
                     "English": 2,
                     "Hindi": 1,
-                    "S.S.": 11,
+                    "S.S.": 12,
                     "Phy": "-",
                     "Chem": 0,
                     "Bio": "Ab",
@@ -17378,7 +17378,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 24,
+                "total": 25,
                 "rank": 42
             }
         }
@@ -22448,19 +22448,19 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": 15,
-                    "Hindi": 0,
-                    "S.S.": 0,
-                    "B.S.": 0,
-                    "Maths": 0,
-                    "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "Mal I": "ab",
+                    "Mal II": "ab",
+                    "English": "ab",
+                    "Hindi": "ab",
+                    "S.S.": "ab",
+                    "B.S.": "ab",
+                    "Maths": "ab",
+                    "Art": "ab",
+                    "H.E.": "ab",
+                    "Work": "ab"
                 },
-                "total": 15,
-                "rank": 23
+                "total": "Ab",
+                "rank": 22
             }
         }
     },
@@ -22542,18 +22542,18 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": 18,
-                    "Hindi": 0,
-                    "S.S.": 0,
-                    "B.S.": 0,
-                    "Maths": 0,
-                    "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "Mal I": "ab",
+                    "Mal II": "ab",
+                    "English": "ab",
+                    "Hindi": "ab",
+                    "S.S.": "ab",
+                    "B.S.": "ab",
+                    "Maths": "ab",
+                    "Art": "ab",
+                    "H.E.": "ab",
+                    "Work": "ab"
                 },
-                "total": 18,
+                "total": "Ab",
                 "rank": 22
             }
         }
@@ -26635,7 +26635,7 @@
                     "Mal II": "Ab",
                     "English": 0,
                     "Hindi": 0,
-                    "S.S.": 0,
+                    "S.S.": "Ab",
                     "B.S.": 0,
                     "Maths": "Ab",
                     "Art": 0,
@@ -26870,7 +26870,7 @@
                     "Mal II": "Ab",
                     "English": 0,
                     "Hindi": "Ab",
-                    "S.S.": 0,
+                    "S.S.": "Ab",
                     "B.S.": 0,
                     "Maths": "Ab",
                     "Art": 0,
@@ -27199,7 +27199,7 @@
                     "Mal II": "Ab",
                     "English": 0,
                     "Hindi": 0,
-                    "S.S.": 0,
+                    "S.S.": "Ab",
                     "B.S.": 0,
                     "Maths": "Ab",
                     "Art": 0,
@@ -27434,7 +27434,7 @@
                     "Mal II": "Ab",
                     "English": 0,
                     "Hindi": 0,
-                    "S.S.": 0,
+                    "S.S.": "Ab",
                     "B.S.": 0,
                     "Maths": "Ab",
                     "Art": 0,
@@ -27854,7 +27854,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 24,
-                    "Mal II": 0,
+                    "Mal II": 23,
                     "English": 28,
                     "Hindi": 22,
                     "S.S.": 0,
@@ -27864,7 +27864,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 109,
+                "total": 132,
                 "rank": 4
             }
         }
@@ -27901,7 +27901,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 9,
-                    "Mal II": 0,
+                    "Mal II": 7,
                     "English": 12,
                     "Hindi": 14,
                     "S.S.": 0,
@@ -27911,8 +27911,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 45,
-                "rank": 25
+                "total": 52,
+                "rank": 24
             }
         }
     },
@@ -27948,7 +27948,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 11,
-                    "Mal II": 0,
+                    "Mal II": 9,
                     "English": 19,
                     "Hindi": 16,
                     "S.S.": 0,
@@ -27958,7 +27958,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 68,
+                "total": 77,
                 "rank": 15
             }
         }
@@ -27995,7 +27995,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 9,
-                    "Mal II": 0,
+                    "Mal II": 14,
                     "English": 14,
                     "Hindi": 14,
                     "S.S.": 0,
@@ -28005,7 +28005,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 62,
+                "total": 76,
                 "rank": 16
             }
         }
@@ -28042,7 +28042,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 11,
-                    "Mal II": 0,
+                    "Mal II": 11,
                     "English": 13,
                     "Hindi": 17,
                     "S.S.": 0,
@@ -28052,8 +28052,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 55,
-                "rank": 21
+                "total": 66,
+                "rank": 20
             }
         }
     },
@@ -28089,7 +28089,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 5,
-                    "Mal II": 0,
+                    "Mal II": 7,
                     "English": 8,
                     "Hindi": 9,
                     "S.S.": 0,
@@ -28099,8 +28099,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 31,
-                "rank": 28
+                "total": 38,
+                "rank": 27
             }
         }
     },
@@ -28136,7 +28136,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 10,
-                    "Mal II": 0,
+                    "Mal II": 10,
                     "English": 22,
                     "Hindi": 17,
                     "S.S.": 0,
@@ -28146,8 +28146,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 72,
-                "rank": 13
+                "total": 82,
+                "rank": 14
             }
         }
     },
@@ -28183,7 +28183,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 15,
-                    "Mal II": 0,
+                    "Mal II": 14,
                     "English": 11,
                     "Hindi": 15,
                     "S.S.": 0,
@@ -28193,8 +28193,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 56,
-                "rank": 20
+                "total": 70,
+                "rank": 18
             }
         }
     },
@@ -28230,7 +28230,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 24,
-                    "Mal II": 0,
+                    "Mal II": 23,
                     "English": 26,
                     "Hindi": 30,
                     "S.S.": 0,
@@ -28240,7 +28240,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 123,
+                "total": 146,
                 "rank": 2
             }
         }
@@ -28277,7 +28277,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 18,
-                    "Mal II": 0,
+                    "Mal II": 18,
                     "English": 19,
                     "Hindi": 9,
                     "S.S.": 0,
@@ -28287,8 +28287,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 77,
-                "rank": 11
+                "total": 95,
+                "rank": 7
             }
         }
     },
@@ -28324,7 +28324,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 15,
-                    "Mal II": 0,
+                    "Mal II": 12,
                     "English": 17,
                     "Hindi": 24,
                     "S.S.": 0,
@@ -28334,8 +28334,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 83,
-                "rank": 6
+                "total": 95,
+                "rank": 7
             }
         }
     },
@@ -28371,7 +28371,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 11,
-                    "Mal II": 0,
+                    "Mal II": 11,
                     "English": 19,
                     "Hindi": 16,
                     "S.S.": 0,
@@ -28381,8 +28381,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 81,
-                "rank": 9
+                "total": 92,
+                "rank": 11
             }
         }
     },
@@ -28418,7 +28418,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 16,
-                    "Mal II": 0,
+                    "Mal II": 15,
                     "English": 19,
                     "Hindi": 10,
                     "S.S.": 0,
@@ -28428,8 +28428,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 70,
-                "rank": 14
+                "total": 85,
+                "rank": 13
             }
         }
     },
@@ -28465,11 +28465,11 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": "Ab",
-                    "Mal II": 0,
-                    "English": 0,
+                    "Mal II": "Ab ",
+                    "English": "Ab",
                     "Hindi": "A",
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
@@ -28512,7 +28512,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 16,
-                    "Mal II": 0,
+                    "Mal II": 15,
                     "English": 18,
                     "Hindi": 19,
                     "S.S.": 0,
@@ -28522,8 +28522,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 80,
-                "rank": 10
+                "total": 95,
+                "rank": 7
             }
         }
     },
@@ -28559,7 +28559,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 21,
-                    "Mal II": 0,
+                    "Mal II": 12,
                     "English": 23,
                     "Hindi": 21,
                     "S.S.": 0,
@@ -28569,7 +28569,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 99,
+                "total": 111,
                 "rank": 5
             }
         }
@@ -28606,7 +28606,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 15,
-                    "Mal II": 0,
+                    "Mal II": 12,
                     "English": 17,
                     "Hindi": 16,
                     "S.S.": 0,
@@ -28616,8 +28616,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 82,
-                "rank": 7
+                "total": 94,
+                "rank": 10
             }
         }
     },
@@ -28653,7 +28653,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 4,
-                    "Mal II": 0,
+                    "Mal II": 5,
                     "English": 7,
                     "Hindi": 5,
                     "S.S.": 0,
@@ -28663,7 +28663,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 34,
+                "total": 39,
                 "rank": 26
             }
         }
@@ -28700,7 +28700,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 17,
-                    "Mal II": 0,
+                    "Mal II": 12,
                     "English": 19,
                     "Hindi": 10,
                     "S.S.": 0,
@@ -28710,7 +28710,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 61,
+                "total": 73,
                 "rank": 17
             }
         }
@@ -28747,7 +28747,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 12,
-                    "Mal II": 0,
+                    "Mal II": 10,
                     "English": 14,
                     "Hindi": 11,
                     "S.S.": 0,
@@ -28757,7 +28757,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 53,
+                "total": 63,
                 "rank": 22
             }
         }
@@ -28794,7 +28794,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 24,
-                    "Mal II": 0,
+                    "Mal II": 25,
                     "English": 26,
                     "Hindi": 30,
                     "S.S.": 0,
@@ -28804,7 +28804,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 128,
+                "total": 153,
                 "rank": 1
             }
         }
@@ -28841,7 +28841,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 9,
-                    "Mal II": 0,
+                    "Mal II": 7,
                     "English": 12,
                     "Hindi": 8,
                     "S.S.": 0,
@@ -28851,7 +28851,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 49,
+                "total": 56,
                 "rank": 23
             }
         }
@@ -28888,7 +28888,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 14,
-                    "Mal II": 0,
+                    "Mal II": 12,
                     "English": 17,
                     "Hindi": 19,
                     "S.S.": 0,
@@ -28898,7 +28898,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 76,
+                "total": 88,
                 "rank": 12
             }
         }
@@ -28935,7 +28935,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 13,
-                    "Mal II": 0,
+                    "Mal II": 7,
                     "English": 12,
                     "Hindi": 11,
                     "S.S.": 0,
@@ -28945,8 +28945,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 61,
-                "rank": 17
+                "total": 68,
+                "rank": 19
             }
         }
     },
@@ -28982,7 +28982,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 15,
-                    "Mal II": 0,
+                    "Mal II": 16,
                     "English": 15,
                     "Hindi": 23,
                     "S.S.": 0,
@@ -28992,8 +28992,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 82,
-                "rank": 7
+                "total": 98,
+                "rank": 6
             }
         }
     },
@@ -29029,7 +29029,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 7,
-                    "Mal II": 0,
+                    "Mal II": 5,
                     "English": 12,
                     "Hindi": 13,
                     "S.S.": 0,
@@ -29039,8 +29039,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 59,
-                "rank": 19
+                "total": 64,
+                "rank": 21
             }
         }
     },
@@ -29076,7 +29076,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 4,
-                    "Mal II": 0,
+                    "Mal II": 4,
                     "English": 6,
                     "Hindi": 15,
                     "S.S.": 0,
@@ -29086,8 +29086,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 32,
-                "rank": 27
+                "total": 36,
+                "rank": 28
             }
         }
     },
@@ -29123,7 +29123,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 19,
-                    "Mal II": 0,
+                    "Mal II": 22,
                     "English": 26,
                     "Hindi": 27,
                     "S.S.": 0,
@@ -29133,7 +29133,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 111,
+                "total": 133,
                 "rank": 3
             }
         }
@@ -29170,7 +29170,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 2,
-                    "Mal II": 0,
+                    "Mal II": 4,
                     "English": 8,
                     "Hindi": 6,
                     "S.S.": 0,
@@ -29180,7 +29180,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 22,
+                "total": 26,
                 "rank": 29
             }
         }
@@ -29217,7 +29217,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 9,
-                    "Mal II": 0,
+                    "Mal II": 6,
                     "English": 9,
                     "Hindi": 13,
                     "S.S.": 0,
@@ -29227,7 +29227,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 46,
+                "total": 52,
                 "rank": 24
             }
         }
@@ -31384,7 +31384,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32512,7 +32512,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -32747,7 +32747,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 0,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -33640,7 +33640,7 @@
                     "Hindi": 23,
                     "S.S.": 0,
                     "B.S.": 20,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -34204,7 +34204,7 @@
                     "Hindi": 7,
                     "S.S.": 0,
                     "B.S.": 6,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -34627,7 +34627,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 23,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
@@ -34674,7 +34674,7 @@
                     "Hindi": 0,
                     "S.S.": 0,
                     "B.S.": 28,
-                    "Maths": 0,
+                    "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
