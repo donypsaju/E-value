@@ -34,7 +34,7 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 12,
+                    "Mal I": 13,
                     "Mal II": 12,
                     "English": 6,
                     "Hindi": 12,
@@ -47,8 +47,8 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 112,
-                "rank": 9
+                "total": 113,
+                "rank": 10
             }
         }
     },
@@ -87,7 +87,7 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 33,
+                    "Mal I": 34,
                     "Mal II": 39,
                     "English": 30,
                     "Hindi": 25,
@@ -100,7 +100,7 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 262,
+                "total": 263,
                 "rank": 1
             }
         }
@@ -140,8 +140,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 17,
-                    "Mal II": 19,
+                    "Mal I": 19,
+                    "Mal II": 13,
                     "English": 15,
                     "Hindi": 14,
                     "S.S.": 13,
@@ -153,8 +153,8 @@
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 162,
-                "rank": 4
+                "total": 158,
+                "rank": 5
             }
         }
     },
@@ -194,7 +194,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 15,
-                    "Mal II": 18,
+                    "Mal II": 19,
                     "English": 7,
                     "Hindi": 12,
                     "S.S.": 13,
@@ -206,8 +206,8 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 131,
-                "rank": 6
+                "total": 132,
+                "rank": 7
             }
         }
     },
@@ -246,7 +246,7 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 14,
+                    "Mal I": 20,
                     "Mal II": 25,
                     "English": 13,
                     "Hindi": 20,
@@ -259,8 +259,8 @@
                     "H.E.": 42,
                     "Work": 0
                 },
-                "total": 158,
-                "rank": 5
+                "total": 164,
+                "rank": 4
             }
         }
     },
@@ -299,7 +299,7 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 14,
+                    "Mal I": 20,
                     "Mal II": 27,
                     "English": 14,
                     "Hindi": 17,
@@ -312,7 +312,7 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 199,
+                "total": 205,
                 "rank": 2
             }
         }
@@ -352,8 +352,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 27,
-                    "Mal II": 29,
+                    "Mal I": 29,
+                    "Mal II": 27,
                     "English": 14,
                     "Hindi": 18,
                     "S.S.": 14,
@@ -458,8 +458,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 15,
-                    "Mal II": 18,
+                    "Mal I": 18,
+                    "Mal II": 16,
                     "English": 9,
                     "Hindi": 4,
                     "S.S.": 4,
@@ -471,8 +471,8 @@
                     "H.E.": 38,
                     "Work": 0
                 },
-                "total": 97,
-                "rank": 10
+                "total": 98,
+                "rank": 11
             }
         }
     },
@@ -525,7 +525,7 @@
                     "Work": 0
                 },
                 "total": 90,
-                "rank": 11
+                "rank": 13
             }
         }
     },
@@ -617,7 +617,7 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 12,
+                    "Mal I": 13,
                     "Mal II": 12,
                     "English": 1,
                     "Hindi": 1,
@@ -630,8 +630,8 @@
                     "H.E.": 11,
                     "Work": 0
                 },
-                "total": 44,
-                "rank": 15
+                "total": 45,
+                "rank": 17
             }
         }
     },
@@ -670,8 +670,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 17,
+                    "Mal II": 16,
                     "English": 4,
                     "Hindi": 7,
                     "S.S.": 9,
@@ -683,7 +683,7 @@
                     "H.E.": 11,
                     "Work": 0
                 },
-                "total": 44,
+                "total": 77,
                 "rank": 15
             }
         }
@@ -723,8 +723,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 15,
+                    "Mal II": 20,
                     "English": 3,
                     "Hindi": 8,
                     "S.S.": 12,
@@ -736,8 +736,8 @@
                     "H.E.": 35,
                     "Work": 0
                 },
-                "total": 79,
-                "rank": 12
+                "total": 114,
+                "rank": 9
             }
         }
     },
@@ -776,8 +776,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 21,
+                    "Mal II": "-",
                     "English": 18,
                     "Hindi": 27,
                     "S.S.": 20,
@@ -789,8 +789,8 @@
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 122,
-                "rank": 7
+                "total": 143,
+                "rank": 6
             }
         }
     },
@@ -829,8 +829,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 15,
+                    "Mal II": 12,
                     "English": 4,
                     "Hindi": 5,
                     "S.S.": 5,
@@ -842,8 +842,8 @@
                     "H.E.": 36,
                     "Work": 0
                 },
-                "total": 69,
-                "rank": 13
+                "total": 96,
+                "rank": 12
             }
         }
     },
@@ -882,8 +882,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 7,
+                    "Mal II": 12,
                     "English": 4,
                     "Hindi": 4,
                     "S.S.": 3,
@@ -895,8 +895,8 @@
                     "H.E.": 11,
                     "Work": 0
                 },
-                "total": 40,
-                "rank": 17
+                "total": 59,
+                "rank": 16
             }
         }
     },
@@ -935,8 +935,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": "Ab",
+                    "Mal I": 15,
+                    "Mal II": 12,
                     "English": 6,
                     "Hindi": 13,
                     "S.S.": 3,
@@ -948,7 +948,7 @@
                     "H.E.": 11,
                     "Work": 0
                 },
-                "total": 53,
+                "total": 80,
                 "rank": 14
             }
         }
@@ -12279,7 +12279,7 @@
                 "marks": {
                     "Mal I": 38,
                     "Mal II": 34,
-                    "English": 0,
+                    "English": 60,
                     "Hindi": 33,
                     "S.S.": 56,
                     "Phy": 37,
@@ -12290,7 +12290,7 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 359,
+                "total": 419,
                 "rank": 1
             }
         }
@@ -12332,7 +12332,7 @@
                 "marks": {
                     "Mal I": 36,
                     "Mal II": 32,
-                    "English": 0,
+                    "English": 46,
                     "Hindi": 34,
                     "S.S.": 58,
                     "Phy": 30,
@@ -12343,7 +12343,7 @@
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 338,
+                "total": 384,
                 "rank": 3
             }
         }
@@ -12385,7 +12385,7 @@
                 "marks": {
                     "Mal I": 33,
                     "Mal II": 33,
-                    "English": 0,
+                    "English": 55,
                     "Hindi": 20,
                     "S.S.": 40,
                     "Phy": 22,
@@ -12396,7 +12396,7 @@
                     "H.E.": 36,
                     "Work": 0
                 },
-                "total": 273,
+                "total": 328,
                 "rank": 10
             }
         }
@@ -12438,7 +12438,7 @@
                 "marks": {
                     "Mal I": 22,
                     "Mal II": 21,
-                    "English": 0,
+                    "English": 40,
                     "Hindi": 15,
                     "S.S.": 44,
                     "Phy": 20,
@@ -12449,8 +12449,8 @@
                     "H.E.": 35,
                     "Work": 0
                 },
-                "total": 210,
-                "rank": 20
+                "total": 250,
+                "rank": 22
             }
         }
     },
@@ -12491,7 +12491,7 @@
                 "marks": {
                     "Mal I": 34,
                     "Mal II": 31,
-                    "English": 0,
+                    "English": 61,
                     "Hindi": 17,
                     "S.S.": 32,
                     "Phy": 18,
@@ -12502,7 +12502,7 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 258,
+                "total": 319,
                 "rank": 12
             }
         }
@@ -12544,7 +12544,7 @@
                 "marks": {
                     "Mal I": 37,
                     "Mal II": 35,
-                    "English": 0,
+                    "English": 66,
                     "Hindi": 27,
                     "S.S.": 66,
                     "Phy": 27,
@@ -12555,7 +12555,7 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 340,
+                "total": 406,
                 "rank": 2
             }
         }
@@ -12597,7 +12597,7 @@
                 "marks": {
                     "Mal I": 30,
                     "Mal II": 29,
-                    "English": 0,
+                    "English": 54,
                     "Hindi": 17,
                     "S.S.": 47,
                     "Phy": 18,
@@ -12608,8 +12608,8 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 245,
-                "rank": 16
+                "total": 299,
+                "rank": 15
             }
         }
     },
@@ -12650,7 +12650,7 @@
                 "marks": {
                     "Mal I": 23,
                     "Mal II": 15,
-                    "English": 0,
+                    "English": 26,
                     "Hindi": 23,
                     "S.S.": 24,
                     "Phy": 17,
@@ -12661,8 +12661,8 @@
                     "H.E.": 32,
                     "Work": 0
                 },
-                "total": 180,
-                "rank": 24
+                "total": 206,
+                "rank": 25
             }
         }
     },
@@ -12703,7 +12703,7 @@
                 "marks": {
                     "Mal I": 31,
                     "Mal II": 27,
-                    "English": 0,
+                    "English": 60,
                     "Hindi": 33,
                     "S.S.": 45,
                     "Phy": 26,
@@ -12714,7 +12714,7 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 300,
+                "total": 360,
                 "rank": 6
             }
         }
@@ -12756,7 +12756,7 @@
                 "marks": {
                     "Mal I": 24,
                     "Mal II": 26,
-                    "English": 0,
+                    "English": 31,
                     "Hindi": 15,
                     "S.S.": 39,
                     "Phy": 19,
@@ -12767,7 +12767,7 @@
                     "H.E.": 35,
                     "Work": 0
                 },
-                "total": 191,
+                "total": 222,
                 "rank": 23
             }
         }
@@ -12809,7 +12809,7 @@
                 "marks": {
                     "Mal I": 24,
                     "Mal II": 19,
-                    "English": 0,
+                    "English": 57,
                     "Hindi": 16,
                     "S.S.": 41,
                     "Phy": 26,
@@ -12820,7 +12820,7 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 249,
+                "total": 306,
                 "rank": 13
             }
         }
@@ -12862,7 +12862,7 @@
                 "marks": {
                     "Mal I": 29,
                     "Mal II": 30,
-                    "English": 0,
+                    "English": 56,
                     "Hindi": 21,
                     "S.S.": 57,
                     "Phy": 25,
@@ -12873,8 +12873,8 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 272,
-                "rank": 11
+                "total": 328,
+                "rank": 10
             }
         }
     },
@@ -12915,7 +12915,7 @@
                 "marks": {
                     "Mal I": 32,
                     "Mal II": 33,
-                    "English": 0,
+                    "English": 56,
                     "Hindi": 29,
                     "S.S.": 57,
                     "Phy": 23,
@@ -12926,8 +12926,8 @@
                     "H.E.": 43,
                     "Work": 0
                 },
-                "total": 298,
-                "rank": 7
+                "total": 354,
+                "rank": 8
             }
         }
     },
@@ -12968,7 +12968,7 @@
                 "marks": {
                     "Mal I": 30,
                     "Mal II": 30,
-                    "English": 0,
+                    "English": 49,
                     "Hindi": 23,
                     "S.S.": 28,
                     "Phy": 22,
@@ -12979,8 +12979,8 @@
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 249,
-                "rank": 13
+                "total": 298,
+                "rank": 16
             }
         }
     },
@@ -13021,7 +13021,7 @@
                 "marks": {
                     "Mal I": 27,
                     "Mal II": 21,
-                    "English": 0,
+                    "English": 53,
                     "Hindi": 31,
                     "S.S.": 35,
                     "Phy": 16,
@@ -13032,8 +13032,8 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 203,
-                "rank": 22
+                "total": 256,
+                "rank": 20
             }
         }
     },
@@ -13074,7 +13074,7 @@
                 "marks": {
                     "Mal I": 20,
                     "Mal II": 21,
-                    "English": 0,
+                    "English": 31,
                     "Hindi": 17,
                     "S.S.": 10,
                     "Phy": 11,
@@ -13085,8 +13085,8 @@
                     "H.E.": 34,
                     "Work": 0
                 },
-                "total": 137,
-                "rank": 29
+                "total": 168,
+                "rank": 30
             }
         }
     },
@@ -13127,7 +13127,7 @@
                 "marks": {
                     "Mal I": 17,
                     "Mal II": 12,
-                    "English": 0,
+                    "English": 55,
                     "Hindi": 18,
                     "S.S.": 15,
                     "Phy": 15,
@@ -13138,8 +13138,8 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 164,
-                "rank": 25
+                "total": 219,
+                "rank": 24
             }
         }
     },
@@ -13180,7 +13180,7 @@
                 "marks": {
                     "Mal I": 8,
                     "Mal II": 6,
-                    "English": 0,
+                    "English": 15,
                     "Hindi": 8,
                     "S.S.": 7,
                     "Phy": 8,
@@ -13191,7 +13191,7 @@
                     "H.E.": 31,
                     "Work": 0
                 },
-                "total": 90,
+                "total": 105,
                 "rank": 34
             }
         }
@@ -13233,7 +13233,7 @@
                 "marks": {
                     "Mal I": 8,
                     "Mal II": 12,
-                    "English": 0,
+                    "English": 35,
                     "Hindi": 12,
                     "S.S.": 15,
                     "Phy": 8,
@@ -13244,8 +13244,8 @@
                     "H.E.": 31,
                     "Work": 0
                 },
-                "total": 136,
-                "rank": 30
+                "total": 171,
+                "rank": 29
             }
         }
     },
@@ -13286,7 +13286,7 @@
                 "marks": {
                     "Mal I": 26,
                     "Mal II": 23,
-                    "English": 0,
+                    "English": 60,
                     "Hindi": 23,
                     "S.S.": 25,
                     "Phy": 18,
@@ -13297,8 +13297,8 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 223,
-                "rank": 19
+                "total": 283,
+                "rank": 18
             }
         }
     },
@@ -13339,7 +13339,7 @@
                 "marks": {
                     "Mal I": 16,
                     "Mal II": 19,
-                    "English": 0,
+                    "English": 60,
                     "Hindi": 16,
                     "S.S.": 49,
                     "Phy": 26,
@@ -13350,8 +13350,8 @@
                     "H.E.": 38,
                     "Work": 0
                 },
-                "total": 243,
-                "rank": 17
+                "total": 303,
+                "rank": 14
             }
         }
     },
@@ -13392,7 +13392,7 @@
                 "marks": {
                     "Mal I": 24,
                     "Mal II": 24,
-                    "English": 0,
+                    "English": 42,
                     "Hindi": 15,
                     "S.S.": 27,
                     "Phy": 23,
@@ -13403,7 +13403,7 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 209,
+                "total": 251,
                 "rank": 21
             }
         }
@@ -13445,7 +13445,7 @@
                 "marks": {
                     "Mal I": 9,
                     "Mal II": 14,
-                    "English": 0,
+                    "English": 24,
                     "Hindi": 12,
                     "S.S.": 14,
                     "Phy": 10,
@@ -13456,7 +13456,7 @@
                     "H.E.": 35,
                     "Work": 0
                 },
-                "total": 122,
+                "total": 146,
                 "rank": 31
             }
         }
@@ -13498,7 +13498,7 @@
                 "marks": {
                     "Mal I": 8,
                     "Mal II": 9,
-                    "English": 0,
+                    "English": 45,
                     "Hindi": 13,
                     "S.S.": 27,
                     "Phy": 13,
@@ -13509,8 +13509,8 @@
                     "H.E.": 42,
                     "Work": 0
                 },
-                "total": 153,
-                "rank": 28
+                "total": 198,
+                "rank": 26
             }
         }
     },
@@ -13551,7 +13551,7 @@
                 "marks": {
                     "Mal I": 5,
                     "Mal II": 4,
-                    "English": 0,
+                    "English": 24,
                     "Hindi": 12,
                     "S.S.": 20,
                     "Phy": 9,
@@ -13562,7 +13562,7 @@
                     "H.E.": 32,
                     "Work": 0
                 },
-                "total": 92,
+                "total": 116,
                 "rank": 33
             }
         }
@@ -13604,7 +13604,7 @@
                 "marks": {
                     "Mal I": 19,
                     "Mal II": 24,
-                    "English": 0,
+                    "English": 75,
                     "Hindi": 28,
                     "S.S.": 53,
                     "Phy": 29,
@@ -13615,7 +13615,7 @@
                     "H.E.": 40,
                     "Work": 0
                 },
-                "total": 308,
+                "total": 383,
                 "rank": 4
             }
         }
@@ -13657,7 +13657,7 @@
                 "marks": {
                     "Mal I": 5,
                     "Mal II": 5,
-                    "English": 0,
+                    "English": 9,
                     "Hindi": 4,
                     "S.S.": 4,
                     "Phy": 5,
@@ -13668,7 +13668,7 @@
                     "H.E.": 25,
                     "Work": 0
                 },
-                "total": 56,
+                "total": 65,
                 "rank": 37
             }
         }
@@ -13710,7 +13710,7 @@
                 "marks": {
                     "Mal I": 11,
                     "Mal II": 14,
-                    "English": 0,
+                    "English": 23,
                     "Hindi": 13,
                     "S.S.": 14,
                     "Phy": 8,
@@ -13721,7 +13721,7 @@
                     "H.E.": 25,
                     "Work": 0
                 },
-                "total": 106,
+                "total": 129,
                 "rank": 32
             }
         }
@@ -13763,7 +13763,7 @@
                 "marks": {
                     "Mal I": 34,
                     "Mal II": 30,
-                    "English": 0,
+                    "English": 61,
                     "Hindi": 27,
                     "S.S.": 42,
                     "Phy": 25,
@@ -13774,8 +13774,8 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 294,
-                "rank": 8
+                "total": 355,
+                "rank": 7
             }
         }
     },
@@ -13816,7 +13816,7 @@
                 "marks": {
                     "Mal I": 14,
                     "Mal II": 6,
-                    "English": 0,
+                    "English": 16,
                     "Hindi": 8,
                     "S.S.": 7,
                     "Phy": 5,
@@ -13827,7 +13827,7 @@
                     "H.E.": 31,
                     "Work": 0
                 },
-                "total": 85,
+                "total": 101,
                 "rank": 35
             }
         }
@@ -13869,7 +13869,7 @@
                 "marks": {
                     "Mal I": 14,
                     "Mal II": 16,
-                    "English": 0,
+                    "English": 28,
                     "Hindi": 16,
                     "S.S.": 33,
                     "Phy": 14,
@@ -13880,8 +13880,8 @@
                     "H.E.": 33,
                     "Work": 0
                 },
-                "total": 155,
-                "rank": 26
+                "total": 183,
+                "rank": 28
             }
         }
     },
@@ -13922,7 +13922,7 @@
                 "marks": {
                     "Mal I": "0--",
                     "Mal II": "0---",
-                    "English": 0,
+                    "English": ".",
                     "Hindi": 0,
                     "S.S.": 0,
                     "Phy": 0,
@@ -13975,7 +13975,7 @@
                 "marks": {
                     "Mal I": 31,
                     "Mal II": 9,
-                    "English": 0,
+                    "English": 72,
                     "Hindi": 28,
                     "S.S.": 59,
                     "Phy": 31,
@@ -13986,7 +13986,7 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 303,
+                "total": 375,
                 "rank": 5
             }
         }
@@ -14028,7 +14028,7 @@
                 "marks": {
                     "Mal I": 32,
                     "Mal II": 28,
-                    "English": 0,
+                    "English": 60,
                     "Hindi": 29,
                     "S.S.": 41,
                     "Phy": 28,
@@ -14039,7 +14039,7 @@
                     "H.E.": 39,
                     "Work": 0
                 },
-                "total": 293,
+                "total": 353,
                 "rank": 9
             }
         }
@@ -14081,7 +14081,7 @@
                 "marks": {
                     "Mal I": 26,
                     "Mal II": 20,
-                    "English": 0,
+                    "English": 34,
                     "Hindi": 21,
                     "S.S.": 36,
                     "Phy": 17,
@@ -14092,8 +14092,8 @@
                     "H.E.": 42,
                     "Work": 0
                 },
-                "total": 225,
-                "rank": 18
+                "total": 259,
+                "rank": 19
             }
         }
     },
@@ -14134,7 +14134,7 @@
                 "marks": {
                     "Mal I": 22,
                     "Mal II": 24,
-                    "English": 0,
+                    "English": 47,
                     "Hindi": 16,
                     "S.S.": 47,
                     "Phy": 21,
@@ -14145,8 +14145,8 @@
                     "H.E.": 32,
                     "Work": 0
                 },
-                "total": 246,
-                "rank": 15
+                "total": 293,
+                "rank": 17
             }
         }
     },
@@ -14187,7 +14187,7 @@
                 "marks": {
                     "Mal I": 9,
                     "Mal II": 9,
-                    "English": "Ab",
+                    "English": 11,
                     "Hindi": 5,
                     "S.S.": "Ab",
                     "Phy": 4,
@@ -14198,7 +14198,7 @@
                     "H.E.": 35,
                     "Work": "Ab"
                 },
-                "total": 68,
+                "total": 79,
                 "rank": 36
             }
         }
@@ -14240,7 +14240,7 @@
                 "marks": {
                     "Mal I": 25,
                     "Mal II": 18,
-                    "English": "Ab",
+                    "English": 30,
                     "Hindi": 7,
                     "S.S.": 24,
                     "Phy": 13,
@@ -14251,8 +14251,8 @@
                     "H.E.": 31,
                     "Work": "Ab"
                 },
-                "total": 155,
-                "rank": 26
+                "total": 185,
+                "rank": 27
             }
         }
     },
@@ -31242,14 +31242,14 @@
                     "English": 16,
                     "Hindi": 21,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": 21,
                     "Maths": 12,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 94,
-                "rank": 13
+                "total": 115,
+                "rank": 8
             }
         }
     },
@@ -31289,14 +31289,14 @@
                     "English": 13,
                     "Hindi": 10,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": 9,
                     "Maths": 9,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 72,
-                "rank": 24
+                "total": 81,
+                "rank": 20
             }
         }
     },
@@ -31336,14 +31336,14 @@
                     "English": 9,
                     "Hindi": 10,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": 9,
                     "Maths": 6,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 51,
-                "rank": 31
+                "total": 60,
+                "rank": 29
             }
         }
     },
@@ -31383,7 +31383,7 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 0,
+                    "B.S.": "Ab",
                     "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
@@ -31531,7 +31531,7 @@
                     "Work": 0
                 },
                 "total": 107,
-                "rank": 11
+                "rank": 12
             }
         }
     },
@@ -31813,7 +31813,7 @@
                     "Work": 0
                 },
                 "total": 76,
-                "rank": 22
+                "rank": 23
             }
         }
     },
@@ -32048,7 +32048,7 @@
                     "Work": 0
                 },
                 "total": 77,
-                "rank": 20
+                "rank": 21
             }
         }
     },
@@ -32377,7 +32377,7 @@
                     "Work": 0
                 },
                 "total": 75,
-                "rank": 23
+                "rank": 24
             }
         }
     },
@@ -32471,7 +32471,7 @@
                     "Work": 0
                 },
                 "total": 57,
-                "rank": 30
+                "rank": 31
             }
         }
     },
@@ -32706,7 +32706,7 @@
                     "Work": 0
                 },
                 "total": 77,
-                "rank": 20
+                "rank": 21
             }
         }
     },
@@ -33129,7 +33129,7 @@
                     "Work": 0
                 },
                 "total": 103,
-                "rank": 12
+                "rank": 13
             }
         }
     },
