@@ -684,7 +684,7 @@
                     "Work": 0
                 },
                 "total": 100,
-                "rank": 14
+                "rank": 15
             }
         }
     },
@@ -896,7 +896,7 @@
                     "Work": 0
                 },
                 "total": 82,
-                "rank": 15
+                "rank": 16
             }
         }
     },
@@ -944,12 +944,12 @@
                     "Chem": 4,
                     "Bio": 1,
                     "Maths": 12,
-                    "Art": 0,
+                    "Art": 23,
                     "H.E.": 11,
                     "Work": 0
                 },
-                "total": 80,
-                "rank": 16
+                "total": 103,
+                "rank": 14
             }
         }
     },
@@ -5792,7 +5792,7 @@
                     "Maths": "Ab"
                 },
                 "total": "Ab",
-                "rank": 25
+                "rank": "Ab"
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5820,7 +5820,7 @@
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 0,
-                    "Art": 25,
+                    "Art": "ab",
                     "H.E.": 0,
                     "Work": "Ab"
                 },
@@ -7304,7 +7304,7 @@
                     "Chem": 0,
                     "Bio": 0,
                     "Maths": 0,
-                    "Art": "-",
+                    "Art": "ab",
                     "H.E.": 0,
                     "Work": "Ab"
                 },
@@ -12286,11 +12286,11 @@
                     "Chem": 35,
                     "Bio": 36,
                     "Maths": 49,
-                    "Art": 0,
+                    "Art": 35,
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 419,
+                "total": 454,
                 "rank": 1
             }
         }
@@ -12339,12 +12339,12 @@
                     "Chem": 28,
                     "Bio": 31,
                     "Maths": 52,
-                    "Art": 0,
+                    "Art": 29,
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 384,
-                "rank": 3
+                "total": 413,
+                "rank": 2
             }
         }
     },
@@ -12556,7 +12556,7 @@
                     "Work": 0
                 },
                 "total": 406,
-                "rank": 2
+                "rank": 3
             }
         }
     },
@@ -16097,7 +16097,7 @@
                     "Mal II": 29,
                     "English": 46,
                     "Hindi": 15,
-                    "S.S.": 20,
+                    "S.S.": 24,
                     "Phy": 22,
                     "Chem": 12,
                     "Bio": 22,
@@ -16106,7 +16106,7 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 221,
+                "total": 225,
                 "rank": 23
             }
         }
@@ -34626,13 +34626,13 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 23,
+                    "B.S.": 19,
                     "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 23,
+                "total": 19,
                 "rank": 39
             }
         }
@@ -34673,14 +34673,14 @@
                     "English": 0,
                     "Hindi": 0,
                     "S.S.": 0,
-                    "B.S.": 28,
+                    "B.S.": 23,
                     "Maths": "Ab",
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 28,
-                "rank": 37
+                "total": 23,
+                "rank": 38
             }
         }
     },
@@ -34868,7 +34868,7 @@
                     "Work": 0
                 },
                 "total": 24,
-                "rank": 38
+                "rank": 37
             }
         }
     },
