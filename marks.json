@@ -30675,16 +30675,16 @@
                 "marks": {
                     "Mal I": 2,
                     "Mal II": 8,
-                    "English": 0,
+                    "English": 4,
                     "Hindi": 5,
-                    "S.S.": 0,
+                    "S.S.": 4,
                     "B.S.": 3,
                     "Maths": 6,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 24,
+                "total": 32,
                 "rank": 9
             }
         }
@@ -30722,16 +30722,16 @@
                 "marks": {
                     "Mal I": 13,
                     "Mal II": 15,
-                    "English": 0,
+                    "English": 11,
                     "Hindi": 4,
-                    "S.S.": 0,
+                    "S.S.": 21,
                     "B.S.": 9,
                     "Maths": 11,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 52,
+                "total": 84,
                 "rank": 3
             }
         }
@@ -30769,16 +30769,16 @@
                 "marks": {
                     "Mal I": 15,
                     "Mal II": 16,
-                    "English": 0,
+                    "English": 11,
                     "Hindi": 9,
-                    "S.S.": 0,
+                    "S.S.": 15,
                     "B.S.": 9,
                     "Maths": 11,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 60,
+                "total": 86,
                 "rank": 2
             }
         }
@@ -30816,16 +30816,16 @@
                 "marks": {
                     "Mal I": 3,
                     "Mal II": 4,
-                    "English": 0,
+                    "English": 5,
                     "Hindi": 4,
-                    "S.S.": 0,
+                    "S.S.": 3,
                     "B.S.": 2,
                     "Maths": 4,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 17,
+                "total": 25,
                 "rank": 11
             }
         }
@@ -30863,17 +30863,17 @@
                 "marks": {
                     "Mal I": 6,
                     "Mal II": 7,
-                    "English": 0,
+                    "English": 4,
                     "Hindi": 5,
-                    "S.S.": 0,
+                    "S.S.": 9,
                     "B.S.": 2,
                     "Maths": 9,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 29,
-                "rank": 7
+                "total": 42,
+                "rank": 8
             }
         }
     },
@@ -30910,16 +30910,16 @@
                 "marks": {
                     "Mal I": 6,
                     "Mal II": 3,
-                    "English": 0,
+                    "English": 5,
                     "Hindi": 12,
-                    "S.S.": 0,
+                    "S.S.": 11,
                     "B.S.": 9,
                     "Maths": 9,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 39,
+                "total": 55,
                 "rank": 4
             }
         }
@@ -30957,16 +30957,16 @@
                 "marks": {
                     "Mal I": 1,
                     "Mal II": 9,
-                    "English": 0,
+                    "English": 9,
                     "Hindi": 1,
-                    "S.S.": 0,
+                    "S.S.": 2,
                     "B.S.": 3,
                     "Maths": 6,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 20,
+                "total": 31,
                 "rank": 10
             }
         }
@@ -31004,17 +31004,17 @@
                 "marks": {
                     "Mal I": 7,
                     "Mal II": 3,
-                    "English": 0,
+                    "English": 9,
                     "Hindi": 8,
-                    "S.S.": 0,
+                    "S.S.": 9,
                     "B.S.": 3,
                     "Maths": 7,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 28,
-                "rank": 8
+                "total": 46,
+                "rank": 7
             }
         }
     },
@@ -31051,16 +31051,16 @@
                 "marks": {
                     "Mal I": 28,
                     "Mal II": 25,
-                    "English": 0,
+                    "English": 18,
                     "Hindi": 19,
-                    "S.S.": 0,
+                    "S.S.": 24,
                     "B.S.": 24,
                     "Maths": 15,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 111,
+                "total": 153,
                 "rank": 1
             }
         }
@@ -31098,17 +31098,17 @@
                 "marks": {
                     "Mal I": 5,
                     "Mal II": 5,
-                    "English": 0,
+                    "English": 11,
                     "Hindi": 10,
-                    "S.S.": 0,
+                    "S.S.": 10,
                     "B.S.": 4,
                     "Maths": 8,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 32,
-                "rank": 6
+                "total": 53,
+                "rank": 5
             }
         }
     },
@@ -31145,16 +31145,16 @@
                 "marks": {
                     "Mal I": 1,
                     "Mal II": 1,
-                    "English": 0,
+                    "English": 1,
                     "Hindi": "A",
-                    "S.S.": 0,
+                    "S.S.": "ab",
                     "B.S.": 1,
                     "Maths": 0,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 3,
+                "total": 4,
                 "rank": 12
             }
         }
@@ -31192,17 +31192,17 @@
                 "marks": {
                     "Mal I": 6,
                     "Mal II": 12,
-                    "English": 0,
+                    "English": 10,
                     "Hindi": 5,
-                    "S.S.": 0,
+                    "S.S.": 9,
                     "B.S.": 3,
                     "Maths": 7,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 33,
-                "rank": 5
+                "total": 52,
+                "rank": 6
             }
         }
     },
