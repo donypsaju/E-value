@@ -4645,20 +4645,20 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 32,
-                    "Mal II": 30,
+                    "Mal I": "-",
+                    "Mal II": "-",
                     "English": "-",
-                    "Hindi": 0,
+                    "Hindi": "-",
                     "S.S.": "-",
-                    "Phy": 0,
-                    "Chem": 0,
-                    "Bio": 0,
-                    "Maths": 0,
-                    "Art": 0,
-                    "H.E.": 0,
-                    "Work": 0
+                    "Phy": "-",
+                    "Chem": "-",
+                    "Bio": "-",
+                    "Maths": "-",
+                    "Art": "-",
+                    "H.E.": "-",
+                    "Work": "-"
                 },
-                "total": 62,
+                "total": "Ab",
                 "rank": 42
             }
         }
@@ -6428,7 +6428,7 @@
                     "Maths": 4
                 },
                 "total": "Ab",
-                "rank": 161
+                "rank": 162
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6453,7 +6453,7 @@
                     "Hindi": 15,
                     "S.S.": 8,
                     "Phy": 6,
-                    "Chem": 0,
+                    "Chem": 1,
                     "Bio": 3,
                     "Maths": 10,
                     "Art": 33,
