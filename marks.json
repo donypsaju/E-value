@@ -154,7 +154,7 @@
                     "Work": 0
                 },
                 "total": 192,
-                "rank": 5
+                "rank": 6
             }
         }
     },
@@ -260,7 +260,7 @@
                     "Work": 0
                 },
                 "total": 195,
-                "rank": 4
+                "rank": 5
             }
         }
     },
@@ -781,16 +781,16 @@
                     "English": 18,
                     "Hindi": 27,
                     "S.S.": 20,
-                    "Phy": "AB",
-                    "Chem": "AB",
+                    "Phy": 17,
+                    "Chem": 11,
                     "Bio": 0,
                     "Maths": 20,
                     "Art": 36,
                     "H.E.": 37,
                     "Work": 0
                 },
-                "total": 179,
-                "rank": 6
+                "total": 207,
+                "rank": 4
             }
         }
     },
@@ -13873,14 +13873,14 @@
                     "Hindi": 16,
                     "S.S.": 33,
                     "Phy": 14,
-                    "Chem": 9,
+                    "Chem": 10,
                     "Bio": 13,
                     "Maths": 7,
                     "Art": 28,
                     "H.E.": 33,
                     "Work": 0
                 },
-                "total": 211,
+                "total": 212,
                 "rank": 28
             }
         }
