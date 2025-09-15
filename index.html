@@ -158,21 +158,21 @@
         </div>
     </noscript>
     
+    <div id="globalControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
+         <div class="card p-1 d-flex flex-row gap-1">
+            <button class="lang-btn btn-sm" data-lang="en">EN</button>
+            <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+        </div>
+        <button class="theme-switcher-btn">
+            <div class="theme-switcher-thumb"></div>
+        </button>
+    </div>
+
     <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
         <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
     </div>
 
     <div id="homeView" class="min-vh-100 d-flex align-items-center justify-content-center p-4">
-        <div id="homeLoginControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
-             <div class="card p-1 d-flex flex-row gap-1">
-                <button class="lang-btn btn-sm" data-lang="en">EN</button>
-                <button class="lang-btn btn-sm" data-lang="ml">മല</button>
-            </div>
-            <button class="theme-switcher-btn">
-                <div class="theme-switcher-thumb"></div>
-            </button>
-        </div>
-
         <div class="container-lg pt-5">
             <div class="text-center mb-5">
                 <h1 class="display-4 fw-bold">Emmanuel's HSS Kothanalloor</h1>
@@ -363,7 +363,7 @@
         let currentUser = null;
         let appData = { users: [], marks: [], activities: [], processedStudents: [] };
         let standingsChart = null;
-        let loginView, dashboardView, progressBar, homeView, homeLoginControls;
+        let loginView, dashboardView, progressBar, homeView, globalControls;
         let disciplineModal, iframeModal, dobVerifyModal, settingsOffcanvas;
 
         // --- TRANSLATION DATA ---
@@ -459,11 +459,12 @@
             const activityAdmNo = activity.admissionNo;
 
             if (Array.isArray(activityAdmNo)) {
-                return activityAdmNo.map(String).includes(studentAdmNoStr);
+                // Count occurrences of the student's admission number
+                return activityAdmNo.filter(adm => adm.toString() === studentAdmNoStr).length;
             } else if (activityAdmNo) {
-                return activityAdmNo.toString() === studentAdmNoStr;
+                return activityAdmNo.toString() === studentAdmNoStr ? 1 : 0;
             }
-            return false;
+            return 0;
         }
 
         function processStudentData(students, marksData, activities) {
@@ -485,11 +486,14 @@
                     }
                     
                     const disciplinePoints = activities
-                        .filter(a => isActivityForStudent(a, student))
                         .reduce((sum, act) => {
-                            const basePoints = activityRules[act.Activity] || 0;
-                            const calculatedPoints = (act.Rating / 5) * basePoints;
-                            return sum + calculatedPoints;
+                            const occurrences = isActivityForStudent(act, student);
+                            if (occurrences > 0) {
+                                const basePoints = activityRules[act.Activity] || 0;
+                                const calculatedPoints = (act.Rating / 5) * basePoints;
+                                return sum + (calculatedPoints * occurrences);
+                            }
+                            return sum;
                         }, 0);
 
                     const housePoints = academicTotal + disciplinePoints;
@@ -1302,10 +1306,10 @@
             loginView.classList.remove('d-flex');
             loginView.classList.add('d-none');
             dashboardView.classList.add('d-none');
-            homeLoginControls.classList.add('d-none');
+            globalControls.classList.add('d-none');
 
             if (viewName === 'home' || viewName === 'login') {
-                homeLoginControls.classList.remove('d-none');
+                globalControls.classList.remove('d-none');
             }
 
             if (viewName === 'home') homeView.classList.remove('d-none');
@@ -1469,7 +1473,7 @@
             loginView = document.getElementById('loginView');
             dashboardView = document.getElementById('dashboardView');
             progressBar = document.getElementById('progressBarContainer');
-            homeLoginControls = document.getElementById('homeLoginControls');
+            globalControls = document.getElementById('globalControls');
 
             // Initialize Bootstrap Modals & Offcanvas
             disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
