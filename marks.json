@@ -29874,8 +29874,8 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": "Ab",
-                    "Mal II": "Ab",
+                    "Mal I": 0,
+                    "Mal II": 0,
                     "English": 6,
                     "Hindi": 24,
                     "S.S.": 4,
