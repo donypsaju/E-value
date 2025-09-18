@@ -1267,7 +1267,7 @@
                     "Work": 0
                 },
                 "total": 222,
-                "rank": 19
+                "rank": 20
             }
         }
     },
@@ -1359,21 +1359,21 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": 0,
-                    "Hindi": 0,
-                    "S.S.": "ab",
-                    "Phy": "ab",
-                    "Chem": "ab",
-                    "Bio": "ab",
-                    "Maths": "--",
-                    "Art": "-",
-                    "H.E.": 0,
+                    "Mal I": 20,
+                    "Mal II": 18,
+                    "English": 18,
+                    "Hindi": 21,
+                    "S.S.": 19,
+                    "Phy": 8,
+                    "Chem": 7,
+                    "Bio": 10,
+                    "Maths": 14,
+                    "Art": 31,
+                    "H.E.": 40,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 40
+                "total": 206,
+                "rank": 23
             }
         }
     },
@@ -1426,7 +1426,7 @@
                     "Work": 0
                 },
                 "total": 226,
-                "rank": 17
+                "rank": 18
             }
         }
     },
@@ -1479,7 +1479,7 @@
                     "Work": 0
                 },
                 "total": 204,
-                "rank": 23
+                "rank": 24
             }
         }
     },
@@ -1585,7 +1585,7 @@
                     "Work": 0
                 },
                 "total": 222,
-                "rank": 19
+                "rank": 20
             }
         }
     },
@@ -1638,7 +1638,7 @@
                     "Work": 0
                 },
                 "total": 223,
-                "rank": 18
+                "rank": 19
             }
         }
     },
@@ -1691,7 +1691,7 @@
                     "Work": 0
                 },
                 "total": 176,
-                "rank": 30
+                "rank": 32
             }
         }
     },
@@ -1850,7 +1850,7 @@
                     "Work": 0
                 },
                 "total": 189,
-                "rank": 25
+                "rank": 26
             }
         }
     },
@@ -2115,7 +2115,7 @@
                     "Work": 0
                 },
                 "total": 124,
-                "rank": 34
+                "rank": 36
             }
         }
     },
@@ -2168,7 +2168,7 @@
                     "Work": 0
                 },
                 "total": 156,
-                "rank": 31
+                "rank": 33
             }
         }
     },
@@ -2221,7 +2221,7 @@
                     "Work": 0
                 },
                 "total": 187,
-                "rank": 27
+                "rank": 28
             }
         }
     },
@@ -2327,7 +2327,7 @@
                     "Work": 0
                 },
                 "total": 179,
-                "rank": 29
+                "rank": 31
             }
         }
     },
@@ -2380,7 +2380,7 @@
                     "Work": 0
                 },
                 "total": 117,
-                "rank": 35
+                "rank": 37
             }
         }
     },
@@ -2486,7 +2486,7 @@
                     "Work": 0
                 },
                 "total": 141,
-                "rank": 32
+                "rank": 34
             }
         }
     },
@@ -2592,7 +2592,7 @@
                     "Work": 0
                 },
                 "total": 104,
-                "rank": 37
+                "rank": 39
             }
         }
     },
@@ -2645,7 +2645,7 @@
                     "Work": 0
                 },
                 "total": 189,
-                "rank": 25
+                "rank": 26
             }
         }
     },
@@ -2698,7 +2698,7 @@
                     "Work": 0
                 },
                 "total": 94,
-                "rank": 39
+                "rank": 41
             }
         }
     },
@@ -2790,21 +2790,21 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": "Ab",
-                    "Hindi": 0,
-                    "S.S.": "ab",
-                    "Phy": "ab",
-                    "Chem": "ab",
-                    "Bio": "ab",
-                    "Maths": "--",
-                    "Art": 0,
-                    "H.E.": 0,
+                    "Mal I": 18,
+                    "Mal II": 16,
+                    "English": 12,
+                    "Hindi": 15,
+                    "S.S.": 14,
+                    "Phy": 8,
+                    "Chem": 6,
+                    "Bio": 9,
+                    "Maths": 16,
+                    "Art": 28,
+                    "H.E.": 38,
                     "Work": 0
                 },
-                "total": "Ab",
-                "rank": 40
+                "total": 180,
+                "rank": 30
             }
         }
     },
@@ -2857,7 +2857,7 @@
                     "Work": 0
                 },
                 "total": 185,
-                "rank": 28
+                "rank": 29
             }
         }
     },
@@ -2910,7 +2910,7 @@
                     "Work": 0
                 },
                 "total": 196,
-                "rank": 24
+                "rank": 25
             }
         }
     },
@@ -2953,8 +2953,8 @@
                     "Mal II": 32,
                     "English": 27,
                     "Hindi": 15,
-                    "S.S.": 12,
-                    "Phy": 4,
+                    "S.S.": 25,
+                    "Phy": 9,
                     "Chem": 3,
                     "Bio": 10,
                     "Maths": 15,
@@ -2962,8 +2962,8 @@
                     "H.E.": 41,
                     "Work": 0
                 },
-                "total": 211,
-                "rank": 21
+                "total": 229,
+                "rank": 17
             }
         }
     },
@@ -3007,7 +3007,7 @@
                     "English": 5,
                     "Hindi": 3,
                     "S.S.": 25,
-                    "Phy": 9,
+                    "Phy": 4,
                     "Chem": 2,
                     "Bio": 1,
                     "Maths": 1,
@@ -3015,8 +3015,8 @@
                     "H.E.": 32,
                     "Work": 0
                 },
-                "total": 116,
-                "rank": 36
+                "total": 111,
+                "rank": 38
             }
         }
     },
@@ -3069,7 +3069,7 @@
                     "Work": 0
                 },
                 "total": 100,
-                "rank": 38
+                "rank": 40
             }
         }
     },
@@ -3122,7 +3122,7 @@
                     "Work": 0
                 },
                 "total": 137,
-                "rank": 33
+                "rank": 35
             }
         }
     },
@@ -5792,7 +5792,7 @@
                     "Maths": "Ab"
                 },
                 "total": "Ab",
-                "rank": "Ab"
+                "rank": 175
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -5811,17 +5811,17 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": "-",
-                    "Mal II": "-",
-                    "English": "Ab",
-                    "Hindi": "Ab",
-                    "S.S.": "ab",
-                    "Phy": 0,
-                    "Chem": 0,
-                    "Bio": 0,
-                    "Maths": 0,
-                    "Art": "ab",
-                    "H.E.": 0,
+                    "Mal I": 14,
+                    "Mal II": 13,
+                    "English": 20,
+                    "Hindi": 15,
+                    "S.S.": 18,
+                    "Phy": 8,
+                    "Chem": 9,
+                    "Bio": 10,
+                    "Maths": 8,
+                    "Art": 20,
+                    "H.E.": 40,
                     "Work": "Ab"
                 },
                 "total": "Ab",
@@ -6905,7 +6905,7 @@
                     "Maths": 20
                 },
                 "total": "Ab",
-                "rank": 205
+                "rank": 234
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -6925,7 +6925,7 @@
             "First Term Exam": {
                 "marks": {
                     "Mal I": 23,
-                    "Mal II": "-",
+                    "Mal II": 29,
                     "English": 23,
                     "Hindi": 21,
                     "S.S.": 19,
@@ -7276,7 +7276,7 @@
                     "Maths": "Ab"
                 },
                 "total": "Ab",
-                "rank": "Ab"
+                "rank": 177
             },
             "First Mid Term Exam": {
                 "marks": {
@@ -7295,17 +7295,17 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": "Ab",
-                    "Mal II": "-",
-                    "English": "Ab",
-                    "Hindi": 0,
-                    "S.S.": 0,
-                    "Phy": 0,
-                    "Chem": 0,
-                    "Bio": 0,
-                    "Maths": 0,
-                    "Art": "ab",
-                    "H.E.": 0,
+                    "Mal I": 12,
+                    "Mal II": 13,
+                    "English": 20,
+                    "Hindi": 12,
+                    "S.S.": 15,
+                    "Phy": 8,
+                    "Chem": 6,
+                    "Bio": 14,
+                    "Maths": 12,
+                    "Art": 25,
+                    "H.E.": 40,
                     "Work": "Ab"
                 },
                 "total": 4,
@@ -31437,7 +31437,7 @@
                     "Work": 0
                 },
                 "total": 93,
-                "rank": 26
+                "rank": 29
             }
         }
     },
@@ -31484,7 +31484,7 @@
                     "Work": 0
                 },
                 "total": 69,
-                "rank": 32
+                "rank": 35
             }
         }
     },
@@ -31521,17 +31521,17 @@
                 "marks": {
                     "Mal I": 14,
                     "Mal II": 14,
-                    "English": 0,
+                    "English": 17,
                     "Hindi": 28,
-                    "B.S.": 0,
-                    "S.S.": "Ab",
-                    "Maths": "Ab",
+                    "B.S.": 18,
+                    "S.S.": 15,
+                    "Maths": 14,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 56,
-                "rank": 36
+                "total": 120,
+                "rank": 16
             }
         }
     },
@@ -31954,7 +31954,7 @@
                     "Work": 0
                 },
                 "total": 101,
-                "rank": 22
+                "rank": 25
             }
         }
     },
@@ -32001,7 +32001,7 @@
                     "Work": 0
                 },
                 "total": 109,
-                "rank": 18
+                "rank": 20
             }
         }
     },
@@ -32142,7 +32142,7 @@
                     "Work": 0
                 },
                 "total": 70,
-                "rank": 31
+                "rank": 34
             }
         }
     },
@@ -32189,7 +32189,7 @@
                     "Work": 0
                 },
                 "total": 101,
-                "rank": 22
+                "rank": 25
             }
         }
     },
@@ -32236,7 +32236,7 @@
                     "Work": 0
                 },
                 "total": 62,
-                "rank": 33
+                "rank": 36
             }
         }
     },
@@ -32283,7 +32283,7 @@
                     "Work": 0
                 },
                 "total": 59,
-                "rank": 34
+                "rank": 37
             }
         }
     },
@@ -32330,7 +32330,7 @@
                     "Work": 0
                 },
                 "total": 115,
-                "rank": 17
+                "rank": 18
             }
         }
     },
@@ -32377,7 +32377,7 @@
                     "Work": 0
                 },
                 "total": 56,
-                "rank": 36
+                "rank": 39
             }
         }
     },
@@ -32424,7 +32424,7 @@
                     "Work": 0
                 },
                 "total": 59,
-                "rank": 34
+                "rank": 37
             }
         }
     },
@@ -32471,7 +32471,7 @@
                     "Work": 0
                 },
                 "total": 102,
-                "rank": 21
+                "rank": 24
             }
         }
     },
@@ -32518,7 +32518,7 @@
                     "Work": 0
                 },
                 "total": 101,
-                "rank": 22
+                "rank": 25
             }
         }
     },
@@ -32565,7 +32565,7 @@
                     "Work": 0
                 },
                 "total": 81,
-                "rank": 28
+                "rank": 31
             }
         }
     },
@@ -32612,7 +32612,7 @@
                     "Work": 0
                 },
                 "total": 81,
-                "rank": 28
+                "rank": 31
             }
         }
     },
@@ -32649,17 +32649,17 @@
                 "marks": {
                     "Mal I": 17,
                     "Mal II": 14,
-                    "English": "Ab",
+                    "English": 17,
                     "Hindi": 24,
-                    "B.S.": "Ab",
-                    "S.S.": "Ab",
-                    "Maths": "Ab",
+                    "B.S.": 16,
+                    "S.S.": 15,
+                    "Maths": 11,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 55,
-                "rank": 38
+                "total": 114,
+                "rank": 19
             }
         }
     },
@@ -32706,7 +32706,7 @@
                     "Work": 0
                 },
                 "total": 117,
-                "rank": 16
+                "rank": 17
             }
         }
     },
@@ -32753,7 +32753,7 @@
                     "Work": 0
                 },
                 "total": 96,
-                "rank": 25
+                "rank": 28
             }
         }
     },
@@ -32847,7 +32847,7 @@
                     "Work": 0
                 },
                 "total": 103,
-                "rank": 20
+                "rank": 23
             }
         }
     },
@@ -32884,17 +32884,17 @@
                 "marks": {
                     "Mal I": 16,
                     "Mal II": 16,
-                    "English": 0,
+                    "English": 14,
                     "Hindi": 20,
-                    "B.S.": 0,
-                    "S.S.": "Ab",
-                    "Maths": "Ab",
+                    "B.S.": 15,
+                    "S.S.": 12,
+                    "Maths": 13,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 52,
-                "rank": 39
+                "total": 106,
+                "rank": 21
             }
         }
     },
@@ -32941,7 +32941,7 @@
                     "Work": 0
                 },
                 "total": 78,
-                "rank": 30
+                "rank": 33
             }
         }
     },
@@ -33035,7 +33035,7 @@
                     "Work": 0
                 },
                 "total": 105,
-                "rank": 19
+                "rank": 22
             }
         }
     },
@@ -33129,7 +33129,7 @@
                     "Work": 0
                 },
                 "total": 93,
-                "rank": 26
+                "rank": 29
             }
         }
     },
@@ -33176,7 +33176,7 @@
                     "Work": 0
                 },
                 "total": 52,
-                "rank": 39
+                "rank": 40
             }
         }
     },
@@ -33364,7 +33364,7 @@
                     "Work": 0
                 },
                 "total": 83,
-                "rank": 22
+                "rank": 25
             }
         }
     },
@@ -33411,7 +33411,7 @@
                     "Work": 0
                 },
                 "total": 70,
-                "rank": 31
+                "rank": 35
             }
         }
     },
@@ -33458,7 +33458,7 @@
                     "Work": 0
                 },
                 "total": 111,
-                "rank": 20
+                "rank": 21
             }
         }
     },
@@ -33505,7 +33505,7 @@
                     "Work": 0
                 },
                 "total": 73,
-                "rank": 29
+                "rank": 32
             }
         }
     },
@@ -33646,7 +33646,7 @@
                     "Work": 0
                 },
                 "total": 73,
-                "rank": 29
+                "rank": 32
             }
         }
     },
@@ -33777,7 +33777,7 @@
                 "marks": {
                     "Mal I": 0,
                     "Mal II": 18,
-                    "English": 0,
+                    "English": 11,
                     "Hindi": 23,
                     "B.S.": 0,
                     "S.S.": 20,
@@ -33786,8 +33786,8 @@
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 61,
-                "rank": 33
+                "total": 72,
+                "rank": 34
             }
         }
     },
@@ -33975,7 +33975,7 @@
                     "Work": 0
                 },
                 "total": 106,
-                "rank": 21
+                "rank": 22
             }
         }
     },
@@ -34116,7 +34116,7 @@
                     "Work": 0
                 },
                 "total": 112,
-                "rank": 19
+                "rank": 20
             }
         }
     },
@@ -34257,7 +34257,7 @@
                     "Work": 0
                 },
                 "total": 83,
-                "rank": 22
+                "rank": 25
             }
         }
     },
@@ -34304,7 +34304,7 @@
                     "Work": 0
                 },
                 "total": 70,
-                "rank": 31
+                "rank": 35
             }
         }
     },
@@ -34445,7 +34445,7 @@
                     "Work": 0
                 },
                 "total": 53,
-                "rank": 34
+                "rank": 37
             }
         }
     },
@@ -34492,7 +34492,7 @@
                     "Work": 0
                 },
                 "total": 42,
-                "rank": 37
+                "rank": 39
             }
         }
     },
@@ -34539,7 +34539,7 @@
                     "Work": 0
                 },
                 "total": 81,
-                "rank": 26
+                "rank": 29
             }
         }
     },
@@ -34586,7 +34586,7 @@
                     "Work": 0
                 },
                 "total": 77,
-                "rank": 28
+                "rank": 31
             }
         }
     },
@@ -34762,19 +34762,19 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": 0,
+                    "Mal I": 15,
+                    "Mal II": 16,
+                    "English": 13,
                     "Hindi": 24,
-                    "B.S.": "Ab",
+                    "B.S.": 13,
                     "S.S.": 19,
-                    "Maths": "Ab",
+                    "Maths": 13,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 43,
-                "rank": 36
+                "total": 113,
+                "rank": 19
             }
         }
     },
@@ -34809,19 +34809,19 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": 0,
+                    "Mal I": 11,
+                    "Mal II": 16,
+                    "English": 13,
                     "Hindi": 17,
-                    "B.S.": "Ab",
+                    "B.S.": 12,
                     "S.S.": 23,
-                    "Maths": "Ab",
+                    "Maths": 11,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 40,
-                "rank": 38
+                "total": 103,
+                "rank": 24
             }
         }
     },
@@ -34868,7 +34868,7 @@
                     "Work": 0
                 },
                 "total": 83,
-                "rank": 22
+                "rank": 25
             }
         }
     },
@@ -34962,7 +34962,7 @@
                     "Work": 0
                 },
                 "total": 82,
-                "rank": 25
+                "rank": 28
             }
         }
     },
@@ -34997,19 +34997,19 @@
             },
             "First Term Exam": {
                 "marks": {
-                    "Mal I": 0,
-                    "Mal II": 0,
-                    "English": 0,
-                    "Hindi": "ab",
-                    "B.S.": 0,
+                    "Mal I": 12,
+                    "Mal II": 14,
+                    "English": 11,
+                    "Hindi": 18,
+                    "B.S.": 13,
                     "S.S.": 24,
-                    "Maths": 0,
+                    "Maths": 12,
                     "Art": 0,
                     "H.E.": 0,
                     "Work": 0
                 },
-                "total": 24,
-                "rank": 39
+                "total": 104,
+                "rank": 23
             }
         }
     },
@@ -35056,7 +35056,7 @@
                     "Work": 0
                 },
                 "total": 79,
-                "rank": 27
+                "rank": 30
             }
         }
     },
@@ -35150,7 +35150,7 @@
                     "Work": 0
                 },
                 "total": 51,
-                "rank": 35
+                "rank": 38
             }
         }
     },
