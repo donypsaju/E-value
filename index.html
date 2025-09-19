@@ -770,12 +770,76 @@
                     }, 0);
                     return { total: term.total, rank: term.rank, percentage: maxTotal > 0 ? (term.total / maxTotal) * 100 : 0 };
                 });
-                new Chart(termChartCtx, { type: 'bar', data: { labels: termKeys, datasets: [
-                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: 'var(--house-green)', borderWidth: 2, pointBackgroundColor: 'var(--house-green)', yAxisID: 'y-percent', tension: 0.2, order: 0 },
-                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: 'var(--house-rose)', borderWidth: 2, pointBackgroundColor: 'var(--house-rose)', yAxisID: 'y-rank', tension: 0.2, order: 1 },
-                    { label: 'Total Marks', data: termData.map(d => d.total), backgroundColor: 'var(--house-blue)', yAxisID: 'y-total', order: 2 }
-                ]}, options: { responsive: true, maintainAspectRatio: false, scales: { 'y-total': { type: 'linear', position: 'left', title: { display: true, text: 'Total Marks' } }, 'y-percent': { type: 'linear', position: 'right', display: false, max: 100, min: 0 }, 'y-rank': { type: 'linear', position: 'right', reverse: true, title: { display: true, text: 'Rank' }, grid: { drawOnChartArea: false } } } }});
-            
+                new Chart(termChartCtx, {
+    type: 'bar',
+    data: {
+        labels: termKeys,
+        datasets: [
+            {
+                label: 'Percentage (%)',
+                data: termData.map(d => d.percentage),
+                type: 'line',
+                borderColor: '#FF5733', // Changed from var(--house-green)
+                borderWidth: 2,
+                pointBackgroundColor: '#FF5733', // Changed from var(--house-green)
+                yAxisID: 'y-percent',
+                tension: 0.2,
+                order: 0
+            },
+            {
+                label: 'Rank',
+                data: termData.map(d => d.rank),
+                type: 'line',
+                borderColor: '#33C3FF', // Changed from var(--house-rose)
+                borderWidth: 2,
+                pointBackgroundColor: '#33C3FF', // Changed from var(--house-rose)
+                yAxisID: 'y-rank',
+                tension: 0.2,
+                order: 1
+            },
+            {
+                label: 'Total Marks',
+                data: termData.map(d => d.total),
+                backgroundColor: '#9A33FF', // Changed from var(--house-blue)
+                yAxisID: 'y-total',
+                order: 2
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            'y-total': {
+                type: 'linear',
+                position: 'left',
+                title: {
+                    display: true,
+                    text: 'Total Marks'
+                }
+            },
+            'y-percent': {
+                type: 'linear',
+                position: 'right',
+                display: false,
+                max: 100,
+                min: 0
+            },
+            'y-rank': {
+                type: 'linear',
+                position: 'right',
+                reverse: true,
+                title: {
+                    display: true,
+                    text: 'Rank'
+                },
+                grid: {
+                    drawOnChartArea: false
+                }
+            }
+        }
+    }
+});
             document.getElementById('showDiscipline').addEventListener('click', () => {
                 document.getElementById('modal-content-body').innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-success' : 'text-danger'} fw-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
                 disciplineModal.show();
