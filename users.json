@@ -6381,20 +6381,6 @@
     },
     {
         "role": "student",
-        "admissionNo": "15809",
-        "name": "Jewel Anna Raju",
-        "class": "09",
-        "gender": "F",
-        "division": "D",
-        "house": "Blue",
-        "dob": "2011-03-21",
-        "phone": [
-            "9544007559",
-            "9544007559"
-        ]
-    },
-    {
-        "role": "student",
         "admissionNo": "15611",
         "name": "Joshna Joby",
         "class": "09",
