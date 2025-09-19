@@ -709,7 +709,12 @@
             const termCardsHTML = termKeys.map(key => {
                 const term = marksRecord.terms[key];
                 if (!term) return '';
-                const maxTotal = Object.values(term.marks || {}).length * 25;
+                
+                const maxTotal = Object.keys(term.marks || {}).reduce((sum, subject) => {
+                    const { maxMark } = getGradeInfo(0, subject, key, student.class);
+                    return sum + maxMark;
+                }, 0);
+
                 const percentage = maxTotal > 0 ? ((term.total / maxTotal) * 100).toFixed(1) : 0;
                 let rankChangeHTML = '';
                 if (previousRank !== null && typeof term.rank === 'number') {
@@ -718,7 +723,7 @@
                     else if (change < 0) rankChangeHTML = `<span class="small trend-down fw-medium ms-2">(${change})</span>`;
                 }
                 previousRank = term.rank;
-                return `<div class="col"><div class="card h-100 shadow-sm dashboard-card"><div class="card-body text-center"><h3 class="h6 card-title fw-semibold border-bottom pb-2 mb-3">${key}</h3><div class="d-grid gap-1"><p class="mb-0"><span class="fw-bold fs-5 text-primary">Total: ${term.total || 'N/A'}</span> marks</p><p class="mb-0">Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p class="mb-0">Percentage: ${percentage}%</p></div></div></div></div>`;
+                return `<div class="col"><div class="card h-100 shadow-sm dashboard-card"><div class="card-body text-center"><h3 class="h6 card-title fw-semibold border-bottom pb-2 mb-3">${key}</h3><div class="d-grid gap-1"><p class="mb-0"><span class="fw-bold fs-5 text-primary">Total: ${term.total || 'N/A'}</span> / ${maxTotal}</p><p class="mb-0">Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p class="mb-0">Percentage: ${percentage}%</p></div></div></div></div>`;
             }).join('');
 
             const detailedMarksHTML = allSubjects.map(subject => {
@@ -747,23 +752,27 @@
             } else {
                 document.getElementById('backToParentDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
             }
+                const subjectChartColors = ['#F38181', '#FCE38A', '#95E1D3', '#81B2D9'];
                 const subjectChartCtx = document.getElementById('subjectChart').getContext('2d');
                 new Chart(subjectChartCtx, { type: 'radar', data: { labels: allSubjects, datasets: termKeys.map((key, index) => ({
                     label: key,
                     data: allSubjects.map(subject => marksRecord.terms[key]?.marks?.[subject] ?? 0),
-                    borderColor: `hsl(${(index * 100)}, 70%, 60%)`,
-                    backgroundColor: `hsla(${(index * 100)}, 70%, 60%, 0.2)`,
+                    borderColor: subjectChartColors[index % subjectChartColors.length],
+                    backgroundColor: subjectChartColors[index % subjectChartColors.length].replace(')', ', 0.2)').replace('rgb', 'rgba'),
                 }))}, options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true } } } });
 
                 const termChartCtx = document.getElementById('termChart').getContext('2d');
                 const termData = termKeys.map(k => {
                     const term = marksRecord.terms[k];
-                    const maxTotal = Object.keys(term.marks || {}).length * 25;
+                     const maxTotal = Object.keys(term.marks || {}).reduce((sum, subject) => {
+                        const { maxMark } = getGradeInfo(0, subject, k, student.class);
+                        return sum + maxMark;
+                    }, 0);
                     return { total: term.total, rank: term.rank, percentage: maxTotal > 0 ? (term.total / maxTotal) * 100 : 0 };
                 });
                 new Chart(termChartCtx, { type: 'bar', data: { labels: termKeys, datasets: [
-                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: 'var(--house-green)', yAxisID: 'y-percent', tension: 0.2, order: 0 },
-                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: 'var(--house-rose)', yAxisID: 'y-rank', tension: 0.2, order: 1 },
+                    { label: 'Percentage (%)', data: termData.map(d => d.percentage), type: 'line', borderColor: 'var(--house-green)', borderWidth: 2, pointBackgroundColor: 'var(--house-green)', yAxisID: 'y-percent', tension: 0.2, order: 0 },
+                    { label: 'Rank', data: termData.map(d => d.rank), type: 'line', borderColor: 'var(--house-rose)', borderWidth: 2, pointBackgroundColor: 'var(--house-rose)', yAxisID: 'y-rank', tension: 0.2, order: 1 },
                     { label: 'Total Marks', data: termData.map(d => d.total), backgroundColor: 'var(--house-blue)', yAxisID: 'y-total', order: 2 }
                 ]}, options: { responsive: true, maintainAspectRatio: false, scales: { 'y-total': { type: 'linear', position: 'left', title: { display: true, text: 'Total Marks' } }, 'y-percent': { type: 'linear', position: 'right', display: false, max: 100, min: 0 }, 'y-rank': { type: 'linear', position: 'right', reverse: true, title: { display: true, text: 'Rank' }, grid: { drawOnChartArea: false } } } }});
             
@@ -772,6 +781,7 @@
                 disciplineModal.show();
             });
         }
+
         function buildStandingsChart(students, isSection = false) {
             const filter = document.getElementById('standingsFilter');
             const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
@@ -1300,6 +1310,7 @@
                 });
             });
         }
+        
         function showView(viewName) {
             homeView.classList.add('d-none');
             loginView.classList.remove('d-flex');
