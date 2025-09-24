@@ -460,6 +460,20 @@
   },
   {
     "role": "student",
+    "admissionNo": "15997",
+    "name": "Alexander Deepu",
+    "class": "05",
+    "gender": "M",
+    "division": "B",
+    "house": "Yellow",
+    "dob": "2015-10-06",
+    "phone": [
+      4503415997,
+      4503415997
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "15518",
     "name": "Ayush Arjun",
     "class": "05",
@@ -470,6 +484,20 @@
     "phone": [
       8891311008,
       7736680190
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "15126",
+    "name": "Edwin Abhilash Jacob",
+    "class": "05",
+    "gender": "M",
+    "division": "B",
+    "house": "Green",
+    "dob": "2015-11-05",
+    "phone": [
+      4503415126,
+      4503415126
     ]
   },
   {
@@ -1206,6 +1234,20 @@
   },
   {
     "role": "student",
+    "admissionNo": "14926",
+    "name": "Arleen Jomon",
+    "class": "06",
+    "gender": "F",
+    "division": "A",
+    "house": "Blue",
+    "dob": "2014-09-17",
+    "phone": [
+      4503414926,
+      4503414926
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "14949",
     "name": "Aswathy Ajeesh",
     "class": "06",
@@ -1258,6 +1300,20 @@
     "phone": [
       9061832571,
       9061832571
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "14948",
+    "name": "Eileen Binoy",
+    "class": "06",
+    "gender": "F",
+    "division": "A",
+    "house": "Green",
+    "dob": "2015-02-15",
+    "phone": [
+      4503414948,
+      4503414948
     ]
   },
   {
@@ -1346,6 +1402,20 @@
   },
   {
     "role": "student",
+    "admissionNo": "15746",
+    "name": "Adwaith Praveen",
+    "class": "06",
+    "gender": "M",
+    "division": "A",
+    "house": "Yellow",
+    "dob": "2014-03-10",
+    "phone": [
+      4503415746,
+      4503415746
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "14918",
     "name": "Adwaith S Krishnan",
     "class": "06",
@@ -1398,6 +1468,20 @@
     "phone": [
       9961199450,
       9961199450
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "14939",
+    "name": "Ashin Shine",
+    "class": "06",
+    "gender": "M",
+    "division": "A",
+    "house": "Yellow",
+    "dob": "2013-12-02",
+    "phone": [
+      4503414939,
+      4503414939
     ]
   },
   {
@@ -2583,6 +2667,20 @@
   },
   {
     "role": "student",
+    "admissionNo": "15973",
+    "name": "Anjalina Benny",
+    "class": "07",
+    "gender": "F",
+    "division": "B",
+    "house": "Yellow",
+    "dob": "2014-04-26",
+    "phone": [
+      4503415973,
+      4503415973
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "15589",
     "name": "Avani P A",
     "class": "07",
@@ -2905,6 +3003,20 @@
   },
   {
     "role": "student",
+    "admissionNo": "15592",
+    "name": "Dace Roshan",
+    "class": "07",
+    "gender": "M",
+    "division": "B",
+    "house": "Green",
+    "dob": "2013-07-19",
+    "phone": [
+      4503415592,
+      4503415592
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "14737",
     "name": "Eby Jimmon",
     "class": "07",
@@ -2957,6 +3069,20 @@
     "phone": [
       9446924174,
       9446924174
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "15355",
+    "name": "Joel Kuriakose Salmon",
+    "class": "07",
+    "gender": "M",
+    "division": "B",
+    "house": "Yellow",
+    "dob": "2012-06-20",
+    "phone": [
+      4503415355,
+      4503415355
     ]
   },
   {
@@ -3488,6 +3614,34 @@
   },
   {
     "role": "student",
+    "admissionNo": "14735",
+    "name": "Calvin Sojan",
+    "class": "07",
+    "gender": "M",
+    "division": "C",
+    "house": "Green",
+    "dob": "2013-01-09",
+    "phone": [
+      4503414735,
+      4503414735
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "16042",
+    "name": "Jeffril Renju Alex",
+    "class": "07",
+    "gender": "M",
+    "division": "C",
+    "house": "Yellow",
+    "dob": "2012-10-13",
+    "phone": [
+      4503416042,
+      4503416042
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "15590",
     "name": "Joshua Jomon",
     "class": "07",
@@ -3525,6 +3679,20 @@
     "dob": "2012-11-09",
     "phone": [
       9961297459
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "14752",
+    "name": "Nivin Fenil",
+    "class": "07",
+    "gender": "M",
+    "division": "C",
+    "house": "Rose",
+    "dob": "2013-03-01",
+    "phone": [
+      4503414752,
+      4503414752
     ]
   },
   {
@@ -3595,6 +3763,20 @@
     "phone": [
       9048487508,
       9072021784
+    ]
+  },
+  {
+    "role": "student",
+    "admissionNo": "16052",
+    "name": "Anusree",
+    "class": "08",
+    "gender": "F",
+    "division": "A",
+    "house": "Green",
+    "dob": "2013-04-05",
+    "phone": [
+      4503416052,
+      4503416052
     ]
   },
   {
