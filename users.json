@@ -1779,6 +1779,20 @@
   },
   {
     "role": "student",
+    "admissionNo": "16053",
+    "name": "Devikrishna S",
+    "class": "",
+    "gender": "F",
+    "division": "",
+    "house": "",
+    "dob": "",
+    "phone": [
+      9778505479,
+      9778505479
+    ]
+  },
+  {
+    "role": "student",
     "admissionNo": "14938",
     "name": "Jayce Lijo",
     "class": "06",
