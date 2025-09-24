@@ -26828,6 +26828,50 @@
         }
     },
     {
+        "admissionNo": 16053,
+        "terms": {
+            "Monthly Exam 01": {
+                "marks": {
+                    "Mal I": "Ab",
+                    "Mal II": "Ab",
+                    "English": "Ab",
+                    "Hindi": "Ab",
+                    "B.S.": "Ab",
+                    "S.S.": "Ab",
+                    "Maths": "Ab"
+                },
+                "total": "Ab",
+                "rank": "Ab"
+            },
+            "First Mid Term Exam": {
+                "marks": {
+                    "Mal I": "Ab",
+                    "Mal II": "Ab",
+                    "English": "Ab",
+                    "Hindi": "Ab",
+                    "B.S.": "Ab",
+                    "S.S.": "Ab",
+                    "Maths": "Ab"
+                },
+                "total": "Ab",
+                "rank": "Ab"
+            },
+            "First Term Exam": {
+                "marks": {
+                    "Mal I": 26,
+                    "Mal II": 27,
+                    "English": 27,
+                    "Hindi": 29,
+                    "B.S.": 25,
+                    "S.S.": 24,
+                    "Maths": 18
+                },
+                "total": "Ab",
+                "rank": "Ab"
+            }
+        }
+    },
+    {
         "admissionNo": 14938,
         "terms": {
             "Monthly Exam 01": {
