@@ -271,25 +271,41 @@
         "Timestamp": "2025-09-25 10:51:12"
     },
     {
-        "admissionNo": 1577315187,
+        "admissionNo": [
+            15773,
+            15187
+        ],
         "Activity": "Indiscipline",
         "Rating": 3,
         "Timestamp": "2025-09-25 10:52:26"
     },
     {
-        "admissionNo": 15985151381598400000,
+        "admissionNo": [
+            15985,
+            15138,
+            15984,
+            0
+        ],
         "Activity": "Fighting",
         "Rating": 5,
         "Timestamp": "2025-09-25 10:54:32"
     },
     {
-        "admissionNo": 153601577215994,
+        "admissionNo": [
+            15360,
+            15772,
+            15994
+        ],
         "Activity": "Bad Words",
         "Rating": 5,
         "Timestamp": "2025-09-25 10:57:24"
     },
     {
-        "admissionNo": 145341513814766,
+        "admissionNo": [
+            14534,
+            15138,
+            14766
+        ],
         "Activity": "Missing Homework",
         "Rating": 5,
         "Timestamp": "2025-09-25 10:59:03"
@@ -307,21 +323,63 @@
         "Timestamp": "2025-09-25 11:08:38"
     },
     {
-        "admissionNo": 157731604015992,
+        "admissionNo": [
+            15773,
+            16040,
+            15992
+        ],
         "Activity": "Fighting",
         "Rating": 5,
         "Timestamp": "2025-09-25 11:10:31"
     },
     {
-        "admissionNo": 157731456214561,
+        "admissionNo": [
+            15773,
+            14562,
+            14561
+        ],
         "Activity": "Indisciplinary activity at anytime",
         "Rating": 5,
         "Timestamp": "2025-09-25 11:12:13"
     },
     {
-        "admissionNo": 145631577314522,
+        "admissionNo": [
+            14563,
+            15773,
+            14522
+        ],
         "Activity": "Bad Words",
         "Rating": 5,
         "Timestamp": "2025-09-25 11:13:59"
+    },
+    {
+        "admissionNo": 14720,
+        "Activity": "Indiscipline",
+        "Rating": 1,
+        "Timestamp": "2025-09-25 12:36:28"
+    },
+    {
+        "admissionNo": 14729,
+        "Activity": "Indiscipline",
+        "Rating": 1,
+        "Timestamp": "2025-09-25 12:37:05"
+    },
+    {
+        "admissionNo": 15768,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-25 12:37:50"
+    },
+    {
+        "admissionNo": 15761,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-25 12:38:19"
+    },
+    {
+        "admissionNo": 15590,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-25 12:38:46"
     }
 ]
