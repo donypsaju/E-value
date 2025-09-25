@@ -46,7 +46,7 @@ async function initializeApp() {
                 const query = e.target.value.toLowerCase();
                 const searchResultsEl = document.getElementById('headerSearchResults');
                 if (!query) {
-                    searchResultsEl.innerHTML = '';
+                    if(searchResultsEl) searchResultsEl.innerHTML = '';
                     return;
                 }
                 const results = appData.processedStudents.filter(s =>
@@ -97,7 +97,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeUI({ discipline: disciplineModal, iframe: iframeModal, dobVerify: dobVerifyModal });
 
-    // ... (Login form and DOB verify listeners remain the same)
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showProgressBar();
+            const errorElement = document.getElementById('loginError');
+            if (errorElement) errorElement.textContent = '';
+            try {
+                const phone = document.getElementById('phone').value;
+                const dob = document.getElementById('dob').value;
+                const user = await handleLoginAttempt(phone, dob);
+                if (user) {
+                    await initializeApp();
+                } else {
+                    if (errorElement) errorElement.textContent = 'Invalid credentials. Please try again.';
+                    hideProgressBar();
+                }
+            } catch (error) {
+                console.error("Login attempt failed:", error);
+                if (errorElement) errorElement.textContent = 'An unexpected error occurred during login.';
+                hideProgressBar();
+            }
+        });
+    }
+
+    const dobVerifyForm = document.getElementById('dobVerifyForm');
+    if (dobVerifyForm) {
+        dobVerifyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const admNo = document.getElementById('dobVerifyAdmissionNo').value;
+            const dob = document.getElementById('dobVerifyInput').value;
+            const errorEl = document.getElementById('dobError');
+            errorEl.textContent = '';
+
+            const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
+            if (targetStudent && targetStudent.dob === dob) {
+                setSession(targetStudent);
+                dobVerifyModal.hide();
+                await initializeApp();
+            } else {
+                errorEl.textContent = "Incorrect date of birth. Please try again.";
+            }
+        });
+    }
 
     const dashboardView = document.getElementById('dashboardView');
     if (dashboardView) {
@@ -106,39 +149,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
                 initializeApp();
-            }
-            
-            else if (target.closest('#showDiscipline')) {
+            } else if (target.closest('#showDiscipline')) {
                 const button = target.closest('#showDiscipline');
-                const admNo = button.dataset.admissionNo; // THE FIX: Get admNo from the button
-                const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo); // Find student by admNo
-                
+                const admNo = button.dataset.admissionNo;
+                const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
                 if (student) {
                     const modalBody = document.getElementById('modal-content-body');
                     const studentActivities = appData.activities.filter(a => isActivityForStudent(a, student));
                     modalBody.innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-success' : 'text-danger'} fw-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
                     disciplineModal.show();
                 }
-            }
-
-            else if (target.matches('[data-admission-no]')) {
-                 const admNo = target.dataset.admissionNo;
-                 const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
-                 if (student) {
-                     buildStudentDashboard(student, appData.activities, currentUser, []);
-                 }
-                 document.getElementById('headerSearch').value = '';
-                 document.getElementById('headerSearchResults').innerHTML = '';
-             }
-
-            else if (target.closest('#launchWidgetBtn')) {
+            } else if (target.matches('[data-admission-no]')) {
+                const admNo = target.dataset.admissionNo;
+                const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
+                if (student) {
+                    buildStudentDashboard(student, appData.activities, currentUser, []);
+                }
+                const searchInput = document.getElementById('headerSearch');
+                const searchResultsEl = document.getElementById('headerSearchResults');
+                if(searchInput) searchInput.value = '';
+                if(searchResultsEl) searchResultsEl.innerHTML = '';
+            } else if (target.closest('#launchWidgetBtn')) {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             }
         });
     }
-    
-    // --- Listeners for Other Controls ---
+
     const widgetModalEl = document.getElementById('houseWidgetModal');
     if (widgetModalEl) {
         widgetModalEl.addEventListener('shown.bs.modal', () => {
@@ -158,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
     });
-
     document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-bs-theme');
@@ -171,8 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('language') || 'en';
     setLanguage(savedLang);
 
-    // --- Start the Application ---
     initializeApp();
-    // ... (Other listeners remain the same)
 });
 
