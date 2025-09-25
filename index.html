@@ -4,88 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Value V.1.0</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <style>
         /* --- Base and Typography --- */
-        body {
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        #noscript-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-primary, #F7F9FB);
-            color: var(--text-primary, #3D405B);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 9999;
-            padding: 2rem;
-        }
-
+        body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        #noscript-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-primary, #F7F9FB); color: var(--text-primary, #3D405B); display: flex; justify-content: center; align-items: center; text-align: center; z-index: 9999; padding: 2rem; }
         /* --- THEME COLORS using CSS Variables --- */
-        [data-bs-theme="light"] {
-            --bg-primary: #F7F9FB;      
-            --bg-secondary: #ffffff;   
-            --text-primary: #3D405B;   
-            --text-secondary: #8D99AE; 
-            --border-color: #E0E0E0;
-            --theme-primary: #F38181;   
-            --house-blue: #81B2D9;     
-            --house-green: #95E1D3;   
-            --house-yellow: #FCE38A;   
-            --house-rose: #F38181;     
-            --trend-up: #95E1D3;
-            --trend-down: #F38181;
-            --trend-stable: #8D99AE;
-            --grade-a: #95E1D3;
-            --grade-b: #AED9A5;
-            --grade-c: #FCE38A;
-            --grade-d: #F4B678;
-            --grade-e: #F38181;
-        }
-
-        [data-bs-theme="dark"] {
-            --bg-primary: #242424;
-            --bg-secondary: #333533;
-            --text-primary: #F5F5F5;
-            --text-secondary: #ADB5BD;
-            --border-color: #495057;
-            --theme-primary: #F38181;
-            --house-blue: #A9D6F5;
-            --house-green: #95E1D3;
-            --house-yellow: #FCE38A;
-            --house-rose: #F38181;
-            --trend-up: #95E1D3;
-            --trend-down: #F38181;
-            --trend-stable: #ADB5BD;
-            --grade-a: #95E1D3;
-            --grade-b: #AED9A5;
-            --grade-c: #FCE38A;
-            --grade-d: #F4B678;
-            --grade-e: #F38181;
-            
-            --bs-body-bg: var(--bg-primary);
-            --bs-body-color: var(--text-primary);
-            --bs-border-color: var(--border-color);
-        }
-        
+        [data-bs-theme="light"] { --bg-primary: #F7F9FB; --bg-secondary: #ffffff; --text-primary: #3D405B; --text-secondary: #8D99AE; --border-color: #E0E0E0; --theme-primary: #F38181; --house-blue: #81B2D9; --house-green: #95E1D3; --house-yellow: #FCE38A; --house-rose: #F38181; --trend-up: #95E1D3; --trend-down: #F38181; --trend-stable: #8D99AE; --grade-a: #95E1D3; --grade-b: #AED9A5; --grade-c: #FCE38A; --grade-d: #F4B678; --grade-e: #F38181; }
+        [data-bs-theme="dark"] { --bg-primary: #242424; --bg-secondary: #333533; --text-primary: #F5F5F5; --text-secondary: #ADB5BD; --border-color: #495057; --theme-primary: #F38181; --house-blue: #A9D6F5; --house-green: #95E1D3; --house-yellow: #FCE38A; --house-rose: #F38181; --trend-up: #95E1D3; --trend-down: #F38181; --trend-stable: #ADB5BD; --grade-a: #95E1D3; --grade-b: #AED9A5; --grade-c: #FCE38A; --grade-d: #F4B678; --grade-e: #F38181; --bs-body-bg: var(--bg-primary); --bs-body-color: var(--text-primary); --bs-border-color: var(--border-color); }
         /* Apply themed colors */
         body { background-color: var(--bg-primary); color: var(--text-primary); }
         .card, .modal-content, header, .offcanvas { background-color: var(--bg-secondary); border-color: var(--border-color); }
@@ -94,8 +31,6 @@
         p, label, span, button, a, div, li, i { color: var(--text-secondary); }
         .btn-close { filter: invert(0.5); }
         [data-bs-theme="dark"] .btn-close { filter: invert(1); }
-
-
         /* Theme-specific primary colors */
         body.theme-hm, body.theme-teacher { --theme-text: var(--theme-primary); }
         body.theme-blue { --theme-text: var(--house-blue); }
@@ -103,24 +38,15 @@
         body.theme-yellow { --theme-text: var(--house-yellow); }
         body.theme-rose { --theme-text: var(--house-rose); }
         body { --theme-text: var(--theme-primary); } /* Default for home/login */
-        
         .themed-bg { background-color: var(--theme-text) !important; color: white !important; border: none;}
         .themed-bg:hover { filter: brightness(1.1); }
-        .themed-bg span, .themed-bg i { color: white !important; } 
+        .themed-bg span, .themed-bg i { color: white !important; }
         .themed-text { color: var(--theme-text) !important; }
-        
         /* General Component Styles */
         .dashboard-card { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        @keyframes indeterminate-progress {
-            0% { transform: translateX(-100%) scaleX(0.1); }
-            40% { transform: translateX(0) scaleX(0.4); }
-            100% { transform: translateX(100%) scaleX(0.5); }
-        }
-
+        @keyframes indeterminate-progress { 0% { transform: translateX(-100%) scaleX(0.1); } 40% { transform: translateX(0) scaleX(0.4); } 100% { transform: translateX(100%) scaleX(0.5); } }
         .action-btn { font-weight: 500; }
-        
         /* Theme Switcher */
         .theme-switcher-btn { cursor: pointer; background-color: var(--bg-secondary); border-radius: 9999px; padding: 4px; display: flex; align-items: center; transition: background-color 0.3s; position: relative; width: 56px; height: 32px; border: 1px solid var(--border-color); }
         .theme-switcher-thumb { position: absolute; width: 24px; height: 24px; background-color: var(--theme-text); border-radius: 50%; transition: transform 0.3s ease-out; }
@@ -128,18 +54,27 @@
         html[data-bs-theme="dark"] .theme-switcher-thumb { transform: translateX(24px); }
         .lang-btn { padding: 0.25rem 0.5rem; border-radius: 0.5rem; border: none; background: transparent; }
         .lang-btn.active { background-color: var(--theme-text); color: white !important; }
-
         /* Distinctive Text Colors */
         .trend-up { color: var(--trend-up); }
         .trend-down { color: var(--trend-down); }
         .trend-stable { color: var(--trend-stable); }
-        .grade-a-plus, .grade-a { color: var(--grade-a); } 
-        .grade-b-plus, .grade-b { color: var(--grade-b); } 
-        .grade-c-plus, .grade-c { color: var(--grade-c); } 
-        .grade-d-plus, .grade-d { color: var(--grade-d); } 
-        .grade-e { color: var(--grade-e); } 
+        .grade-a-plus, .grade-a { color: var(--grade-a); }
+        .grade-b-plus, .grade-b { color: var(--grade-b); }
+        .grade-c-plus, .grade-c { color: var(--grade-c); }
+        .grade-d-plus, .grade-d { color: var(--grade-d); }
+        .grade-e { color: var(--grade-e); }
+
+        /* --- House Widget Styles --- */
+        .widget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; height: 100%; padding: 1rem; }
+        .widget-house-card { background: var(--bg-secondary); border-radius: 1rem; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-left: 10px solid; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .widget-house-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .widget-house-card .rank { font-size: 2rem; font-weight: 700; color: var(--text-secondary); }
+        .widget-house-card .house-name { font-size: 2.5rem; font-weight: 600; margin: 0.5rem 0; }
+        .widget-house-card .total-points { font-size: 4.5rem; font-weight: 700; line-height: 1; color: var(--text-primary); }
+        .widget-house-card .daily-change { margin-top: 1.5rem; font-size: 1.5rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 9999px; background-color: var(--bg-primary); }
+        .daily-change .arrow { font-weight: 700; }
     </style>
-    
+
     <script>
         // Prevents theme flashing on reload
         (function() {
@@ -157,7 +92,7 @@
             </div>
         </div>
     </noscript>
-    
+
     <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
         <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
     </div>
@@ -165,12 +100,12 @@
     <div id="homeView" class="min-vh-100 d-flex align-items-center justify-content-center p-4">
         <div id="globalControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
              <div class="card p-1 d-flex flex-row gap-1">
-                <button class="lang-btn btn-sm" data-lang="en">EN</button>
-                <button class="lang-btn btn-sm" data-lang="ml">മല</button>
-            </div>
-            <button class="theme-switcher-btn">
-                <div class="theme-switcher-thumb"></div>
-            </button>
+                 <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                 <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+             </div>
+             <button class="theme-switcher-btn" aria-label="Toggle theme">
+                 <div class="theme-switcher-thumb"></div>
+             </button>
         </div>
 
         <div class="container-lg pt-5">
@@ -203,11 +138,11 @@
                     </div>
                 </div>
                  <div class="mt-5 text-center">
-                    <button id="goToLoginBtn" class="btn btn-lg rounded-pill themed-bg action-btn px-4">
-                        <span data-translate-key="login_button">Go to Login</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
+                     <button id="goToLoginBtn" class="btn btn-lg rounded-pill themed-bg action-btn px-4">
+                         <span data-translate-key="login_button">Go to Login</span>
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+                 </div>
             </div>
         </div>
     </div>
@@ -230,7 +165,7 @@
                     <div>
                         <button type="submit" class="btn btn-lg w-100 themed-bg fw-semibold">Login</button>
                     </div>
-                    <p id="loginError" class="text-center text-danger small"></p>
+                    <p id="loginError" class="text-center text-danger small" aria-live="polite"></p>
                     <div class="text-center">
                         <button type="button" id="backToHomeBtn" class="btn btn-link btn-sm text-decoration-none">&larr; Back to Home</button>
                     </div>
@@ -257,14 +192,14 @@
                             <button class="lang-btn btn-sm" data-lang="en">EN</button>
                             <button class="lang-btn btn-sm" data-lang="ml">മല</button>
                         </div>
-                        <button class="theme-switcher-btn">
+                        <button class="theme-switcher-btn" aria-label="Toggle theme">
                             <div class="theme-switcher-thumb"></div>
                         </button>
                         <button class="btn btn-sm themed-bg text-white rounded-pill px-3 logout-btn">Logout</button>
                     </div>
                     
                     <!-- Mobile Menu Button -->
-                    <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="settingsOffcanvas">
+                    <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="settingsOffcanvas" aria-label="Open menu">
                         <i class="fas fa-bars fs-4"></i>
                     </button>
                 </div>
@@ -277,1340 +212,108 @@
 
     <!-- Modals -->
     <div class="modal fade" id="disciplineModal" tabindex="-1" aria-labelledby="disciplineModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="disciplineModalLabel">Discipline & Activity Log</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="modal-content-body"></div>
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="disciplineModalLabel">Discipline & Activity Log</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-content-body"></div>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="modal fade" id="iframeModal" tabindex="-1" aria-labelledby="iframeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-centered" style="height: 85vh;">
-        <div class="modal-content h-100">
-          <div class="modal-header">
-            <h5 class="modal-title" id="iframeModalTitle">Loading...</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body p-2 h-100">
-             <iframe id="modalIframe" src="" class="w-100 h-100 border-0"></iframe>
-          </div>
+        <div class="modal-dialog modal-xl modal-dialog-centered" style="height: 85vh;">
+            <div class="modal-content h-100">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="iframeModalTitle">Loading...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-2 h-100">
+                    <iframe id="modalIframe" src="" class="w-100 h-100 border-0"></iframe>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="modal fade" id="dobVerifyModal" tabindex="-1" aria-labelledby="dobVerifyModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="dobVerifyTitle">Verify Child's Date of Birth</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form id="dobVerifyForm" class="modal-body d-grid gap-3">
-            <input type="hidden" id="dobVerifyAdmissionNo">
-            <div>
-              <label for="dobVerifyInput" class="form-label">Date of Birth</label>
-              <input id="dobVerifyInput" type="date" required class="form-control">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dobVerifyTitle">Verify Child's Date of Birth</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="dobVerifyForm" class="modal-body d-grid gap-3">
+                    <input type="hidden" id="dobVerifyAdmissionNo">
+                    <div>
+                        <label for="dobVerifyInput" class="form-label">Date of Birth</label>
+                        <input id="dobVerifyInput" type="date" required class="form-control">
+                    </div>
+                    <button type="submit" class="btn w-100 themed-bg">Verify & Switch</button>
+                    <p id="dobError" class="text-center small text-danger" aria-live="polite"></p>
+                </form>
             </div>
-            <button type="submit" class="btn w-100 themed-bg">Verify & Switch</button>
-            <p id="dobError" class="text-center small text-danger"></p>
-          </form>
         </div>
-      </div>
+    </div>
+    
+    <div class="modal fade" id="houseWidgetModal" tabindex="-1" aria-labelledby="houseWidgetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="--bg-secondary: #1a1a1a;">
+                <div class="modal-header border-0">
+                     <h5 class="modal-title" id="houseWidgetModalLabel">
+                        <span class="themed-text fw-bold">Live House Standings</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex flex-column" id="houseWidgetContent">
+                    <!-- Widget content will be injected here by JavaScript -->
+                </div>
+                <div class="modal-footer border-0 justify-content-between">
+                    <span class="small text-muted">This widget will automatically refresh every 60 seconds.</span>
+                    <span class="small text-muted" id="widgetLastUpdated"></span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Offcanvas Menu for Mobile -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffcanvas" aria-labelledby="settingsOffcanvasLabel">
-      <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title" id="settingsOffcanvasLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div id="userInfoMobile" class="p-3 mb-3 rounded text-center" style="background-color: var(--bg-primary);">
-            <!-- Mobile user info injected here -->
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="settingsOffcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        
-        <div class="d-flex justify-content-between align-items-center p-2">
-            <span>Language</span>
-            <div class="card p-1 d-flex flex-row gap-1">
-                 <button class="lang-btn btn-sm" data-lang="en">EN</button>
-                 <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+        <div class="offcanvas-body">
+            <div id="userInfoMobile" class="p-3 mb-3 rounded text-center" style="background-color: var(--bg-primary);">
+                <!-- Mobile user info injected here -->
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center p-2">
+                <span>Language</span>
+                <div class="card p-1 d-flex flex-row gap-1">
+                     <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                     <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center p-2">
+                <span>Theme</span>
+                <button class="theme-switcher-btn" aria-label="Toggle theme">
+                    <div class="theme-switcher-thumb"></div>
+                </button>
+            </div>
+            <hr>
+            <div class="d-grid">
+                <button class="btn themed-bg text-white rounded-pill logout-btn">Logout</button>
             </div>
         </div>
-        
-        <div class="d-flex justify-content-between align-items-center p-2">
-            <span>Theme</span>
-            <button class="theme-switcher-btn">
-                <div class="theme-switcher-thumb"></div>
-            </button>
-        </div>
-        <hr>
-        <div class="d-grid">
-            <button class="btn themed-bg text-white rounded-pill logout-btn">Logout</button>
-        </div>
-      </div>
     </div>
-
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script type="module">
-        // --- GLOBAL STATE ---
-        const APP_VERSION = '2.0'; // Updated Version
-        let currentUser = null;
-        let appData = { users: [], marks: [], activities: [], processedStudents: [] };
-        let standingsChart = null;
-        let loginView, dashboardView, progressBar, homeView, globalControls;
-        let disciplineModal, iframeModal, dobVerifyModal, settingsOffcanvas;
-
-        // --- TRANSLATION DATA ---
-        const translations = {
-            en: {
-                subtitle: "Student Evaluation Portal",
-                features_title: "Key Features",
-                feature_1: "Comprehensive Performance Tracking",
-                feature_2: "Detailed Subject-wise Analysis",
-                feature_3: "Parent Dashboard for Siblings",
-                feature_4: "House System and Discipline Points",
-                feature_5: "Light & Dark Mode Support",
-                instructions_title: "Instructions for Parents",
-                instruction_1: "Click the 'Go to Login' button below.",
-                instruction_2: "Enter your registered phone number.",
-                instruction_3: "Enter one of your children's date of birth.",
-                instruction_4: "You will see a dashboard with all your children listed.",
-                instruction_5: "To view another child, click 'Switch' and verify.",
-                login_button: "Go to Login"
-            },
-            ml: {
-                subtitle: "വിദ്യാർത്ഥി മൂല്യനിർണ്ണയ പോർട്ടൽ",
-                features_title: "പ്രധാന സവിശേഷതകൾ",
-                feature_1: "സമഗ്രമായ പ്രകടന വിലയിരുത്തൽ",
-                feature_2: "വിഷയം തിരിച്ചുള്ള വിശദമായ വിശകലനം",
-                feature_3: "സഹോദരങ്ങൾക്കായി പാരന്റ് ഡാഷ്‌ബോർഡ്",
-                feature_4: "ഹൗസ് സിസ്റ്റവും അച്ചടക്ക പോയിന്റുകളും",
-                feature_5: "ലൈറ്റ് & ഡാർക്ക് മോഡ് പിന്തുണ",
-                instructions_title: "രക്ഷിതാക്കൾക്കുള്ള നിർദ്ദേശങ്ങൾ",
-                instruction_1: "താഴെയുള്ള 'ലോഗിൻ ചെയ്യുക' ബട്ടൺ ക്ലിക്ക് ചെയ്യുക.",
-                instruction_2: "നിങ്ങളുടെ രജിസ്റ്റർ ചെയ്ത ഫോൺ നമ്പർ നൽകുക.",
-                instruction_3: "ലോഗിൻ ചെയ്യുന്നതിന് നിങ്ങളുടെ ഒരു കുട്ടിയുടെ ജനനത്തീയതി നൽകുക.",
-                instruction_4: "നിങ്ങളുടെ എല്ലാ കുട്ടികളെയും ഉൾപ്പെടുത്തിയ ഒരു ഡാഷ്‌ബോർഡ് നിങ്ങൾ കാണും.",
-                instruction_5: "മറ്റൊരു കുട്ടിയുടെ പ്രൊഫൈൽ കാണുന്നതിന്, 'Switch' ക്ലിക്ക് ചെയ്ത് അവരുടെ ജനനത്തീയതി ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക.",
-                login_button: "ലോഗിൻ ചെയ്യുക"
-            }
-        };
-
-        // --- ACTIVITY RULES ---
-        const activityRules = {
-            "Class Cleaning": 5, "Assembly Appearance": 5, "Response in Class Activities": 5,
-            "Competitive Winner": 10, "Extra Curricular Activities": 10, "Helping Mind": 10,
-            "Class Performance": 10, "Participation in common activities": 10,
-            "Bad Words": -15, "Fighting": -20, "Misbehaviour in public place": -20,
-            "Misbehaviour towards teachers": -15, "Without ID Card": -10, "Indiscipline": -10,
-            "Misbehaviour in Assembly": -10, "Indisciplinary activity at anytime": -10,
-            "Personal Hygiene": -10, "Incomplete Uniform": -5, "Missing Homework": -5,
-            "Play during interval": -5
-        };
-
-        // --- DATA & SESSION MANAGEMENT (Local Storage) ---
-
-        function setSession(user) {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-        }
-
-        function getSession() {
-            const user = localStorage.getItem('currentUser');
-            return user ? JSON.parse(user) : null;
-        }
-
-        function logout() {
-            localStorage.removeItem('currentUser');
-            // Clear appData to ensure fresh data on next login
-            appData = { users: [], marks: [], activities: [], processedStudents: [] };
-            showView('home');
-        }
-
-        async function fetchAllData() {
-            try {
-                const [usersRes, marksRes, activitiesRes] = await Promise.all([
-                    fetch('./users.json'),
-                    fetch('./marks.json'),
-                    fetch('./activities.json')
-                ]);
-                if (!usersRes.ok || !marksRes.ok || !activitiesRes.ok) {
-                     throw new Error('Network response was not ok');
-                }
-                const users = await usersRes.json();
-                const marks = await marksRes.json();
-                const activities = await activitiesRes.json();
-                return { users, marks, activities };
-            } catch (error) {
-                console.error("Failed to fetch critical data:", error);
-                throw new Error("Could not load school data. Please check the network connection.");
-            }
-        }
-
-
-        // --- DATA PROCESSING & CALCULATIONS ---
-        function isActivityForStudent(activity, student) {
-            const studentAdmNoStr = student.admissionNo.toString();
-            const activityAdmNo = activity.admissionNo;
-
-            if (Array.isArray(activityAdmNo)) {
-                // Count occurrences of the student's admission number
-                return activityAdmNo.filter(adm => adm.toString() === studentAdmNoStr).length;
-            } else if (activityAdmNo) {
-                return activityAdmNo.toString() === studentAdmNoStr ? 1 : 0;
-            }
-            return 0;
-        }
-
-        function processStudentData(students, marksData, activities) {
-            const studentsByClass = students.reduce((acc, student) => {
-                const classKey = `${student.class}-${student.division}`;
-                if (!acc[classKey]) acc[classKey] = [];
-                acc[classKey].push(student);
-                return acc;
-            }, {});
-
-            let finalProcessedStudents = [];
-            for (const classKey in studentsByClass) {
-                const classStudents = studentsByClass[classKey];
-                const studentScores = classStudents.map(student => {
-                    const studentMarksRecord = marksData.find(m => m.admissionNo.toString() === student.admissionNo.toString());
-                    let academicTotal = 0;
-                    if (studentMarksRecord && studentMarksRecord.terms) {
-                        academicTotal = Object.values(studentMarksRecord.terms).reduce((sum, term) => sum + (typeof term.total === 'number' ? term.total : 0), 0);
-                    }
-                    
-                    const disciplinePoints = activities
-                        .reduce((sum, act) => {
-                            const occurrences = isActivityForStudent(act, student);
-                            if (occurrences > 0) {
-                                const basePoints = activityRules[act.Activity] || 0;
-                                const calculatedPoints = (act.Rating / 5) * basePoints;
-                                return sum + (calculatedPoints * occurrences);
-                            }
-                            return sum;
-                        }, 0);
-
-                    const housePoints = academicTotal + disciplinePoints;
-
-                    return { ...student, academicTotal, disciplinePoints, housePoints, marksRecord: studentMarksRecord };
-                });
-                studentScores.sort((a, b) => b.academicTotal - a.academicTotal).forEach((s, i) => s.academicRank = i + 1);
-                studentScores.sort((a, b) => b.disciplinePoints - a.disciplinePoints).forEach((s, i) => s.disciplineRank = i + 1);
-                finalProcessedStudents.push(...studentScores);
-            }
-            return finalProcessedStudents;
-        }
-
-        function getSection(className) {
-            const classNum = parseInt(className, 10);
-            if (classNum >= 1 && classNum <= 4) return 'LP';
-            if (classNum >= 5 && classNum <= 7) return 'UP';
-            if (classNum >= 8 && classNum <= 10) return 'HS';
-            return 'Other';
-        }
-            
-        function getTeacherSection(designation) {
-            if (designation === 'LPST') return ['LP'];
-            if (designation === 'UPST') return ['UP'];
-            if (designation && (designation.startsWith('HST'))) return ['HS'];
-            if (designation === 'PET' || designation === 'Drawing Teacher') return ['UP', 'HS']; // FIX: Return array for multiple sections
-            return null;
-        }
-
-        function customClassSort(a, b) {
-            const partsA = a.split('-');
-            const partsB = b.split('-');
-            const numA = parseInt(partsA[0], 10);
-            const numB = parseInt(partsB[0], 10);
-            if (numA !== numB) return numA - numB;
-            return (partsA[1] || '').localeCompare(partsB[1] || '');
-        }
-
-        function getGradeInfo(mark, subject, termKey, studentClass) {
-            const section = getSection(studentClass);
-            const classNum = parseInt(studentClass, 10);
-            let maxMark = 100;
-
-            const termLower = termKey.toLowerCase();
-            if (termLower.includes('monthly exam 01') || termLower.includes('first mid term')) {
-                maxMark = 20;
-            } else if (termLower.includes('first term')) {
-                if (section === 'UP') maxMark = 30;
-                else if (classNum === 8) maxMark = ['Physics', 'Chemistry', 'Biology'].includes(subject) ? 20 : 40;
-                else if (classNum === 9 || classNum === 10) maxMark = ['English', 'Social Science', 'Maths'].includes(subject) ? 80 : 40;
-                else if (section === 'LP') maxMark = 25;
-            }
-            
-            if (typeof mark !== 'number' || mark === null || mark === undefined) return { grade: 'Ab', cssClass: '', maxMark };
-
-            const percentage = (mark / maxMark) * 100;
-
-            if (section === 'UP' || classNum === 8) {
-                if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-                if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-                if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-                if (percentage >= 30) return { grade: 'D', cssClass: 'grade-d', maxMark };
-                return { grade: 'E', cssClass: 'grade-e', maxMark };
-            } else { // HS and LP
-                if (percentage >= 90) return { grade: 'A+', cssClass: 'grade-a-plus', maxMark };
-                if (percentage >= 80) return { grade: 'A', cssClass: 'grade-a', maxMark };
-                if (percentage >= 70) return { grade: 'B+', cssClass: 'grade-b-plus', maxMark };
-                if (percentage >= 60) return { grade: 'B', cssClass: 'grade-b', maxMark };
-                if (percentage >= 50) return { grade: 'C+', cssClass: 'grade-c-plus', maxMark };
-                if (percentage >= 40) return { grade: 'C', cssClass: 'grade-c', maxMark };
-                if (percentage >= 30) return { grade: 'D+', cssClass: 'grade-d-plus', maxMark };
-                if (percentage >= 20) return { grade: 'D', cssClass: 'grade-d', maxMark };
-                return { grade: 'E', cssClass: 'grade-e', maxMark };
-            }
-        }
-
-        // --- UI RENDERING ---
-        const dashboardContainer = document.getElementById('dashboard-container');
-
-        function buildHMDashboard(user, allStudents, processedStudents) {
-            dashboardContainer.innerHTML = `
-            <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a></div></div></div>
-            <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
-            <div id="leaderboardCard"></div>
-            <div id="classToppersCard"></div>
-            <div id="subjectToppersCard"></div>`;
-
-            buildStandingsChart(processedStudents);
-            buildLeaderboardCard(processedStudents, appData.activities, false);
-            buildClassToppersCard(processedStudents);
-            buildSubjectToppersCard(processedStudents);
-            dashboardContainer.addEventListener('click', handleDashboardClick);
-        }
-
-        function buildTeacherDashboard(user, allStudents, processedStudents) {
-            const teacherSections = getTeacherSection(user.designation);
-            if (!teacherSections || teacherSections.length === 0) {
-                dashboardContainer.innerHTML = `<div class="card text-danger shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div></div>`;
-                return;
-            }
-            
-            const markEntryUrls = {
-                LP: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
-                UP: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
-                HS: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
-            };
-
-            const markEntryButtons = teacherSections.map(section => 
-                `<a href="${markEntryUrls[section]}" target="_blank" class="btn themed-bg action-btn rounded-pill">${section} Mark Entry</a>`
-            ).join('');
-
-            const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
-            
-            dashboardContainer.innerHTML = `
-                <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>${markEntryButtons}</div></div></div>
-                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings (${teacherSections.join(' & ')})</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="section">Section-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
-                <div id="leaderboardCard"></div>
-                <div id="classToppersCard"></div>
-                <div id="subjectToppersCard"></div>
-                <div id="reportGeneratorCard"></div>`;
-
-            buildStandingsChart(sectionStudents, true);
-            buildLeaderboardCard(sectionStudents, appData.activities, true);
-            buildClassToppersCard(sectionStudents);
-            buildSubjectToppersCard(sectionStudents);
-            buildReportGeneratorCard(sectionStudents);
-            dashboardContainer.addEventListener('click', handleDashboardClick);
-        }
-        
-        function buildParentDashboard(currentChild, siblings, processedStudents) {
-            const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
-            dashboardContainer.innerHTML = `
-            <div class="card shadow-sm dashboard-card">
-                <div class="card-body">
-                    <h2 class="h5 card-title fw-bold">Parent Dashboard</h2>
-                    <p class="card-text mb-4">Select a child to view their detailed academic profile.</p>
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        ${allChildren.map(child => {
-                            const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
-                            const borderClass = child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-primary' : '';
-                            return `
-                            <div class="col">
-                                <div class="card h-100 ${borderClass}">
-                                    <div class="card-body d-flex flex-column">
-                                        <h3 class="h6 card-title fw-bold">${child.name}</h3>
-                                        <p class="small">Class ${child.class}-${child.division}</p>
-                                        <p class="small">House: ${child.house}</p>
-                                        ${studentData ? `
-                                            <div class="mt-2 small">
-                                                <p>Academic Rank: <span class="fw-bold themed-text">#${studentData.academicRank}</span></p>
-                                                <p>Discipline Rank: <span class="fw-bold themed-text">#${studentData.disciplineRank}</span></p>
-                                            </div>` : ''
-                                        }
-                                        <button class="btn btn-sm themed-bg w-100 mt-auto view-sibling-profile" data-admission-no="${child.admissionNo}">
-                                            ${child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'View Full Profile' : 'Switch to Profile'}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        `}).join('')}
-                    </div>
-                </div>
-            </div>`;
-
-            document.querySelectorAll('.view-sibling-profile').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const admNo = e.target.closest('button').dataset.admissionNo;
-                    const studentData = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
-
-                    if (admNo === currentUser.admissionNo.toString()) {
-                        const siblingsOfTarget = appData.users.filter(s => {
-                            if (s.role !== 'student' || !s.admissionNo || s.admissionNo.toString() === admNo) return false;
-                            const targetPhones = Array.isArray(studentData.phone) ? studentData.phone : [studentData.phone];
-                            const potentialPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
-                            return targetPhones.some(p => potentialPhones.includes(p));
-                        });
-                        if (studentData) buildStudentDashboard(studentData, appData.activities, null, siblingsOfTarget);
-                    } else {
-                        document.getElementById('dobVerifyAdmissionNo').value = admNo;
-                        document.getElementById('dobError').textContent = '';
-                        document.getElementById('dobVerifyForm').reset();
-                        dobVerifyModal.show();
-                    }
-                });
-            });
-        }
-        
-        function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
-            const { marksRecord } = student;
-            if (!marksRecord || !marksRecord.terms) {
-                dashboardContainer.innerHTML = `<div class="card shadow-sm dashboard-card"><div class="card-body"><p class="text-center">No marks data found for this student.</p></div></div>`;
-                return;
-            }
-
-            const studentActivities = activities.filter(a => isActivityForStudent(a, student));
-            const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
-            const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
-            const allSubjects = [...new Set(termKeys.flatMap(key => marksRecord.terms[key].marks ? Object.keys(marksRecord.terms[key].marks) : []))];
-            
-            const getTrend = (subject, currentTermKey) => {
-                const currentTermIndex = termKeys.indexOf(currentTermKey);
-                if (currentTermIndex < 1) return '<span>-</span>';
-                const prevTermKey = termKeys[currentTermIndex - 1];
-                const currentMark = marksRecord.terms[currentTermKey]?.marks?.[subject];
-                const prevMark = marksRecord.terms[prevTermKey]?.marks?.[subject];
-                if (typeof currentMark !== 'number' || typeof prevMark !== 'number') return '<span>-</span>';
-                if (currentMark > prevMark) return `<span class="trend-up">&uarr; Improving</span>`;
-                if (currentMark < prevMark) return `<span class="trend-down">&darr; Declining</span>`;
-                return `<span class="trend-stable">&rarr; Stable</span>`;
-            };
-
-            let previousRank = null;
-            const termCardsHTML = termKeys.map(key => {
-                const term = marksRecord.terms[key];
-                if (!term) return '';
-                
-                const maxTotal = Object.keys(term.marks || {}).reduce((sum, subject) => {
-                    const { maxMark } = getGradeInfo(0, subject, key, student.class);
-                    return sum + maxMark;
-                }, 0);
-
-                const percentage = maxTotal > 0 ? ((term.total / maxTotal) * 100).toFixed(1) : 0;
-                let rankChangeHTML = '';
-                if (previousRank !== null && typeof term.rank === 'number') {
-                    const change = previousRank - term.rank;
-                    if (change > 0) rankChangeHTML = `<span class="small trend-up fw-medium ms-2">(+${change})</span>`;
-                    else if (change < 0) rankChangeHTML = `<span class="small trend-down fw-medium ms-2">(${change})</span>`;
-                }
-                previousRank = term.rank;
-                return `<div class="col"><div class="card h-100 shadow-sm dashboard-card"><div class="card-body text-center"><h3 class="h6 card-title fw-semibold border-bottom pb-2 mb-3">${key}</h3><div class="d-grid gap-1"><p class="mb-0"><span class="fw-bold fs-5 text-primary">Total: ${term.total || 'N/A'}</span> / ${maxTotal}</p><p class="mb-0">Rank: ${term.rank || 'N/A'}${rankChangeHTML}</p><p class="mb-0">Percentage: ${percentage}%</p></div></div></div></div>`;
-            }).join('');
-
-            const detailedMarksHTML = allSubjects.map(subject => {
-                const cells = termKeys.map(k => {
-                    const mark = marksRecord.terms[k]?.marks?.[subject];
-                    const displayMark = (mark !== undefined && mark !== null) ? mark : '-';
-                    const { grade, cssClass } = getGradeInfo(mark, subject, k, student.class);
-                    return `<td class="text-center fw-medium">${displayMark}<br><span class="fw-bold ${cssClass}">${grade}</span></td>`;
-                }).join('');
-                const trend = getTrend(subject, termKeys[termKeys.length - 1]);
-                return `<tr><td class="fw-medium text-primary">${subject}</td>${cells}<td class="text-center small">${trend}</td></tr>`;
-            }).join('');
-            
-            const backButtonHTML = viewer && viewer.role === 'staff' 
-                ? `<div class="mb-3"><button id="backToDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></div>`
-                : (currentUser.role === 'student' && siblings.length > 0 ? `<div class="mb-3"><button id="backToParentDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Parent Dashboard</button></div>` : '');
-
-            dashboardContainer.innerHTML = backButtonHTML + `
-                <div class="card shadow-sm dashboard-card"><div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3"><div><h2 class="h4 fw-bold text-primary">${student.name}</h2><p class="mb-0">Class ${student.class}-${student.division} | Adm No: ${student.admissionNo} | House: ${student.house}</p></div><div class="d-flex align-items-center gap-4 text-center"><div><p class="h4 fw-bold themed-text">#${student.academicRank}</p><p class="small mb-0">Academic Rank (Class)</p></div><div><p class="h4 fw-bold themed-text">#${student.disciplineRank}</p><p class="small mb-0">Discipline Rank (Class)</p></div></div></div></div>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">${termCardsHTML}</div>
-                <div class="row row-cols-1 row-cols-lg-2 g-4"><div class="col"><div class="card shadow-sm dashboard-card h-100"><div class="card-body"><h3 class="h6 card-title fw-semibold mb-3">Subject-wise Marks</h3><div style="height: 300px;"><canvas id="subjectChart"></canvas></div></div></div></div><div class="col"><div class="card shadow-sm dashboard-card h-100"><div class="card-body"><h3 class="h6 card-title fw-semibold mb-3">Term-wise Performance</h3><div style="height: 300px;"><canvas id="termChart"></canvas></div></div></div></div></div>
-                <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h3 class="h6 card-title fw-semibold">Detailed Marks Summary</h3><button id="showDiscipline" class="btn btn-sm themed-bg rounded-pill">View Discipline Log (${student.disciplinePoints.toFixed(0)} pts)</button></div><div class="table-responsive"><table class="table table-striped table-hover"><thead><tr><th>Subject</th>${termKeys.map(k => `<th class="text-center">${k}</th>`).join('')}<th>Progress</th></tr></thead><tbody>${detailedMarksHTML}</tbody></table></div></div></div>`;
-            
-            if (viewer) {
-                document.getElementById('backToDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
-            } else {
-                document.getElementById('backToParentDashboardBtn')?.addEventListener('click', () => initializeApp(currentUser));
-            }
-                const subjectChartColors = ['#F38181', '#FCE38A', '#95E1D3', '#81B2D9'];
-                const subjectChartCtx = document.getElementById('subjectChart').getContext('2d');
-                new Chart(subjectChartCtx, { type: 'radar', data: { labels: allSubjects, datasets: termKeys.map((key, index) => ({
-                    label: key,
-                    data: allSubjects.map(subject => marksRecord.terms[key]?.marks?.[subject] ?? 0),
-                    borderColor: subjectChartColors[index % subjectChartColors.length],
-                    backgroundColor: subjectChartColors[index % subjectChartColors.length].replace(')', ', 0.2)').replace('rgb', 'rgba'),
-                }))}, options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true } } } });
-
-                const termChartCtx = document.getElementById('termChart').getContext('2d');
-                const termData = termKeys.map(k => {
-                    const term = marksRecord.terms[k];
-                     const maxTotal = Object.keys(term.marks || {}).reduce((sum, subject) => {
-                        const { maxMark } = getGradeInfo(0, subject, k, student.class);
-                        return sum + maxMark;
-                    }, 0);
-                    return { total: term.total, rank: term.rank, percentage: maxTotal > 0 ? (term.total / maxTotal) * 100 : 0 };
-                });
-                new Chart(termChartCtx, {
-    type: 'bar',
-    data: {
-        labels: termKeys,
-        datasets: [
-            {
-                label: 'Percentage (%)',
-                data: termData.map(d => d.percentage),
-                type: 'line',
-                borderColor: '#FF5733', // Changed from var(--house-green)
-                borderWidth: 2,
-                pointBackgroundColor: '#FF5733', // Changed from var(--house-green)
-                yAxisID: 'y-percent',
-                tension: 0.2,
-                order: 0
-            },
-            {
-                label: 'Rank',
-                data: termData.map(d => d.rank),
-                type: 'line',
-                borderColor: '#33C3FF', // Changed from var(--house-rose)
-                borderWidth: 2,
-                pointBackgroundColor: '#33C3FF', // Changed from var(--house-rose)
-                yAxisID: 'y-rank',
-                tension: 0.2,
-                order: 1
-            },
-            {
-                label: 'Total Marks',
-                data: termData.map(d => d.total),
-                backgroundColor: '#9A33FF', // Changed from var(--house-blue)
-                yAxisID: 'y-total',
-                order: 2
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            'y-total': {
-                type: 'linear',
-                position: 'left',
-                title: {
-                    display: true,
-                    text: 'Total Marks'
-                }
-            },
-            'y-percent': {
-                type: 'linear',
-                position: 'right',
-                display: false,
-                max: 100,
-                min: 0
-            },
-            'y-rank': {
-                type: 'linear',
-                position: 'right',
-                reverse: true,
-                title: {
-                    display: true,
-                    text: 'Rank'
-                },
-                grid: {
-                    drawOnChartArea: false
-                }
-            }
-        }
-    }
-});
-            document.getElementById('showDiscipline').addEventListener('click', () => {
-                document.getElementById('modal-content-body').innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-success' : 'text-danger'} fw-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
-                disciplineModal.show();
-            });
-        }
-
-        function buildStandingsChart(students, isSection = false) {
-            const filter = document.getElementById('standingsFilter');
-            const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-
-            // Populate filter options
-            if (isSection) {
-                filter.innerHTML = `<option value="section">Section-wide</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
-            } else {
-                filter.innerHTML = `<option value="school">School-wide</option><option value="lp">LP Section</option><option value="up">UP Section</option><option value="hs">HS Section</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
-            }
-
-            const updateChart = () => {
-                let filteredStudents = students;
-                const value = filter.value;
-                if (value === 'lp' || value === 'up' || value === 'hs') {
-                    filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
-                } else if (value !== 'school' && value !== 'section') {
-                    filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
-                }
-
-                const houseData = filteredStudents.reduce((acc, s) => {
-                    if (!acc[s.house]) acc[s.house] = 0;
-                    acc[s.house] += s.housePoints;
-                    return acc;
-                }, {});
-
-                const labels = Object.keys(houseData).sort();
-                const data = labels.map(house => houseData[house]);
-                const backgroundColors = labels.map(house => ({
-                    'Blue': '#0d6efd',   // Bootstrap Primary
-                    'Green': '#198754', // Bootstrap Success
-                    'Rose': '#dc3545',   // Bootstrap Danger
-                    'Yellow': '#ffc107'// Bootstrap Warning
-                }[house] || '#6c757d')); // Bootstrap Secondary
-
-                if (standingsChart) standingsChart.destroy();
-                standingsChart = new Chart(document.getElementById('standingsChart').getContext('2d'), {
-                    type: 'bar',
-                    data: { labels, datasets: [{ label: 'Total House Points', data, backgroundColor: backgroundColors }] },
-                    options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
-                });
-            };
-
-            filter.addEventListener('change', updateChart);
-            updateChart();
-        }
-
-        /**
-         * Builds the discipline leaderboards card with Bootstrap styling.
-         */
-        function buildLeaderboardCard(students, activities, isSection = false) {
-            const leaderboardCard = document.getElementById('leaderboardCard');
-            const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-            const filterOptions = isSection
-                ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
-                : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
-
-            // Using Bootstrap card, flexbox, form-select, and row/col grid
-            leaderboardCard.innerHTML = `
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="h4 card-title mb-0 fw-bold">Discipline Leaderboards</h2>
-                    <select id="leaderboardFilter" class="form-select w-auto">${filterOptions}</select>
-                </div>
-                <div id="leaderboardContent"></div>
-            </div>
-        </div>`;
-
-            const updateLeaderboards = () => {
-                const value = document.getElementById('leaderboardFilter').value;
-                let filteredStudents = students;
-                let filteredActivities = activities;
-
-                if (value === 'lp' || value === 'up' || value === 'hs') {
-                    const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
-                    filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                    filteredActivities = activities.filter(a => {
-                        const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                        return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-                    });
-                } else if (value !== 'school' && value !== 'section') {
-                    const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
-                    filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-                    filteredActivities = activities.filter(a => {
-                        const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                        return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-                    });
-                }
-
-                const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
-                const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
-
-                const activityPoints = filteredActivities.reduce((acc, act) => {
-                    const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
-                    if (!acc[act.Activity]) acc[act.Activity] = 0;
-                    acc[act.Activity] += points;
-                    return acc;
-                }, {});
-
-                const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
-                const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
-                const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
-
-                // Using Bootstrap list-group and text color utilities
-                document.getElementById('leaderboardContent').innerHTML = `
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <h3 class="h6 fw-semibold mb-2 text-success">Top Students (Positive)</h3>
-                    <ul class="list-group list-group-flush">${topPositiveStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${s.name} (${s.class}-${s.division})</span><span class="fw-bold text-success">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="h6 fw-semibold mb-2 text-danger">Top Students (Negative)</h3>
-                    <ul class="list-group list-group-flush">${topNegativeStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${s.name} (${s.class}-${s.division})</span><span class="fw-bold text-danger">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="h6 fw-semibold mb-2 text-success">Top Positive Activities</h3>
-                    <ul class="list-group list-group-flush">${topPositiveActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${name}</span><span class="fw-bold text-success">${pts.toFixed(1)}</span></li>`).join('')}</ul>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="h6 fw-semibold mb-2 text-danger">Top Negative Activities</h3>
-                    <ul class="list-group list-group-flush">${topNegativeActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${name}</span><span class="fw-bold text-danger">${pts.toFixed(1)}</span></li>`).join('')}</ul>
-                </div>
-            </div>`;
-            };
-
-            document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
-            updateLeaderboards();
-        }
-
-        /**
-         * Builds the Class Toppers card.
-         */
-        function buildClassToppersCard(students) {
-            setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);
-        }
-
-        /**
-         * Universal function to create filter UI for topper cards using Bootstrap.
-         */
-        function setupTopperFilters(cardId, students, title, updateFunction) {
-            const cardContainer = document.getElementById(cardId);
-            if (!cardContainer) return;
-
-            const allTerms = [...new Set(students.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-
-            // Using Bootstrap card, row/col grid, form-label, form-select, and buttons
-            cardContainer.innerHTML = `
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h2 class="h4 card-title fw-bold mb-3">${title}</h2>
-                <div class="row g-3 mb-4 align-items-end">
-                    <div class="col-md-3">
-                        <label class="form-label small">Ranking Basis</label>
-                        <select id="${cardId}-basis" class="form-select mt-1">
-                            <option value="all-time">All Time</option>
-                            ${allTerms.map(t => `<option value="${t}">${t}</option>`).join('')}
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label small">Student Group</label>
-                        <select id="${cardId}-scope" class="form-select mt-1">
-                            <option value="school">School-wide</option>
-                            <option value="section">By Section</option>
-                            <option value="standard">By Standard</option>
-                            <option value="division">By Division</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label small">Detail</label>
-                        <select id="${cardId}-detail" class="form-select mt-1" disabled><option value="">-</option></select>
-                    </div>
-                    <div class="col-md-3">
-                        <button id="${cardId}-resetBtn" class="w-100 btn btn-outline-secondary">Reset</button>
-                    </div>
-                </div>
-                <div id="${cardId}-content">
-                    <p class="text-muted">Please make a selection to view toppers.</p>
-                </div>
-            </div>
-        </div>`;
-
-            const basisEl = document.getElementById(`${cardId}-basis`);
-            const scopeEl = document.getElementById(`${cardId}-scope`);
-            const detailEl = document.getElementById(`${cardId}-detail`);
-            const resetBtn = document.getElementById(`${cardId}-resetBtn`);
-
-            const triggerUpdate = () => {
-                const basis = basisEl.value;
-                const scope = scopeEl.value;
-                const detail = detailEl.value;
-                updateFunction(students, basis, scope, detail, `${cardId}-content`);
-            };
-
-            scopeEl.addEventListener('change', () => {
-                const scope = scopeEl.value;
-                detailEl.innerHTML = '<option value="">Select</option>';
-                detailEl.disabled = true;
-
-                let options = [];
-                if (scope === 'section') {
-                    options = [...new Set(students.map(s => getSection(s.class)))];
-                } else if (scope === 'standard') {
-                    options = [...new Set(students.map(s => s.class))].sort((a, b) => a - b);
-                } else if (scope === 'division') {
-                    options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-                }
-
-                if (options.length > 0) {
-                    detailEl.innerHTML = '<option value="">Select</option>' + options.map(o => `<option value="${o}">${o}</option>`).join('');
-                    detailEl.disabled = false;
-                } else {
-                    detailEl.innerHTML = '<option value="">-</option>';
-                }
-                triggerUpdate();
-            });
-
-            resetBtn.addEventListener('click', () => {
-                basisEl.value = 'all-time';
-                scopeEl.value = 'school';
-                scopeEl.dispatchEvent(new Event('change'));
-            });
-
-            basisEl.addEventListener('change', triggerUpdate);
-            detailEl.addEventListener('change', triggerUpdate);
-            triggerUpdate(); // Initial call
-        }
-
-        /**
-         * Renders the Class Toppers view using Bootstrap tables.
-         */
-        function updateClassToppersView(students, basis, scope, detail, contentId) {
-            const contentEl = document.getElementById(contentId);
-            let filteredStudents = students;
-
-            if (scope === 'section' && detail) {
-                filteredStudents = students.filter(s => getSection(s.class) === detail);
-            } else if (scope === 'standard' && detail) {
-                filteredStudents = students.filter(s => s.class.toString() === detail.toString());
-            } else if (scope === 'division' && detail) {
-                filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
-            }
-
-            let finalTopperList;
-            let isRankedList = false;
-            let rankHeader = "Rank";
-
-            if ((scope === 'division' && detail) || (scope === 'standard' && detail)) {
-                isRankedList = true;
-                rankHeader = "Rank";
-                let sortedStudents;
-                if (basis === 'all-time') {
-                    sortedStudents = [...filteredStudents].sort((a, b) => b.academicTotal - a.academicTotal);
-                } else {
-                    sortedStudents = [...filteredStudents]
-                        .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
-                        .filter(s => s.termTotal !== -1)
-                        .sort((a, b) => b.termTotal - a.termTotal);
-                }
-                finalTopperList = sortedStudents.slice(0, 10);
-            } else {
-                isRankedList = false;
-                rankHeader = "Class";
-                const uniqueDivisions = [...new Set(filteredStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-
-                finalTopperList = uniqueDivisions.map(division => {
-                    let divisionStudents = filteredStudents.filter(s => `${s.class}-${s.division}` === division);
-                    let sortedDivisionStudents;
-                    if (basis === 'all-time') {
-                        sortedDivisionStudents = [...divisionStudents].sort((a, b) => b.academicTotal - a.academicTotal);
-                    } else {
-                        sortedDivisionStudents = [...divisionStudents]
-                            .map(s => ({ ...s, termTotal: s.marksRecord?.terms?.[basis]?.total ?? -1 }))
-                            .filter(s => s.termTotal !== -1)
-                            .sort((a, b) => b.termTotal - a.termTotal);
-                    }
-                    return sortedDivisionStudents.length > 0 ? sortedDivisionStudents[0] : null;
-                }).filter(Boolean);
-            }
-
-            if (finalTopperList.length === 0) {
-                contentEl.innerHTML = `<p class="text-muted">No data available for this selection.</p>`;
-                return;
-            }
-
-            // Using Bootstrap table classes
-            contentEl.innerHTML = `
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead class="table-light"><tr><th>${rankHeader}</th><th>Name</th><th>Score</th></tr></thead>
-                <tbody>
-                    ${finalTopperList.map((s, i) => `
-                        <tr>
-                            <td class="fw-bold">${isRankedList ? i + 1 : `${s.class}-${s.division}`}</td>
-                            <td>${s.name} ${!isRankedList ? '' : `(${s.class}-${s.division})`}</td>
-                            <td>${(basis === 'all-time' ? s.academicTotal : s.termTotal).toFixed(0)}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        </div>`;
-        }
-
-        /**
-         * Builds the Subject Toppers card.
-         */
-        function buildSubjectToppersCard(students) {
-            setupTopperFilters('subjectToppersCard', students, 'Subject Toppers', updateSubjectToppersView);
-        }
-
-        /**
-         * Renders the Subject Toppers view using a Bootstrap grid of cards.
-         */
-        function updateSubjectToppersView(students, basis, scope, detail, contentId) {
-            const contentEl = document.getElementById(contentId);
-            const term = (basis === 'all-time') ? null : basis;
-
-            if (!term) {
-                contentEl.innerHTML = `<p class="text-muted">Please select a specific exam to view subject toppers.</p>`;
-                return;
-            }
-
-            let filteredStudents = students;
-            if (scope === 'section' && detail) {
-                filteredStudents = students.filter(s => getSection(s.class) === detail);
-            } else if (scope === 'standard' && detail) {
-                filteredStudents = students.filter(s => s.class.toString() === detail.toString());
-            } else if (scope === 'division' && detail) {
-                filteredStudents = students.filter(s => `${s.class}-${s.division}` === detail);
-            }
-
-            if (!filteredStudents.length) {
-                contentEl.innerHTML = `<p class="text-muted">No students found for this selection.</p>`;
-                return;
-            }
-
-            const subjects = [...new Set(filteredStudents.flatMap(s =>
-                s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []
-            ))].sort();
-
-            if (subjects.length === 0) {
-                contentEl.innerHTML = `<p class="text-muted">No subjects found for this selection.</p>`;
-                return;
-            }
-
-            let toppersHTML = '';
-            subjects.forEach(subject => {
-                let toppers = [];
-
-                if (scope === 'school' || scope === 'section' || scope === 'standard') {
-                    const groupingKeyFn = (scope === 'standard')
-                        ? s => `${s.class}-${s.division}`
-                        : s => s.class;
-
-                    const groupsToIterate = (scope === 'standard')
-                        ? [...new Set(filteredStudents.map(groupingKeyFn))].sort(customClassSort)
-                        : [...new Set(filteredStudents.map(groupingKeyFn))].sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
-
-                    groupsToIterate.forEach(group => {
-                        const groupStudents = filteredStudents.filter(s => groupingKeyFn(s) == group);
-
-                        let topScore = -1;
-                        let groupTopper = null;
-                        groupStudents.forEach(student => {
-                            const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
-                            if (typeof mark === 'number' && mark > topScore) {
-                                topScore = mark;
-                                groupTopper = student;
-                            }
-                        });
-
-                        if (groupTopper) {
-                            toppers.push(`${groupTopper.name} (${groupTopper.class}-${groupTopper.division})`);
-                        }
-                    });
-                } else { // scope === 'division'
-                    let topScore = -1;
-                    filteredStudents.forEach(student => {
-                        const mark = student.marksRecord?.terms?.[term]?.marks?.[subject];
-                        if (typeof mark === 'number') {
-                            if (mark > topScore) {
-                                topScore = mark;
-                                toppers = [`${student.name} (${student.class}-${s.division})`];
-                            } else if (mark === topScore) {
-                                toppers.push(`${student.name} (${student.class}-${s.division})`);
-                            }
-                        }
-                    });
-                }
-
-                if (toppers.length > 0) {
-                    const firstTopperFullName = toppers[0];
-                    const firstTopperData = filteredStudents.find(s => firstTopperFullName.startsWith(s.name));
-                    if (firstTopperData) {
-                        const { maxMark } = getGradeInfo(0, subject, term, firstTopperData.class);
-                        // Using Bootstrap grid column and background/text utilities
-                        toppersHTML += `
-                    <div class="col-lg-4 col-md-6">
-                        <div class="bg-light p-3 rounded h-100">
-                            <h4 class="h6 fw-bold text-dark">${subject}</h4>
-                            <p class="small text-muted mb-1">Max Mark: <span class="fw-semibold text-primary">${maxMark}</span></p>
-                            <p class="small mb-0">${toppers.join(', ')}</p>
-                        </div>
-                    </div>`;
-                    }
-                }
-            });
-
-            contentEl.innerHTML = `<div class="row g-3">${toppersHTML}</div>`;
-            if (!toppersHTML) {
-                contentEl.innerHTML = `<p class="text-muted">No marks recorded for this selection.</p>`;
-            }
-        }
-
-        /**
-         * Builds the Report Generator card using Bootstrap.
-         */
-        function buildReportGeneratorCard(students) {
-            const cardContainer = document.getElementById('reportGeneratorCard');
-            if (!cardContainer) return;
-
-            const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-
-            // Using Bootstrap card, form controls, and grid for layout
-            cardContainer.innerHTML = `
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h2 class="h4 card-title fw-bold mb-3">Report Generator</h2>
-                <div class="row g-3 align-items-end">
-                    <div class="col-lg col-md-4"><label for="report-class" class="form-label small">Class</label><select id="report-class" class="form-select"><option value="">Select Class</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
-                    <div class="col-lg col-md-4"><label for="report-term" class="form-label small">Term</label><select id="report-term" class="form-select" disabled><option value="">Select Term</option></select></div>
-                    <div class="col-lg col-md-4"><label for="report-subject" class="form-label small">Subject</label><select id="report-subject" class="form-select" disabled><option value="">Select Subject</option></select></div>
-                    <div class="col-lg-auto col-md-6"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
-                    <div class="col-lg-auto col-md-6"><button id="resetReportBtn" class="w-100 btn btn-outline-secondary">Reset</button></div>
-                </div>
-                <div id="reportResultContainer" class="mt-4"></div>
-            </div>
-        </div>`;
-
-            const classSelect = document.getElementById('report-class');
-            const termSelect = document.getElementById('report-term');
-            const subjectSelect = document.getElementById('report-subject');
-            const generateBtn = document.getElementById('generateReportBtn');
-            const resetBtn = document.getElementById('resetReportBtn');
-            const resultContainer = document.getElementById('reportResultContainer');
-
-            const resetGenerator = () => {
-                classSelect.value = '';
-                termSelect.innerHTML = '<option value="">Select Term</option>';
-                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-                termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-                resultContainer.innerHTML = '';
-            };
-
-            classSelect.addEventListener('change', () => {
-                termSelect.innerHTML = '<option value="">Select Term</option>';
-                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-                termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-
-                const className = classSelect.value;
-                if (!className) return;
-
-                const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-                if (classStudents.length === 0) return;
-
-                const terms = [...new Set(classStudents.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-                termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
-                termSelect.disabled = false;
-            });
-
-            termSelect.addEventListener('change', () => {
-                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-                subjectSelect.disabled = true; generateBtn.disabled = true;
-
-                const className = classSelect.value;
-                const term = termSelect.value;
-                if (!className || !term) return;
-
-                const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-                const subjects = [...new Set(classStudents.flatMap(s => s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []))].sort();
-
-                subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
-                subjectSelect.disabled = false;
-            });
-
-            subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
-            resetBtn.addEventListener('click', resetGenerator);
-
-            generateBtn.addEventListener('click', () => {
-                const className = classSelect.value;
-                const term = termSelect.value;
-                const subject = subjectSelect.value;
-
-                const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
-                    .sort((a, b) => {
-                        if (a.gender < b.gender) return -1;
-                        if (a.gender > b.gender) return 1;
-                        return a.name.localeCompare(b.name);
-                    });
-
-                // Using Bootstrap responsive table and button
-                let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
-                let clipboardText = "";
-
-                classStudents.forEach(s => {
-                    const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
-                    const displayMark = (typeof mark === 'number') ? mark : 'Ab';
-                    const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
-
-                    tableHTML += `<tr><td>${s.name}</td><td>${displayMark} / ${maxMark}</td><td>${grade}</td></tr>`;
-                    clipboardText += `${grade}\n`;
-                });
-
-                tableHTML += '</tbody></table></div><div class="mt-3 text-end"><button id="copyReportBtn" class="btn btn-success">Copy Grades</button></div>';
-                resultContainer.innerHTML = tableHTML;
-
-                document.getElementById('copyReportBtn').addEventListener('click', (e) => {
-                    navigator.clipboard.writeText(clipboardText.trim()).then(() => {
-                        const btn = e.target;
-                        btn.textContent = 'Copied!';
-                        setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
-                    }).catch(err => {
-                        console.error('Failed to copy text: ', err);
-                        alert('Could not copy text to clipboard.');
-                    });
-                });
-            });
-        }
-        
-        function showView(viewName) {
-            homeView.classList.add('d-none');
-            loginView.classList.remove('d-flex');
-            loginView.classList.add('d-none');
-            dashboardView.classList.add('d-none');
-            globalControls.classList.add('d-none');
-
-            if (viewName === 'home' || viewName === 'login') {
-                globalControls.classList.remove('d-none');
-            }
-
-            if (viewName === 'home') homeView.classList.remove('d-none');
-            else if (viewName === 'login') {
-                loginView.classList.remove('d-none');
-                loginView.classList.add('d-flex');
-            }
-            else if (viewName === 'dashboard') dashboardView.classList.remove('d-none');
-        }
-
-        function showProgressBar() { if (progressBar) progressBar.classList.remove('d-none'); }
-        function hideProgressBar() { if (progressBar) progressBar.classList.add('d-none'); }
-
-        function showDashboard(user) {
-            showView('dashboard');
-            const userInfoHTML = `<p class="fw-semibold text-primary mb-0">${user.name}</p><p class="small text-muted mb-0">${user.designation || 'Student'}</p>`;
-            document.getElementById('userInfoMobile').innerHTML = userInfoHTML;
-            document.getElementById('userInfoDesktop').innerHTML = userInfoHTML;
-            document.body.className = '';
-            if (user.designation === 'HM') document.body.classList.add('theme-hm');
-            else if (user.role === 'staff') document.body.classList.add('theme-teacher');
-            else if (user.role === 'student' && user.house) document.body.classList.add(`theme-${user.house.toLowerCase()}`);
-        }
-
-        async function handleLogin(event) {
-            event.preventDefault();
-            showProgressBar();
-            const phone = document.getElementById('phone').value;
-            const dob = document.getElementById('dob').value;
-            const errorElement = document.getElementById('loginError');
-            errorElement.textContent = '';
-            try {
-                const { users, marks, activities } = await fetchAllData();
-                
-                const foundUser = users.find(user => {
-                    if (!user.phone || !user.dob) return false;
-                    const phoneMatch = Array.isArray(user.phone) ? user.phone.includes(phone) : user.phone === phone;
-                    return phoneMatch && user.dob === dob;
-                });
-                
-                if (foundUser) {
-                    setSession(foundUser);
-                    // Pass fetched data to initializeApp
-                    initializeApp(foundUser, { users, marks, activities });
-                } else {
-                    errorElement.textContent = 'Invalid credentials. Please try again.';
-                    hideProgressBar();
-                }
-            } catch (error) {
-                console.error('Login Error:', error);
-                errorElement.textContent = error.message || 'An error occurred. Please try again.';
-                hideProgressBar();
-            }
-        }
-        async function initializeApp(loggedInUser, fetchedData = null) {
-            showProgressBar();
-            currentUser = loggedInUser;
-            
-            let users, marks, activities;
-
-            if (fetchedData) {
-                ({ users, marks, activities } = fetchedData);
-            } else {
-                try {
-                    ({ users, marks, activities } = await fetchAllData());
-                } catch (error) {
-                    alert(error.message); 
-                    hideProgressBar();
-                    logout(); 
-                    return;
-                }
-            }
-            
-            showDashboard(loggedInUser);
-            
-            const allStudents = users.filter(u => u.role === 'student');
-            const processedStudents = processStudentData(allStudents, marks, activities);
-            
-            appData = { users, marks, activities, processedStudents };
-
-            const searchContainer = document.getElementById('header-search-container');
-            if (loggedInUser.designation === 'HM' || loggedInUser.role === 'staff') {
-                searchContainer.classList.remove('d-none');
-                let searchableStudents = loggedInUser.designation === 'HM' 
-                        ? processedStudents 
-                        : processedStudents.filter(s => getTeacherSection(loggedInUser.designation)?.includes(getSection(s.class)));
-                
-                document.getElementById('headerSearch').addEventListener('input', e => {
-                    const query = e.target.value.toLowerCase();
-                    const searchResultsEl = document.getElementById('headerSearchResults');
-                    if (!query) { searchResultsEl.innerHTML = ''; return; }
-                    const results = searchableStudents.filter(s => s.name.toLowerCase().includes(query) || s.admissionNo.toString().includes(query));
-                    searchResultsEl.innerHTML = results.length > 0 ? `<ul class="list-group">${results.map(s => `<li class="list-group-item list-group-item-action view-student-btn" style="cursor: pointer;" data-admission-no="${s.admissionNo}">${s.name} - ${s.class}${s.division}</li>`).join('')}</ul>` : `<div class="p-2 text-muted small">No students found.</div>`;
-                });
-                 document.getElementById('headerSearchResults').addEventListener('click', e => {
-                    if (e.target.classList.contains('view-student-btn')) {
-                        const student = appData.processedStudents.find(s => s.admissionNo.toString() === e.target.dataset.admissionNo.toString());
-                        if (student) buildStudentDashboard(student, appData.activities, currentUser);
-                        document.getElementById('headerSearch').value = '';
-                        document.getElementById('headerSearchResults').innerHTML = '';
-                    }
-                });
-            } else {
-                searchContainer.classList.add('d-none');
-            }
-
-            if (loggedInUser.designation === 'HM') {
-                buildHMDashboard(loggedInUser, allStudents, processedStudents);
-            } else if (loggedInUser.role === 'staff') {
-                buildTeacherDashboard(loggedInUser, allStudents, processedStudents);
-            } else if (loggedInUser.role === 'student') {
-                const currentUserPhones = Array.isArray(loggedInUser.phone) ? loggedInUser.phone : [loggedInUser.phone];
-                const siblings = allStudents.filter(s => {
-                    if (s.admissionNo.toString() === loggedInUser.admissionNo.toString()) return false;
-                    const potentialSiblingPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
-                    return currentUserPhones.some(p => potentialSiblingPhones.includes(p));
-                });
-
-                if (siblings.length > 0) {
-                    buildParentDashboard(loggedInUser, siblings, processedStudents);
-                } else {
-                    const studentData = processedStudents.find(s => s.admissionNo.toString() === loggedInUser.admissionNo.toString());
-                    if (studentData) buildStudentDashboard(studentData, activities, null, []);
-                }
-            }
-            hideProgressBar();
-        }
-
-        function handleDashboardClick(event) {
-            const target = event.target.closest('button, a');
-            if (!target) return;
-
-            if (target.classList.contains('view-student-btn')) {
-                const student = appData.processedStudents.find(s => s.admissionNo.toString() === target.dataset.admissionNo.toString());
-                if (student) buildStudentDashboard(student, appData.activities, currentUser);
-            }
-            if (target.dataset.action === 'discipline') {
-                const url = "https://forms.gle/MifhWNaqjoN3feeLA";
-                document.getElementById('iframeModalTitle').textContent = "Record Discipline Points";
-                document.getElementById('modalIframe').src = url;
-                iframeModal.show();
-            }
-        }
-
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-translate-key]').forEach(el => {
-                const key = el.dataset.translateKey;
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
-            });
-            localStorage.setItem('language', lang);
-            document.querySelectorAll('.lang-btn').forEach(b => {
-                b.classList.toggle('active', b.dataset.lang === lang);
-            });
-        }
-
-        // --- EVENT LISTENERS & INITIALIZATION ---
-        document.addEventListener('DOMContentLoaded', () => {
-            homeView = document.getElementById('homeView');
-            loginView = document.getElementById('loginView');
-            dashboardView = document.getElementById('dashboardView');
-            progressBar = document.getElementById('progressBarContainer');
-            globalControls = document.getElementById('globalControls');
-
-            // Initialize Bootstrap Modals & Offcanvas
-            disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
-            iframeModal = new bootstrap.Modal(document.getElementById('iframeModal'));
-            dobVerifyModal = new bootstrap.Modal(document.getElementById('dobVerifyModal'));
-            settingsOffcanvas = new bootstrap.Offcanvas(document.getElementById('settingsOffcanvas'));
-
-
-            document.getElementById('goToLoginBtn').addEventListener('click', () => showView('login'));
-            document.getElementById('backToHomeBtn').addEventListener('click', () => showView('home'));
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
-            });
-            document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    document.documentElement.setAttribute('data-bs-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                });
-            });
-
-
-            document.getElementById('loginForm').addEventListener('submit', handleLogin);
-            
-            document.querySelectorAll('.logout-btn').forEach(btn => {
-                btn.addEventListener('click', logout);
-            });
-
-            
-            document.getElementById('iframeModal').addEventListener('hidden.bs.modal', () => {
-                 document.getElementById('modalIframe').src = "about:blank";
-            });
-            
-            document.getElementById('dobVerifyForm').addEventListener('submit', async e => {
-                e.preventDefault();
-                const admNo = document.getElementById('dobVerifyAdmissionNo').value;
-                const dob = document.getElementById('dobVerifyInput').value;
-                const errorEl = document.getElementById('dobError');
-                errorEl.textContent = '';
-                
-                const targetStudent = appData.users.find(s => s.role === 'student' && s.admissionNo.toString() === admNo);
-                if (targetStudent && targetStudent.dob === dob) {
-                    setSession(targetStudent);
-                    dobVerifyModal.hide();
-                    initializeApp(targetStudent);
-                } else {
-                    errorEl.textContent = "Incorrect date of birth. Please try again.";
-                }
-            });
-
-            const savedLang = localStorage.getItem('language') || 'en';
-            setLanguage(savedLang);
-
-            const user = getSession();
-            if (user) {
-                initializeApp(user);
-            } else {
-                showView('home');
-            }
-        });
-    </script>
+    
+    <!-- Load the main application script -->
+    <script type="module" src="main.js"></script>
 </body>
 </html>
 
