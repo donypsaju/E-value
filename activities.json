@@ -263,5 +263,53 @@
         "Activity": "Indiscipline",
         "Rating": 4,
         "Timestamp": "2025-09-25 00:29:57"
+    },
+    {
+        "admissionNo": 15772,
+        "Activity": "Indiscipline",
+        "Rating": 3,
+        "Timestamp": "2025-09-25 10:51:12"
+    },
+    {
+        "admissionNo": 1577315187,
+        "Activity": "Indiscipline",
+        "Rating": 3,
+        "Timestamp": "2025-09-25 10:52:26"
+    },
+    {
+        "admissionNo": 15985151381598400000,
+        "Activity": "Fighting",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 10:54:32"
+    },
+    {
+        "admissionNo": 153601577215994,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 10:57:24"
+    },
+    {
+        "admissionNo": 145341513814766,
+        "Activity": "Missing Homework",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 10:59:03"
+    },
+    {
+        "admissionNo": 1,
+        "Activity": "Class Performance",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 11:04:13"
+    },
+    {
+        "admissionNo": 1,
+        "Activity": "Indiscipline",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 11:08:38"
+    },
+    {
+        "admissionNo": 157731604015992,
+        "Activity": "Fighting",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 11:10:31"
     }
 ]
