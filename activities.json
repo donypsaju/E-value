@@ -283,8 +283,7 @@
         "admissionNo": [
             15985,
             15138,
-            15984,
-            0
+            15984
         ],
         "Activity": "Fighting",
         "Rating": 5,
@@ -311,13 +310,21 @@
         "Timestamp": "2025-09-25 10:59:03"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            14568,
+            14534,
+            15990
+        ],
         "Activity": "Class Performance",
         "Rating": 5,
         "Timestamp": "2025-09-25 11:04:13"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            15138,
+            14563,
+            15773
+        ],
         "Activity": "Indiscipline",
         "Rating": 5,
         "Timestamp": "2025-09-25 11:08:38"
@@ -355,31 +362,88 @@
     {
         "admissionNo": 14720,
         "Activity": "Indiscipline",
-        "Rating": 1,
+        "Rating": 5,
         "Timestamp": "2025-09-25 12:36:28"
     },
     {
         "admissionNo": 14729,
         "Activity": "Indiscipline",
-        "Rating": 1,
+        "Rating": 5,
         "Timestamp": "2025-09-25 12:37:05"
     },
     {
         "admissionNo": 15768,
         "Activity": "Indiscipline",
-        "Rating": 2,
+        "Rating": 5,
         "Timestamp": "2025-09-25 12:37:50"
     },
     {
         "admissionNo": 15761,
         "Activity": "Indiscipline",
-        "Rating": 2,
+        "Rating": 5,
         "Timestamp": "2025-09-25 12:38:19"
     },
     {
         "admissionNo": 15590,
         "Activity": "Indiscipline",
-        "Rating": 2,
+        "Rating": 5,
         "Timestamp": "2025-09-25 12:38:46"
+    },
+    {
+        "admissionNo": [
+            15518,
+            15205,
+            15120,
+            15659,
+            15207,
+            15268,
+            15946,
+            15098
+        ],
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-25 13:33:48"
+    },
+    {
+        "admissionNo": 16012,
+        "Activity": "Indiscipline",
+        "Rating": 3,
+        "Timestamp": "2025-09-25 13:35:23"
+    },
+    {
+        "admissionNo": 15518,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 13:36:47"
+    },
+    {
+        "admissionNo": 15518,
+        "Activity": "Indiscipline",
+        "Rating": 3,
+        "Timestamp": "2025-09-25 13:37:45"
+    },
+    {
+        "admissionNo": 15518,
+        "Activity": "Indiscipline",
+        "Rating": 3,
+        "Timestamp": "2025-09-25 13:38:27"
+    },
+    {
+        "admissionNo": 1,
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 13:50:13"
+    },
+    {
+        "admissionNo": 1,
+        "Activity": "Missing Homework",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 13:55:23"
+    },
+    {
+        "admissionNo": 1,
+        "Activity": "Missing Homework",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 13:58:01"
     }
 ]
