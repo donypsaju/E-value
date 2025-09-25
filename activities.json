@@ -401,13 +401,13 @@
             15098
         ],
         "Activity": "Indiscipline",
-        "Rating": 2,
+        "Rating": 5,
         "Timestamp": "2025-09-25 13:33:48"
     },
     {
         "admissionNo": 16012,
         "Activity": "Indiscipline",
-        "Rating": 3,
+        "Rating": 5,
         "Timestamp": "2025-09-25 13:35:23"
     },
     {
@@ -419,29 +419,41 @@
     {
         "admissionNo": 15518,
         "Activity": "Indiscipline",
-        "Rating": 3,
+        "Rating": 5,
         "Timestamp": "2025-09-25 13:37:45"
     },
     {
         "admissionNo": 15518,
         "Activity": "Indiscipline",
-        "Rating": 3,
+        "Rating": 5,
         "Timestamp": "2025-09-25 13:38:27"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            15480,
+            14531,
+            15818
+        ],
         "Activity": "Without ID Card",
         "Rating": 5,
         "Timestamp": "2025-09-25 13:50:13"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            14535,
+            15507,
+            14540
+        ],
         "Activity": "Missing Homework",
         "Rating": 5,
         "Timestamp": "2025-09-25 13:55:23"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            15818,
+            15260,
+            15480
+        ],
         "Activity": "Missing Homework",
         "Rating": 5,
         "Timestamp": "2025-09-25 13:58:01"
