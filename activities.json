@@ -457,5 +457,36 @@
         "Activity": "Missing Homework",
         "Rating": 5,
         "Timestamp": "2025-09-25 13:58:01"
+    },
+    {
+        "admissionNo": [
+            15101,
+            15348,
+            15102,
+            16013,
+            15959,
+            15954,
+            15510
+        ],
+        "Activity": "Indiscipline",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 16:08:05"
+    },
+    {
+        "admissionNo": [
+            15091,
+            16013,
+            15346,
+            15959
+        ],
+        "Activity": "Class Cleaning",
+        "Rating": 5,
+        "Timestamp": "2025-09-25 16:09:17"
+    },
+    {
+        "admissionNo": 15959,
+        "Activity": "Without ID Card",
+        "Rating": 4,
+        "Timestamp": "2025-09-25 16:09:55"
     }
 ]
