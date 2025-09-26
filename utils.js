@@ -24,9 +24,9 @@ export function getSection(className) {
 }
 
 /**
- * Gets the sections a teacher is responsible for based on their designation.
+ * Determines the sections a teacher is responsible for based on their designation.
  * @param {string} designation The teacher's designation (e.g., "HST", "LPST").
- * @returns {string[]|null} An array of sections or null.
+ * @returns {Array<string>|null} An array of sections or null.
  */
 export function getTeacherSection(designation) {
     if (designation === 'LPST') return ['LP'];
@@ -37,10 +37,7 @@ export function getTeacherSection(designation) {
 }
 
 /**
- * Custom sort function for class names (e.g., "10-A", "9-B").
- * @param {string} a First class string.
- * @param {string} b Second class string.
- * @returns {number} A number indicating the sort order.
+ * Custom sort function to correctly order class names (e.g., "10-A" after "9-B").
  */
 export function customClassSort(a, b) {
     const partsA = a.split('-');
@@ -52,10 +49,7 @@ export function customClassSort(a, b) {
 }
 
 /**
- * Checks if a given activity record applies to a student and returns the number of occurrences.
- * @param {object} activity The activity record from activities.json.
- * @param {object} student The student object.
- * @returns {number} The number of times the student is listed in the activity.
+ * Checks if an activity entry applies to a given student and returns the number of occurrences.
  */
 export function isActivityForStudent(activity, student) {
     const studentAdmNoStr = student.admissionNo.toString();
@@ -69,20 +63,14 @@ export function isActivityForStudent(activity, student) {
     return 0;
 }
 
-
 /**
  * Calculates grade info based on the central gradeConfig object.
- * @param {number|null} mark The student's mark.
- * @param {string} subject The subject name.
- * @param {string} termKey The term key (e.g., "First Term Exam").
- * @param {string} studentClass The student's class (e.g., "8").
  * @returns {object} An object containing { grade, cssClass, maxMark }.
  */
 export function getGradeInfo(mark, subject, termKey, studentClass) {
     const section = getSection(studentClass);
     const classNum = parseInt(studentClass, 10);
 
-    // Determine max mark from config
     const termMarksConfig = gradeConfig.maxMarks[termKey] || gradeConfig.maxMarks.default;
     let maxMark = termMarksConfig.default;
     if (termMarksConfig[section]) {
@@ -93,7 +81,7 @@ export function getGradeInfo(mark, subject, termKey, studentClass) {
         return { grade: 'Ab', cssClass: '', maxMark };
     }
 
-    const percentage = maxMark > 0 ? (mark / maxMark) * 100 : 0;
+    const percentage = (mark / maxMark) * 100;
     const grades = (section === 'UP' || classNum === 8) ? gradeConfig.upHs8Grades : gradeConfig.defaultGrades;
     const thresholds = Object.keys(grades).map(Number).sort((a, b) => b - a);
 
@@ -104,6 +92,34 @@ export function getGradeInfo(mark, subject, termKey, studentClass) {
             return { grade, cssClass, maxMark };
         }
     }
-    return { grade: 'E', cssClass: 'grade-e', maxMark }; // Fallback
+    return { grade: 'E', cssClass: 'grade-e', maxMark };
+}
+
+/**
+ * Calculates the Continuous Evaluation (CE) mark for a High School student.
+ * The minimum CE mark is 7.
+ * @param {number} teMark The Terminal Evaluation (TE) mark.
+ * @param {number} maxMark The maximum possible TE mark.
+ * @returns {number} The calculated CE mark.
+ */
+export function calculateCE_HS(teMark, maxMark) {
+    if (typeof teMark !== 'number' || maxMark === 0) return 7; // Return minimum if TE is absent
+    const percentage = (teMark / maxMark) * 100;
+    const ceMark = (percentage / 100) * 20; // CE is out of 20
+    return Math.max(7, Math.round(ceMark)); // Ensure minimum is 7
+}
+
+/**
+ * Calculates the Continuous Evaluation (CE) grade for an Upper Primary student.
+ * The minimum CE grade is 'C'.
+ * @param {string} teGrade The Terminal Evaluation (TE) grade.
+ * @returns {string} The calculated CE grade.
+ */
+export function calculateCE_UP(teGrade) {
+    const gradeOrder = ['E', 'D', 'C', 'B', 'A'];
+    if (!teGrade || teGrade === 'Ab') return 'C'; // Return minimum if TE is absent
+    const teIndex = gradeOrder.indexOf(teGrade);
+    const cIndex = gradeOrder.indexOf('C');
+    return teIndex < cIndex ? 'C' : teGrade; // Return 'C' if TE grade is lower, otherwise return TE grade
 }
 

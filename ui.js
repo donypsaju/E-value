@@ -1,4 +1,4 @@
-import { sanitize, getGradeInfo, getSection, getTeacherSection, customClassSort, isActivityForStudent } from './utils.js';
+import { sanitize, getGradeInfo, getSection, getTeacherSection, customClassSort, isActivityForStudent, calculateCE_HS, calculateCE_UP } from './utils.js';
 import { translations, activityRules } from './config.js';
 
 // --- GLOBAL UI STATE ---
@@ -79,6 +79,28 @@ export function buildSearchResults(results) {
     }
 }
 
+export function showBirthdayNotification(staffList) {
+    const names = staffList.map(s => sanitize(s.name)).join(', ');
+    const toastContainer = document.createElement('div');
+    toastContainer.className = 'position-fixed bottom-0 end-0 p-3';
+    toastContainer.style.zIndex = '1100';
+    toastContainer.innerHTML = `
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fa-solid fa-cake-candles rounded me-2 themed-text"></i>
+                <strong class="me-auto">Happy Birthday!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Wishing a very happy birthday to: ${names}!
+            </div>
+        </div>
+    `;
+    document.body.appendChild(toastContainer);
+    const toast = new bootstrap.Toast(toastContainer.querySelector('.toast'));
+    toast.show();
+}
+
 
 export function buildHMDashboard(user, allStudents, processedStudents) {
     const dashboardContainer = document.getElementById('dashboard-container');
@@ -87,12 +109,14 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
     <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
     <div id="leaderboardCard"></div>
     <div id="classToppersCard"></div>
-    <div id="subjectToppersCard"></div>`;
+    <div id="subjectToppersCard"></div>
+    <div id="reportGeneratorCard"></div>`;
 
     buildStandingsChart(processedStudents);
     buildLeaderboardCard(processedStudents, appData.activities, false);
     buildClassToppersCard(processedStudents);
     buildSubjectToppersCard(processedStudents);
+    buildReportGeneratorCard(processedStudents);
 }
 
 export function buildTeacherDashboard(user, allStudents, processedStudents) {
@@ -264,7 +288,7 @@ export function buildStudentDashboard(student, activities, viewer = null, siblin
 
 export function buildStandingsChart(students, isSection = false) {
     const filter = document.getElementById('standingsFilter');
-    if (!filter) return;
+    if(!filter) return;
     const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
 
     if (isSection) {
@@ -294,7 +318,7 @@ export function buildStandingsChart(students, isSection = false) {
 
         if (standingsChart) standingsChart.destroy();
         const chartEl = document.getElementById('standingsChart');
-        if (chartEl) {
+        if(chartEl){
             standingsChart = new Chart(chartEl.getContext('2d'), { type: 'bar', data: { labels, datasets: [{ label: 'Total House Points', data, backgroundColor: backgroundColors }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' } });
         }
     };
@@ -326,37 +350,15 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
     const updateLeaderboards = () => {
         const value = document.getElementById('leaderboardFilter').value;
         let filteredStudents = students;
-        let filteredActivities = activities;
-
+        
         if (value === 'lp' || value === 'up' || value === 'hs') {
-            const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
-            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-            filteredActivities = activities.filter(a => {
-                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-            });
+            filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
         } else if (value !== 'school' && value !== 'section') {
-            const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
-            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-            filteredActivities = activities.filter(a => {
-                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [a.admissionNo.toString()];
-                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-            });
+            filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
         }
 
         const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
         const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
-
-        const activityPoints = filteredActivities.reduce((acc, act) => {
-            const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
-            if (!acc[act.Activity]) acc[act.Activity] = 0;
-            acc[act.Activity] += points;
-            return acc;
-        }, {});
-
-        const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
-        const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
-        const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
         
         document.getElementById('leaderboardContent').innerHTML = `
         <div class="row g-4">
@@ -367,14 +369,6 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
             <div class="col-md-6">
                 <h3 class="h6 fw-semibold mb-2 text-danger">Top Students (Negative)</h3>
                 <ul class="list-group list-group-flush">${topNegativeStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(s.name)} (${sanitize(s.class)}-${sanitize(s.division)})</span><span class="fw-bold text-danger">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
-            </div>
-            <div class="col-md-6">
-                <h3 class="h6 fw-semibold mb-2 text-success">Top Positive Activities</h3>
-                <ul class="list-group list-group-flush">${topPositiveActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(name)}</span><span class="fw-bold text-success">${pts.toFixed(1)}</span></li>`).join('')}</ul>
-            </div>
-            <div class="col-md-6">
-                <h3 class="h6 fw-semibold mb-2 text-danger">Top Negative Activities</h3>
-                <ul class="list-group list-group-flush">${topNegativeActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(name)}</span><span class="fw-bold text-danger">${pts.toFixed(1)}</span></li>`).join('')}</ul>
             </div>
         </div>`;
     };
@@ -405,8 +399,7 @@ export function buildReportGeneratorCard(students) {
                 <div class="col-lg col-md-4"><label for="report-class" class="form-label small">Class</label><select id="report-class" class="form-select"><option value="">Select Class</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
                 <div class="col-lg col-md-4"><label for="report-term" class="form-label small">Term</label><select id="report-term" class="form-select" disabled><option value="">Select Term</option></select></div>
                 <div class="col-lg col-md-4"><label for="report-subject" class="form-label small">Subject</label><select id="report-subject" class="form-select" disabled><option value="">Select Subject</option></select></div>
-                <div class="col-lg-auto col-md-6"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
-                <div class="col-lg-auto col-md-6"><button id="resetReportBtn" class="w-100 btn btn-outline-secondary">Reset</button></div>
+                <div class="col-lg-auto col-md-12"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
             </div>
             <div id="reportResultContainer" class="mt-4"></div>
         </div>
@@ -416,16 +409,7 @@ export function buildReportGeneratorCard(students) {
     const termSelect = document.getElementById('report-term');
     const subjectSelect = document.getElementById('report-subject');
     const generateBtn = document.getElementById('generateReportBtn');
-    const resetBtn = document.getElementById('resetReportBtn');
     const resultContainer = document.getElementById('reportResultContainer');
-
-    const resetGenerator = () => {
-        classSelect.value = '';
-        termSelect.innerHTML = '<option value="">Select Term</option>';
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
-        resultContainer.innerHTML = '';
-    };
 
     classSelect.addEventListener('change', () => {
         termSelect.innerHTML = '<option value="">Select Term</option>';
@@ -459,46 +443,59 @@ export function buildReportGeneratorCard(students) {
     });
 
     subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
-    resetBtn.addEventListener('click', resetGenerator);
 
     generateBtn.addEventListener('click', () => {
         const className = classSelect.value;
+        const [classNum, division] = className.split('-');
+        const section = getSection(classNum);
         const term = termSelect.value;
         const subject = subjectSelect.value;
 
         const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
-            .sort((a, b) => {
-                if (a.gender < b.gender) return -1;
-                if (a.gender > b.gender) return 1;
-                return a.name.localeCompare(b.name);
-            });
+            .sort((a, b) => a.name.localeCompare(b.name));
 
-        let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
-        let clipboardText = "";
+        let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>TE</th><th>CE</th></tr></thead><tbody>`;
+        let teClipboardText = "";
+        let ceClipboardText = "";
 
         classStudents.forEach(s => {
             const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
-            const displayMark = (typeof mark === 'number') ? mark : 'Ab';
             const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
+            const displayMark = (typeof mark === 'number') ? mark : 'Ab';
 
-            tableHTML += `<tr><td>${sanitize(s.name)}</td><td>${displayMark} / ${maxMark}</td><td>${grade}</td></tr>`;
-            clipboardText += `${grade}\n`;
+            let teDisplay, ceDisplay;
+
+            if (section === 'HS') {
+                teDisplay = displayMark;
+                ceDisplay = calculateCE_HS(mark, maxMark);
+                teClipboardText += `${teDisplay}\n`;
+                ceClipboardText += `${ceDisplay}\n`;
+            } else { // UP or LP
+                teDisplay = grade;
+                ceDisplay = calculateCE_UP(grade);
+                teClipboardText += `${teDisplay}\n`;
+                ceClipboardText += `${ceDisplay}\n`;
+            }
+
+            tableHTML += `<tr><td>${sanitize(s.name)}</td><td>${teDisplay}</td><td>${ceDisplay}</td></tr>`;
         });
 
-        tableHTML += '</tbody></table></div><div class="mt-3 text-end"><button id="copyReportBtn" class="btn btn-success">Copy Grades</button></div>';
+        tableHTML += '</tbody></table></div><div class="mt-3 d-flex gap-2 justify-content-end"><button id="copyTeBtn" class="btn btn-success">Copy TE</button><button id="copyCeBtn" class="btn btn-info">Copy CE</button></div>';
         resultContainer.innerHTML = tableHTML;
 
-        document.getElementById('copyReportBtn').addEventListener('click', (e) => {
-            navigator.clipboard.writeText(clipboardText.trim()).then(() => {
-                const btn = e.target;
-                btn.textContent = 'Copied!';
-                setTimeout(() => { btn.textContent = 'Copy Grades'; }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        });
+        document.getElementById('copyTeBtn').addEventListener('click', e => copyToClipboard(e.target, teClipboardText.trim()));
+        document.getElementById('copyCeBtn').addEventListener('click', e => copyToClipboard(e.target, ceClipboardText.trim()));
     });
 }
+
+function copyToClipboard(button, text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = originalText; }, 2000);
+    }).catch(err => console.error('Failed to copy text: ', err));
+}
+
 
 function setupTopperFilters(cardId, students, title, updateFunction) {
     const cardContainer = document.getElementById(cardId);
@@ -749,22 +746,18 @@ function updateSubjectToppersView(students, basis, scope, detail, contentId) {
     }
 }
 
+
 export function renderHouseWidget(processedStudents, activities) {
     const contentEl = document.getElementById('houseWidgetContent');
     if (!contentEl) return;
 
     const houseTotals = {};
-    const houseChanges = {};
-    const houseColors = {
-        'Blue': 'var(--house-blue)',
-        'Green': 'var(--house-green)',
-        'Rose': 'var(--house-rose)',
-        'Yellow': 'var(--house-yellow)'
-    };
+    const yesterdayChanges = {};
+    const houseColors = { 'Blue': 'var(--house-blue)', 'Green': 'var(--house-green)', 'Rose': 'var(--house-rose)', 'Yellow': 'var(--house-yellow)' };
 
     Object.keys(houseColors).forEach(house => {
         houseTotals[house] = 0;
-        houseChanges[house] = 0;
+        yesterdayChanges[house] = 0;
     });
 
     processedStudents.forEach(student => {
@@ -773,20 +766,26 @@ export function renderHouseWidget(processedStudents, activities) {
         }
     });
 
-    const todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    const todaysActivities = activities.filter(act => new Date(act.Timestamp) >= todayStart);
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
 
-    todaysActivities.forEach(act => {
+    const yesterdaysActivities = activities.filter(act => {
+        const activityDate = new Date(act.Timestamp);
+        return activityDate >= yesterday && activityDate < today;
+    });
+
+    yesterdaysActivities.forEach(act => {
         const basePoints = activityRules[act.Activity] || 0;
         const calculatedPoints = (act.Rating / 5) * basePoints;
         const studentAdmNos = Array.isArray(act.admissionNo) ? act.admissionNo.map(String) : [String(act.admissionNo)];
 
         studentAdmNos.forEach(admNo => {
-            const student = processedStudents.find(s => s.admissionNo === admNo);
-            if (student && houseChanges.hasOwnProperty(student.house)) {
-                houseChanges[student.house] += calculatedPoints;
+            const student = processedStudents.find(s => s.admissionNo.toString() === admNo);
+            if (student && yesterdayChanges.hasOwnProperty(student.house)) {
+                yesterdayChanges[student.house] += calculatedPoints;
             }
         });
     });
@@ -795,21 +794,22 @@ export function renderHouseWidget(processedStudents, activities) {
         .map(house => ({
             name: house,
             totalPoints: Math.round(houseTotals[house]),
-            todayChange: Math.round(houseChanges[house]),
+            yesterdayChange: Math.round(yesterdayChanges[house]),
             color: houseColors[house]
         }))
         .sort((a, b) => b.totalPoints - a.totalPoints);
 
     let contentHTML = '<div class="widget-grid">';
     leaderboard.forEach((house, index) => {
-        const change = house.todayChange;
+        const change = house.yesterdayChange;
         let changeHTML = '';
+
         if (change > 0) {
-            changeHTML = `<span class="daily-change trend-up"><span class="arrow">&uarr;</span> Today +${change}</span>`;
+            changeHTML = `<span class="daily-change trend-up"><span class="arrow">&uarr;</span> Previous Day +${change}</span>`;
         } else if (change < 0) {
-            changeHTML = `<span class="daily-change trend-down"><span class="arrow">&darr;</span> Today ${change}</span>`;
+            changeHTML = `<span class="daily-change trend-down"><span class="arrow">&darr;</span> Previous Day ${change}</span>`;
         } else {
-            changeHTML = `<span class="daily-change trend-stable"><span class="arrow">&rarr;</span> No Change Today</span>`;
+            changeHTML = `<span class="daily-change trend-stable">No Change Yesterday</span>`;
         }
 
         contentHTML += `
@@ -827,6 +827,7 @@ export function renderHouseWidget(processedStudents, activities) {
     document.getElementById('widgetLastUpdated').innerText = `Last Updated: ${new Date().toLocaleTimeString()}`;
 }
 
+
 export function setLanguage(lang) {
     document.querySelectorAll('[data-translate-key]').forEach(el => {
         const key = el.dataset.translateKey;
@@ -839,6 +840,4 @@ export function setLanguage(lang) {
         b.classList.toggle('active', b.dataset.lang === lang);
     });
 }
-
-// ... rest of the file remains the same ...
 

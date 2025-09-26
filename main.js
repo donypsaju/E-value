@@ -4,7 +4,7 @@ import { processStudentData } from './dataProcessor.js';
 import {
     initializeUI, setAppData, showView, hideProgressBar, showProgressBar,
     buildHMDashboard, buildTeacherDashboard, buildParentDashboard, buildStudentDashboard,
-    renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader
+    renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader, showBirthdayNotification
 } from './ui.js';
 import { isActivityForStudent } from './utils.js';
 import { activityRules } from './config.js';
@@ -13,7 +13,7 @@ import { activityRules } from './config.js';
 let appData = {};
 let currentUser = null;
 let widgetRefreshInterval = null;
-let disciplineModal, iframeModal, dobVerifyModal, houseWidgetModal;
+let disciplineModal, iframeModal, dobVerifyModal, houseWidgetModal, hmVerifyModal;
 
 /**
 * The main application initializer. Orchestrates data fetching and UI rendering.
@@ -28,8 +28,9 @@ async function initializeApp() {
     showProgressBar();
     try {
         const data = await getOrFetchAllData();
-        appData = { ...data };
+        appData = { ...data }; // Create a fresh copy of data for this session
 
+        // Link the data and current user to the UI module
         setAppData(appData, currentUser);
         showView('dashboard');
         updateDashboardHeader(currentUser);
@@ -37,6 +38,24 @@ async function initializeApp() {
         const allStudents = appData.users.filter(u => u.role === 'student');
         appData.processedStudents = processStudentData(allStudents, appData.marks, appData.activities);
 
+        // --- Feature: Birthday Notifications ---
+        if (currentUser.designation === 'HM') {
+            const today = new Date();
+            const todayMonth = today.getMonth() + 1; // JS months are 0-indexed
+            const todayDate = today.getDate();
+            
+            const birthdayStaff = appData.users.filter(user => {
+                if (user.role !== 'staff' || !user.dob) return false;
+                const dob = new Date(user.dob);
+                return dob.getMonth() + 1 === todayMonth && dob.getDate() === todayDate;
+            });
+
+            if (birthdayStaff.length > 0) {
+                showBirthdayNotification(birthdayStaff);
+            }
+        }
+
+        // --- Search Functionality ---
         const searchContainer = document.getElementById('header-search-container');
         const searchInput = document.getElementById('headerSearch');
         
@@ -58,6 +77,7 @@ async function initializeApp() {
             searchContainer.classList.add('d-none');
         }
 
+        // --- Dashboard Routing ---
         if (currentUser.designation === 'HM') {
             buildHMDashboard(currentUser, allStudents, appData.processedStudents);
         } else if (currentUser.role === 'staff') {
@@ -90,12 +110,17 @@ async function initializeApp() {
 
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize all Bootstrap Modals
     disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
     iframeModal = new bootstrap.Modal(document.getElementById('iframeModal'));
     dobVerifyModal = new bootstrap.Modal(document.getElementById('dobVerifyModal'));
     houseWidgetModal = new bootstrap.Modal(document.getElementById('houseWidgetModal'));
+    hmVerifyModal = new bootstrap.Modal(document.getElementById('hmVerifyModal'));
 
+    // Pass modal instances to the UI module
     initializeUI({ discipline: disciplineModal, iframe: iframeModal, dobVerify: dobVerifyModal });
+
+    // --- Event Listeners for Static Forms ---
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -142,6 +167,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const hmVerifyForm = document.getElementById('hmVerifyForm');
+    if (hmVerifyForm) {
+        hmVerifyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const dob = document.getElementById('hmDobInput').value;
+            const errorEl = document.getElementById('hmDobError');
+            if (currentUser && currentUser.dob === dob) {
+                hmVerifyModal.hide();
+                houseWidgetModal.hide();
+                hmVerifyForm.reset();
+                errorEl.textContent = '';
+            } else {
+                errorEl.textContent = "Incorrect Date of Birth. Authorization failed.";
+            }
+        });
+    }
+
+    // --- A Single, Robust Event Listener for the Dynamic Dashboard ---
     const dashboardView = document.getElementById('dashboardView');
     if (dashboardView) {
         dashboardView.addEventListener('click', e => {
@@ -149,7 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
                 initializeApp();
-            } else if (target.closest('#showDiscipline')) {
+            } 
+            
+            else if (target.closest('#showDiscipline')) {
                 const button = target.closest('#showDiscipline');
                 const admNo = button.dataset.admissionNo;
                 const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
@@ -159,26 +204,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalBody.innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => `<tr><td>${new Date(act.Timestamp).toLocaleDateString()}</td><td>${act.Activity}</td><td class="${(activityRules[act.Activity] || 0) > 0 ? 'text-success' : 'text-danger'} fw-semibold">${((act.Rating / 5) * (activityRules[act.Activity] || 0)).toFixed(1)}</td></tr>`).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
                     disciplineModal.show();
                 }
-            } else if (target.matches('[data-admission-no]')) {
-                const admNo = target.dataset.admissionNo;
-                const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
-                if (student) {
-                    buildStudentDashboard(student, appData.activities, currentUser, []);
-                }
-                const searchInput = document.getElementById('headerSearch');
-                const searchResultsEl = document.getElementById('headerSearchResults');
-                if(searchInput) searchInput.value = '';
-                if(searchResultsEl) searchResultsEl.innerHTML = '';
-            } else if (target.closest('#launchWidgetBtn')) {
+            } 
+
+            else if (target.matches('[data-admission-no]')) {
+                 const admNo = target.dataset.admissionNo;
+                 const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
+                 if (student) {
+                     buildStudentDashboard(student, appData.activities, currentUser, []);
+                 }
+                 document.getElementById('headerSearch').value = '';
+                 document.getElementById('headerSearchResults').innerHTML = '';
+             }
+
+            else if (target.closest('#launchWidgetBtn')) {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             }
         });
     }
-
+    
+    // --- Listeners for Other Controls ---
     const widgetModalEl = document.getElementById('houseWidgetModal');
     if (widgetModalEl) {
         widgetModalEl.addEventListener('shown.bs.modal', () => {
+            renderHouseWidget(appData.processedStudents, appData.activities);
             widgetRefreshInterval = setInterval(() => {
                 renderHouseWidget(appData.processedStudents, appData.activities);
             }, 60000);
@@ -186,6 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
         widgetModalEl.addEventListener('hidden.bs.modal', () => {
             clearInterval(widgetRefreshInterval);
         });
+
+        const closeButton = widgetModalEl.querySelector('.btn-close');
+        if (closeButton) {
+            closeButton.setAttribute('data-bs-toggle', 'modal');
+            closeButton.setAttribute('data-bs-target', '#hmVerifyModal');
+            closeButton.removeAttribute('data-bs-dismiss');
+        }
     }
 
     document.querySelectorAll('.logout-btn').forEach(btn => btn.addEventListener('click', logout));
@@ -195,6 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
     });
+
     document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-bs-theme');
@@ -207,6 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('language') || 'en';
     setLanguage(savedLang);
 
+    // --- Start the Application ---
     initializeApp();
 });
 
