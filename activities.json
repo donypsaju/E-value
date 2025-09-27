@@ -680,5 +680,53 @@
         "Activity": "Extra Curricular Activities",
         "Rating": 5,
         "Timestamp": "2025-09-26 16:59:23"
+    },
+    {
+        "admissionNo": 14743,
+        "Activity": "Without ID Card",
+        "Rating": 2,
+        "Timestamp": "2025-09-27 14:44:28"
+    },
+    {
+        "admissionNo": 15972,
+        "Activity": "Without ID Card",
+        "Rating": 2,
+        "Timestamp": "2025-09-27 14:45:11"
+    },
+    {
+        "admissionNo": 15223,
+        "Activity": "Without ID Card",
+        "Rating": 2,
+        "Timestamp": "2025-09-27 14:46:02"
+    },
+    {
+        "admissionNo": 14720,
+        "Activity": "Indiscipline",
+        "Rating": 1,
+        "Timestamp": "2025-09-27 14:46:37"
+    },
+    {
+        "admissionNo": 15761,
+        "Activity": "Indiscipline",
+        "Rating": 1,
+        "Timestamp": "2025-09-27 14:48:29"
+    },
+    {
+        "admissionNo": 15768,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-27 14:49:10"
+    },
+    {
+        "admissionNo": 15844,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-27 14:50:17"
+    },
+    {
+        "admissionNo": 14757,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-27 14:51:02"
     }
 ]
