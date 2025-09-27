@@ -565,19 +565,31 @@
         "Timestamp": "2025-09-26 15:36:33"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            15749,
+            14954,
+            14956
+        ],
         "Activity": "Indiscipline",
         "Rating": 5,
         "Timestamp": "2025-09-26 15:49:41"
     },
     {
-        "admissionNo": 14925154761494500000,
+        "admissionNo": [
+            14925,
+            15476,
+            14945
+        ],
         "Activity": "Bad Words",
         "Rating": 5,
         "Timestamp": "2025-09-26 15:51:45"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            15751,
+            15231,
+            15753
+        ],
         "Activity": "Indisciplinary activity at anytime",
         "Rating": 4,
         "Timestamp": "2025-09-26 16:38:45"
@@ -596,7 +608,11 @@
         "Timestamp": "2025-09-26 16:42:29"
     },
     {
-        "admissionNo": 15751149441492900000,
+        "admissionNo": [
+            15751,
+            14944,
+            14929
+        ],
         "Activity": "Class Cleaning",
         "Rating": 5,
         "Timestamp": "2025-09-26 16:44:10"
@@ -656,7 +672,11 @@
         "Timestamp": "2025-09-26 16:57:05"
     },
     {
-        "admissionNo": 1,
+        "admissionNo": [
+            15231,
+            16029,
+            15969
+        ],
         "Activity": "Extra Curricular Activities",
         "Rating": 5,
         "Timestamp": "2025-09-26 16:59:23"
