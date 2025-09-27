@@ -189,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dashboardView) {
         dashboardView.addEventListener('click', e => {
             const target = e.target;
+            const studentProfileTrigger = target.closest('.view-sibling-profile, .list-group-item[data-admission-no]');
 
             if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
                 initializeApp();
@@ -205,9 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     disciplineModal.show();
                 }
             } 
-
-            else if (target.matches('.view-sibling-profile') || (target.parentElement.matches('.list-group-item') && target.parentElement.dataset.admissionNo)) {
-                 const admNo = target.dataset.admissionNo || target.parentElement.dataset.admissionNo;
+            
+            // THE FIX: This single condition now correctly handles clicks from search results AND parent dashboard buttons.
+            else if (studentProfileTrigger) {
+                 const admNo = studentProfileTrigger.dataset.admissionNo;
                  const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
                  if (student) {
                     const allStudents = appData.users.filter(u => u.role === 'student');
