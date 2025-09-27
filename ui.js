@@ -254,9 +254,24 @@ export function buildStudentDashboard(student, activities, viewer = null, siblin
         return `<tr><td class="fw-medium text-primary">${sanitize(subject)}</td>${cells}<td class="text-center small">${trend}</td></tr>`;
     }).join('');
 
-    const backButtonHTML = viewer && viewer.role === 'staff'
-        ? `<div class="mb-3"><button id="backToDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Teacher Dashboard</button></div>`
-        : (viewer && viewer.role === 'student' && siblings && siblings.length > 0 ? `<div class="mb-3"><button id="backToParentDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Parent Dashboard</button></div>` : '');
+    let backButtonHTML = '';
+    if (viewer && viewer.role === 'staff') {
+        backButtonHTML = `<div class="mb-3"><button id="backToDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Back to Teacher Dashboard</button></div>`;
+    } else if (viewer && viewer.role === 'student' && siblings && siblings.length > 0) {
+        const switchChildOptions = siblings.map(s => `<li><button class="dropdown-item view-sibling-profile" data-admission-no="${s.admissionNo}">${sanitize(s.name)}</button></li>`).join('');
+        backButtonHTML = `
+            <div class="d-flex gap-2 mb-3">
+                <button id="backToParentDashboardBtn" class="btn btn-sm themed-bg action-btn rounded-pill"><i class="fa-solid fa-arrow-left"></i> Parent Dashboard</button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Switch Child
+                    </button>
+                    <ul class="dropdown-menu">
+                        ${switchChildOptions}
+                    </ul>
+                </div>
+            </div>`;
+    }
 
     dashboardContainer.innerHTML = backButtonHTML + `
         <div class="card shadow-sm dashboard-card"><div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3"><div><h2 class="h4 fw-bold text-primary">${sanitize(student.name)}</h2><p class="mb-0">Class ${sanitize(student.class)}-${sanitize(student.division)} | Adm No: ${sanitize(student.admissionNo)} | House: ${sanitize(student.house)}</p></div><div class="d-flex align-items-center gap-4 text-center"><div><p class="h4 fw-bold themed-text">#${student.academicRank}</p><p class="small mb-0">Academic Rank (Class)</p></div><div><p class="h4 fw-bold themed-text">#${student.disciplineRank}</p><p class="small mb-0">Discipline Rank (Class)</p></div></div></div></div>
@@ -329,7 +344,7 @@ export function buildStandingsChart(students, isSection = false) {
 
 export function buildLeaderboardCard(students, activities, isSection = false) {
     const leaderboardCard = document.getElementById('leaderboardCard');
-    if(!leaderboardCard) return;
+    if (!leaderboardCard) return;
 
     const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
     const filterOptions = isSection
@@ -350,16 +365,38 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
     const updateLeaderboards = () => {
         const value = document.getElementById('leaderboardFilter').value;
         let filteredStudents = students;
-        
+        let filteredActivities = activities;
+
         if (value === 'lp' || value === 'up' || value === 'hs') {
-            filteredStudents = students.filter(s => getSection(s.class).toLowerCase() === value);
+            const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
+            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
+            filteredActivities = activities.filter(a => {
+                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [String(a.admissionNo)];
+                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
+            });
         } else if (value !== 'school' && value !== 'section') {
-            filteredStudents = students.filter(s => `${s.class}-${s.division}` === value);
+            const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
+            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
+            filteredActivities = activities.filter(a => {
+                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [String(a.admissionNo)];
+                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
+            });
         }
 
         const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
         const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
         
+        const activityPoints = filteredActivities.reduce((acc, act) => {
+            const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
+            if (!acc[act.Activity]) acc[act.Activity] = 0;
+            acc[act.Activity] += points;
+            return acc;
+        }, {});
+
+        const sortedActivities = Object.entries(activityPoints).sort((a, b) => b[1] - a[1]);
+        const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
+        const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
+
         document.getElementById('leaderboardContent').innerHTML = `
         <div class="row g-4">
             <div class="col-md-6">
@@ -370,12 +407,21 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
                 <h3 class="h6 fw-semibold mb-2 text-danger">Top Students (Negative)</h3>
                 <ul class="list-group list-group-flush">${topNegativeStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(s.name)} (${sanitize(s.class)}-${sanitize(s.division)})</span><span class="fw-bold text-danger">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
             </div>
+            <div class="col-md-6">
+                <h3 class="h6 fw-semibold mb-2 text-success">Top Positive Activities</h3>
+                <ul class="list-group list-group-flush">${topPositiveActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(name)}</span><span class="fw-bold text-success">${pts.toFixed(1)}</span></li>`).join('')}</ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h6 fw-semibold mb-2 text-danger">Top Negative Activities</h3>
+                <ul class="list-group list-group-flush">${topNegativeActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(name)}</span><span class="fw-bold text-danger">${pts.toFixed(1)}</span></li>`).join('')}</ul>
+            </div>
         </div>`;
     };
 
     document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
     updateLeaderboards();
 }
+
 
 export function buildClassToppersCard(students) {
     setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);

@@ -206,14 +206,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } 
 
-            else if (target.matches('[data-admission-no]')) {
-                 const admNo = target.dataset.admissionNo;
+            else if (target.matches('.view-sibling-profile') || (target.parentElement.matches('.list-group-item') && target.parentElement.dataset.admissionNo)) {
+                 const admNo = target.dataset.admissionNo || target.parentElement.dataset.admissionNo;
                  const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
                  if (student) {
-                     buildStudentDashboard(student, appData.activities, currentUser, []);
+                    const allStudents = appData.users.filter(u => u.role === 'student');
+                    const studentPhones = Array.isArray(student.phone) ? student.phone : [student.phone];
+                    const siblings = allStudents.filter(s => {
+                        if (s.admissionNo.toString() === student.admissionNo.toString()) return false;
+                        const siblingPhones = Array.isArray(s.phone) ? s.phone : [s.phone];
+                        return studentPhones.some(p => siblingPhones.includes(p));
+                    });
+
+                     buildStudentDashboard(student, appData.activities, currentUser, siblings);
                  }
-                 document.getElementById('headerSearch').value = '';
-                 document.getElementById('headerSearchResults').innerHTML = '';
+                 const searchInput = document.getElementById('headerSearch');
+                 const searchResultsEl = document.getElementById('headerSearchResults');
+                 if(searchInput) searchInput.value = '';
+                 if(searchResultsEl) searchResultsEl.innerHTML = '';
              }
 
             else if (target.closest('#launchWidgetBtn')) {
@@ -261,7 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const savedLang = localStorage.getItem('language') || 'en';
+    // --- Default Language and Theme ---
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'dark');
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+    }
+
+    const savedLang = localStorage.getItem('language') || 'ml';
     setLanguage(savedLang);
 
     // --- Start the Application ---
