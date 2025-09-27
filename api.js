@@ -1,5 +1,10 @@
 import { APP_VERSION } from './config.js';
 
+// --- CONFIGURATION ---
+// The maximum age of the cache in milliseconds.
+// 1 * 60 * 60 * 1000 = 1 hour. Change the first number to set a different duration in hours.
+const CACHE_DURATION_MS = 1 * 60 * 60 * 1000;
+
 // Private function to fetch data from the network
 async function fetchAllData() {
     try {
@@ -23,31 +28,27 @@ async function fetchAllData() {
 
 /**
  * Caching layer for application data. Fetches from the network only if
- * the cache is empty or the app version has changed.
+ * the cache is empty, the app version has changed, OR the cache is too old.
  * @returns {Promise<object>} A promise that resolves to { users, marks, activities }.
  */
 export async function getOrFetchAllData() {
-    try {
-        const cachedDataString = localStorage.getItem('appDataCache');
-        const cachedVersion = localStorage.getItem('appDataVersion');
+    const cachedData = JSON.parse(localStorage.getItem('appDataCache'));
+    const cachedVersion = localStorage.getItem('appDataVersion');
+    const cachedTimestamp = localStorage.getItem('appDataCacheTimestamp');
+    const now = Date.now();
 
-        if (cachedDataString && cachedVersion === APP_VERSION) {
-            console.log("Using fast, cached data.");
-            const cachedData = JSON.parse(cachedDataString);
-            return cachedData;
-        }
-    } catch (e) {
-        console.warn("Could not parse cached data, fetching fresh.", e);
-        // Clear potentially corrupt cache
-        localStorage.removeItem('appDataCache');
-        localStorage.removeItem('appDataVersion');
+    // Check if the cache is valid
+    if (cachedData && cachedVersion === APP_VERSION && cachedTimestamp && (now - parseInt(cachedTimestamp, 10) < CACHE_DURATION_MS)) {
+        console.log("Using fresh, cached data.");
+        return cachedData;
     }
 
-
-    console.log("Fetching new data from network...");
+    // If cache is invalid, old, or doesn't exist, fetch new data
+    console.log("Cache is old or invalid. Fetching new data from network...");
     const newData = await fetchAllData();
     localStorage.setItem('appDataCache', JSON.stringify(newData));
     localStorage.setItem('appDataVersion', APP_VERSION);
+    localStorage.setItem('appDataCacheTimestamp', now.toString()); // Store the current timestamp
     return newData;
 }
 
