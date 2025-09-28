@@ -49,17 +49,13 @@ export const activityRules = {
     "Play during interval": -5
 };
 
-// Central configuration for grading and max marks
 export const gradeConfig = {
-    // Grade thresholds for LP and HS (9, 10)
     defaultGrades: {
         90: 'A+', 80: 'A', 70: 'B+', 60: 'B', 50: 'C+', 40: 'C', 30: 'D+', 20: 'D', 0: 'E'
     },
-    // Grade thresholds for UP and HS (8)
     upHs8Grades: {
         80: 'A', 60: 'B', 40: 'C', 30: 'D', 0: 'E'
     },
-    // Max mark calculation rules
     maxMarks: {
         'Monthly Exam 01': { default: 20 },
         'First Mid Term Exam': { default: 20 },
@@ -67,12 +63,12 @@ export const gradeConfig = {
             LP: { default: 25 },
             UP: { default: 30 },
             HS: {
-                8: { Physics: 20, Chemistry: 20, Biology: 20, default: 40 },
-                9: { English: 80, 'Social Science': 80, Maths: 80, default: 40 },
-                10: { English: 80, 'Social Science': 80, Maths: 80, default: 40 }
+                // THE FIX: Subject names now use abbreviations to match your data
+                8: { 'Phy.': 20, 'Chem.': 20, 'Bio.': 20, default: 40 },
+                9: { 'English': 80, 'S.S.': 80, 'Maths': 80, default: 40 },
+                10: { 'English': 80, 'S.S.': 80, 'Maths': 80, default: 40 }
             }
         },
-        // Default max marks if no specific rule matches
         default: { default: 100 }
     }
 };
