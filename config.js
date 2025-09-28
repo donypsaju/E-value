@@ -1,5 +1,5 @@
 // App version for cache management
-export const APP_VERSION = '2.2-complete';
+export const APP_VERSION = '2.1-complete';
 
 // Translation data for multi-language support
 export const translations = {
@@ -62,7 +62,7 @@ export const gradeConfig = {
     // Max mark calculation rules
     maxMarks: {
         'Monthly Exam 01': { default: 20 },
-        'First Mid Term': { default: 20 },
+        'First Mid Term Exam': { default: 20 },
         'First Term Exam': {
             LP: { default: 25 },
             UP: { default: 30 },
