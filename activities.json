@@ -913,5 +913,35 @@
         "Activity": "Misbehaviour in public place",
         "Rating": 1,
         "Timestamp": "2025-09-29 14:42:42"
+    },
+    {
+        "admissionNo": 15947,
+        "Activity": "Indiscipline",
+        "Rating": 4,
+        "Timestamp": "2025-09-29 15:18:34"
+    },
+    {
+        "admissionNo": 16026,
+        "Activity": "Indiscipline",
+        "Rating": 4,
+        "Timestamp": "2025-09-29 15:19:34"
+    },
+    {
+        "admissionNo": 15940,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 15:20:22"
+    },
+    {
+        "admissionNo": 16026,
+        "Activity": "Indiscipline",
+        "Rating": 4,
+        "Timestamp": "2025-09-29 15:21:19"
+    },
+    {
+        "admissionNo": 15940,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 15:21:41"
     }
 ]
