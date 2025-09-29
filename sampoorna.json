@@ -1,0 +1,4895 @@
+[
+  {
+    "admissionNo": "15343",
+    "name": "ALPHONSA JOJI",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15953",
+    "name": "ANGEL UMPUKKATTU",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15101",
+    "name": "ANITTA BINOY",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15102",
+    "name": "CHRISTONNA TREESA ROBY",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15944",
+    "name": "DEVANANDHA ANISH",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15349",
+    "name": "JALSA ELIYA FRANCIS",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15184",
+    "name": "LAKSHMI RAJI",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15955",
+    "name": "NAYANA SANEESH",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16016",
+    "name": "SHIVANI SATHEESH",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15182",
+    "name": "VEDIKA SREELAL",
+    "gender": "F",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15954",
+    "name": "ABHINAV SMINU",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16043",
+    "name": "ABNAR JOSE BIJI",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15510",
+    "name": "ADHIKESH SATHEESH",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15346",
+    "name": "AIBEL CHRISTY ALEX",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15870",
+    "name": "BENJAMIN SILU",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15091",
+    "name": "BIBIL M JOJO",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15185",
+    "name": "CEON BINU",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16013",
+    "name": "HARINARAYANAN P H",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15348",
+    "name": "JEREMY SANTHOSH JACOB",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15093",
+    "name": "JERON JOSIN",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15250",
+    "name": "KARTHIK K R",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15849",
+    "name": "LOGESH S",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15959",
+    "name": "NANDAKISHOR D",
+    "gender": "M",
+    "class": "5",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15114",
+    "name": "AARSHA PRASAD",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15946",
+    "name": "ANASWARA ANEESH",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15569",
+    "name": "ANNGELINA PRINCE",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15570",
+    "name": "ANNMARIA PRINCE",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15109",
+    "name": "ANSIYA GIGI",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15125",
+    "name": "CEONA MARIA JIBIN",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15098",
+    "name": "LIYA JIMMIE NEERAKAL",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16035",
+    "name": "SETHULAKSHMI S",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15268",
+    "name": "SREEBALA SAJIN",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15095",
+    "name": "SREYA SAJITH",
+    "gender": "F",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15659",
+    "name": "ABHIJNAN KRISHNA AJAY",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15205",
+    "name": "ADHWAITH K S",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15743",
+    "name": "ADITH NAIR",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15943",
+    "name": "ADWAITH LALSON",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15207",
+    "name": "ALAN GEORGE",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15997",
+    "name": "ALEXANDER DEEPU",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15518",
+    "name": "AYUSH ARJUN",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15126",
+    "name": "EDWIN ABHILASH JACOB",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15948",
+    "name": "HRISHIKESH MANU",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15113",
+    "name": "MADHAV C R",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16012",
+    "name": "SURYANARAYANAN G",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15120",
+    "name": "YATHAV RAJ S",
+    "gender": "M",
+    "class": "5",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15741",
+    "name": "ABEETA MARY KIRAN",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15344",
+    "name": "ABSA ABIN",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15744",
+    "name": "ADITHYA S JAYASEELAN",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15108",
+    "name": "AMEYA BINU",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15115",
+    "name": "CERA DEEPU",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15945",
+    "name": "CIANNA ELZA JOJI",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15127",
+    "name": "EVA MARIA SHYJU",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15106",
+    "name": "ISHA K ANISH",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15244",
+    "name": "SAYANA SANTHOSH",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15121",
+    "name": "SHARON K BIJU",
+    "gender": "F",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15105",
+    "name": "ADVIK KRISHNA R",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15124",
+    "name": "ADWAITH P BINOY",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15949",
+    "name": "ALPHIN JOHN BINOJ",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16026",
+    "name": "ASWIN RAJESH",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15958",
+    "name": "BHAGATH KRISHNA K",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15739",
+    "name": "EDWIN AJO",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15757",
+    "name": "EDWIN K SOMI",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15957",
+    "name": "EDWIN R MATHEW",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15952",
+    "name": "JOYAL TIJO",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15754",
+    "name": "JUAN JAISON",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15239",
+    "name": "NANDHU M RAJESH",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15940",
+    "name": "RIYAN AJI",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15947",
+    "name": "SAVIO TOBIN",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15756",
+    "name": "SIDHARTH A",
+    "gender": "M",
+    "class": "5",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15686",
+    "name": "ADRISHA BARMAN",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15740",
+    "name": "ANOYINTA SHIBU",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "16022",
+    "name": "DAKSHINA ARUN",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15118",
+    "name": "GAADHA G",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15097",
+    "name": "GAYATHRI RAJESH",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15103",
+    "name": "IRENE JISS",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15117",
+    "name": "JIYAMARIYA GEORGE",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15094",
+    "name": "JOANNA ANN JINU",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15235",
+    "name": "VAISHNAVI MANEESH",
+    "gender": "F",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15092",
+    "name": "ABHIMANYU J",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15090",
+    "name": "ABHISHEK S",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15243",
+    "name": "ADHIDEV SATHEESHKUMAR",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15942",
+    "name": "AKARSH VINOD",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15950",
+    "name": "ARUL SOJAN",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15512",
+    "name": "AUSTIN TOMY",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15123",
+    "name": "DHYAN SREERAJ",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15951",
+    "name": "DHYANDEV DILEEP",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15347",
+    "name": "NEVIN ANTONY JOSEPH",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "16037",
+    "name": "NOBLE MATHEW SHIJO",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15100",
+    "name": "PRANAV ULLAS",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15110",
+    "name": "RYAN ANTONY LIJO",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15099",
+    "name": "SACHIN SOJO",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15941",
+    "name": "SAVIO SHINOY",
+    "gender": "M",
+    "class": "5",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15672",
+    "name": "AARCHA T LAJO",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14929",
+    "name": "ALINMARY YUGESH",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15963",
+    "name": "ANGELINA DILEESH",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15753",
+    "name": "ANN MARIYA AJU",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14960",
+    "name": "ANNMARIYA JOSE",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14955",
+    "name": "ANZA MARY JIBI",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14926",
+    "name": "ARLEEN JOMON",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14949",
+    "name": "ASWATHY AJEESH",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15751",
+    "name": "AVANI P PRAVEEN",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14944",
+    "name": "AYONA ANIL",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14951",
+    "name": "BIYA MARIA BILSON",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14948",
+    "name": "EILEEN BINOY",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15968",
+    "name": "LINTA MARY LUKOSE",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15967",
+    "name": "NAVYA N RAJESH",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15231",
+    "name": "PUNYA JYOTHIS",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14934",
+    "name": "SREYA REJI",
+    "gender": "F",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14943",
+    "name": "ABHISHEK BIJEESH",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14923",
+    "name": "ADITHYAN S",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15746",
+    "name": "ADWAITH PRAVEEN",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14918",
+    "name": "ADWAITH S KRISHNAN",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16029",
+    "name": "ANANTHAN K R",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15576",
+    "name": "APHIN THOMAS",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15579",
+    "name": "ARJUN T. R",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14939",
+    "name": "ASHIN SHINE",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15969",
+    "name": "CIYAN CYRIAC",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14930",
+    "name": "DEVANANDHAN P A",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14940",
+    "name": "JERIN JOHNSON",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15783",
+    "name": "JOYAL JOMON",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15519",
+    "name": "MADHAV K ANISH",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15352",
+    "name": "NANDADEV . R",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14924",
+    "name": "SAMUEL T S",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15688",
+    "name": "SREEHARI SUDHEESH",
+    "gender": "M",
+    "class": "6",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14937",
+    "name": "AARUSHI JAYESH",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15782",
+    "name": "AAVANI ANIL",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15749",
+    "name": "AISWARYA BINU",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16039",
+    "name": "ALIZA MARIYA MANU",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14954",
+    "name": "AMRUTHA K M",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15961",
+    "name": "ANASWARA V R",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14956",
+    "name": "ANUSHKA P S",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15577",
+    "name": "AVANTHIKA A",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14932",
+    "name": "CHRISTEENA ELIZABETH ROBY",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15516",
+    "name": "CIYA MARIA JOMIN",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14920",
+    "name": "DEVANANDA AJEESH",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15750",
+    "name": "DEVANANDA S NAIR",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14947",
+    "name": "DEVANANDHA S",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16053",
+    "name": "DEVIKRISHNA S",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14938",
+    "name": "JAYCE LIJO",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15965",
+    "name": "JENIYA JAMES",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15669",
+    "name": "MIYA U NAIR",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15571",
+    "name": "SIVANI N R",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15162",
+    "name": "THEERTHA K A",
+    "gender": "F",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14936",
+    "name": "AARYAN A R",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15752",
+    "name": "ABHISHEK M B",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15966",
+    "name": "ADHITHYAN P NAIR",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14928",
+    "name": "ANIRUDH K P",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16041",
+    "name": "EVAN BINCE",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15747",
+    "name": "FEBIN BINOJ MATHEW",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14925",
+    "name": "GODWIN J SAJAN",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15759",
+    "name": "JOVAAN JOJO",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15748",
+    "name": "MANAS MATHEW SEBASTIAN",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15822",
+    "name": "MILAN P RAJU",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15474",
+    "name": "NIBIN SHYJU",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14945",
+    "name": "PRANAV PRAMOD",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14916",
+    "name": "RAHUL KRISHNA C S",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15476",
+    "name": "ROHAN BIJU",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15964",
+    "name": "SREEHARI SYAM",
+    "gender": "M",
+    "class": "6",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14953",
+    "name": "ADHITYA SANEESH",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15784",
+    "name": "AISWARYA S NAIR",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15475",
+    "name": "AISWARYA SANTHOSH",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15810",
+    "name": "ANAMIKA C S",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15797",
+    "name": "ANDRIYA BIJO",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14959",
+    "name": "ANGELA SEBIN",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15089",
+    "name": "ANGELINA MATHEW CHEMMATHU",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15491",
+    "name": "ANN TREESA TENNISON",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14952",
+    "name": "ANUGRAHA S",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14919",
+    "name": "ANUSREE V K",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15745",
+    "name": "AYARIN ANNA AJO",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14941",
+    "name": "AYONA ANNA REJU",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14957",
+    "name": "DAYA SATHEESH",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15962",
+    "name": "DHIYA VIVEK",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15865",
+    "name": "ELISHWA ROY",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14927",
+    "name": "LIMIYA T LIJO",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15572",
+    "name": "NIVEDYA P S",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15228",
+    "name": "VRINDA C VINOD",
+    "gender": "F",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15859",
+    "name": "ADHI SAJI",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14946",
+    "name": "ADON P RENJITH",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15758",
+    "name": "ALFYN SEBASTIAN RAJU",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15970",
+    "name": "EDBERT SOJAN",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15490",
+    "name": "EVAN THOMAS TENNISON",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15573",
+    "name": "HARINARAYANAN C A",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15351",
+    "name": "JARIL JAISON",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14922",
+    "name": "JOHAN JINESH",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15960",
+    "name": "JOHAN JOSEPH",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15350",
+    "name": "JUAN JAMES SALMON",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14931",
+    "name": "JUWAN M THOMAS",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15796",
+    "name": "VINAYAK P ANOOP",
+    "gender": "M",
+    "class": "6",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14732",
+    "name": "ARYA SANTHOSH",
+    "gender": "F",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15596",
+    "name": "DIYA ANNAKUTTY",
+    "gender": "F",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15867",
+    "name": "LAKSHMI SUNIL",
+    "gender": "F",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15358",
+    "name": "SIKHA SURESH",
+    "gender": "F",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15971",
+    "name": "ADWAITH MADHU",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14731",
+    "name": "ALAN JOJI",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15357",
+    "name": "KARTHIK M. A.",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15478",
+    "name": "ROSHAN BIJU",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15278",
+    "name": "SHREYAS M",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15595",
+    "name": "SREEHARI.S",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14756",
+    "name": "SREENAND UNNI",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16009",
+    "name": "VAISHNAV SAJI",
+    "gender": "M",
+    "class": "7",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14719",
+    "name": "AIWA ANNA JAISON",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14728",
+    "name": "ALEEVIA JOSHY",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14730",
+    "name": "ANAKHAMOL BIJU",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15973",
+    "name": "ANJALINA BENNY",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15589",
+    "name": "AVANI P A",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14736",
+    "name": "DEVANANDHA C V",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15139",
+    "name": "ELIZABETH MATHEW",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14738",
+    "name": "ESSA JULIA LIJO",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14740",
+    "name": "GOURIPRIYA B",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15581",
+    "name": "HITHA K A",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14745",
+    "name": "JEANNA MARIAM JOJO",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14742",
+    "name": "JESSA JOJIMON",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15762",
+    "name": "MEDHA REJI",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14750",
+    "name": "NIRANJANA RAJESH",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14759",
+    "name": "SARASWATHYDEVI R NAIR",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15200",
+    "name": "TREESA ALEX",
+    "gender": "F",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15356",
+    "name": "AADISH K. S.",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14734",
+    "name": "ABHINAV S NAIR",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15874",
+    "name": "ABHIRAG LAL M S",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15578",
+    "name": "ABIN JOHNY",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15055",
+    "name": "ADTHU RAJ S",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15974",
+    "name": "AKHILESH ASHOKAN",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14726",
+    "name": "AKHILESH BINESH",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14718",
+    "name": "ALAN JOSE",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15354",
+    "name": "ASHIN SUNIL",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15976",
+    "name": "BHANU SOJAN",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15763",
+    "name": "BIBIN BIJU",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15592",
+    "name": "DACE ROSHAN",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14737",
+    "name": "EBY JIMMON",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15591",
+    "name": "FAHMID SHAHID",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14963",
+    "name": "GAHAN KRISHNA U",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14739",
+    "name": "GOURINADH VINOD",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15355",
+    "name": "JOEL KURIAKOSE SALMON",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15054",
+    "name": "NEIL GEORGE WILSON",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14751",
+    "name": "NOEL THOMAS BIBIN",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15586",
+    "name": "RAYON BIJU",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14758",
+    "name": "SANTO SAJITH",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15764",
+    "name": "SOJU R V",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15766",
+    "name": "SOORAJ J",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14761",
+    "name": "VAISHNAV SANTHOSH",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14760",
+    "name": "VIVEK SANTHOSH",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15259",
+    "name": "YADAV PRAVEEN",
+    "gender": "M",
+    "class": "7",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14715",
+    "name": "ABHIRAMI ANEESH",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15975",
+    "name": "AISWARYA ANEESH",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15972",
+    "name": "ANAKHA V.NAIR",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14716",
+    "name": "ANGELA LIJO",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14721",
+    "name": "ANN MARIA SABU",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14722",
+    "name": "ANNA MARIA CYRIAC",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15584",
+    "name": "ANNA MARIYA ROJIN",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15769",
+    "name": "AVANI SAJEEVAN",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14727",
+    "name": "AYONA MARIA SHIJU",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15582",
+    "name": "BHAVYA S NAIR",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15223",
+    "name": "JEMILIT MANJUSHA JAISON",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14741",
+    "name": "JIYA JISHA JOMON",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14743",
+    "name": "JOAHNA JOBI",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15593",
+    "name": "JOSHITHA JOJI",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14747",
+    "name": "MERIN SABU",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14748",
+    "name": "NIYA MARRY NIJO",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14753",
+    "name": "ROSHNA RAJEEV",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15575",
+    "name": "SREYA N R",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15082",
+    "name": "THRESY JIMMIE NEERAKAL",
+    "gender": "F",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14720",
+    "name": "AASHIN JOBY",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15768",
+    "name": "ADON PRINCE",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15875",
+    "name": "AIEBEL SIJU",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15583",
+    "name": "AKHILESH R",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15765",
+    "name": "ALOSHIOUS JOJO",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14729",
+    "name": "ALPHONSE ROY",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15977",
+    "name": "ASHIN K ANIL",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15587",
+    "name": "ASWIN SIJEESH",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14733",
+    "name": "ATHIROOP ANOOP",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15597",
+    "name": "AYON ROY",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14735",
+    "name": "CALVIN SOJAN",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16042",
+    "name": "JEFFRIL RENJU ALEX",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15590",
+    "name": "JOSHUA JOMON",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14746",
+    "name": "LEYON THOMAS",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15761",
+    "name": "MATHEW GEORGE",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14752",
+    "name": "NIVIN FENIL",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14754",
+    "name": "ROSARIO JOMON",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15844",
+    "name": "S BALAKRISHNAN",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14757",
+    "name": "SALVIN SOBY",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15585",
+    "name": "SAMUEL PRINCE ABRAHAM",
+    "gender": "M",
+    "class": "7",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16027",
+    "name": "ANAMIKA ROY",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16052",
+    "name": "ANUSREE",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14545",
+    "name": "CATHARINE P J",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15507",
+    "name": "DEVANANDA RAJESH",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14556",
+    "name": "DEVIKA DIPU",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14535",
+    "name": "JISSAMOL JANEESH",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14538",
+    "name": "JOSNA M JOJO",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14540",
+    "name": "KEERTHANA S",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14544",
+    "name": "OLIVIA PRADEEP",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16010",
+    "name": "VAIGA SAJI",
+    "gender": "F",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16021",
+    "name": "ABHIJITH ANU",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15383",
+    "name": "ADITHYAN K R",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14532",
+    "name": "EMMANUEL J THURUTHUMALIL",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14531",
+    "name": "HARINANDAN S",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14516",
+    "name": "HARSHIT C ARUN",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16005",
+    "name": "HEMAND S",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15480",
+    "name": "INFAN SIBY",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15260",
+    "name": "KARTHIK BIJU",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15818",
+    "name": "LEON BIJU",
+    "gender": "M",
+    "class": "8",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15978",
+    "name": "ALEENA THERESA PHILIP",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14541",
+    "name": "ALNA THOMAS",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14530",
+    "name": "ALONA BIJEESH",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15380",
+    "name": "ALPHIA SEBASTIAN",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15136",
+    "name": "AMAYA JOGI",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15227",
+    "name": "ANGEL JOSHY",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14557",
+    "name": "ANJANA M S",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14550",
+    "name": "DAYITA BRIDGIT BIPIN",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15361",
+    "name": "DAYONA JIMMY",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14521",
+    "name": "EBINA ELIZABETH JOMON",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15378",
+    "name": "HIMA K.A.",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16028",
+    "name": "ISHA GRACE JOSEPH",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14964",
+    "name": "JIYANA MARY SIBY",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14768",
+    "name": "JOWANA SARA BENNY",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15081",
+    "name": "LILLY JIMMIE NEERAKAL",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14525",
+    "name": "MARIA BINOY",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15367",
+    "name": "NANDANA P. M.",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15214",
+    "name": "NIYA BIJU",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16033",
+    "name": "TESSA MARY SEBASTIAN",
+    "gender": "F",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15371",
+    "name": "ABHAY BINU",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15368",
+    "name": "ABHINAV BINU",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14520",
+    "name": "ABHISHEK JIBI",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15864",
+    "name": "ANEX ROY",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15377",
+    "name": "ANIRUDH S",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14564",
+    "name": "ARAVIND NANDAKUMAR",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14569",
+    "name": "DEVANAND S",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15993",
+    "name": "EDWIN RAJESH",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15372",
+    "name": "FELIX BINOJ MATHEW",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14566",
+    "name": "GOUTHAM KRISHNA I S",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15979",
+    "name": "STEVE BINU",
+    "gender": "M",
+    "class": "8",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15770",
+    "name": "AMEYA SMINU",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15982",
+    "name": "ANANYA B",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14764",
+    "name": "ANANYA SANTHOSH",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15382",
+    "name": "ANAYA SAJO",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15086",
+    "name": "ANLIYA C V",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15359",
+    "name": "ANN LIYA ALEX",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15364",
+    "name": "ARADHANA ARUN",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15481",
+    "name": "ARUNYA SANTHOSH",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14553",
+    "name": "CHRISTAMARIYA JOSHY",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15479",
+    "name": "CHRISTEENA ANNA CHRISTAPHER",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15385",
+    "name": "NANDITHA R NAIR",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15999",
+    "name": "PARVANA ROOPESH",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16000",
+    "name": "PAVANA ROOPESH",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15998",
+    "name": "PAVITHRA ROOPESH",
+    "gender": "F",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14533",
+    "name": "ABHIJITH RAJESH",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15376",
+    "name": "ABIN JOMON JOSEPH",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14763",
+    "name": "ALONSO MATHEW",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15374",
+    "name": "AMAL BIJO",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15381",
+    "name": "ASHWIN SHIJO",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15980",
+    "name": "BESTIN SAJI",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14559",
+    "name": "EMMANUEL SIBY",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16030",
+    "name": "GEORGE SIBI",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16031",
+    "name": "JAISON SIBI",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16014",
+    "name": "JESWIN THOMAS",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14536",
+    "name": "KARTHIK G",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15375",
+    "name": "KARTHIK.S.",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16036",
+    "name": "KASINATH K H",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15502",
+    "name": "KEVIN CHACKO",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14543",
+    "name": "LIYO T LIJO",
+    "gender": "M",
+    "class": "8",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14534",
+    "name": "ADITHYA AJITH",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15772",
+    "name": "ANJIMA S NAIR",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15602",
+    "name": "ANNE MARIA ROSSELLA JOHN",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14563",
+    "name": "ANUJA S",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15817",
+    "name": "ARYA ANOOP",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15600",
+    "name": "BHAVYA N RAJESH",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15990",
+    "name": "CHRISTEENA SHIJU",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15983",
+    "name": "CLAIR ANN JOJI",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15360",
+    "name": "JEWEL SIJO",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15995",
+    "name": "JISNA JEE",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14560",
+    "name": "NANDANA P BINOY",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15991",
+    "name": "REESHMA RATHISH",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14551",
+    "name": "RESHMI RAJESH",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "16032",
+    "name": "SUSHMI MOL S S",
+    "gender": "F",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14549",
+    "name": "ABEL PRAKASH",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15373",
+    "name": "ADITHYAN P A",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14524",
+    "name": "ADWAITH SHIBU",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14568",
+    "name": "AKASH CYRIAC",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14562",
+    "name": "ALAN K U",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15138",
+    "name": "ALEN JOMON",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15994",
+    "name": "ALEN REJI",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15598",
+    "name": "ALRIC GEORGE",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15981",
+    "name": "ANEX MATHEW",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15992",
+    "name": "ARJUN RANA A M",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15984",
+    "name": "ASWINKRISHNA K S",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15070",
+    "name": "ATHUL KRISHNAN",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14561",
+    "name": "ATHULKRISHNA R",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14766",
+    "name": "CHRISTO GIGO",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15989",
+    "name": "CHRISTY SHIJU",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14542",
+    "name": "CRISPIN JOSEPH ALVIN",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14522",
+    "name": "DERRICK LIJO",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15773",
+    "name": "EVAN JINS",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15767",
+    "name": "JONES VINCENT",
+    "gender": "M",
+    "class": "8",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14762",
+    "name": "AKSHITHA JAYESH",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "16015",
+    "name": "ANGEL SONY",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15137",
+    "name": "DEVIKA A K",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14527",
+    "name": "DIANA V RAJU",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15986",
+    "name": "GOWRI KRISHNA G A",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15165",
+    "name": "JEWEL JIJO",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14767",
+    "name": "JIYA JAISON",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15771",
+    "name": "KARISHMA RAJ",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14548",
+    "name": "KRISHNENDU J NAIR",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15384",
+    "name": "MERINA AJEESH",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15599",
+    "name": "NANDANA C. M.",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14565",
+    "name": "VAIGA MANEESH",
+    "gender": "F",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15988",
+    "name": "ABEL K. JINO",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15985",
+    "name": "HARIDEV VINEESH",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15386",
+    "name": "HARINANDAN AJI",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14537",
+    "name": "HRITHIK MAHESH",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15069",
+    "name": "J JERIN",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14529",
+    "name": "JINS JIPSON",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14546",
+    "name": "JOSH JOJO",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15224",
+    "name": "JOSIT JOJAN",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "16040",
+    "name": "JOYAL N JOJO",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15823",
+    "name": "KAILASNATH M M",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15230",
+    "name": "KASHINATH M A",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14555",
+    "name": "KASINADH V S",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15820",
+    "name": "RIYON JOSEPH",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "16034",
+    "name": "STEVEN BIJU",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14769",
+    "name": "SURYANARAYANAN J",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14708",
+    "name": "SYAM KENNADY",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15473",
+    "name": "TONY B JOSEPH",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14770",
+    "name": "VAISHNAV M MANOJ",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "14526",
+    "name": "VISHNUNADH P",
+    "gender": "M",
+    "class": "8",
+    "division": "E"
+  },
+  {
+    "admissionNo": "15807",
+    "name": "ATHIRA MANOJ",
+    "gender": "F",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15613",
+    "name": "CHANDHINI SANTHOSH",
+    "gender": "F",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15208",
+    "name": "DIYA SATHEESH",
+    "gender": "F",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15790",
+    "name": "THEERTHA N RAJ",
+    "gender": "F",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15808",
+    "name": "ABHINAV M",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15788",
+    "name": "ABINAV A S",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15791",
+    "name": "ADHITHYAN K UNNI",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15803",
+    "name": "ADITHYAN ANEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "16002",
+    "name": "ALANJOE C G",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15799",
+    "name": "ALBIN LALU",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15792",
+    "name": "ANANDHU BINU",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15801",
+    "name": "ASHWIN ANISH",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15779",
+    "name": "DENNIS JOSEPH TOMY",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15794",
+    "name": "FELIX JOSHY",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15776",
+    "name": "JOYAL JOJO",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15789",
+    "name": "SHALOM SHAJI",
+    "gender": "M",
+    "class": "9",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15085",
+    "name": "ABHIRAMI K.A.",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15506",
+    "name": "AKSHARA SAREESH",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15198",
+    "name": "ANGEL BIJO",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14390",
+    "name": "ANGEL SUMESH",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15606",
+    "name": "DIONA ANNA JISHO",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15679",
+    "name": "ELMER B. MARIA",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14373",
+    "name": "FLAVINTA XAVIER",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14775",
+    "name": "KEERTHANA S",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15802",
+    "name": "MALAVIKA N R",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15217",
+    "name": "MARTHAMOL ABRAHAM",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16007",
+    "name": "MEERA MADHU",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15286",
+    "name": "MERIN JAISON",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14379",
+    "name": "NIMMYA SABU",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15173",
+    "name": "NIVEDYA BINEESH",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15610",
+    "name": "ROSE MARY GEORGE",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14580",
+    "name": "SAVINA SAJI",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15210",
+    "name": "SIVANANDHANA MANOJ",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15202",
+    "name": "SREELAKSHMI A N",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15777",
+    "name": "SREYA BINU",
+    "gender": "F",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15607",
+    "name": "AARON CYRUS",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16019",
+    "name": "ABHINAV DHANESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14389",
+    "name": "ABHINAV MANOJ",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15778",
+    "name": "ABIN DILEEP",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15831",
+    "name": "ABISHEK BINU",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14776",
+    "name": "ADARSH RATHEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14966",
+    "name": "ADISH AKHILESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14576",
+    "name": "ADITHYAN RATHEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16001",
+    "name": "ALFIN C SHINOY",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15603",
+    "name": "ALFY JOHNY",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14575",
+    "name": "ANWIN JOSE",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15059",
+    "name": "AROMAL S KRISHNAN",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15863",
+    "name": "ASHWIN PRASAD",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14388",
+    "name": "BADRINATH B KRISHNA",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15805",
+    "name": "DERIN SHIBU",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15391",
+    "name": "DEVANAND K. DILEEP",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14395",
+    "name": "DORAINE MANOJ",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15781",
+    "name": "EDWIN TIJO",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15798",
+    "name": "GEO K JUSTINE",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "16006",
+    "name": "GODWIN PRADEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14572",
+    "name": "JESWIN JAISON",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14397",
+    "name": "JOSHUA JINESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14507",
+    "name": "K V DARSHAN",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15604",
+    "name": "KAILAS C A",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15246",
+    "name": "KARTHIK RAJAN",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14581",
+    "name": "KARTHIK ULLAS",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15854",
+    "name": "MABEL VARGHEESE",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15180",
+    "name": "MADHAV K AJITH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15800",
+    "name": "MANUEL SEBASTIAN",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14383",
+    "name": "MELBIN MANOJ",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14577",
+    "name": "NANDAN K PRADEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15775",
+    "name": "NIRANJAN PRAMOD",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15482",
+    "name": "NITHEESH SHAIJU",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14387",
+    "name": "RIBIN BENNY",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15795",
+    "name": "SHANIT V SHIBU",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15835",
+    "name": "SIDHARTH ARUN",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14777",
+    "name": "SREEHARI V",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14385",
+    "name": "YADHAV KRISHNAN",
+    "gender": "M",
+    "class": "9",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15060",
+    "name": "ABIYA JOSHY",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15832",
+    "name": "AISWARYA NAIR",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14392",
+    "name": "ANJANA C S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15285",
+    "name": "ANNA SHINU",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14571",
+    "name": "ANWITA S NAIR",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14965",
+    "name": "ARADHYA T SAJI",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14377",
+    "name": "ARDRA ANIL",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14574",
+    "name": "AVANI S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15806",
+    "name": "AYONA MATHEW",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15150",
+    "name": "BINETA ELIZABETH BOBBY",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15827",
+    "name": "DIYA MARY THOMAS",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14384",
+    "name": "GAURI S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15221",
+    "name": "JESLIT MANJUSHA JAISON",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15809",
+    "name": "JEWEL ANNA RAJU",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14396",
+    "name": "JISNA K JOY",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15611",
+    "name": "JOSHNA JOBY",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14391",
+    "name": "JYOTHI KRISHNA M S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15483",
+    "name": "KARTHIKA S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15830",
+    "name": "LIA JOSEPH",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15161",
+    "name": "MEENAKSHI S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15201",
+    "name": "MEENU K SALIMON",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15248",
+    "name": "POOJA C S",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14393",
+    "name": "SHIKA SUDHEESH",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14495",
+    "name": "STELLA SAIJU",
+    "gender": "F",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15199",
+    "name": "ABEL SHIJO",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14382",
+    "name": "ABHINAV ANEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15080",
+    "name": "ADITHYAN M RAJESH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15181",
+    "name": "ADITHYAN P HARIPRASAD",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15172",
+    "name": "ALAN K SHEBIN",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15786",
+    "name": "ALOSHIOUS T LIJEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14372",
+    "name": "AMAL PRAKASH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15264",
+    "name": "ANNRICH SHAJI",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15156",
+    "name": "ANTONY C BIJOSH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15605",
+    "name": "ARIC DELEAP",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14371",
+    "name": "ARPITH T JOSHY",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15793",
+    "name": "ASHIK BABU",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15133",
+    "name": "ASHIK SUNIL",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15780",
+    "name": "ASWIN ANISH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15774",
+    "name": "ASWIN BINU",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14369",
+    "name": "BENJAMIN JOBI",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15804",
+    "name": "BINIL BINEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16003",
+    "name": "CRISTIANO BIJU",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15787",
+    "name": "DENISH DENIL",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15388",
+    "name": "EDWIN LUKE",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15833",
+    "name": "EMMANUEL RAJU",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15829",
+    "name": "GOVIND NAIR",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15609",
+    "name": "GOWTHAMKRISHNA S",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15828",
+    "name": "JAMES REJI",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16045",
+    "name": "JERIL RENJU ALEX",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15393",
+    "name": "JOYAL JOSEPH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15152",
+    "name": "KERLIN JACOB JOB",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15862",
+    "name": "KEVIN KUNJUMON",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16004",
+    "name": "M DEVADATHAN",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15178",
+    "name": "MAHESHWAR K AJITH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15843",
+    "name": "NIVED S KRISHNA",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15276",
+    "name": "SANJAY SALEESH",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14578",
+    "name": "SAVIN SAJI",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15851",
+    "name": "VINAYAK V S",
+    "gender": "M",
+    "class": "9",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15628",
+    "name": "AKSHAY.S.SUNIL",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14509",
+    "name": "AMRUTHA SANTHOSH",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14514",
+    "name": "ARCHANA ANISH",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14366",
+    "name": "DEEPTHI SASI",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15657",
+    "name": "DEVU VASANTHAN",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15614",
+    "name": "LIYA BIJU",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14241",
+    "name": "LIYA T LIJO",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14194",
+    "name": "MEKHA AJAYAKUMAR",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14973",
+    "name": "SUBI SURENDRAN",
+    "gender": "F",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14239",
+    "name": "ADITHYAN V R",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14199",
+    "name": "AKHIL THOMAS",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15615",
+    "name": "ALBIN BIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "15855",
+    "name": "ANANDHU SAJI",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14230",
+    "name": "DANIES JIMMY GEORGE",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14972",
+    "name": "JOYAL JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14232",
+    "name": "SHAMIL SEBASTIAN",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14219",
+    "name": "SIVARAJ P R",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14210",
+    "name": "TINU SEBASTIAN",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14403",
+    "name": "YADHUKRISHNAN",
+    "gender": "M",
+    "class": "10",
+    "division": "A"
+  },
+  {
+    "admissionNo": "14978",
+    "name": "AMELIN THERESE THOMAS",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15621",
+    "name": "ANGEL ELIZABETH TIJO",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15155",
+    "name": "ANNA C BIJOSH",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14187",
+    "name": "ARDHRA SINESH",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15160",
+    "name": "DILEESHA SURESHBABU",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14910",
+    "name": "DIYA JIBU",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14227",
+    "name": "JYOTHIKA SUDHIR",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14226",
+    "name": "LAKSHMI S NAIR",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14970",
+    "name": "MEENAKSHI AJEESH",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15404",
+    "name": "NANDA RAJESH NAIR",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14213",
+    "name": "RESHMA RAJESH",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14215",
+    "name": "ROSNA SANTHOSH",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14976",
+    "name": "SREELAKSHMI S",
+    "gender": "F",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15028",
+    "name": "AADI SHANKER S",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14971",
+    "name": "ABHIDEV P A",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14195",
+    "name": "ABIN SHIBU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15158",
+    "name": "ADITHYAN BIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15617",
+    "name": "ADITHYAN DEEPU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14237",
+    "name": "AJO REJI",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15397",
+    "name": "AKSHAY SABU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14977",
+    "name": "ALFONS BIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15395",
+    "name": "AMBADY SANDHEEV",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14789",
+    "name": "ANASWAR P RAJESH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15811",
+    "name": "ARJUN M",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14233",
+    "name": "ATHUL RENJITH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15836",
+    "name": "BIYON JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15813",
+    "name": "DENNIS JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14206",
+    "name": "DONEL MANOJ",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15654",
+    "name": "FLAVIN BINITH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15400",
+    "name": "GIRIDHAR PREM",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15493",
+    "name": "J PRIYARANJAN",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15401",
+    "name": "JEFFRON SANTHOSH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14188",
+    "name": "JOBEL M JOJI",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15402",
+    "name": "KARTHIK JAYAN",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14583",
+    "name": "KARTHIK P",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15608",
+    "name": "LEON P JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15399",
+    "name": "MIDHUN KRISHNA J",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15814",
+    "name": "NAVINKRISHNA ABHILASH",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15624",
+    "name": "NISHAL CHANDRABABU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15666",
+    "name": "NIVIN PRADEEP",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "14193",
+    "name": "RASIN BIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15850",
+    "name": "SHAIN K SHAMJI",
+    "gender": "M",
+    "class": "10",
+    "division": "B"
+  },
+  {
+    "admissionNo": "15484",
+    "name": "ALESTRINA SHAIJO",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14201",
+    "name": "ANANYA AJAYAN",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14240",
+    "name": "ANISHKA JOMON",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15226",
+    "name": "ANNA JOSHY",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15632",
+    "name": "ANUSREE BINU",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14202",
+    "name": "ARCHA ANIL",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14222",
+    "name": "DEVANANDANA SAJI",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14695",
+    "name": "EVA BENNY",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15625",
+    "name": "JISMI REJI",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14787",
+    "name": "KEERTHANA K SURESH",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14788",
+    "name": "KEERTHANA V",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14212",
+    "name": "LIYA BABY",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14224",
+    "name": "SREELEKHA SURESH",
+    "gender": "F",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14205",
+    "name": "AASAMS RAJ",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15619",
+    "name": "ABHINAV MOHAN",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15627",
+    "name": "ABHINAV P SURESH",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14717",
+    "name": "ADHARSH K M",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14197",
+    "name": "ADITH K P",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15620",
+    "name": "ADITH MANOJ",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15816",
+    "name": "ADWAITH BAIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14587",
+    "name": "AJAY JAIMON",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15631",
+    "name": "ALBIN THOMAS",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15154",
+    "name": "ANKITH JOBY",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14242",
+    "name": "ANSON B JOJI",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15837",
+    "name": "ARJUN S JAYASEELAN",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14784",
+    "name": "ASWAJITH BIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15078",
+    "name": "DAVID JOBY",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15664",
+    "name": "DEON JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15047",
+    "name": "GOKUL KRISHNA C S",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15812",
+    "name": "JACOB T JAMES",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15635",
+    "name": "JEROME SHERRY",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14221",
+    "name": "JERRIN JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14220",
+    "name": "JOEL JOSE BIBIN",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14223",
+    "name": "JOSHUA JOBI",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14786",
+    "name": "JOSHWA BENNY",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15616",
+    "name": "JOYAL JOMON",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15815",
+    "name": "NAVYIAN HAPPY JOSEPH",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "16018",
+    "name": "NISHAL SABU",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14238",
+    "name": "ROHITH M R",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14980",
+    "name": "SOLOMON SIBY",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "15633",
+    "name": "SONU ROY",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14790",
+    "name": "YADHUKRISHNA M B",
+    "gender": "M",
+    "class": "10",
+    "division": "C"
+  },
+  {
+    "admissionNo": "14401",
+    "name": "ALISHA BENNY",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14234",
+    "name": "ALPHA ROSE SHIJU",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14782",
+    "name": "APARNA ANEESH",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14196",
+    "name": "ATHIRA MANOJ",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14225",
+    "name": "CHRISTINA MARY JUBY",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15634",
+    "name": "DEVIKRISHNA B",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15629",
+    "name": "DONA MARIYAM THOMAS",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15601",
+    "name": "ELISE B ELIZABETH",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14216",
+    "name": "JENISHA JOHNSON",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14231",
+    "name": "REEMA BENNY",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14217",
+    "name": "SARA BENNY",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15622",
+    "name": "SIYA MARIYA BINU",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14209",
+    "name": "SREENANDHANA SUDHAN",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14235",
+    "name": "SURYA ANIL",
+    "gender": "F",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14588",
+    "name": "AADHIDEV M. SIVAN",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15274",
+    "name": "ABHISHEK C S",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15513",
+    "name": "ADRIN TOMY",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15873",
+    "name": "AGRAJE LAL M S",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14203",
+    "name": "ARJUN BAIJU",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14983",
+    "name": "ARUSH T SAJI",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14191",
+    "name": "ASWIN SANTHOSH",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14236",
+    "name": "ASWINTH K R",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14228",
+    "name": "ATHUL MANOJ",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14982",
+    "name": "BENEDIC GEORGE",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14975",
+    "name": "BRILLIN ANILKUMAR",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15626",
+    "name": "CHRISTOPHER ROBINS",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15630",
+    "name": "DENNIS JOSEPH THOMAS",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "16011",
+    "name": "EDWIN SOJAN",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15074",
+    "name": "JENEESH J",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14586",
+    "name": "JEROM ABRAHAM JINU",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15839",
+    "name": "JEROME JUSTIN GEORGE",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15838",
+    "name": "JOMITH JOSE",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15618",
+    "name": "JOSEPH MATHEW",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14589",
+    "name": "LIONEL SAM JOHNSON",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14981",
+    "name": "MAXIN JOSHY",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "16008",
+    "name": "NIRANJAN R",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15677",
+    "name": "NOEL THOMAS",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14218",
+    "name": "PRABIN PRAMOD",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15403",
+    "name": "SANJEEV SANTHOSH",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14584",
+    "name": "SARAN KENNADY",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "15623",
+    "name": "THOMAS K. JAMES",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  },
+  {
+    "admissionNo": "14229",
+    "name": "YADHUKRISHNAN M S",
+    "gender": "M",
+    "class": "10",
+    "division": "D"
+  }
+]
