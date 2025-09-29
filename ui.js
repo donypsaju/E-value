@@ -435,149 +435,155 @@ export function buildReportGeneratorCard(students) {
     const cardContainer = document.getElementById('reportGeneratorCard');
     if (!cardContainer) return;
 
-    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    const internalClasses = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
 
     cardContainer.innerHTML = `
     <div class="card shadow-sm">
         <div class="card-body">
             <h2 class="h4 card-title fw-bold mb-3">Report Generator</h2>
-            
             <ul class="nav nav-tabs" id="reportTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="classwise-tab" data-bs-toggle="tab" data-bs-target="#classwise-tab-pane" type="button" role="tab">Class Wise</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="sampoorna-tab" data-bs-toggle="tab" data-bs-target="#sampoorna-tab-pane" type="button" role="tab">Sampoorna List</button>
-                </li>
+                <li class="nav-item" role="presentation"><button class="nav-link active" id="classwise-tab" data-bs-toggle="tab" data-bs-target="#classwise-tab-pane" type="button" role="tab">Internal List</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="sampoorna-tab" data-bs-toggle="tab" data-bs-target="#sampoorna-tab-pane" type="button" role="tab">Sampoorna List</button></li>
             </ul>
-
             <div class="tab-content pt-3" id="reportTabContent">
                 <div class="tab-pane fade show active" id="classwise-tab-pane" role="tabpanel">
-                    <!-- Class Wise Generator UI -->
                     <div class="row g-3 align-items-end">
-                        <div class="col-lg col-md-4"><label class="form-label small">Class</label><select id="report-class" class="form-select">${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
-                        <div class="col-lg col-md-4"><label class="form-label small">Term</label><select id="report-term" class="form-select" disabled></select></div>
-                        <div class="col-lg col-md-4"><label class="form-label small">Subject</label><select id="report-subject" class="form-select" disabled></select></div>
-                        <div class="col-lg-auto col-md-12"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Class</label><select id="report-class-internal" class="form-select report-class"><option value="">Select Class</option>${internalClasses.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Term</label><select id="report-term-internal" class="form-select report-term" disabled><option value="">Select Term</option></select></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Subject</label><select id="report-subject-internal" class="form-select report-subject" disabled><option value="">Select Subject</option></select></div>
+                        <div class="col-lg-auto col-md-12"><button id="generateReportBtnInternal" class="w-100 btn btn-primary generate-report-btn" data-source="internal" disabled>Generate</button></div>
                     </div>
-                    <div id="reportResultContainer" class="mt-4"></div>
+                    <div id="reportResultContainerInternal" class="mt-4 report-result"></div>
                 </div>
                 <div class="tab-pane fade" id="sampoorna-tab-pane" role="tabpanel">
-                    <!-- Sampoorna List Generator UI -->
-                    <p class="text-muted">Generate a JSON file for the Sampoorna student list. This will use the data from your 'Sampoorna - Reports' Google Sheet.</p>
-                    <button id="generateSampoornaBtn" class="btn btn-success">Generate sampoorna.json</button>
-                    <div id="sampoornaResultContainer" class="mt-3"></div>
+                     <div class="row g-3 align-items-end">
+                        <div class="col-lg col-md-4"><label class="form-label small">Class</label><select id="report-class-sampoorna" class="form-select report-class" disabled><option value="">Loading Classes...</option></select></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Term</label><select id="report-term-sampoorna" class="form-select report-term" disabled><option value="">Select Term</option></select></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Subject</label><select id="report-subject-sampoorna" class="form-select report-subject" disabled><option value="">Select Subject</option></select></div>
+                        <div class="col-lg-auto col-md-12"><button id="generateReportBtnSampoorna" class="w-100 btn btn-primary generate-report-btn" data-source="sampoorna" disabled>Generate</button></div>
+                    </div>
+                    <div id="reportResultContainerSampoorna" class="mt-4 report-result"></div>
                 </div>
             </div>
         </div>
     </div>`;
 
-    const classSelect = document.getElementById('report-class');
-    const termSelect = document.getElementById('report-term');
-    const subjectSelect = document.getElementById('report-subject');
-    const generateBtn = document.getElementById('generateReportBtn');
-    const resultContainer = document.getElementById('reportResultContainer');
-    const generateSampoornaBtn = document.getElementById('generateSampoornaBtn');
-    generateSampoornaBtn.addEventListener('click', async () => {
-        const resultContainer = document.getElementById('sampoornaResultContainer');
-        resultContainer.innerHTML = `<p class="text-info">Fetching Sampoorna list...</p>`;
-        try {
-            // This assumes your sampoorna.json is in the same folder
-            const res = await fetch('./sampoorna.json'); 
-            if(!res.ok) throw new Error('Could not fetch sampoorna.json');
-            const sampoornaData = await res.json();
-            
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sampoornaData, null, 2));
-            const downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", "sampoorna_students.json");
-            document.body.appendChild(downloadAnchorNode); // required for firefox
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
-            resultContainer.innerHTML = `<p class="text-success">Successfully generated and downloaded sampoorna_students.json!</p>`;
+    let sampoornaData = null;
 
-        } catch(e) {
-            resultContainer.innerHTML = `<p class="text-danger">Error: ${e.message}</p>`;
+    // --- Event Delegation for Clicks and Changes ---
+    cardContainer.addEventListener('click', async (e) => {
+        if (e.target.matches('.generate-report-btn')) {
+            const dataSource = e.target.dataset.source;
+            const className = document.getElementById(`report-class-${dataSource}`).value;
+            const term = document.getElementById(`report-term-${dataSource}`).value;
+            const subject = document.getElementById(`report-subject-${dataSource}`).value;
+            const resultContainer = document.getElementById(`reportResultContainer${dataSource.charAt(0).toUpperCase() + dataSource.slice(1)}`);
+            
+            const studentList = dataSource === 'internal' ? students : sampoornaData;
+            if (!studentList) {
+                resultContainer.innerHTML = `<p class="text-danger">Student list not loaded.</p>`;
+                return;
+            }
+
+            const [classNum] = className.split('-');
+            const section = getSection(classNum);
+            const classStudents = studentList.filter(s => `${s.class}-${s.division}` === className).sort((a, b) => a.name.localeCompare(b.name));
+
+            let tableHTML = `<div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Name</th><th>TE</th><th>CE</th></tr></thead><tbody>`;
+            let teClipboardText = "", ceClipboardText = "";
+
+            classStudents.forEach(s => {
+                const marksRecord = appData.marks.find(m => m.admissionNo.toString() === s.admissionNo.toString());
+                const mark = marksRecord?.terms?.[term]?.marks?.[subject];
+                const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
+                const displayMark = (typeof mark === 'number') ? mark : 'Ab';
+                let teDisplay, ceDisplay;
+
+                if (section === 'HS') {
+                    teDisplay = displayMark;
+                    ceDisplay = calculateCE_HS(mark, maxMark);
+                } else {
+                    teDisplay = grade;
+                    ceDisplay = calculateCE_UP(grade);
+                }
+                teClipboardText += `${teDisplay}\n`;
+                ceClipboardText += `${ceDisplay}\n`;
+                tableHTML += `<tr><td>${sanitize(s.name)}</td><td>${teDisplay}</td><td>${ceDisplay}</td></tr>`;
+            });
+
+            tableHTML += '</tbody></table></div><div class="mt-3 d-flex gap-2 justify-content-end"><button class="copy-btn btn btn-success" data-type="te">Copy TE</button><button class="copy-btn btn btn-info" data-type="ce">Copy CE</button></div>';
+            resultContainer.innerHTML = tableHTML;
+            
+            resultContainer.querySelector('.copy-btn[data-type="te"]').addEventListener('click', btnEvent => copyToClipboard(btnEvent.target, teClipboardText.trim()));
+            resultContainer.querySelector('.copy-btn[data-type="ce"]').addEventListener('click', btnEvent => copyToClipboard(btnEvent.target, ceClipboardText.trim()));
         }
     });
 
+    cardContainer.addEventListener('change', (e) => {
+        if (!e.target.matches('.report-class, .report-term, .report-subject')) return;
+        
+        const source = e.target.id.includes('internal') ? 'internal' : 'sampoorna';
+        const classSelect = document.getElementById(`report-class-${source}`);
+        const termSelect = document.getElementById(`report-term-${source}`);
+        const subjectSelect = document.getElementById(`report-subject-${source}`);
+        const generateBtn = document.getElementById(`generateReportBtn${source.charAt(0).toUpperCase() + source.slice(1)}`);
+        const studentList = source === 'internal' ? students : sampoornaData;
 
-    classSelect.addEventListener('change', () => {
-        termSelect.innerHTML = '<option value="">Select Term</option>';
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
+        if (e.target.matches('.report-class')) {
+            termSelect.innerHTML = '<option value="">Select Term</option>';
+            subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+            termSelect.disabled = true; subjectSelect.disabled = true; generateBtn.disabled = true;
 
-        const className = classSelect.value;
-        if (!className) return;
+            const className = e.target.value;
+            if (!className) return;
 
-        const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-        if (classStudents.length === 0) return;
+            const classStudents = studentList.filter(s => `${s.class}-${s.division}` === className);
+            if (classStudents.length === 0) return;
 
-        const terms = [...new Set(classStudents.flatMap(s => s.marksRecord ? Object.keys(s.marksRecord.terms) : []))];
-        termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
-        termSelect.disabled = false;
+            const terms = [...new Set(appData.marks.flatMap(m => m.terms ? Object.keys(m.terms) : []))];
+            termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
+            termSelect.disabled = false;
+        }
+
+        if (e.target.matches('.report-term')) {
+            subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+            subjectSelect.disabled = true; generateBtn.disabled = true;
+
+            const className = classSelect.value;
+            const term = e.target.value;
+            if (!className || !term) return;
+            
+            const subjects = [...new Set(appData.marks.flatMap(m => m.terms?.[term]?.marks ? Object.keys(m.terms[term].marks) : []))].sort();
+            subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+            subjectSelect.disabled = false;
+        }
+
+        if (e.target.matches('.report-subject')) {
+            generateBtn.disabled = !e.target.value;
+        }
     });
 
-    termSelect.addEventListener('change', () => {
-        subjectSelect.innerHTML = '<option value="">Select Subject</option>';
-        subjectSelect.disabled = true; generateBtn.disabled = true;
+    // --- Sampoorna Tab Logic ---
+    document.getElementById('sampoorna-tab').addEventListener('shown.bs.tab', async () => {
+        const classSelect = document.getElementById('report-class-sampoorna');
+        if (sampoornaData) return; // Don't fetch if already loaded
 
-        const className = classSelect.value;
-        const term = termSelect.value;
-        if (!className || !term) return;
+        try {
+            const res = await fetch('./sampoorna.json');
+            if (!res.ok) throw new Error('Could not fetch sampoorna.json.');
+            sampoornaData = await res.json();
+            
+            const sampoornaClasses = [...new Set(sampoornaData.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+            classSelect.innerHTML = `<option value="">Select Class</option>${sampoornaClasses.map(c => `<option value="${c}">${c}</option>`).join('')}`;
+            classSelect.disabled = false;
 
-        const classStudents = students.filter(s => `${s.class}-${s.division}` === className);
-        const subjects = [...new Set(classStudents.flatMap(s => s.marksRecord?.terms?.[term] ? Object.keys(s.marksRecord.terms[term].marks) : []))].sort();
-
-        subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
-        subjectSelect.disabled = false;
-    });
-
-    subjectSelect.addEventListener('change', () => { generateBtn.disabled = !subjectSelect.value; });
-
-    generateBtn.addEventListener('click', () => {
-        const className = classSelect.value;
-        const [classNum, division] = className.split('-');
-        const section = getSection(classNum);
-        const term = termSelect.value;
-        const subject = subjectSelect.value;
-
-        const classStudents = students.filter(s => `${s.class}-${s.division}` === className)
-            .sort((a, b) => a.name.localeCompare(b.name));
-
-        let tableHTML = `<div class="table-responsive"><table id="reportTable" class="table table-bordered"><thead><tr><th>Name</th><th>TE</th><th>CE</th></tr></thead><tbody>`;
-        let teClipboardText = "";
-        let ceClipboardText = "";
-
-        classStudents.forEach(s => {
-            const mark = s.marksRecord?.terms?.[term]?.marks?.[subject];
-            const { grade, maxMark } = getGradeInfo(mark, subject, term, s.class);
-            const displayMark = (typeof mark === 'number') ? mark : 'Ab';
-
-            let teDisplay, ceDisplay;
-
-            if (section === 'HS') {
-                teDisplay = displayMark;
-                ceDisplay = calculateCE_HS(mark, maxMark);
-                teClipboardText += `${teDisplay}\n`;
-                ceClipboardText += `${ceDisplay}\n`;
-            } else { // UP or LP
-                teDisplay = grade;
-                ceDisplay = calculateCE_UP(grade);
-                teClipboardText += `${teDisplay}\n`;
-                ceClipboardText += `${ceDisplay}\n`;
-            }
-
-            tableHTML += `<tr><td>${sanitize(s.name)}</td><td>${teDisplay}</td><td>${ceDisplay}</td></tr>`;
-        });
-
-        tableHTML += '</tbody></table></div><div class="mt-3 d-flex gap-2 justify-content-end"><button id="copyTeBtn" class="btn btn-success">Copy TE</button><button id="copyCeBtn" class="btn btn-info">Copy CE</button></div>';
-        resultContainer.innerHTML = tableHTML;
-
-        document.getElementById('copyTeBtn').addEventListener('click', e => copyToClipboard(e.target, teClipboardText.trim()));
-        document.getElementById('copyCeBtn').addEventListener('click', e => copyToClipboard(e.target, ceClipboardText.trim()));
+        } catch (err) {
+            classSelect.innerHTML = `<option value="">Error loading classes</option>`;
+            console.error(err);
+        }
     });
 }
+
 
 function copyToClipboard(button, text) {
     navigator.clipboard.writeText(text).then(() => {
