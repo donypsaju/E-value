@@ -441,13 +441,34 @@ export function buildReportGeneratorCard(students) {
     <div class="card shadow-sm">
         <div class="card-body">
             <h2 class="h4 card-title fw-bold mb-3">Report Generator</h2>
-            <div class="row g-3 align-items-end">
-                <div class="col-lg col-md-4"><label for="report-class" class="form-label small">Class</label><select id="report-class" class="form-select"><option value="">Select Class</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
-                <div class="col-lg col-md-4"><label for="report-term" class="form-label small">Term</label><select id="report-term" class="form-select" disabled><option value="">Select Term</option></select></div>
-                <div class="col-lg col-md-4"><label for="report-subject" class="form-label small">Subject</label><select id="report-subject" class="form-select" disabled><option value="">Select Subject</option></select></div>
-                <div class="col-lg-auto col-md-12"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
+            
+            <ul class="nav nav-tabs" id="reportTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="classwise-tab" data-bs-toggle="tab" data-bs-target="#classwise-tab-pane" type="button" role="tab">Class Wise</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sampoorna-tab" data-bs-toggle="tab" data-bs-target="#sampoorna-tab-pane" type="button" role="tab">Sampoorna List</button>
+                </li>
+            </ul>
+
+            <div class="tab-content pt-3" id="reportTabContent">
+                <div class="tab-pane fade show active" id="classwise-tab-pane" role="tabpanel">
+                    <!-- Class Wise Generator UI -->
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg col-md-4"><label class="form-label small">Class</label><select id="report-class" class="form-select">${classes.map(c => `<option value="${c}">${c}</option>`).join('')}</select></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Term</label><select id="report-term" class="form-select" disabled></select></div>
+                        <div class="col-lg col-md-4"><label class="form-label small">Subject</label><select id="report-subject" class="form-select" disabled></select></div>
+                        <div class="col-lg-auto col-md-12"><button id="generateReportBtn" class="w-100 btn btn-primary" disabled>Generate</button></div>
+                    </div>
+                    <div id="reportResultContainer" class="mt-4"></div>
+                </div>
+                <div class="tab-pane fade" id="sampoorna-tab-pane" role="tabpanel">
+                    <!-- Sampoorna List Generator UI -->
+                    <p class="text-muted">Generate a JSON file for the Sampoorna student list. This will use the data from your 'Sampoorna - Reports' Google Sheet.</p>
+                    <button id="generateSampoornaBtn" class="btn btn-success">Generate sampoorna.json</button>
+                    <div id="sampoornaResultContainer" class="mt-3"></div>
+                </div>
             </div>
-            <div id="reportResultContainer" class="mt-4"></div>
         </div>
     </div>`;
 
@@ -456,6 +477,30 @@ export function buildReportGeneratorCard(students) {
     const subjectSelect = document.getElementById('report-subject');
     const generateBtn = document.getElementById('generateReportBtn');
     const resultContainer = document.getElementById('reportResultContainer');
+    const generateSampoornaBtn = document.getElementById('generateSampoornaBtn');
+    generateSampoornaBtn.addEventListener('click', async () => {
+        const resultContainer = document.getElementById('sampoornaResultContainer');
+        resultContainer.innerHTML = `<p class="text-info">Fetching Sampoorna list...</p>`;
+        try {
+            // This assumes your sampoorna.json is in the same folder
+            const res = await fetch('./sampoorna.json'); 
+            if(!res.ok) throw new Error('Could not fetch sampoorna.json');
+            const sampoornaData = await res.json();
+            
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sampoornaData, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "sampoorna_students.json");
+            document.body.appendChild(downloadAnchorNode); // required for firefox
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+            resultContainer.innerHTML = `<p class="text-success">Successfully generated and downloaded sampoorna_students.json!</p>`;
+
+        } catch(e) {
+            resultContainer.innerHTML = `<p class="text-danger">Error: ${e.message}</p>`;
+        }
+    });
+
 
     classSelect.addEventListener('change', () => {
         termSelect.innerHTML = '<option value="">Select Term</option>';

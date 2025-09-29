@@ -1,20 +1,18 @@
 import { gradeConfig } from './config.js';
 
-/**
- * Sanitizes a string to prevent XSS attacks by converting HTML special characters.
- * @param {string} str The input string.
- * @returns {string} The sanitized string.
- */
+function findTermConfig(termKey) {
+    const lowerTermKey = termKey.toLowerCase().trim();
+    if (lowerTermKey.includes('monthly exam 01')) return gradeConfig.maxMarks['Monthly Exam 01'];
+    if (lowerTermKey.includes('first mid term')) return gradeConfig.maxMarks['First Mid Term Exam'];
+    if (lowerTermKey.includes('first term')) return gradeConfig.maxMarks['First Term Exam'];
+    return gradeConfig.maxMarks.default;
+}
+
 export function sanitize(str) {
     if (typeof str !== 'string') return '';
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
 
-/**
- * Determines the school section (LP, UP, HS) based on a class name.
- * @param {string} className The class (e.g., "5", "10").
- * @returns {string} The corresponding section.
- */
 export function getSection(className) {
     const classNum = parseInt(className, 10);
     if (classNum >= 1 && classNum <= 4) return 'LP';
@@ -23,11 +21,6 @@ export function getSection(className) {
     return 'Other';
 }
 
-/**
- * Determines the sections a teacher is responsible for based on their designation.
- * @param {string} designation The teacher's designation (e.g., "HST", "LPST").
- * @returns {Array<string>|null} An array of sections or null.
- */
 export function getTeacherSection(designation) {
     if (designation === 'LPST') return ['LP'];
     if (designation === 'UPST') return ['UP'];
@@ -36,9 +29,6 @@ export function getTeacherSection(designation) {
     return null;
 }
 
-/**
- * Custom sort function to correctly order class names (e.g., "10-A" after "9-B").
- */
 export function customClassSort(a, b) {
     const partsA = a.split('-');
     const partsB = b.split('-');
@@ -48,9 +38,6 @@ export function customClassSort(a, b) {
     return (partsA[1] || '').localeCompare(partsB[1] || '');
 }
 
-/**
- * Checks if an activity entry applies to a given student and returns the number of occurrences.
- */
 export function isActivityForStudent(activity, student) {
     const studentAdmNoStr = student.admissionNo.toString();
     const activityAdmNo = activity.admissionNo;
@@ -63,15 +50,11 @@ export function isActivityForStudent(activity, student) {
     return 0;
 }
 
-/**
- * Calculates grade info based on the central gradeConfig object.
- * @returns {object} An object containing { grade, cssClass, maxMark }.
- */
+
 export function getGradeInfo(mark, subject, termKey, studentClass) {
     const section = getSection(studentClass);
     const classNum = parseInt(studentClass, 10);
-
-    const termMarksConfig = gradeConfig.maxMarks[termKey] || gradeConfig.maxMarks.default;
+    const termMarksConfig = findTermConfig(termKey);
     let maxMark = termMarksConfig.default;
     if (termMarksConfig[section]) {
         maxMark = termMarksConfig[section][classNum]?.[subject] || termMarksConfig[section][classNum]?.default || termMarksConfig[section].default || maxMark;
@@ -96,30 +79,31 @@ export function getGradeInfo(mark, subject, termKey, studentClass) {
 }
 
 /**
- * Calculates the Continuous Evaluation (CE) mark for a High School student.
- * The minimum CE mark is 7.
- * @param {number} teMark The Terminal Evaluation (TE) mark.
- * @param {number} maxMark The maximum possible TE mark.
- * @returns {number} The calculated CE mark.
+ * NEW: Calculates CE marks for High School based on new rules.
  */
-export function calculateCE_HS(teMark, maxMark) {
-    if (typeof teMark !== 'number' || maxMark === 0) return 7; // Return minimum if TE is absent
-    const percentage = (teMark / maxMark) * 100;
-    const ceMark = (percentage / 100) * 20; // CE is out of 20
-    return Math.max(7, Math.round(ceMark)); // Ensure minimum is 7
+export function calculateCE_HS(mark, teMaxMark) {
+    if (typeof mark !== 'number' || teMaxMark === 0) return (teMaxMark === 80 ? 14 : 7); // Minimum CE
+
+    const ceMaxMark = teMaxMark === 80 ? 20 : 10;
+    const minCeMark = teMaxMark === 80 ? 14 : 7;
+    
+    const percentage = (mark / teMaxMark) * 100;
+    
+    if (percentage >= 90) return ceMaxMark;
+    if (percentage >= 75) return ceMaxMark - (ceMaxMark * 0.1); // 18 or 9
+    if (percentage >= 60) return ceMaxMark - (ceMaxMark * 0.2); // 16 or 8
+    
+    return minCeMark;
 }
 
-/**
- * Calculates the Continuous Evaluation (CE) grade for an Upper Primary student.
- * The minimum CE grade is 'C'.
- * @param {string} teGrade The Terminal Evaluation (TE) grade.
- * @returns {string} The calculated CE grade.
- */
-export function calculateCE_UP(teGrade) {
+export function calculateCE_UP(grade) {
     const gradeOrder = ['E', 'D', 'C', 'B', 'A'];
-    if (!teGrade || teGrade === 'Ab') return 'C'; // Return minimum if TE is absent
-    const teIndex = gradeOrder.indexOf(teGrade);
-    const cIndex = gradeOrder.indexOf('C');
-    return teIndex < cIndex ? 'C' : teGrade; // Return 'C' if TE grade is lower, otherwise return TE grade
+    const minGradeIndex = gradeOrder.indexOf('C');
+    const studentGradeIndex = gradeOrder.indexOf(grade);
+    
+    if (studentGradeIndex === -1 || studentGradeIndex < minGradeIndex) {
+        return 'C';
+    }
+    return grade;
 }
 
