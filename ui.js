@@ -435,7 +435,6 @@ export function buildReportGeneratorCard(students) {
     const cardContainer = document.getElementById('reportGeneratorCard');
     if (!cardContainer) return;
 
-    // THE FIX: Filter students based on the current teacher's role (HM sees all)
     let relevantStudents = students;
     if (currentUser && currentUser.role === 'staff' && currentUser.designation !== 'HM') {
         const teacherSections = getTeacherSection(currentUser.designation);
@@ -479,7 +478,6 @@ export function buildReportGeneratorCard(students) {
 
     let sampoornaData = null;
 
-    // --- Event Delegation for Clicks and Changes ---
     cardContainer.addEventListener('click', async (e) => {
         if (e.target.matches('.generate-report-btn')) {
             const dataSource = e.target.dataset.source;
@@ -561,8 +559,12 @@ export function buildReportGeneratorCard(students) {
             const className = classSelect.value;
             const term = e.target.value;
             if (!className || !term) return;
+
+            // THE FIX: Filter subjects based on the selected class
+            const studentAdmNos = new Set(studentList.filter(s => `${s.class}-${s.division}` === className).map(s => s.admissionNo.toString()));
+            const classMarks = appData.marks.filter(m => studentAdmNos.has(m.admissionNo.toString()));
             
-            const subjects = [...new Set(appData.marks.flatMap(m => m.terms?.[term]?.marks ? Object.keys(m.terms[term].marks) : []))].sort();
+            const subjects = [...new Set(classMarks.flatMap(m => m.terms?.[term]?.marks ? Object.keys(m.terms[term].marks) : []))].sort();
             subjectSelect.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
             subjectSelect.disabled = false;
         }
@@ -572,24 +574,22 @@ export function buildReportGeneratorCard(students) {
         }
     });
 
-    // --- Sampoorna Tab Logic ---
     document.getElementById('sampoorna-tab').addEventListener('shown.bs.tab', async () => {
         const classSelect = document.getElementById('report-class-sampoorna');
-        if (sampoornaData) return; // Don't fetch if already loaded
+        if (sampoornaData) return;
 
         try {
             const res = await fetch('./sampoorna.json');
             if (!res.ok) throw new Error('Could not fetch sampoorna.json.');
             let fetchedSampoornaData = await res.json();
             
-            // THE FIX: Filter Sampoorna data based on the current teacher's role
             if (currentUser && currentUser.role === 'staff' && currentUser.designation !== 'HM') {
                 const teacherSections = getTeacherSection(currentUser.designation);
                 if (teacherSections) {
                     fetchedSampoornaData = fetchedSampoornaData.filter(s => teacherSections.includes(getSection(s.class)));
                 }
             }
-            sampoornaData = fetchedSampoornaData; // Store the (potentially filtered) data
+            sampoornaData = fetchedSampoornaData;
             
             const sampoornaClasses = [...new Set(sampoornaData.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
             classSelect.innerHTML = `<option value="">Select Class</option>${sampoornaClasses.map(c => `<option value="${c}">${c}</option>`).join('')}`;
