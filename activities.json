@@ -801,5 +801,117 @@
         "Activity": "Bad Words",
         "Rating": 5,
         "Timestamp": "2025-09-29 14:05:56"
+    },
+    {
+        "admissionNo": 1,
+        "Activity": "Indiscipline",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 14:15:20"
+    },
+    {
+        "admissionNo": [
+            15818,
+            14531,
+            15507
+        ],
+        "Activity": "Without ID Card",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 14:15:33"
+    },
+    {
+        "admissionNo": 15749,
+        "Activity": "Bad Words",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 14:15:47"
+    },
+    {
+        "admissionNo": [
+            14545,
+            15507,
+            14535,
+            14538,
+            14540,
+            14544,
+            16052,
+            16010
+        ],
+        "Activity": "Class Performance",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 14:18:44"
+    },
+    {
+        "admissionNo": [
+            14531,
+            15818,
+            15260,
+            15480,
+            14516
+        ],
+        "Activity": "Missing Homework",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 14:21:09"
+    },
+    {
+        "admissionNo": [
+            15818,
+            15480
+        ],
+        "Activity": "Incomplete Uniform",
+        "Rating": 5,
+        "Timestamp": "2025-09-29 14:21:58"
+    },
+    {
+        "admissionNo": 15979,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-29 14:37:04"
+    },
+    {
+        "admissionNo": 15369,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-29 14:37:40"
+    },
+    {
+        "admissionNo": 15136,
+        "Activity": "Indiscipline",
+        "Rating": 1,
+        "Timestamp": "2025-09-29 14:38:22"
+    },
+    {
+        "admissionNo": 15224,
+        "Activity": "Indisciplinary activity at anytime",
+        "Rating": 1,
+        "Timestamp": "2025-09-29 14:39:17"
+    },
+    {
+        "admissionNo": 15823,
+        "Activity": "Misbehaviour in public place",
+        "Rating": 1,
+        "Timestamp": "2025-09-29 14:39:50"
+    },
+    {
+        "admissionNo": 15988,
+        "Activity": "Misbehaviour in public place",
+        "Rating": 1,
+        "Timestamp": "2025-09-29 14:40:36"
+    },
+    {
+        "admissionNo": 14964,
+        "Activity": "Indiscipline",
+        "Rating": 1,
+        "Timestamp": "2025-09-29 14:41:21"
+    },
+    {
+        "admissionNo": 15227,
+        "Activity": "Indiscipline",
+        "Rating": 2,
+        "Timestamp": "2025-09-29 14:42:06"
+    },
+    {
+        "admissionNo": 15823,
+        "Activity": "Misbehaviour in public place",
+        "Rating": 1,
+        "Timestamp": "2025-09-29 14:42:42"
     }
 ]
