@@ -435,7 +435,16 @@ export function buildReportGeneratorCard(students) {
     const cardContainer = document.getElementById('reportGeneratorCard');
     if (!cardContainer) return;
 
-    const internalClasses = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    // THE FIX: Filter students based on the current teacher's role (HM sees all)
+    let relevantStudents = students;
+    if (currentUser && currentUser.role === 'staff' && currentUser.designation !== 'HM') {
+        const teacherSections = getTeacherSection(currentUser.designation);
+        if (teacherSections) {
+            relevantStudents = students.filter(s => teacherSections.includes(getSection(s.class)));
+        }
+    }
+
+    const internalClasses = [...new Set(relevantStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
 
     cardContainer.innerHTML = `
     <div class="card shadow-sm">
@@ -571,7 +580,16 @@ export function buildReportGeneratorCard(students) {
         try {
             const res = await fetch('./sampoorna.json');
             if (!res.ok) throw new Error('Could not fetch sampoorna.json.');
-            sampoornaData = await res.json();
+            let fetchedSampoornaData = await res.json();
+            
+            // THE FIX: Filter Sampoorna data based on the current teacher's role
+            if (currentUser && currentUser.role === 'staff' && currentUser.designation !== 'HM') {
+                const teacherSections = getTeacherSection(currentUser.designation);
+                if (teacherSections) {
+                    fetchedSampoornaData = fetchedSampoornaData.filter(s => teacherSections.includes(getSection(s.class)));
+                }
+            }
+            sampoornaData = fetchedSampoornaData; // Store the (potentially filtered) data
             
             const sampoornaClasses = [...new Set(sampoornaData.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
             classSelect.innerHTML = `<option value="">Select Class</option>${sampoornaClasses.map(c => `<option value="${c}">${c}</option>`).join('')}`;
@@ -586,12 +604,12 @@ export function buildReportGeneratorCard(students) {
 
 
 function copyToClipboard(button, text) {
-    navigator.clipboard.writeText(text).then(() => {
-        const originalText = button.textContent;
-        button.textContent = 'Copied!';
-        setTimeout(() => { button.textContent = originalText; }, 2000);
-    }).catch(err => console.error('Failed to copy text: ', err));
-}
+      navigator.clipboard.writeText(text).then(() => {
+          const originalText = button.textContent;
+          button.textContent = 'Copied!';
+          setTimeout(() => { button.textContent = originalText; }, 2000);
+      }).catch(err => console.error('Failed to copy text: ', err));
+  }
 
 
 function setupTopperFilters(cardId, students, title, updateFunction) {
