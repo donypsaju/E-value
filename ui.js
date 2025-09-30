@@ -494,7 +494,11 @@ export function buildReportGeneratorCard(students) {
 
             const [classNum] = className.split('-');
             const section = getSection(classNum);
-            const classStudents = studentList.filter(s => `${s.class}-${s.division}` === className).sort((a, b) => a.name.localeCompare(b.name));
+            const classStudents = studentList.filter(s => `${s.class}-${s.division}` === className).sort((a, b) => {
+                if (a.gender < b.gender) return -1;
+                if (a.gender > b.gender) return 1;
+                return a.name.localeCompare(b.name);
+            });
 
             let tableHTML = `<div class="table-responsive"><table class="table table-bordered"><thead><tr><th>Name</th><th>TE</th><th>CE</th></tr></thead><tbody>`;
             let teClipboardText = "", ceClipboardText = "";
@@ -544,9 +548,6 @@ export function buildReportGeneratorCard(students) {
             const className = e.target.value;
             if (!className) return;
 
-            const classStudents = studentList.filter(s => `${s.class}-${s.division}` === className);
-            if (classStudents.length === 0) return;
-
             const terms = [...new Set(appData.marks.flatMap(m => m.terms ? Object.keys(m.terms) : []))];
             termSelect.innerHTML += terms.map(t => `<option value="${t}">${t}</option>`).join('');
             termSelect.disabled = false;
@@ -560,8 +561,7 @@ export function buildReportGeneratorCard(students) {
             const term = e.target.value;
             if (!className || !term) return;
 
-            // THE FIX: Filter subjects based on the selected class
-            const studentAdmNos = new Set(studentList.filter(s => `${s.class}-${s.division}` === className).map(s => s.admissionNo.toString()));
+            const studentAdmNos = new Set((studentList || []).filter(s => `${s.class}-${s.division}` === className).map(s => s.admissionNo.toString()));
             const classMarks = appData.marks.filter(m => studentAdmNos.has(m.admissionNo.toString()));
             
             const subjects = [...new Set(classMarks.flatMap(m => m.terms?.[term]?.marks ? Object.keys(m.terms[term].marks) : []))].sort();
