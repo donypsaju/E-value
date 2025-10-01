@@ -1,15 +1,7 @@
-import { activityRules } from './config.js';
 import { isActivityForStudent } from './utils.js';
+import { activityRules } from './config.js';
 
-/**
- * Processes raw student, marks, and activity data to calculate ranks and points.
- * @param {Array<object>} students - The array of all student users.
- * @param {Array<object>} marksData - The array of all mark records.
- * @param {Array<object>} activities - The array of all activity records.
- * @returns {Array<object>} A new array of student objects with processed data (ranks, totals).
- */
 export function processStudentData(students, marksData, activities) {
-    // Group students by their class and division for ranking within those groups.
     const studentsByClass = students.reduce((acc, student) => {
         const classKey = `${student.class}-${student.division}`;
         if (!acc[classKey]) acc[classKey] = [];
@@ -18,45 +10,94 @@ export function processStudentData(students, marksData, activities) {
     }, {});
 
     let finalProcessedStudents = [];
-
-    // Process each class group individually.
     for (const classKey in studentsByClass) {
         const classStudents = studentsByClass[classKey];
         const studentScores = classStudents.map(student => {
             const studentMarksRecord = marksData.find(m => m.admissionNo.toString() === student.admissionNo.toString());
             let academicTotal = 0;
             if (studentMarksRecord && studentMarksRecord.terms) {
-                // Sum up the 'total' from each term for an overall academic score.
                 academicTotal = Object.values(studentMarksRecord.terms).reduce((sum, term) => sum + (typeof term.total === 'number' ? term.total : 0), 0);
             }
 
-            // Calculate the total discipline points from all activities.
             const disciplinePoints = activities
                 .reduce((sum, act) => {
                     const occurrences = isActivityForStudent(act, student);
                     if (occurrences > 0) {
                         const basePoints = activityRules[act.Activity] || 0;
-                        // Prorate points based on the activity's rating.
-                        const calculatedPoints = (act.Rating / 5) * basePoints;
+                        const calculatedPoints = (act.Rating / 10) * basePoints;
                         return sum + (calculatedPoints * occurrences);
                     }
                     return sum;
                 }, 0);
 
-            // House points are a combination of academic and discipline scores.
             const housePoints = academicTotal + disciplinePoints;
 
             return { ...student, academicTotal, disciplinePoints, housePoints, marksRecord: studentMarksRecord };
         });
-
-        // Rank students within their class based on academic and discipline scores.
         studentScores.sort((a, b) => b.academicTotal - a.academicTotal).forEach((s, i) => s.academicRank = i + 1);
         studentScores.sort((a, b) => b.disciplinePoints - a.disciplinePoints).forEach((s, i) => s.disciplineRank = i + 1);
-
-        // Add the processed students from this class to the final list.
         finalProcessedStudents.push(...studentScores);
     }
-
     return finalProcessedStudents;
+}
+
+/**
+ * Calculates scores and ranks for SIU members.
+ */
+export function processSiuMemberData(siuMembers, activities, attendanceData, allUsers) {
+    if (!siuMembers || siuMembers.length === 0) return [];
+
+    const augmentedSiuMembers = siuMembers.map(member => {
+        const userProfile = allUsers.find(u => u.admissionNo && u.admissionNo.toString() === member.admissionNo.toString());
+        return { ...member, dob: userProfile ? userProfile.dob : null };
+    });
+
+    const entriesPerMember = augmentedSiuMembers.map(member => 
+        activities.filter(act => act.submittedBy.toLowerCase() === member.email.toLowerCase()).length
+    );
+    const maxEntries = Math.max(...entriesPerMember, 1);
+
+    const totalAttendanceDays = attendanceData.length;
+
+    const processedMembers = augmentedSiuMembers.map(member => {
+        // THE FIX: Convert both emails to lowercase for a case-insensitive comparison.
+        const memberActivities = activities.filter(act => 
+            act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase()
+        );
+        const totalEntries = memberActivities.length;
+
+        const timelyEntries = memberActivities.filter(act => {
+            const submissionTime = new Date(act.submissionTimestamp).getTime();
+            const activityTime = new Date(act.activityDate).getTime();
+            return (submissionTime - activityTime) <= (24 * 60 * 60 * 1000);
+        }).length;
+        const timelinessScore = (totalEntries > 0) ? (timelyEntries / totalEntries) * 50 : 0;
+
+        const entryCountScore = (maxEntries > 0) ? (totalEntries / maxEntries) * 40 : 0;
+
+        const absentDays = attendanceData.filter(day => day.absentees.includes(member.admissionNo)).length;
+        const presentDays = totalAttendanceDays - absentDays;
+        const attendanceScore = (totalAttendanceDays > 0) ? (presentDays / totalAttendanceDays) * 10 : 10;
+
+        const totalPoints = Math.round(timelinessScore + entryCountScore + attendanceScore);
+
+        const last5Entries = memberActivities.slice(-5).reverse();
+
+        return {
+            ...member,
+            totalEntries,
+            timelinessScore: Math.round(timelinessScore),
+            entryCountScore: Math.round(entryCountScore),
+            attendanceScore: Math.round(attendanceScore),
+            totalPoints,
+            presentDays,
+            last5Entries
+        };
+    });
+
+    processedMembers.sort((a, b) => b.totalPoints - a.totalPoints);
+    processedMembers.forEach((member, index) => { member.rank = index + 1; });
+
+    return processedMembers;
 }
 

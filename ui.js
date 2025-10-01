@@ -44,6 +44,8 @@ export function showView(viewName) {
     } else if (viewName === 'login' && loginView) {
         loginView.classList.remove('d-none');
         loginView.classList.add('d-flex');
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) phoneInput.placeholder = "Phone or Admission No.";
     } else if (viewName === 'dashboard' && dashboardView) {
         dashboardView.classList.remove('d-none');
     }
@@ -59,7 +61,7 @@ export function hideProgressBar() {
 
 export function updateDashboardHeader(user) {
     if (!user) return;
-    const userInfoHTML = `<p class="fw-semibold text-primary mb-0">${sanitize(user.name)}</p><p class="small text-muted mb-0">${sanitize(user.designation || 'Student')}</p>`;
+    const userInfoHTML = `<p class="fw-semibold text-primary mb-0">${sanitize(user.name)}</p><p class="small text-muted mb-0">${sanitize(user.designation || user.role.toUpperCase())}</p>`;
     const userInfoMobile = document.getElementById('userInfoMobile');
     const userInfoDesktop = document.getElementById('userInfoDesktop');
     if (userInfoMobile) userInfoMobile.innerHTML = userInfoHTML;
@@ -191,6 +193,70 @@ export function buildParentDashboard(currentChild, siblings, processedStudents) 
         </div>
     </div>`;
 }
+
+export function buildSiuDashboard(siuMemberData, allSiuMembers) {
+    const dashboardContainer = document.getElementById('dashboard-container');
+
+    const lastEntriesHTML = siuMemberData.last5Entries.map(entry => `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <p class="mb-0 fw-semibold">${sanitize(entry.Activity)}</p>
+                <p class="small text-muted mb-0">For Adm No: ${sanitize(String(Array.isArray(entry.admissionNo) ? entry.admissionNo.join(', ') : entry.admissionNo))}</p>
+            </div>
+            <span class="badge bg-secondary rounded-pill">${new Date(entry.activityDate).toLocaleDateString()}</span>
+        </li>
+    `).join('');
+
+    const rankingTableHTML = allSiuMembers.map(member => `
+        <tr class="${member.admissionNo === siuMemberData.admissionNo ? 'table-primary' : ''}">
+            <th scope="row">${member.rank}</th>
+            <td>${sanitize(member.name)}</td>
+            <td>${member.totalPoints}</td>
+        </tr>
+    `).join('');
+
+    dashboardContainer.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
+            <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill">
+                <i class="fa-solid fa-plus me-1"></i> Add Activity Entry
+            </button>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.totalEntries}</p><p class="small text-muted mb-0">Activities Entered</p></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.timelinessScore}<span class="fs-5 text-muted">/50</span></p><p class="small text-muted mb-0">Timeliness Score</p></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">#${siuMemberData.rank}</p><p class="small text-muted mb-0">Your Rank</p></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.presentDays}</p><p class="small text-muted mb-0">Days Present</p></div></div></div>
+                    <div class="col-md-12 col-lg-8"><div class="card h-100 shadow-sm text-center bg-primary text-white"><div class="card-body d-flex flex-column justify-content-center"><p class="display-4 fw-bold">${siuMemberData.totalPoints}</p><p class="mb-0">Total Points Earned</p></div></div></div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 card-title fw-bold mb-3">Last 5 Entries</h3>
+                        <ul class="list-group list-group-flush" style="max-height: 250px; overflow-y: auto;">
+                            ${lastEntriesHTML || '<li class="list-group-item text-center text-muted">No entries yet.</li>'}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow-sm mt-4">
+            <div class="card-body">
+                <h3 class="h5 card-title fw-bold mb-3">SIU Member Rankings</h3>
+                <div class="table-responsive" style="max-height: 400px;">
+                    <table class="table table-striped table-hover">
+                        <thead><tr><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Points</th></tr></thead>
+                        <tbody>${rankingTableHTML}</tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 
 export function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
     const dashboardContainer = document.getElementById('dashboard-container');
@@ -387,7 +453,7 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
         const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
         
         const activityPoints = filteredActivities.reduce((acc, act) => {
-            const points = (act.Rating / 5) * (activityRules[act.Activity] || 0);
+            const points = (act.Rating / 10) * (activityRules[act.Activity] || 0); // Use 10 for rating
             if (!acc[act.Activity]) acc[act.Activity] = 0;
             acc[act.Activity] += points;
             return acc;
@@ -604,12 +670,12 @@ export function buildReportGeneratorCard(students) {
 
 
 function copyToClipboard(button, text) {
-      navigator.clipboard.writeText(text).then(() => {
-          const originalText = button.textContent;
-          button.textContent = 'Copied!';
-          setTimeout(() => { button.textContent = originalText; }, 2000);
-      }).catch(err => console.error('Failed to copy text: ', err));
-  }
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = originalText; }, 2000);
+    }).catch(err => console.error('Failed to copy text: ', err));
+}
 
 
 function setupTopperFilters(cardId, students, title, updateFunction) {
@@ -888,13 +954,13 @@ export function renderHouseWidget(processedStudents, activities) {
     yesterday.setDate(today.getDate() - 1);
 
     const yesterdaysActivities = activities.filter(act => {
-        const activityDate = new Date(act.Timestamp);
+        const activityDate = new Date(act.activityDate || act.submissionTimestamp);
         return activityDate >= yesterday && activityDate < today;
     });
 
     yesterdaysActivities.forEach(act => {
         const basePoints = activityRules[act.Activity] || 0;
-        const calculatedPoints = (act.Rating / 5) * basePoints;
+        const calculatedPoints = (act.Rating / 10) * basePoints;
         const studentAdmNos = Array.isArray(act.admissionNo) ? act.admissionNo.map(String) : [String(act.admissionNo)];
 
         studentAdmNos.forEach(admNo => {

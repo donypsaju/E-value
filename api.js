@@ -1,54 +1,72 @@
 import { APP_VERSION } from './config.js';
 
-// --- CONFIGURATION ---
-// The maximum age of the cache in milliseconds.
-// 1 * 60 * 60 * 1000 = 1 hour. Change the first number to set a different duration in hours.
-const CACHE_DURATION_MS = 1 * 60 * 60 * 1000;
+const CACHE_DURATION_MS = 1 * 60 * 60 * 1000; // 1 hour
 
-// Private function to fetch data from the network
 async function fetchAllData() {
     try {
-        const [usersRes, marksRes, activitiesRes] = await Promise.all([
+        const filePromises = [
             fetch('./users.json'),
             fetch('./marks.json'),
-            fetch('./activities.json')
-        ]);
-        if (!usersRes.ok || !marksRes.ok || !activitiesRes.ok) {
-            throw new Error('Network response was not ok');
+            fetch('./activities.json'),
+            fetch('./siu_members.json'),
+            fetch('./attendance_siu.json')
+        ];
+
+        const responses = await Promise.all(filePromises);
+
+        // Helper function to safely parse JSON, even if the file is empty.
+        const safeJsonParse = async (response, isOptional = false) => {
+            // If the file was not found (404) and it's optional, return an empty array.
+            if (!response.ok && response.status === 404 && isOptional) {
+                return [];
+            }
+            // If any other error occurred, throw.
+            if (!response.ok) {
+                throw new Error(`Failed to fetch a required file (status: ${response.status})`);
+            }
+
+            const text = await response.text();
+            // If the file is empty, return an empty array. Otherwise, parse the text.
+            return text.trim() === '' ? [] : JSON.parse(text);
+        };
+
+        const users = await safeJsonParse(responses[0]);
+        const marks = await safeJsonParse(responses[1]);
+        const activities = await safeJsonParse(responses[2]);
+        const siu_members = await safeJsonParse(responses[3], true); // Mark as optional
+        const attendance_siu = await safeJsonParse(responses[4], true); // Mark as optional
+
+        // Final check to ensure essential data arrays exist.
+        if (!users || !marks || !activities) {
+             throw new Error('Essential data files (users, marks, or activities) could not be loaded.');
         }
-        const users = await usersRes.json();
-        const marks = await marksRes.json();
-        const activities = await activitiesRes.json();
-        return { users, marks, activities };
+
+        return { users, marks, activities, siu_members, attendance_siu };
+
     } catch (error) {
         console.error("Failed to fetch critical data:", error);
-        throw new Error("Could not load school data. Please check your network connection.");
+        // Provide a more helpful error message to the user.
+        throw new Error("Could not load school data. Please check your network connection and ensure all JSON files in the repository are not empty or malformed.");
     }
 }
 
-/**
- * Caching layer for application data. Fetches from the network only if
- * the cache is empty, the app version has changed, OR the cache is too old.
- * @returns {Promise<object>} A promise that resolves to { users, marks, activities }.
- */
+
 export async function getOrFetchAllData() {
     const cachedData = JSON.parse(localStorage.getItem('appDataCache'));
     const cachedVersion = localStorage.getItem('appDataVersion');
     const cachedTimestamp = localStorage.getItem('appDataCacheTimestamp');
     const now = Date.now();
 
-    // Check if the cache is valid
     if (cachedData && cachedVersion === APP_VERSION && cachedTimestamp && (now - parseInt(cachedTimestamp, 10) < CACHE_DURATION_MS)) {
         console.log("Using fresh, cached data.");
         return cachedData;
     }
 
-    // If cache is invalid, old, or doesn't exist, fetch new data
     console.log("Cache is old or invalid. Fetching new data from network...");
     const newData = await fetchAllData();
     localStorage.setItem('appDataCache', JSON.stringify(newData));
     localStorage.setItem('appDataVersion', APP_VERSION);
-    localStorage.setItem('appDataCacheTimestamp', now.toString()); // Store the current timestamp
+    localStorage.setItem('appDataCacheTimestamp', now.toString());
     return newData;
 }
 
