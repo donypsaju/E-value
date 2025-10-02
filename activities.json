@@ -1223,5 +1223,76 @@
     "Rating": 5,
     "submissionTimestamp": "2025-09-29T16:14:00.703Z",
     "activityDate": "2025-09-29"
+  },
+  {
+    "submittedBy": "thusharabineesh1@gmail.com",
+    "admissionNo": [
+      15207,
+      15518
+    ],
+    "Activity": "Bad Words",
+    "Rating": 5,
+    "submissionTimestamp": "2025-10-02T05:50:17.433Z",
+    "activityDate": "2025-09-23"
+  },
+  {
+    "submittedBy": "thusharabineesh1@gmail.com",
+    "admissionNo": 15518,
+    "Activity": "Without ID Card",
+    "Rating": 3,
+    "submissionTimestamp": "2025-10-02T05:51:05.781Z",
+    "activityDate": "2025-09-23"
+  },
+  {
+    "submittedBy": "thusharabineesh1@gmail.com",
+    "admissionNo": [
+      15659,
+      15207,
+      15518,
+      15268,
+      16012
+    ],
+    "Activity": "Indiscipline",
+    "Rating": 1,
+    "submissionTimestamp": "2025-10-02T05:53:38.717Z",
+    "activityDate": "2025-09-23"
+  },
+  {
+    "submittedBy": "thusharabineesh1@gmail.com",
+    "admissionNo": [
+      15659,
+      16012
+    ],
+    "Activity": "Missing Homework",
+    "Rating": 3,
+    "submissionTimestamp": "2025-10-02T05:54:48.015Z",
+    "activityDate": "2025-09-23"
+  },
+  {
+    "submittedBy": "thusharabineesh1@gmail.com",
+    "admissionNo": [
+      15120,
+      15268,
+      16035,
+      15518,
+      15207,
+      15098,
+      15569
+    ],
+    "Activity": "Indiscipline",
+    "Rating": 1,
+    "submissionTimestamp": "2025-10-02T05:58:15.264Z",
+    "activityDate": "2025-09-28"
+  },
+  {
+    "submittedBy": "thusharabineesh1@gmail.com",
+    "admissionNo": [
+      15659,
+      16012
+    ],
+    "Activity": "Indiscipline",
+    "Rating": 3,
+    "submissionTimestamp": "2025-10-02T05:59:27.703Z",
+    "activityDate": "2025-09-28"
   }
 ]
