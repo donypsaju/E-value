@@ -1,6 +1,10 @@
 import { APP_VERSION } from './config.js';
 
+// --- CONFIGURATION ---
 const CACHE_DURATION_MS = 1 * 60 * 60 * 1000; // 1 hour
+
+// IMPORTANT: Replace this with your own strong, secret password!
+const ENCRYPTION_KEY = "Emm@nu3l-Sch00l-D@t@-2025!";
 
 async function fetchAllData() {
     try {
@@ -14,59 +18,50 @@ async function fetchAllData() {
 
         const responses = await Promise.all(filePromises);
 
-        // Helper function to safely parse JSON, even if the file is empty.
-        const safeJsonParse = async (response, isOptional = false) => {
-            // If the file was not found (404) and it's optional, return an empty array.
-            if (!response.ok && response.status === 404 && isOptional) {
-                return [];
-            }
-            // If any other error occurred, throw.
+        // Helper function to fetch, decrypt, and safely parse JSON.
+        const decryptAndParse = async (response, isOptional = false) => {
             if (!response.ok) {
-                throw new Error(`Failed to fetch a required file (status: ${response.status})`);
+                if (response.status === 404 && isOptional) return []; // File not found, but it's optional
+                throw new Error(`Failed to fetch a file (status: ${response.status})`);
             }
 
-            const text = await response.text();
-            // If the file is empty, return an empty array. Otherwise, parse the text.
-            return text.trim() === '' ? [] : JSON.parse(text);
+            const encryptedText = await response.text();
+            if (encryptedText.trim() === '') return []; // File is empty
+
+            try {
+                const decryptedBytes = CryptoJS.AES.decrypt(encryptedText, ENCRYPTION_KEY);
+                const decryptedText = decryptedBytes.toString(CryptoJS.enc.Utf8);
+                if (!decryptedText) throw new Error("Decryption resulted in empty text. Check your key.");
+                return JSON.parse(decryptedText);
+            } catch (e) {
+                console.error("Decryption failed. This might be due to an incorrect key or corrupted data.", e);
+                throw new Error("Could not decrypt data.");
+            }
         };
 
-        const users = await safeJsonParse(responses[0]);
-        const marks = await safeJsonParse(responses[1]);
-        const activities = await safeJsonParse(responses[2]);
-        const siu_members = await safeJsonParse(responses[3], true); // Mark as optional
-        const attendance_siu = await safeJsonParse(responses[4], true); // Mark as optional
+        const users = await decryptAndParse(responses[0]);
+        const marks = await decryptAndParse(responses[1]);
+        const activities = await decryptAndParse(responses[2]);
+        const siu_members = await decryptAndParse(responses[3], true);
+        const attendance_siu = await decryptAndParse(responses[4], true);
 
-        // Final check to ensure essential data arrays exist.
         if (!users || !marks || !activities) {
-             throw new Error('Essential data files (users, marks, or activities) could not be loaded.');
+             throw new Error('Essential data files (users, marks, or activities) could not be decrypted or loaded.');
         }
 
         return { users, marks, activities, siu_members, attendance_siu };
 
     } catch (error) {
-        console.error("Failed to fetch critical data:", error);
-        // Provide a more helpful error message to the user.
-        throw new Error("Could not load school data. Please check your network connection and ensure all JSON files in the repository are not empty or malformed.");
+        console.error("Failed to fetch and decrypt critical data:", error);
+        throw new Error("Could not load school data. Please check your network connection and ensure the encryption key is correct.");
     }
 }
 
 
 export async function getOrFetchAllData() {
-    const cachedData = JSON.parse(localStorage.getItem('appDataCache'));
-    const cachedVersion = localStorage.getItem('appDataVersion');
-    const cachedTimestamp = localStorage.getItem('appDataCacheTimestamp');
-    const now = Date.now();
-
-    if (cachedData && cachedVersion === APP_VERSION && cachedTimestamp && (now - parseInt(cachedTimestamp, 10) < CACHE_DURATION_MS)) {
-        console.log("Using fresh, cached data.");
-        return cachedData;
-    }
-
-    console.log("Cache is old or invalid. Fetching new data from network...");
-    const newData = await fetchAllData();
-    localStorage.setItem('appDataCache', JSON.stringify(newData));
-    localStorage.setItem('appDataVersion', APP_VERSION);
-    localStorage.setItem('appDataCacheTimestamp', now.toString());
-    return newData;
+    // Caching logic is disabled for simplicity with encryption. 
+    // You can re-enable it if you cache the decrypted data, but direct fetching is safer.
+    console.log("Fetching and decrypting fresh data from network...");
+    return await fetchAllData();
 }
 
