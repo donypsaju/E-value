@@ -129,7 +129,6 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
         return;
     }
 
-    // --- Data setup from old version ---
     const markEntryUrls = {
         LP: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
         UP: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
@@ -140,7 +139,15 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
     ).join('');
     const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
 
-    // --- Data setup from new version ---
+    const relevantClasses = [...new Set(sectionStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    let filterOptions = `<option value="school">School-wide</option>`;
+    teacherSections.forEach(section => {
+        filterOptions += `<option value="${section.toLowerCase()}">${section} Section</option>`;
+    });
+    relevantClasses.forEach(cls => {
+        filterOptions += `<option value="${cls}">${cls}</option>`;
+    });
+
     const houseColors = { Blue: 'primary', Green: 'success', Rose: 'danger', Yellow: 'warning' };
     const houses = Object.keys(houseColors);
     const houseData = {};
@@ -182,16 +189,7 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
             }
         });
 
-        houseData[houseName] = {
-            members,
-            memberCount,
-            totalPoints,
-            last5Entries,
-            topPositiveActivities,
-            topNegativeActivities,
-            top5Students,
-            dailyChanges
-        };
+        houseData[houseName] = { members, memberCount, totalPoints, last5Entries, topPositiveActivities, topNegativeActivities, top5Students, dailyChanges };
     });
     
     let navTabs = '';
@@ -221,16 +219,19 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
             </div>`;
     });
 
-    // --- Final HTML Structure ---
     dashboardContainer.innerHTML = `
         <div class="card shadow-sm dashboard-card mb-4"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>${markEntryButtons}</div></div></div>
         
         <div class="card shadow-sm mb-4">
             <div class="card-body">
-                <h2 class="h5 card-title fw-bold mb-3">School-wide House Standings</h2>
-                <div style="height: 250px;"><canvas id="schoolStandingsChart"></canvas></div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h5 card-title fw-bold mb-0">House Standings</h2>
+                    <select id="teacherStandingsFilter" class="form-select form-select-sm w-auto">${filterOptions}</select>
+                </div>
+                <div style="height: 300px;"><canvas id="teacherStandingsChart"></canvas></div>
             </div>
         </div>
+
         <div class="card shadow-sm mb-4">
              <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="houseTab" role="tablist">
@@ -250,17 +251,41 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
         <div id="reportGeneratorCard"></div>
     `;
 
-    // --- Render Charts and Widgets ---
-    const schoolChartCtx = document.getElementById('schoolStandingsChart').getContext('2d');
-    const schoolHouseData = houses.map(h => houseData[h].totalPoints);
-    new Chart(schoolChartCtx, {
-        type: 'bar',
-        data: {
-            labels: houses,
-            datasets: [{ label: 'Total Points', data: schoolHouseData, backgroundColor: ['#0d6efd', '#198754', '#dc3545', '#ffc107'] }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
+    const filter = document.getElementById('teacherStandingsFilter');
+    const chartCtx = document.getElementById('teacherStandingsChart')?.getContext('2d');
+    let chartInstance = null;
+
+    if (filter && chartCtx) {
+        const updateChart = () => {
+            const value = filter.value;
+            let filteredStudents = processedStudents;
+
+            if (value === 'up' || value === 'hs' || value === 'lp') {
+                filteredStudents = processedStudents.filter(s => getSection(s.class).toLowerCase() === value);
+            } else if (value !== 'school') {
+                filteredStudents = processedStudents.filter(s => `${s.class}-${s.division}` === value);
+            }
+            
+            const chartHouseData = filteredStudents.reduce((acc, s) => {
+                if (s.house && !acc[s.house]) acc[s.house] = 0;
+                if (s.house) acc[s.house] += s.housePoints;
+                return acc;
+            }, {});
+            
+            const labels = houses;
+            const data = labels.map(house => chartHouseData[house] || 0);
+            const backgroundColors = labels.map(house => ({ 'Blue': '#0d6efd', 'Green': '#198754', 'Rose': '#dc3545', 'Yellow': '#ffc107' }[house] || '#6c757d'));
+
+            if (chartInstance) chartInstance.destroy();
+            chartInstance = new Chart(chartCtx, {
+                type: 'bar',
+                data: { labels, datasets: [{ label: 'Total Points', data, backgroundColor: backgroundColors }] },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        };
+        filter.addEventListener('change', updateChart);
+        updateChart();
+    }
 
     dashboardContainer.querySelectorAll('.clickable-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -297,7 +322,6 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
         });
     });
 
-    // Render the section-specific widgets
     buildLeaderboardCard(sectionStudents, appData.activities, true);
     buildClassToppersCard(sectionStudents);
     buildSubjectToppersCard(sectionStudents);
