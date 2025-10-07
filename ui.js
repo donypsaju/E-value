@@ -82,8 +82,12 @@ export function buildSearchResults(results) {
 }
 
 function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
-    const staffCarouselItems = staffBirthdays.length > 0
-        ? staffBirthdays.map((staff, index) => `
+    // THE FIX: Default to an empty array if the arguments are undefined.
+    const safeStaffBirthdays = staffBirthdays || [];
+    const safeStudentBirthdays = studentBirthdays || [];
+
+    const staffCarouselItems = safeStaffBirthdays.length > 0
+        ? safeStaffBirthdays.map((staff, index) => `
             <div class="carousel-item ${index === 0 ? 'active' : ''}">
                 <div class="d-flex flex-column justify-content-center align-items-center h-100 p-3 text-center">
                     <i class="fa-solid fa-cake-candles fa-2x text-warning mb-2"></i>
@@ -93,8 +97,8 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
             </div>`).join('')
         : `<div class="carousel-item active"><div class="d-flex justify-content-center align-items-center h-100 p-3"><p class="text-muted mb-0">No staff birthdays today.</p></div></div>`;
 
-    const studentCarouselItems = studentBirthdays.length > 0
-        ? studentBirthdays.map((student, index) => `
+    const studentCarouselItems = safeStudentBirthdays.length > 0
+        ? safeStudentBirthdays.map((student, index) => `
             <div class="carousel-item ${index === 0 ? 'active' : ''}">
                 <div class="d-flex flex-column justify-content-center align-items-center h-100 p-3 text-center">
                     <i class="fa-solid fa-gift fa-2x text-info mb-2"></i>
@@ -115,7 +119,7 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
                                 ${staffCarouselItems}
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
                         </div>
                     </div>
                 </div>
@@ -210,6 +214,8 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     let chartInstance = null;
 
     if (filter && chartCtx) {
+        // THE FIX: Define 'houses' here so the nested function can access it.
+        const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
         const updateChart = () => {
             const value = filter.value;
             let filteredStudents = processedStudents;
