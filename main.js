@@ -123,7 +123,9 @@ async function initializeApp() {
             }
         }
     } catch (error) {
-        console.error("Initialization failed:", error);
+        console.error("Initialization failed: A critical error occurred.");
+        console.error("Error Message:", error.message);
+        console.error("Stack Trace:", error.stack);
         alert("A critical error occurred while loading the application. Please check the console for details.");
         logout();
     } finally {
