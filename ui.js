@@ -141,6 +141,7 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
         </div>`;
 }
 
+
 export function buildHMDashboard(user, allStudents, processedStudents, staffBirthdays, studentBirthdays) {
     const dashboardContainer = document.getElementById('dashboard-container');
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
@@ -216,6 +217,7 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     if (filter && chartCtx) {
         // THE FIX: Define 'houses' here so the nested function can access it.
         const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
+
         const updateChart = () => {
             const value = filter.value;
             let filteredStudents = processedStudents;
