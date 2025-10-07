@@ -66,7 +66,7 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
             const numStudentsInEntry = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
             
             // THE FIX: Add 5 points for every student recorded
-            entryCountScore += numStudentsInEntry * 5;
+            entryCountScore += numStudentsInEntry * 1;
 
             // Check if the submission was timely
             const submissionTime = new Date(act.submissionTimestamp).getTime();
@@ -75,14 +75,14 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
             
             // THE FIX: If timely, add 10 points for every student in that submission
             if (submissionTime < deadline) {
-                timelinessScore += numStudentsInEntry * 10;
+                timelinessScore += numStudentsInEntry * 5;
             }
         });
         
         // 3. Calculate Attendance Score (3 points per present day) - This is already correct.
         const absentDays = attendanceData.filter(day => day.absentees.includes(member.admissionNo)).length;
         const presentDays = totalAttendanceDays - absentDays;
-        const attendanceScore = presentDays * 3;
+        const attendanceScore = presentDays * 2;
 
         // Combine all scores for the total
         const totalPoints = timelinessScore + entryCountScore + attendanceScore;

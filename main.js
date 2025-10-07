@@ -214,21 +214,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
                                 <strong>Timeliness Score</strong>
-                                <p class="small mb-0 text-muted">You get <strong>10 points</strong> for every timely data entry submission.</p>
+                                <p class="small mb-0 text-muted">You get <strong>5 points</strong> for every timely data entry submission.</p>
                             </div>
                             <span class="badge bg-primary rounded-pill fs-5">${timeliness} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
                                 <strong>Activity Entry Score</strong>
-                                <p class="small mb-0 text-muted">You get <strong>5 points</strong> for every individual student activity you record.</p>
+                                <p class="small mb-0 text-muted">You get <strong>1 points</strong> for every individual student activity you record.</p>
                             </div>
                             <span class="badge bg-info rounded-pill fs-5">${entrycount} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                              <div>
                                 <strong>Attendance Score</strong>
-                                <p class="small mb-0 text-muted">You get <strong>3 points</strong> for every day you are present.</p>
+                                <p class="small mb-0 text-muted">You get <strong>2 points</strong> for every day you are present.</p>
                             </div>
                             <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
                         </li>
