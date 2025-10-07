@@ -38,6 +38,36 @@ async function initializeApp() {
         const allStudents = appData.users.filter(u => u.role === 'student');
         appData.processedStudents = processStudentData(allStudents, appData.marks, appData.activities);
 
+        // --- NEW: Birthday Logic ---
+        const today = new Date();
+        const todayMonth = today.getMonth() + 1;
+        const todayDate = today.getDate();
+
+        const staffBirthdays = appData.users.filter(user => {
+            if (user.role !== 'staff' || !user.dob) return false;
+            const dob = new Date(user.dob);
+            return dob.getMonth() + 1 === todayMonth && dob.getDate() === todayDate;
+        });
+
+        let studentBirthdays = [];
+        if (currentUser.designation === 'HM') {
+            studentBirthdays = allStudents.filter(student => {
+                if (!student.dob) return false;
+                const dob = new Date(student.dob);
+                return dob.getMonth() + 1 === todayMonth && dob.getDate() === todayDate;
+            });
+        } else if (currentUser.role === 'staff') {
+            const teacherSections = getTeacherSection(currentUser.designation);
+            if (teacherSections) {
+                const sectionStudents = allStudents.filter(s => teacherSections.includes(getSection(s.class)));
+                studentBirthdays = sectionStudents.filter(student => {
+                    if (!student.dob) return false;
+                    const dob = new Date(student.dob);
+                    return dob.getMonth() + 1 === todayMonth && dob.getDate() === todayDate;
+                });
+            }
+        }
+
         if (currentUser.designation === 'HM') {
             const today = new Date();
             const todayMonth = today.getMonth() + 1;
