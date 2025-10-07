@@ -38,17 +38,33 @@ export function customClassSort(a, b) {
     return (partsA[1] || '').localeCompare(partsB[1] || '');
 }
 
+/**
+ * A more robust function to check if an activity belongs to a student.
+ * It safely handles null or undefined values in the data.
+ * @param {object} activity The activity object from activities.json.
+ * @param {object} student The student object from the processed list.
+ * @returns {number} The number of times the student is linked to the activity.
+ */
 export function isActivityForStudent(activity, student) {
+    // Safety check: ensure the student object and its admissionNo are valid
+    if (!student || student.admissionNo == null) {
+        return 0;
+    }
+
     const studentAdmNoStr = student.admissionNo.toString();
     const activityAdmNo = activity.admissionNo;
 
+    // Safety check for the activity's admission number
+    if (activityAdmNo == null) {
+        return 0;
+    }
+
     if (Array.isArray(activityAdmNo)) {
-        // THE FIX: Add a check for `adm` to prevent errors on null/undefined values in the array.
-        return activityAdmNo.filter(adm => adm && adm.toString() === studentAdmNoStr).length;
-    } else if (activityAdmNo) {
+        // More robust check: explicitly check for null or undefined inside the array.
+        return activityAdmNo.filter(adm => adm != null && adm.toString() === studentAdmNoStr).length;
+    } else {
         return activityAdmNo.toString() === studentAdmNoStr ? 1 : 0;
     }
-    return 0;
 }
 
 
