@@ -397,7 +397,7 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
             <div class="col-lg-8">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.totalEntries}</p><p class="small text-muted mb-0">Activities Entered</p></div></div></div>
-                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.timelinessScore}<span class="fs-5 text-muted">/50</span></p><p class="small text-muted mb-0">Timeliness Score</p></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.timelinessScore}</p><p class="small text-muted mb-0">Timeliness Score</p></div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">#${siuMemberData.rank}</p><p class="small text-muted mb-0">Your Rank</p></div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.presentDays}</p><p class="small text-muted mb-0">Days Present</p></div></div></div>
                     <div class="col-md-12 col-lg-8">
