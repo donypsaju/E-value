@@ -52,26 +52,37 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
         return { ...member, dob: userProfile ? userProfile.dob : null };
     });
 
-    const entriesPerMember = augmentedSiuMembers.map(member => 
-        activities.filter(act => act.submittedBy.toLowerCase() === member.email.toLowerCase()).length
-    );
+    // THE FIX: Calculate total entries by counting admission numbers, not submissions.
+    const entriesPerMember = augmentedSiuMembers.map(member => {
+        const memberActivities = activities.filter(act => act.submittedBy.toLowerCase() === member.email.toLowerCase());
+        return memberActivities.reduce((count, act) => {
+            return count + (Array.isArray(act.admissionNo) ? act.admissionNo.length : 1);
+        }, 0);
+    });
     const maxEntries = Math.max(...entriesPerMember, 1);
 
     const totalAttendanceDays = attendanceData.length;
 
     const processedMembers = augmentedSiuMembers.map(member => {
-        // THE FIX: Convert both emails to lowercase for a case-insensitive comparison.
         const memberActivities = activities.filter(act => 
             act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase()
         );
-        const totalEntries = memberActivities.length;
+        
+        // THE FIX: Calculate totalEntries by counting individual student entries.
+        const totalEntries = memberActivities.reduce((count, act) => {
+            if (Array.isArray(act.admissionNo)) {
+                return count + act.admissionNo.length;
+            }
+            return count + 1;
+        }, 0);
 
         const timelyEntries = memberActivities.filter(act => {
             const submissionTime = new Date(act.submissionTimestamp).getTime();
             const activityTime = new Date(act.activityDate).getTime();
             return (submissionTime - activityTime) <= (24 * 60 * 60 * 1000);
         }).length;
-        const timelinessScore = (totalEntries > 0) ? (timelyEntries / totalEntries) * 50 : 0;
+        // Note: The timeliness score is still based on the number of *submissions*, not individual students.
+        const timelinessScore = (memberActivities.length > 0) ? (timelyEntries / memberActivities.length) * 50 : 0;
 
         const entryCountScore = (maxEntries > 0) ? (totalEntries / maxEntries) * 40 : 0;
 
@@ -100,4 +111,3 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
 
     return processedMembers;
 }
-
