@@ -7,7 +7,7 @@ import {
     renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader,
     buildSiuDashboard
 } from './ui.js';
-import { isActivityForStudent } from './utils.js';
+import { isActivityForStudent, getTeacherSection, getSection } from './utils.js';
 import { activityRules } from './config.js';
 
 // --- GLOBAL APP STATE ---
