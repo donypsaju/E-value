@@ -81,64 +81,81 @@ export function buildSearchResults(results) {
     }
 }
 
+/**
+ * Builds the HTML for the birthday carousel cards, now with dynamic visibility.
+ */
 function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
-    // THE FIX: Default to an empty array if the arguments are undefined.
     const safeStaffBirthdays = staffBirthdays || [];
     const safeStudentBirthdays = studentBirthdays || [];
 
-    const staffCarouselItems = safeStaffBirthdays.length > 0
-        ? safeStaffBirthdays.map((staff, index) => `
+    // If both lists are empty, return nothing.
+    if (safeStaffBirthdays.length === 0 && safeStudentBirthdays.length === 0) {
+        return '';
+    }
+
+    let staffCardHTML = '';
+    if (safeStaffBirthdays.length > 0) {
+        const staffCarouselItems = safeStaffBirthdays.map((staff, index) => `
             <div class="carousel-item ${index === 0 ? 'active' : ''}">
                 <div class="d-flex flex-column justify-content-center align-items-center h-100 p-3 text-center">
                     <i class="fa-solid fa-cake-candles fa-2x text-warning mb-2"></i>
                     <h5 class="fw-bold mb-1">${sanitize(staff.name)}</h5>
                     <p class="text-muted mb-0 small">${sanitize(staff.designation)}</p>
                 </div>
-            </div>`).join('')
-        : `<div class="carousel-item active"><div class="d-flex justify-content-center align-items-center h-100 p-3"><p class="text-muted mb-0">No staff birthdays today.</p></div></div>`;
+            </div>`).join('');
+        
+        staffCardHTML = `
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-center mb-2">Staff Birthdays</h5>
+                    <div id="staffBirthdayCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                        <div class="carousel-inner rounded" style="min-height: 120px; background-color: var(--bs-light-bg-subtle);">
+                            ${staffCarouselItems}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>`;
+    }
 
-    const studentCarouselItems = safeStudentBirthdays.length > 0
-        ? safeStudentBirthdays.map((student, index) => `
+    let studentCardHTML = '';
+    if (safeStudentBirthdays.length > 0) {
+        const studentCarouselItems = safeStudentBirthdays.map((student, index) => `
             <div class="carousel-item ${index === 0 ? 'active' : ''}">
                 <div class="d-flex flex-column justify-content-center align-items-center h-100 p-3 text-center">
                     <i class="fa-solid fa-gift fa-2x text-info mb-2"></i>
                     <h5 class="fw-bold mb-1">${sanitize(student.name)}</h5>
                     <p class="text-muted mb-0 small">Class ${sanitize(student.class)}-${sanitize(student.division)}</p>
                 </div>
-            </div>`).join('')
-        : `<div class="carousel-item active"><div class="d-flex justify-content-center align-items-center h-100 p-3"><p class="text-muted mb-0">No student birthdays today.</p></div></div>`;
+            </div>`).join('');
 
-    return `
-        <div class="row g-4 mb-4">
-            <div class="col-md-6">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-center mb-2">Staff Birthdays</h5>
-                        <div id="staffBirthdayCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                            <div class="carousel-inner rounded" style="min-height: 120px; background-color: var(--bs-light-bg-subtle);">
-                                ${staffCarouselItems}
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+        studentCardHTML = `
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-center mb-2">Student Birthdays</h5>
+                    <div id="studentBirthdayCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+                        <div class="carousel-inner rounded" style="min-height: 120px; background-color: var(--bs-light-bg-subtle);">
+                            ${studentCarouselItems}
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-center mb-2">Student Birthdays</h5>
-                        <div id="studentBirthdayCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
-                            <div class="carousel-inner rounded" style="min-height: 120px; background-color: var(--bs-light-bg-subtle);">
-                                ${studentCarouselItems}
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+            </div>`;
+    }
+
+    // Determine the column layout based on which cards exist.
+    let finalHTML = '';
+    if (staffCardHTML && studentCardHTML) {
+        // Both exist, use a 2-column layout
+        finalHTML = `<div class="col-md-6">${staffCardHTML}</div><div class="col-md-6">${studentCardHTML}</div>`;
+    } else {
+        // Only one exists, use a full-width layout
+        finalHTML = `<div class="col-md-12">${staffCardHTML || studentCardHTML}</div>`;
+    }
+
+    return `<div class="row g-4 mb-4">${finalHTML}</div>`;
 }
 
 
