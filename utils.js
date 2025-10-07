@@ -43,7 +43,8 @@ export function isActivityForStudent(activity, student) {
     const activityAdmNo = activity.admissionNo;
 
     if (Array.isArray(activityAdmNo)) {
-        return activityAdmNo.filter(adm => adm.toString() === studentAdmNoStr).length;
+        // THE FIX: Add a check for `adm` to prevent errors on null/undefined values in the array.
+        return activityAdmNo.filter(adm => adm && adm.toString() === studentAdmNoStr).length;
     } else if (activityAdmNo) {
         return activityAdmNo.toString() === studentAdmNoStr ? 1 : 0;
     }
@@ -78,11 +79,8 @@ export function getGradeInfo(mark, subject, termKey, studentClass) {
     return { grade: 'E', cssClass: 'grade-e', maxMark };
 }
 
-/**
- * NEW: Calculates CE marks for High School based on new rules.
- */
 export function calculateCE_HS(mark, teMaxMark) {
-    if (typeof mark !== 'number' || teMaxMark === 0) return (teMaxMark === 80 ? 14 : 7); // Minimum CE
+    if (typeof mark !== 'number' || teMaxMark === 0) return (teMaxMark === 80 ? 14 : 7);
 
     const ceMaxMark = teMaxMark === 80 ? 20 : 10;
     const minCeMark = teMaxMark === 80 ? 14 : 7;
@@ -90,8 +88,8 @@ export function calculateCE_HS(mark, teMaxMark) {
     const percentage = (mark / teMaxMark) * 100;
     
     if (percentage >= 90) return ceMaxMark;
-    if (percentage >= 75) return ceMaxMark - (ceMaxMark * 0.1); // 18 or 9
-    if (percentage >= 60) return ceMaxMark - (ceMaxMark * 0.2); // 16 or 8
+    if (percentage >= 75) return Math.round(ceMaxMark - (ceMaxMark * 0.1));
+    if (percentage >= 60) return Math.round(ceMaxMark - (ceMaxMark * 0.2));
     
     return minCeMark;
 }
