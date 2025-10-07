@@ -81,38 +81,74 @@ export function buildSearchResults(results) {
     }
 }
 
-export function showBirthdayNotification(staffList) {
-    const names = staffList.map(s => sanitize(s.name)).join(', ');
-    const toastContainer = document.createElement('div');
-    toastContainer.className = 'position-fixed bottom-0 end-0 p-3';
-    toastContainer.style.zIndex = '1100';
-    toastContainer.innerHTML = `
-        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <i class="fa-solid fa-cake-candles rounded me-2 themed-text"></i>
-                <strong class="me-auto">Happy Birthday!</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
+    const staffCarouselItems = staffBirthdays.length > 0
+        ? staffBirthdays.map((staff, index) => `
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100 p-3 text-center">
+                    <i class="fa-solid fa-cake-candles fa-2x text-warning mb-2"></i>
+                    <h5 class="fw-bold mb-1">${sanitize(staff.name)}</h5>
+                    <p class="text-muted mb-0 small">${sanitize(staff.designation)}</p>
+                </div>
+            </div>`).join('')
+        : `<div class="carousel-item active"><div class="d-flex justify-content-center align-items-center h-100 p-3"><p class="text-muted mb-0">No staff birthdays today.</p></div></div>`;
+
+    const studentCarouselItems = studentBirthdays.length > 0
+        ? studentBirthdays.map((student, index) => `
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100 p-3 text-center">
+                    <i class="fa-solid fa-gift fa-2x text-info mb-2"></i>
+                    <h5 class="fw-bold mb-1">${sanitize(student.name)}</h5>
+                    <p class="text-muted mb-0 small">Class ${sanitize(student.class)}-${sanitize(student.division)}</p>
+                </div>
+            </div>`).join('')
+        : `<div class="carousel-item active"><div class="d-flex justify-content-center align-items-center h-100 p-3"><p class="text-muted mb-0">No student birthdays today.</p></div></div>`;
+
+    return `
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-center mb-2">Staff Birthdays</h5>
+                        <div id="staffBirthdayCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                            <div class="carousel-inner rounded" style="min-height: 120px; background-color: var(--bs-light-bg-subtle);">
+                                ${staffCarouselItems}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#staffBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="toast-body">
-                Wishing a very happy birthday to: ${names}!
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-center mb-2">Student Birthdays</h5>
+                        <div id="studentBirthdayCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+                            <div class="carousel-inner rounded" style="min-height: 120px; background-color: var(--bs-light-bg-subtle);">
+                                ${studentCarouselItems}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#studentBirthdayCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    `;
-    document.body.appendChild(toastContainer);
-    const toast = new bootstrap.Toast(toastContainer.querySelector('.toast'));
-    toast.show();
+        </div>`;
 }
 
-
-export function buildHMDashboard(user, allStudents, processedStudents) {
+export function buildHMDashboard(user, allStudents, processedStudents, staffBirthdays, studentBirthdays) {
     const dashboardContainer = document.getElementById('dashboard-container');
+    const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
+
     dashboardContainer.innerHTML = `
-    <div class="card shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button id="launchWidgetBtn" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-trophy me-1"></i> Launch House Widget</button><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a></div></div></div>
-    <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
-    <div id="leaderboardCard"></div>
-    <div id="classToppersCard"></div>
-    <div id="subjectToppersCard"></div>
-    <div id="reportGeneratorCard"></div>`;
+        <div class="card shadow-sm dashboard-card mb-4"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button id="launchWidgetBtn" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-trophy me-1"></i> Launch House Widget</button><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a></div></div></div>
+        ${birthdayCarouselsHTML}
+        <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
+        <div id="leaderboardCard"></div>
+        <div id="classToppersCard"></div>
+        <div id="subjectToppersCard"></div>
+        <div id="reportGeneratorCard"></div>`;
 
     buildStandingsChart(processedStudents);
     buildLeaderboardCard(processedStudents, appData.activities, false);
@@ -121,7 +157,7 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
     buildReportGeneratorCard(processedStudents);
 }
 
-    export function buildTeacherDashboard(user, allStudents, processedStudents) {
+export function buildTeacherDashboard(user, allStudents, processedStudents, staffBirthdays, studentBirthdays) {
     const dashboardContainer = document.getElementById('dashboard-container');
     const teacherSections = getTeacherSection(user.designation);
     if (!teacherSections || teacherSections.length === 0) {
@@ -147,81 +183,12 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
     relevantClasses.forEach(cls => {
         filterOptions += `<option value="${cls}">${cls}</option>`;
     });
-
-    const houseColors = { Blue: 'primary', Green: 'success', Rose: 'danger', Yellow: 'warning' };
-    const houses = Object.keys(houseColors);
-    const houseData = {};
-    houses.forEach(houseName => {
-        const members = processedStudents.filter(s => s.house === houseName);
-        const memberCount = members.length;
-        const totalPoints = members.reduce((sum, s) => sum + s.housePoints, 0);
-        const memberAdmNos = new Set(members.map(m => m.admissionNo.toString()));
-        const houseActivities = appData.activities.filter(act => {
-             const actAdmNos = Array.isArray(act.admissionNo) ? act.admissionNo.map(String) : [String(act.admissionNo)];
-             return actAdmNos.some(admNo => memberAdmNos.has(admNo));
-        }).sort((a, b) => new Date(b.activityDate || b.submissionTimestamp) - new Date(a.activityDate || a.submissionTimestamp));
-        
-        const last5Entries = houseActivities.slice(0, 5);
-        
-        const activityPoints = houseActivities.reduce((acc, act) => {
-            const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
-            if (!acc[act.Activity]) acc[act.Activity] = 0;
-            acc[act.Activity] += points;
-            return acc;
-        }, {});
-        const sortedActivities = Object.entries(activityPoints).sort((a,b) => b[1] - a[1]);
-        const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
-        const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a,b) => a[1] - b[1]).slice(0, 5);
-        
-        const top5Students = [...members].sort((a, b) => b.housePoints - a.housePoints).slice(0, 5);
-
-        const dailyChanges = {};
-        for(let i=0; i<5; i++){
-            const day = new Date();
-            day.setDate(day.getDate() - i);
-            const dayString = day.toISOString().split('T')[0];
-            dailyChanges[dayString] = 0;
-        }
-        houseActivities.forEach(act => {
-            const actDate = new Date(act.activityDate || act.submissionTimestamp).toISOString().split('T')[0];
-            if(dailyChanges.hasOwnProperty(actDate)){
-                 dailyChanges[actDate] += (act.Rating / 10) * (activityRules[act.Activity] || 0);
-            }
-        });
-
-        houseData[houseName] = { members, memberCount, totalPoints, last5Entries, topPositiveActivities, topNegativeActivities, top5Students, dailyChanges };
-    });
     
-    let navTabs = '';
-    let tabContent = '';
-    houses.forEach((house, index) => {
-        const active = index === 0 ? 'active' : '';
-        const color = houseColors[house];
-        const data = houseData[house];
-        const rank = houses.sort((a,b) => houseData[b].totalPoints - houseData[a].totalPoints).indexOf(house) + 1;
-
-        navTabs += `<li class="nav-item" role="presentation"><button class="nav-link ${active} text-${color}" id="${house}-tab" data-bs-toggle="tab" data-bs-target="#${house}-tab-pane" type="button" role="tab">${house}</button></li>`;
-        
-        tabContent += `
-            <div class="tab-pane fade show ${active}" id="${house}-tab-pane" role="tabpanel">
-                <div class="row g-4">
-                    <div class="col-md-4"><div class="card h-100 shadow-sm text-center clickable-card" data-house="${house}" data-modal="members"><div class="card-body"><p class="display-5 fw-bold text-${color}">${data.memberCount}</p><p class="small text-muted mb-0">Members</p></div></div></div>
-                    <div class="col-md-4"><div class="card h-100 shadow-sm text-center"><div class="card-body"><p class="display-5 fw-bold text-${color}">${Math.round(data.totalPoints).toLocaleString()}</p><p class="small text-muted mb-0">Total Points</p></div></div></div>
-                    <div class="col-md-4"><div class="card h-100 shadow-sm text-center"><div class="card-body"><p class="display-5 fw-bold text-${color}">#${rank}</p><p class="small text-muted mb-0">Rank</p></div></div></div>
-                    <div class="col-lg-6"><div class="card shadow-sm"><div class="card-body"><h5 class="card-title fw-bold">Last 5 Activities</h5><ul class="list-group list-group-flush">${data.last5Entries.map(a => `<li class="list-group-item">${sanitize(a.Activity)} <span class="badge bg-secondary float-end">${new Date(a.activityDate || a.submissionTimestamp).toLocaleDateString()}</span></li>`).join('') || '<p class="text-muted">No recent activities.</p>'}</ul></div></div></div>
-                    <div class="col-lg-6"><div class="card shadow-sm"><div class="card-body"><h5 class="card-title fw-bold">Last 5 Days Change</h5><ul class="list-group list-group-flush">${Object.entries(data.dailyChanges).map(([day, pts]) => `<li class="list-group-item">${new Date(day).toLocaleDateString('en-GB', {weekday: 'short'})} <span class="float-end fw-bold ${pts > 0 ? 'text-success' : (pts < 0 ? 'text-danger' : '')}">${pts > 0 ? '+' : ''}${Math.round(pts)}</span></li>`).join('')}</ul></div></div></div>
-                    <div class="col-lg-6"><div class="card shadow-sm"><div class="card-body"><h5 class="card-title fw-bold">Top Positive Activities</h5><ul class="list-group list-group-flush">${data.topPositiveActivities.map(([name, pts]) => `<li class="list-group-item">${sanitize(name)}<span class="float-end fw-bold text-success">+${Math.round(pts)}</span></li>`).join('') || '<p class="text-muted">No positive activities.</p>'}</ul></div></div></div>
-                    <div class="col-lg-6"><div class="card shadow-sm"><div class="card-body"><h5 class="card-title fw-bold">Top Negative Activities</h5><ul class="list-group list-group-flush">${data.topNegativeActivities.map(([name, pts]) => `<li class="list-group-item">${sanitize(name)}<span class="float-end fw-bold text-danger">${Math.round(pts)}</span></li>`).join('') || '<p class="text-muted">No negative activities.</p>'}</ul></div></div></div>
-                    <div class="col-12"><div class="card shadow-sm clickable-card" data-house="${house}" data-modal="students"><div class="card-body"><h5 class="card-title fw-bold">Top 5 Students</h5><div class="table-responsive"><table class="table table-hover"><thead><tr><th>Rank</th><th>Name</th><th>Class</th><th>Point</th></tr></thead><tbody>
-                        ${data.top5Students.map((s, i) => `<tr><td>${i+1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td><td>${Math.round(s.housePoints)}</td></tr>`).join('')}
-                    </tbody></table></div></div></div></div>
-                </div>
-            </div>`;
-    });
+    const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
 
     dashboardContainer.innerHTML = `
         <div class="card shadow-sm dashboard-card mb-4"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>${markEntryButtons}</div></div></div>
-        
+        ${birthdayCarouselsHTML}
         <div class="card shadow-sm mb-4">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -229,19 +196,6 @@ export function buildHMDashboard(user, allStudents, processedStudents) {
                     <select id="teacherStandingsFilter" class="form-select form-select-sm w-auto">${filterOptions}</select>
                 </div>
                 <div style="height: 300px;"><canvas id="teacherStandingsChart"></canvas></div>
-            </div>
-        </div>
-
-        <div class="card shadow-sm mb-4">
-             <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs" id="houseTab" role="tablist">
-                    ${navTabs}
-                </ul>
-            </div>
-            <div class="card-body">
-                <div class="tab-content" id="houseTabContent">
-                    ${tabContent}
-                </div>
             </div>
         </div>
 
