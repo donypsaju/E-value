@@ -386,13 +386,12 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
             <td>${member.totalPoints}</td>
         </tr>
     `).join('');
-
+    
+    // THE FIX: The 'Total Points Earned' card is now a button with data attributes
     dashboardContainer.innerHTML = `
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
-            <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill">
-                <i class="fa-solid fa-plus me-1"></i> Add Activity Entry
-            </button>
+            <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-plus me-1"></i> Add Activity Entry</button>
         </div>
         <div class="row g-4">
             <div class="col-lg-8">
@@ -401,16 +400,28 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.timelinessScore}<span class="fs-5 text-muted">/50</span></p><p class="small text-muted mb-0">Timeliness Score</p></div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">#${siuMemberData.rank}</p><p class="small text-muted mb-0">Your Rank</p></div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.presentDays}</p><p class="small text-muted mb-0">Days Present</p></div></div></div>
-                    <div class="col-md-12 col-lg-8"><div class="card h-100 shadow-sm text-center bg-primary text-white"><div class="card-body d-flex flex-column justify-content-center"><p class="display-4 fw-bold">${siuMemberData.totalPoints}</p><p class="mb-0">Total Points Earned</p></div></div></div>
+                    <div class="col-md-12 col-lg-8">
+                        <button class="card h-100 shadow-sm text-center bg-primary text-white w-100 border-0" id="showScoreBreakdownBtn"
+                                data-timeliness="${siuMemberData.timelinessScore}"
+                                data-entrycount="${siuMemberData.entryCountScore}"
+                                data-attendance="${siuMemberData.attendanceScore}">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <p class="display-4 fw-bold">${siuMemberData.totalPoints}</p>
+                                <p class="mb-0">Total Points Earned</p>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card shadow-sm h-100">
                     <div class="card-body d-flex flex-column">
                         <h3 class="h5 card-title fw-bold mb-3">Last 5 Entries</h3>
-                        <ul class="list-group list-group-flush" style="max-height: 250px; overflow-y: auto;">
-                            ${lastEntriesHTML || '<li class="list-group-item text-center text-muted">No entries yet.</li>'}
-                        </ul>
+                        <div style="overflow-y: auto; max-height: 250px;">
+                            <ul class="list-group list-group-flush">
+                                ${lastEntriesHTML || '<li class="list-group-item text-center text-muted">No entries yet.</li>'}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
