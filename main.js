@@ -101,7 +101,9 @@ async function initializeApp() {
             }
         }
     } catch (error) {
-        console.error("Initialization failed:", error);
+        console.error("Initialization failed: A critical error occurred.");
+        console.error("Error Message:", error.message); // THE FIX
+        console.error("Stack Trace:", error.stack); // THE FIX
         alert("A critical error occurred while loading the application. Please check the console for details.");
         logout();
     } finally {
@@ -218,8 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (target.closest('#launchWidgetBtn')) {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
-            } else if (target.closest('[data-action="add-activity"]') || target.closest('[data-action="discipline"]')) {
-                const url = "https://forms.gle/4eecmohXzWX7g73S7";
+            } else if (target.closest('[data-action="add-activity"]')) {
+                const url = "https://forms.gle/upHeE5YrTCDznpYQ6";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
