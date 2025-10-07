@@ -52,7 +52,6 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
         return { ...member, dob: userProfile ? userProfile.dob : null };
     });
 
-    // THE FIX: Calculate total entries by counting admission numbers, not submissions.
     const entriesPerMember = augmentedSiuMembers.map(member => {
         const memberActivities = activities.filter(act => act.submittedBy.toLowerCase() === member.email.toLowerCase());
         return memberActivities.reduce((count, act) => {
@@ -68,20 +67,24 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
             act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase()
         );
         
-        // THE FIX: Calculate totalEntries by counting individual student entries.
         const totalEntries = memberActivities.reduce((count, act) => {
-            if (Array.isArray(act.admissionNo)) {
-                return count + act.admissionNo.length;
-            }
-            return count + 1;
+            return count + (Array.isArray(act.admissionNo) ? act.admissionNo.length : 1);
         }, 0);
 
         const timelyEntries = memberActivities.filter(act => {
+            // THE FIX: A more robust check for "timely".
+            // A submission is timely if it's made before the end of the *next* day.
             const submissionTime = new Date(act.submissionTimestamp).getTime();
-            const activityTime = new Date(act.activityDate).getTime();
-            return (submissionTime - activityTime) <= (24 * 60 * 60 * 1000);
+            
+            // Create a date for the start of the activity day in UTC.
+            const activityDayStart = new Date(act.activityDate + 'T00:00:00Z').getTime();
+            
+            // The deadline is 48 hours after the start of the activity day (i.e., end of the next day).
+            const deadline = activityDayStart + (48 * 60 * 60 * 1000);
+
+            return submissionTime < deadline;
         }).length;
-        // Note: The timeliness score is still based on the number of *submissions*, not individual students.
+
         const timelinessScore = (memberActivities.length > 0) ? (timelyEntries / memberActivities.length) * 50 : 0;
 
         const entryCountScore = (maxEntries > 0) ? (totalEntries / maxEntries) * 40 : 0;
