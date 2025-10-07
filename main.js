@@ -4,7 +4,7 @@ import { processStudentData, processSiuMemberData } from './dataProcessor.js';
 import {
     initializeUI, setAppData, showView, hideProgressBar, showProgressBar,
     buildHMDashboard, buildTeacherDashboard, buildParentDashboard, buildStudentDashboard,
-    renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader, showBirthdayNotification,
+    renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader,
     buildSiuDashboard
 } from './ui.js';
 import { isActivityForStudent } from './utils.js';
