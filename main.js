@@ -200,8 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalBody.innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => { const dateToDisplay = act.activityDate ? new Date(act.activityDate) : new Date(act.submissionTimestamp); const basePoints = activityRules[act.Activity] || 0; const calculatedPoints = (act.Rating / 10) * basePoints; return `<tr><td>${dateToDisplay.toLocaleDateString()}</td><td>${act.Activity}</td><td class="${basePoints > 0 ? 'text-success' : 'text-danger'} fw-semibold">${calculatedPoints.toFixed(1)}</td></tr>` }).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
                     disciplineModal.show();
                 }
-            }// THE FIX: New handler for the score breakdown button
-            else if (target.closest('#showScoreBreakdownBtn')) {
+            } else if (target.closest('#showScoreBreakdownBtn')) {
                 const button = target.closest('#showScoreBreakdownBtn');
                 const timeliness = button.dataset.timeliness;
                 const entrycount = button.dataset.entrycount;
@@ -210,38 +209,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 document.getElementById('disciplineModalLabel').textContent = 'Score Calculation Breakdown';
                 document.getElementById('modal-content-body').innerHTML = `
-                    <p>Your total score is calculated based on three components, with a maximum of 100 points.</p>
+                    <p>Your total score is an uncapped value based on your performance in three key areas.</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
-                                <strong>Timeliness Score</strong> (50%)
-                                <p class="small mb-0 text-muted">Based on the percentage of entries submitted within 24 hours.</p>
+                                <strong>Timeliness Score</strong>
+                                <p class="small mb-0 text-muted">You get <strong>10 points</strong> for every timely data entry submission.</p>
                             </div>
-                            <span class="badge bg-primary rounded-pill fs-5">${timeliness} / 50</span>
+                            <span class="badge bg-primary rounded-pill fs-5">${timeliness} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
-                                <strong>Entry Count Score</strong> (40%)
-                                <p class="small mb-0 text-muted">Based on your number of entries compared to the top performer.</p>
+                                <strong>Activity Entry Score</strong>
+                                <p class="small mb-0 text-muted">You get <strong>5 points</strong> for every individual student activity you record.</p>
                             </div>
-                            <span class="badge bg-info rounded-pill fs-5">${entrycount} / 40</span>
+                            <span class="badge bg-info rounded-pill fs-5">${entrycount} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                              <div>
-                                <strong>Attendance Score</strong> (10%)
-                                <p class="small mb-0 text-muted">Based on your percentage of present days.</p>
+                                <strong>Attendance Score</strong>
+                                <p class="small mb-0 text-muted">You get <strong>3 points</strong> for every day you are present.</p>
                             </div>
-                            <span class="badge bg-success rounded-pill fs-5">${attendance} / 10</span>
+                            <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
                         </li>
                          <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
                              <strong class="fs-5">Total Points</strong>
-                             <strong class="fs-4">${total} / 100</strong>
+                             <strong class="fs-4">${total} pts</strong>
                         </li>
                     </ul>
                 `;
                 disciplineModal.show();
-            }
-             else if (studentProfileTrigger) {
+            } else if (studentProfileTrigger) {
                 const admNo = studentProfileTrigger.dataset.admissionNo;
                 const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
                 if (student) {
@@ -262,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             } else if (target.closest('[data-action="add-activity"]')) {
-                const url = "https://forms.gle/JdCZVv8j2BNKurCQ9";
+                const url = "https://docs.google.com/forms/d/1LXL3mDMDkbjuffisC-HY-RS7l2ibqQ5lhbyfrliI8I4/viewform?usp=sf_link";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
