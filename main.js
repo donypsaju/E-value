@@ -67,21 +67,12 @@ async function initializeApp() {
                 });
             }
         }
-
-        if (currentUser.designation === 'HM') {
-            const today = new Date();
-            const todayMonth = today.getMonth() + 1;
-            const todayDate = today.getDate();
-            const birthdayStaff = appData.users.filter(user => {
-                if (user.role !== 'staff' || !user.dob) return false;
-                const dob = new Date(user.dob);
-                return dob.getMonth() + 1 === todayMonth && dob.getDate() === todayDate;
-            });
-            if (birthdayStaff.length > 0) {
-                showBirthdayNotification(birthdayStaff);
-            }
-        }
-
+        
+        // THE FIX: Add a defensive check to ensure birthday arrays are always valid.
+        const finalStaffBirthdays = Array.isArray(staffBirthdays) ? staffBirthdays : [];
+        const finalStudentBirthdays = Array.isArray(studentBirthdays) ? studentBirthdays : [];
+        
+        // --- Search Functionality ---
         const searchContainer = document.getElementById('header-search-container');
         const searchInput = document.getElementById('headerSearch');
         if ((currentUser.designation === 'HM' || currentUser.role === 'staff') && searchInput) {
@@ -102,6 +93,7 @@ async function initializeApp() {
             searchContainer.classList.add('d-none');
         }
 
+        // --- Dashboard Routing ---
         if (currentUser.role === 'siu') {
             const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
             const currentSiuMemberData = processedSiuMembers.find(m => m.admissionNo === currentUser.admissionNo);
@@ -111,9 +103,9 @@ async function initializeApp() {
                 document.getElementById('dashboard-container').innerHTML = `<p class="text-danger">Could not load SIU member data.</p>`;
             }
         } else if (currentUser.designation === 'HM') {
-            buildHMDashboard(currentUser, allStudents, appData.processedStudents);
+            buildHMDashboard(currentUser, allStudents, appData.processedStudents, finalStaffBirthdays, finalStudentBirthdays);
         } else if (currentUser.role === 'staff') {
-            buildTeacherDashboard(currentUser, allStudents, appData.processedStudents);
+            buildTeacherDashboard(currentUser, allStudents, appData.processedStudents, finalStaffBirthdays, finalStudentBirthdays);
         } else if (currentUser.role === 'student') {
             const currentUserPhones = Array.isArray(currentUser.phone) ? currentUser.phone : [currentUser.phone];
             const siblings = allStudents.filter(s => {
@@ -131,16 +123,13 @@ async function initializeApp() {
             }
         }
     } catch (error) {
-        console.error("Initialization failed: A critical error occurred.");
-        console.error("Error Message:", error.message);
-        console.error("Stack Trace:", error.stack);
+        console.error("Initialization failed:", error);
         alert("A critical error occurred while loading the application. Please check the console for details.");
         logout();
     } finally {
         hideProgressBar();
     }
 }
-
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
     disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
@@ -342,4 +331,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeApp();
 });
-
