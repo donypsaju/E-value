@@ -289,15 +289,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if(evaluationModalEl){
         evaluationModalEl.addEventListener('click', e => {
             const target = e.target;
-            if(target.closest('.siu-member-link')){
-                const admNo = target.closest('.siu-member-link').dataset.admissionNo;
+            const siuLink = target.closest('.siu-member-link');
+            const houseCard = target.closest('.clickable-card[data-house]');
+
+            if(siuLink){
+                const admNo = siuLink.dataset.admissionNo;
                 const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
                 const memberData = processedSiuMembers.find(m => m.admissionNo.toString() === admNo);
                 if(memberData){
                     document.getElementById('detailModalLabel').textContent = `SIU Dashboard for ${memberData.name}`;
                     document.getElementById('detailModalBody').innerHTML = `<div class="p-3">${buildSiuDashboard(memberData, processedSiuMembers, true)}</div>`;
+                    evaluationModal.hide(); // Hide background modal
                     detailModal.show();
                 }
+            } else if (houseCard) {
+                const houseName = houseCard.dataset.house;
+                const members = appData.processedStudents.filter(s => s.house === houseName);
+                const modalType = houseCard.dataset.modal;
+                let modalTitle, tableHeaders, tableBody;
+
+                if (modalType === 'members') {
+                    modalTitle = `${houseName} House Members (${members.length})`;
+                    tableHeaders = '<th>Sl. No.</th><th>Name</th><th>Class</th>';
+                    tableBody = members
+                        .sort((a,b) => customClassSort(`${a.class}-${a.division}`, `${b.class}-${b.division}`) || a.name.localeCompare(b.name))
+                        .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td></tr>`).join('');
+                } else { // students
+                     modalTitle = `All Students in ${houseName} House (Ranked by Points)`;
+                     tableHeaders = '<th>Rank</th><th>Name</th><th>Class</th><th>Points</th>';
+                     tableBody = members
+                        .sort((a,b) => b.housePoints - a.housePoints)
+                        .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td><td>${Math.round(s.housePoints)}</td></tr>`).join('');
+                }
+
+                document.getElementById('detailModalLabel').textContent = modalTitle;
+                document.getElementById('detailModalBody').innerHTML = `
+                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-striped">
+                            <thead><tr>${tableHeaders}</tr></thead>
+                            <tbody>${tableBody}</tbody>
+                        </table>
+                    </div>`;
+                evaluationModal.hide(); // Hide background modal
+                detailModal.show();
             }
         });
     }
