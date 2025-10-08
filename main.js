@@ -7,7 +7,7 @@ import {
     renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader, buildSiuDashboard,
     buildHouseEvaluationContent, buildSiuEvaluationContent
 } from './ui.js';
-import { isActivityForStudent, getTeacherSection, getSection } from './utils.js';
+import { isActivityForStudent, getTeacherSection, getSection, customClassSort } from './utils.js';
 import { activityRules } from './config.js';
 
 // --- GLOBAL APP STATE ---
@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     evaluationModal = new bootstrap.Modal(document.getElementById('evaluationModal'));
 
     initializeUI({ detail: detailModal, iframe: iframeModal, dobVerify: dobVerifyModal });
+
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -299,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(memberData){
                     document.getElementById('detailModalLabel').textContent = `SIU Dashboard for ${memberData.name}`;
                     document.getElementById('detailModalBody').innerHTML = `<div class="p-3">${buildSiuDashboard(memberData, processedSiuMembers, true)}</div>`;
-                    evaluationModal.hide(); // Hide background modal
+                    evaluationModal.hide();
                     detailModal.show();
                 }
             } else if (houseCard) {
@@ -330,11 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             <tbody>${tableBody}</tbody>
                         </table>
                     </div>`;
-                evaluationModal.hide(); // Hide background modal
+                evaluationModal.hide();
                 detailModal.show();
             }
         });
-    }
+    }ss
 
     const widgetModalEl = document.getElementById('houseWidgetModal');
     if (widgetModalEl) {
