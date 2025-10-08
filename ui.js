@@ -158,6 +158,7 @@ export function buildHMDashboard(user, allStudents, processedStudents, staffBirt
         <div class="card shadow-sm dashboard-card mb-4">
             <div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2>
                 <div class="d-flex flex-wrap gap-2">
+                    <button id="launchWidgetBtn" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-trophy me-1"></i> Launch House Widget</button>
                     <button data-action="evaluate-siu" class="btn btn-info action-btn rounded-pill text-white">Evaluate SIU</button>
                     <button data-action="evaluate-houses" class="btn btn-warning action-btn rounded-pill text-dark">Evaluate Houses</button>
                     <button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>
