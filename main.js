@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailModal.show();
             }
         });
-    }ss
+    }
 
     const widgetModalEl = document.getElementById('houseWidgetModal');
     if (widgetModalEl) {
