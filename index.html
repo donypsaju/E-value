@@ -212,14 +212,27 @@
     </div>
 
     <!-- Modals -->
-    <div class="modal fade" id="disciplineModal" tabindex="-1" aria-labelledby="disciplineModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <!-- Modals -->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detailModalLabel">Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="detailModalBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="evaluationModal" tabindex="-1" aria-labelledby="evaluationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="disciplineModalLabel">Discipline & Activity Log</h5>
+                    <h5 class="modal-title" id="evaluationModalLabel">Evaluation Dashboard</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="modal-content-body"></div>
+                <div class="modal-body" id="evaluationModalBody"></div>
             </div>
         </div>
     </div>

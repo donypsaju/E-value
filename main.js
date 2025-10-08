@@ -4,8 +4,8 @@ import { processStudentData, processSiuMemberData } from './dataProcessor.js';
 import {
     initializeUI, setAppData, showView, hideProgressBar, showProgressBar,
     buildHMDashboard, buildTeacherDashboard, buildParentDashboard, buildStudentDashboard,
-    renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader,
-    buildSiuDashboard
+    renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader, buildSiuDashboard,
+    buildHouseEvaluationContent, buildSiuEvaluationContent
 } from './ui.js';
 import { isActivityForStudent, getTeacherSection, getSection } from './utils.js';
 import { activityRules } from './config.js';
@@ -14,7 +14,7 @@ import { activityRules } from './config.js';
 let appData = {};
 let currentUser = null;
 let widgetRefreshInterval = null;
-let disciplineModal, iframeModal, dobVerifyModal, houseWidgetModal, hmVerifyModal;
+let detailModal, iframeModal, dobVerifyModal, houseWidgetModal, hmVerifyModal, evaluationModal;
 
 /**
 * The main application initializer.
@@ -38,7 +38,6 @@ async function initializeApp() {
         const allStudents = appData.users.filter(u => u.role === 'student');
         appData.processedStudents = processStudentData(allStudents, appData.marks, appData.activities);
 
-        // --- NEW: Birthday Logic ---
         const today = new Date();
         const todayMonth = today.getMonth() + 1;
         const todayDate = today.getDate();
@@ -68,11 +67,9 @@ async function initializeApp() {
             }
         }
         
-        // THE FIX: Add a defensive check to ensure birthday arrays are always valid.
         const finalStaffBirthdays = Array.isArray(staffBirthdays) ? staffBirthdays : [];
         const finalStudentBirthdays = Array.isArray(studentBirthdays) ? studentBirthdays : [];
         
-        // --- Search Functionality ---
         const searchContainer = document.getElementById('header-search-container');
         const searchInput = document.getElementById('headerSearch');
         if ((currentUser.designation === 'HM' || currentUser.role === 'staff') && searchInput) {
@@ -93,12 +90,11 @@ async function initializeApp() {
             searchContainer.classList.add('d-none');
         }
 
-        // --- Dashboard Routing ---
         if (currentUser.role === 'siu') {
             const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
             const currentSiuMemberData = processedSiuMembers.find(m => m.admissionNo === currentUser.admissionNo);
             if (currentSiuMemberData) {
-                buildSiuDashboard(currentSiuMemberData, processedSiuMembers);
+                document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, processedSiuMembers);
             } else {
                 document.getElementById('dashboard-container').innerHTML = `<p class="text-danger">Could not load SIU member data.</p>`;
             }
@@ -132,15 +128,17 @@ async function initializeApp() {
         hideProgressBar();
     }
 }
+
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
-    disciplineModal = new bootstrap.Modal(document.getElementById('disciplineModal'));
+    detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
     iframeModal = new bootstrap.Modal(document.getElementById('iframeModal'));
     dobVerifyModal = new bootstrap.Modal(document.getElementById('dobVerifyModal'));
     houseWidgetModal = new bootstrap.Modal(document.getElementById('houseWidgetModal'));
     hmVerifyModal = new bootstrap.Modal(document.getElementById('hmVerifyModal'));
+    evaluationModal = new bootstrap.Modal(document.getElementById('evaluationModal'));
 
-    initializeUI({ discipline: disciplineModal, iframe: iframeModal, dobVerify: dobVerifyModal });
+    initializeUI({ detail: detailModal, iframe: iframeModal, dobVerify: dobVerifyModal });
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -209,17 +207,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = e.target;
             const studentProfileTrigger = target.closest('.view-sibling-profile, .list-group-item[data-admission-no]');
 
-            if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
+            if (target.closest('[data-action="evaluate-houses"]')) {
+                document.getElementById('evaluationModalLabel').textContent = 'House Evaluation Dashboard';
+                document.getElementById('evaluationModalBody').innerHTML = buildHouseEvaluationContent(appData.processedStudents, appData.activities);
+                evaluationModal.show();
+            } else if (target.closest('[data-action="evaluate-siu"]')) {
+                const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
+                document.getElementById('evaluationModalLabel').textContent = 'SIU Evaluation Dashboard';
+                document.getElementById('evaluationModalBody').innerHTML = buildSiuEvaluationContent(processedSiuMembers, appData.activities);
+                evaluationModal.show();
+            } else if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
                 initializeApp();
             } else if (target.closest('#showDiscipline')) {
                 const button = target.closest('#showDiscipline');
                 const admNo = button.dataset.admissionNo;
                 const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
                 if (student) {
-                    const modalBody = document.getElementById('modal-content-body');
+                    document.getElementById('detailModalLabel').textContent = 'Discipline & Activity Log';
+                    const modalBody = document.getElementById('detailModalBody');
                     const studentActivities = appData.activities.filter(a => isActivityForStudent(a, student));
                     modalBody.innerHTML = `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Activity</th><th>Points</th></tr></thead><tbody>${studentActivities.length > 0 ? studentActivities.map(act => { const dateToDisplay = act.activityDate ? new Date(act.activityDate) : new Date(act.submissionTimestamp); const basePoints = activityRules[act.Activity] || 0; const calculatedPoints = (act.Rating / 10) * basePoints; return `<tr><td>${dateToDisplay.toLocaleDateString()}</td><td>${act.Activity}</td><td class="${basePoints > 0 ? 'text-success' : 'text-danger'} fw-semibold">${calculatedPoints.toFixed(1)}</td></tr>` }).join('') : '<tr><td colspan="3" class="text-center">No activities logged.</td></tr>'}</tbody></table></div>`;
-                    disciplineModal.show();
+                    detailModal.show();
                 }
             } else if (target.closest('#showScoreBreakdownBtn')) {
                 const button = target.closest('#showScoreBreakdownBtn');
@@ -227,39 +235,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 const entrycount = button.dataset.entrycount;
                 const attendance = button.dataset.attendance;
                 const total = parseInt(timeliness) + parseInt(entrycount) + parseInt(attendance);
-
-                document.getElementById('disciplineModalLabel').textContent = 'Score Calculation Breakdown';
-                document.getElementById('modal-content-body').innerHTML = `
+                document.getElementById('detailModalLabel').textContent = 'Score Calculation Breakdown';
+                document.getElementById('detailModalBody').innerHTML = `
                     <p>Your total score is an uncapped value based on your performance in three key areas.</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Timeliness Score</strong>
-                                <p class="small mb-0 text-muted">You get <strong>5 points</strong> for every timely data entry submission.</p>
-                            </div>
+                            <div><strong>Timeliness Score</strong><p class="small mb-0 text-muted">You get <strong>10 points</strong> for every timely student entry.</p></div>
                             <span class="badge bg-primary rounded-pill fs-5">${timeliness} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Activity Entry Score</strong>
-                                <p class="small mb-0 text-muted">You get <strong>1 points</strong> for every individual student activity you record.</p>
-                            </div>
+                            <div><strong>Activity Entry Score</strong><p class="small mb-0 text-muted">You get <strong>5 points</strong> for every individual student activity you record.</p></div>
                             <span class="badge bg-info rounded-pill fs-5">${entrycount} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                             <div>
-                                <strong>Attendance Score</strong>
-                                <p class="small mb-0 text-muted">You get <strong>2 points</strong> for every day you are present.</p>
-                            </div>
-                            <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
+                             <div><strong>Attendance Score</strong><p class="small mb-0 text-muted">You get <strong>3 points</strong> for every day you are present.</p></div>
+                             <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
                         </li>
                          <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
-                             <strong class="fs-5">Total Points</strong>
-                             <strong class="fs-4">${total} pts</strong>
+                             <strong class="fs-5">Total Points</strong><strong class="fs-4">${total} pts</strong>
                         </li>
-                    </ul>
-                `;
-                disciplineModal.show();
+                    </ul>`;
+                detailModal.show();
             } else if (studentProfileTrigger) {
                 const admNo = studentProfileTrigger.dataset.admissionNo;
                 const student = appData.processedStudents.find(s => s.admissionNo.toString() === admNo);
@@ -280,11 +276,28 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (target.closest('#launchWidgetBtn')) {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
-            } else if (target.closest('[data-action="add-activity"]')) {
-                const url = "https://forms.gle/rrURrkEgdbKhY4hW7";
+            } else if (target.closest('[data-action="add-activity"]') || target.closest('[data-action="discipline"]')) {
+                const url = "https://docs.google.com/forms/d/1LXL3mDMDkbjuffisC-HY-RS7l2ibqQ5lhbyfrliI8I4/viewform?usp=sf_link";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
+            }
+        });
+    }
+    
+    const evaluationModalEl = document.getElementById('evaluationModal');
+    if(evaluationModalEl){
+        evaluationModalEl.addEventListener('click', e => {
+            const target = e.target;
+            if(target.closest('.siu-member-link')){
+                const admNo = target.closest('.siu-member-link').dataset.admissionNo;
+                const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
+                const memberData = processedSiuMembers.find(m => m.admissionNo.toString() === admNo);
+                if(memberData){
+                    document.getElementById('detailModalLabel').textContent = `SIU Dashboard for ${memberData.name}`;
+                    document.getElementById('detailModalBody').innerHTML = `<div class="p-3">${buildSiuDashboard(memberData, processedSiuMembers, true)}</div>`;
+                    detailModal.show();
+                }
             }
         });
     }
@@ -333,3 +346,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeApp();
 });
+

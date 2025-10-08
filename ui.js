@@ -8,7 +8,7 @@ let currentUser = null;
 
 // DOM elements
 let homeView, loginView, dashboardView, progressBar, globalControls;
-let disciplineModal, iframeModal, dobVerifyModal;
+let detailModal, iframeModal, dobVerifyModal;
 
 export function initializeUI(modals) {
     homeView = document.getElementById('homeView');
@@ -16,7 +16,7 @@ export function initializeUI(modals) {
     dashboardView = document.getElementById('dashboardView');
     progressBar = document.getElementById('progressBarContainer');
     globalControls = document.getElementById('globalControls');
-    disciplineModal = modals.discipline;
+    detailModal = modals.detail;
     iframeModal = modals.iframe;
     dobVerifyModal = modals.dobVerify;
 }
@@ -61,7 +61,8 @@ export function hideProgressBar() {
 
 export function updateDashboardHeader(user) {
     if (!user) return;
-    const userInfoHTML = `<p class="fw-semibold text-primary mb-0">${sanitize(user.name)}</p><p class="small text-muted mb-0">${sanitize(user.designation || user.role.toUpperCase())}</p>`;
+    const roleText = user.role === 'siu' ? 'SIU' : (user.designation || 'Student');
+    const userInfoHTML = `<p class="fw-semibold text-primary mb-0">${sanitize(user.name)}</p><p class="small text-muted mb-0">${sanitize(roleText)}</p>`;
     const userInfoMobile = document.getElementById('userInfoMobile');
     const userInfoDesktop = document.getElementById('userInfoDesktop');
     if (userInfoMobile) userInfoMobile.innerHTML = userInfoHTML;
@@ -81,14 +82,10 @@ export function buildSearchResults(results) {
     }
 }
 
-/**
- * Builds the HTML for the birthday carousel cards, now with dynamic visibility.
- */
 function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
     const safeStaffBirthdays = staffBirthdays || [];
     const safeStudentBirthdays = studentBirthdays || [];
 
-    // If both lists are empty, return nothing.
     if (safeStaffBirthdays.length === 0 && safeStudentBirthdays.length === 0) {
         return '';
     }
@@ -145,34 +142,35 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
             </div>`;
     }
 
-    // Determine the column layout based on which cards exist.
     let finalHTML = '';
     if (staffCardHTML && studentCardHTML) {
-        // Both exist, use a 2-column layout
         finalHTML = `<div class="col-md-6">${staffCardHTML}</div><div class="col-md-6">${studentCardHTML}</div>`;
     } else {
-        // Only one exists, use a full-width layout
         finalHTML = `<div class="col-md-12">${staffCardHTML || studentCardHTML}</div>`;
     }
 
     return `<div class="row g-4 mb-4">${finalHTML}</div>`;
 }
 
-
 export function buildHMDashboard(user, allStudents, processedStudents, staffBirthdays, studentBirthdays) {
-    const dashboardContainer = document.getElementById('dashboard-container');
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
-
-    dashboardContainer.innerHTML = `
-        <div class="card shadow-sm dashboard-card mb-4"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button id="launchWidgetBtn" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-trophy me-1"></i> Launch House Widget</button><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button><a href="https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">LP Marks</a><a href="https://docs.google.com/spreadsheets/d/17vdYpWYELcUE--q_9s2JaGcT-GwgNX28/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">UP Marks</a><a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a></div></div></div>
+    document.getElementById('dashboard-container').innerHTML = `
+        <div class="card shadow-sm dashboard-card mb-4">
+            <div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2>
+                <div class="d-flex flex-wrap gap-2">
+                    <button data-action="evaluate-siu" class="btn btn-info action-btn rounded-pill text-white">Evaluate SIU</button>
+                    <button data-action="evaluate-houses" class="btn btn-warning action-btn rounded-pill text-dark">Evaluate Houses</button>
+                    <button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>
+                    <a href="https://docs.google.com/spreadsheets/d/1qSlfrIqTrJGg_zN-R7b9zVRBG0l-OB8K/edit" target="_blank" class="btn themed-bg action-btn rounded-pill">HS Marks</a>
+                </div>
+            </div>
+        </div>
         ${birthdayCarouselsHTML}
-        <div class="card shadow-sm dashboard-card"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-3"><h2 class="h5 card-title fw-bold">House Standings</h2><select id="standingsFilter" class="form-select form-select-sm w-auto"><option value="school">School-wide</option></select></div><div style="height: 300px;"><canvas id="standingsChart"></canvas></div><p class="text-muted small mt-2 text-end">Data last synced: ${new Date().toLocaleString()}</p></div></div>
         <div id="leaderboardCard"></div>
         <div id="classToppersCard"></div>
         <div id="subjectToppersCard"></div>
         <div id="reportGeneratorCard"></div>`;
 
-    buildStandingsChart(processedStudents);
     buildLeaderboardCard(processedStudents, appData.activities, false);
     buildClassToppersCard(processedStudents);
     buildSubjectToppersCard(processedStudents);
@@ -183,18 +181,15 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     const dashboardContainer = document.getElementById('dashboard-container');
     const teacherSections = getTeacherSection(user.designation);
     if (!teacherSections || teacherSections.length === 0) {
-        dashboardContainer.innerHTML = `<div class="card text-danger shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation. Please contact an administrator.</p></div></div>`;
+        dashboardContainer.innerHTML = `<div class="card text-danger shadow-sm dashboard-card"><div class="card-body"><h2 class="h5 card-title fw-bold">Configuration Error</h2><p>Your user profile is missing a valid section designation.</p></div></div>`;
         return;
     }
 
     const markEntryUrls = {
-        LP: "https://docs.google.com/spreadsheets/d/1RcXcqDDMi2sAjXGgEyKIFKjwVVmkikfj/edit",
         UP: "https://docs.google.com/spreadsheets/d/1RyqclF_XUeMHNY3yAsJ8m4i1e3RDJOGQVor_4KyRqDU/edit?usp=sharing",
         HS: "https://docs.google.com/spreadsheets/d/16xR0xvCIR1ulNVzB0D2ZddccDFLlwwLAuFZp_m5IJLI/edit?usp=sharing"
     };
-    const markEntryButtons = teacherSections.map(section =>
-        `<a href="${markEntryUrls[section]}" target="_blank" class="btn themed-bg action-btn rounded-pill">${section} Mark Entry</a>`
-    ).join('');
+    const markEntryButtons = teacherSections.map(section => `<a href="${markEntryUrls[section]}" target="_blank" class="btn themed-bg action-btn rounded-pill">${section} Mark Entry</a>`).join('');
     const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
 
     const relevantClasses = [...new Set(sectionStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
@@ -209,7 +204,7 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
 
     dashboardContainer.innerHTML = `
-        <div class="card shadow-sm dashboard-card mb-4"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>${markEntryButtons}</div></div></div>
+        <div class="card shadow-sm dashboard-card mb-4"><div class="card-body"><h2 class="h5 card-title fw-bold mb-3">Quick Actions</h2><div class="d-flex flex-wrap gap-2"><button data-action="evaluate-houses" class="btn btn-warning action-btn rounded-pill text-dark">Evaluate Houses</button><button data-action="discipline" class="btn themed-bg action-btn rounded-pill">Discipline Entry</button>${markEntryButtons}</div></div></div>
         ${birthdayCarouselsHTML}
         <div class="card shadow-sm mb-4">
             <div class="card-body">
@@ -220,86 +215,40 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
                 <div style="height: 300px;"><canvas id="teacherStandingsChart"></canvas></div>
             </div>
         </div>
-
         <div id="leaderboardCard" class="mb-4"></div>
         <div id="classToppersCard" class="mb-4"></div>
         <div id="subjectToppersCard" class="mb-4"></div>
-        <div id="reportGeneratorCard"></div>
-    `;
+        <div id="reportGeneratorCard"></div>`;
 
     const filter = document.getElementById('teacherStandingsFilter');
     const chartCtx = document.getElementById('teacherStandingsChart')?.getContext('2d');
     let chartInstance = null;
 
     if (filter && chartCtx) {
-        // THE FIX: Define 'houses' here so the nested function can access it.
         const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
-
         const updateChart = () => {
             const value = filter.value;
             let filteredStudents = processedStudents;
-
             if (value === 'up' || value === 'hs' || value === 'lp') {
                 filteredStudents = processedStudents.filter(s => getSection(s.class).toLowerCase() === value);
             } else if (value !== 'school') {
                 filteredStudents = processedStudents.filter(s => `${s.class}-${s.division}` === value);
             }
-            
             const chartHouseData = filteredStudents.reduce((acc, s) => {
-                if (s.house && !acc[s.house]) acc[s.house] = 0;
-                if (s.house) acc[s.house] += s.housePoints;
+                if (s.house) {
+                    if (!acc[s.house]) acc[s.house] = 0;
+                    acc[s.house] += s.housePoints;
+                }
                 return acc;
             }, {});
-            
-            const labels = houses;
-            const data = labels.map(house => chartHouseData[house] || 0);
-            const backgroundColors = labels.map(house => ({ 'Blue': '#0d6efd', 'Green': '#198754', 'Rose': '#dc3545', 'Yellow': '#ffc107' }[house] || '#6c757d'));
-
+            const data = houses.map(house => chartHouseData[house] || 0);
+            const backgroundColors = houses.map(house => ({ 'Blue': '#0d6efd', 'Green': '#198754', 'Rose': '#dc3545', 'Yellow': '#ffc107' }[house] || '#6c757d'));
             if (chartInstance) chartInstance.destroy();
-            chartInstance = new Chart(chartCtx, {
-                type: 'bar',
-                data: { labels, datasets: [{ label: 'Total Points', data, backgroundColor: backgroundColors }] },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
+            chartInstance = new Chart(chartCtx, { type: 'bar', data: { labels: houses, datasets: [{ label: 'Total Points', data, backgroundColor: backgroundColors }] }, options: { responsive: true, maintainAspectRatio: false } });
         };
         filter.addEventListener('change', updateChart);
         updateChart();
     }
-
-    dashboardContainer.querySelectorAll('.clickable-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const houseName = card.dataset.house;
-            const modalType = card.dataset.modal;
-            const members = houseData[houseName].members;
-            
-            let modalTitle, tableHeaders, tableBody;
-
-            if (modalType === 'members') {
-                modalTitle = `${houseName} House Members (${members.length})`;
-                tableHeaders = '<th>Sl. No.</th><th>Name</th><th>Class</th>';
-                tableBody = members
-                    .sort((a,b) => customClassSort(`${a.class}-${a.division}`, `${b.class}-${b.division}`) || a.name.localeCompare(b.name))
-                    .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td></tr>`).join('');
-            } else { // students
-                 modalTitle = `All Students in ${houseName} House (Ranked by Points)`;
-                 tableHeaders = '<th>Rank</th><th>Name</th><th>Class</th><th>Points</th>';
-                 tableBody = members
-                    .sort((a,b) => b.housePoints - a.housePoints)
-                    .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td><td>${Math.round(s.housePoints)}</td></tr>`).join('');
-            }
-
-            document.getElementById('disciplineModalLabel').textContent = modalTitle;
-            document.getElementById('modal-content-body').innerHTML = `
-                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-                    <table class="table table-striped">
-                        <thead><tr>${tableHeaders}</tr></thead>
-                        <tbody>${tableBody}</tbody>
-                    </table>
-                </div>
-            `;
-            disciplineModal.show();
-        });
-    });
 
     buildLeaderboardCard(sectionStudents, appData.activities, true);
     buildClassToppersCard(sectionStudents);
@@ -307,47 +256,45 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     buildReportGeneratorCard(sectionStudents);
 }
 
-    export function buildParentDashboard(currentChild, siblings, processedStudents) {
-        const dashboardContainer = document.getElementById('dashboard-container');
-        const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
-        dashboardContainer.innerHTML = `
-        <div class="card shadow-sm dashboard-card">
-            <div class="card-body">
-                <h2 class="h5 card-title fw-bold">Parent Dashboard</h2>
-                <p class="card-text mb-4">Select a child to view their detailed academic profile.</p>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    ${allChildren.map(child => {
-            const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
-            const borderClass = currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-primary' : '';
-            return `
-                        <div class="col">
-                            <div class="card h-100 ${borderClass}">
-                                <div class="card-body d-flex flex-column">
-                                    <h3 class="h6 card-title fw-bold">${sanitize(child.name)}</h3>
-                                    <p class="small">Class ${sanitize(child.class)}-${sanitize(child.division)}</p>
-                                    <p class="small">House: ${sanitize(child.house)}</p>
-                                    ${studentData ? `
-                                    <div class="mt-2 small">
-                                        <p>Academic Rank: <span class="fw-bold themed-text">#${studentData.academicRank}</span></p>
-                                        <p>Discipline Rank: <span class="fw-bold themed-text">#${studentData.disciplineRank}</span></p>
-                                    </div>` : ''
-                }
-                                    <button class="btn btn-sm themed-bg w-100 mt-auto view-sibling-profile" data-admission-no="${sanitize(child.admissionNo)}">
-                                        ${currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'View Full Profile' : 'Switch to Profile'}
-                                    </button>
-                                </div>
+export function buildParentDashboard(currentChild, siblings, processedStudents) {
+    const dashboardContainer = document.getElementById('dashboard-container');
+    const allChildren = [currentChild, ...siblings].sort((a, b) => a.name.localeCompare(b.name));
+    dashboardContainer.innerHTML = `
+    <div class="card shadow-sm dashboard-card">
+        <div class="card-body">
+            <h2 class="h5 card-title fw-bold">Parent Dashboard</h2>
+            <p class="card-text mb-4">Select a child to view their detailed academic profile.</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                ${allChildren.map(child => {
+        const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
+        const borderClass = currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-primary' : '';
+        return `
+                    <div class="col">
+                        <div class="card h-100 ${borderClass}">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="h6 card-title fw-bold">${sanitize(child.name)}</h3>
+                                <p class="small">Class ${sanitize(child.class)}-${sanitize(child.division)}</p>
+                                <p class="small">House: ${sanitize(child.house)}</p>
+                                ${studentData ? `
+                                <div class="mt-2 small">
+                                    <p>Academic Rank: <span class="fw-bold themed-text">#${studentData.academicRank}</span></p>
+                                    <p>Discipline Rank: <span class="fw-bold themed-text">#${studentData.disciplineRank}</span></p>
+                                </div>` : ''
+            }
+                                <button class="btn btn-sm themed-bg w-100 mt-auto view-sibling-profile" data-admission-no="${sanitize(child.admissionNo)}">
+                                    ${currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'View Full Profile' : 'Switch to Profile'}
+                                </button>
                             </div>
                         </div>
-                        `;
-        }).join('')}
-                </div>
+                    </div>
+                    `;
+    }).join('')}
             </div>
-        </div>`;
-    }
+        </div>
+    </div>`;
+}
 
-export function buildSiuDashboard(siuMemberData, allSiuMembers) {
-    const dashboardContainer = document.getElementById('dashboard-container');
-
+export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false) {
     const lastEntriesHTML = siuMemberData.last5Entries.map(entry => `
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div>
@@ -366,12 +313,14 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
         </tr>
     `).join('');
     
-    // THE FIX: The 'Total Points Earned' card is now a button with data attributes
-    dashboardContainer.innerHTML = `
+    const mainHeader = isModal ? '' : `
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
             <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-plus me-1"></i> Add Activity Entry</button>
-        </div>
+        </div>`;
+
+    return `
+        ${mainHeader}
         <div class="row g-4">
             <div class="col-lg-8">
                 <div class="row g-4">
@@ -380,14 +329,8 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">#${siuMemberData.rank}</p><p class="small text-muted mb-0">Your Rank</p></div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.presentDays}</p><p class="small text-muted mb-0">Days Present</p></div></div></div>
                     <div class="col-md-12 col-lg-8">
-                        <button class="card h-100 shadow-sm text-center bg-primary text-white w-100 border-0" id="showScoreBreakdownBtn"
-                                data-timeliness="${siuMemberData.timelinessScore}"
-                                data-entrycount="${siuMemberData.entryCountScore}"
-                                data-attendance="${siuMemberData.attendanceScore}">
-                            <div class="card-body d-flex flex-column justify-content-center">
-                                <p class="display-4 fw-bold">${siuMemberData.totalPoints}</p>
-                                <p class="mb-0">Total Points Earned</p>
-                            </div>
+                        <button class="card h-100 shadow-sm text-center bg-primary text-white w-100 border-0" id="showScoreBreakdownBtn" data-timeliness="${siuMemberData.timelinessScore}" data-entrycount="${siuMemberData.entryCountScore}" data-attendance="${siuMemberData.attendanceScore}">
+                            <div class="card-body d-flex flex-column justify-content-center"><p class="display-4 fw-bold">${siuMemberData.totalPoints}</p><p class="mb-0">Total Points Earned</p></div>
                         </button>
                     </div>
                 </div>
@@ -396,11 +339,7 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
                 <div class="card shadow-sm h-100">
                     <div class="card-body d-flex flex-column">
                         <h3 class="h5 card-title fw-bold mb-3">Last 5 Entries</h3>
-                        <div style="overflow-y: auto; max-height: 250px;">
-                            <ul class="list-group list-group-flush">
-                                ${lastEntriesHTML || '<li class="list-group-item text-center text-muted">No entries yet.</li>'}
-                            </ul>
-                        </div>
+                        <div style="overflow-y: auto; max-height: 250px;"><ul class="list-group list-group-flush">${lastEntriesHTML || '<li class="list-group-item text-center text-muted">No entries yet.</li>'}</ul></div>
                     </div>
                 </div>
             </div>
@@ -408,12 +347,7 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers) {
         <div class="card shadow-sm mt-4">
             <div class="card-body">
                 <h3 class="h5 card-title fw-bold mb-3">SIU Member Rankings</h3>
-                <div class="table-responsive" style="max-height: 400px;">
-                    <table class="table table-striped table-hover">
-                        <thead><tr><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Points</th></tr></thead>
-                        <tbody>${rankingTableHTML}</tbody>
-                    </table>
-                </div>
+                <div class="table-responsive" style="max-height: 400px;"><table class="table table-striped table-hover"><thead><tr><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Points</th></tr></thead><tbody>${rankingTableHTML}</tbody></table></div>
             </div>
         </div>
     `;
@@ -527,6 +461,85 @@ export function buildStudentDashboard(student, activities, viewer = null, siblin
     }
 }
 
+export function buildHouseEvaluationContent(processedStudents, activities) {
+    const houseColors = { Blue: 'primary', Green: 'success', Rose: 'danger', Yellow: 'warning' };
+    const houses = Object.keys(houseColors);
+    const houseData = {};
+    houses.forEach(houseName => {
+        const members = processedStudents.filter(s => s.house === houseName);
+        const houseActivities = activities.filter(act => {
+             const actAdmNos = Array.isArray(act.admissionNo) ? act.admissionNo.map(String) : [String(act.admissionNo)];
+             return actAdmNos.some(admNo => new Set(members.map(m => m.admissionNo.toString())).has(admNo));
+        });
+        const activityPoints = houseActivities.reduce((acc, act) => {
+            const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
+            if (!acc[act.Activity]) acc[act.Activity] = 0;
+            acc[act.Activity] += points;
+            return acc;
+        }, {});
+        const sortedActivities = Object.entries(activityPoints).sort((a,b) => b[1] - a[1]);
+        
+        houseData[houseName] = {
+            members,
+            memberCount: members.length,
+            totalPoints: members.reduce((sum, s) => sum + s.housePoints, 0),
+            topPositiveActivities: sortedActivities.filter(a => a[1] > 0).slice(0, 5),
+            topNegativeActivities: sortedActivities.filter(a => a[1] < 0).sort((a,b) => a[1] - b[1]).slice(0, 5),
+            topStudents: [...members].sort((a, b) => b.housePoints - a.housePoints).slice(0, 10)
+        };
+    });
+    
+    let navTabs = '', tabContent = '';
+    houses.forEach((house, index) => {
+        const data = houseData[house];
+        const rank = houses.sort((a,b) => houseData[b].totalPoints - houseData[a].totalPoints).indexOf(house) + 1;
+        navTabs += `<li class="nav-item" role="presentation"><button class="nav-link ${index === 0 ? 'active' : ''} text-${houseColors[house]}" data-bs-toggle="tab" data-bs-target="#eval-${house}-pane" type="button">${house}</button></li>`;
+        tabContent += `<div class="tab-pane fade show ${index === 0 ? 'active' : ''}" id="eval-${house}-pane" role="tabpanel">
+            <div class="row g-3">
+                <div class="col-md-4"><div class="card text-center clickable-card" data-house="${house}" data-modal="members"><div class="card-body"><p class="display-6 fw-bold">${data.memberCount}</p><p class="small text-muted mb-0">Members</p></div></div></div>
+                <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold">${Math.round(data.totalPoints).toLocaleString()}</p><p class="small text-muted mb-0">Total Points</p></div></div></div>
+                <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold">#${rank}</p><p class="small text-muted mb-0">Rank</p></div></div></div>
+                <div class="col-lg-6"><div class="card"><div class="card-body"><h5 class="card-title">Top Positive Activities</h5><ul class="list-group list-group-flush">${data.topPositiveActivities.map(([n,p]) => `<li class="list-group-item">${sanitize(n)}<span class="float-end fw-bold text-success">+${Math.round(p)}</span></li>`).join('')}</ul></div></div></div>
+                <div class="col-lg-6"><div class="card"><div class="card-body"><h5 class="card-title">Top Negative Activities</h5><ul class="list-group list-group-flush">${data.topNegativeActivities.map(([n,p]) => `<li class="list-group-item">${sanitize(n)}<span class="float-end fw-bold text-danger">${Math.round(p)}</span></li>`).join('')}</ul></div></div></div>
+                <div class="col-12"><div class="card clickable-card" data-house="${house}" data-modal="students"><div class="card-body"><h5 class="card-title">Top 10 Students</h5><div class="table-responsive"><table class="table table-sm"><thead><tr><th>Rank</th><th>Name</th><th>Class</th><th>Points</th></tr></thead><tbody>
+                ${data.topStudents.map((s,i) => `<tr><td>${i+1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td><td>${Math.round(s.housePoints)}</td></tr>`).join('')}
+                </tbody></table></div></div></div></div>
+            </div>
+        </div>`;
+    });
+
+    return `<ul class="nav nav-tabs">${navTabs}</ul><div class="tab-content pt-3">${tabContent}</div>`;
+}
+
+export function buildSiuEvaluationContent(processedSiuMembers, activities) {
+    const totalActivities = activities.reduce((acc, act) => acc + (Array.isArray(act.admissionNo) ? act.admissionNo.length : 1), 0);
+    let totalPositive = 0, totalNegative = 0;
+    activities.forEach(act => {
+        const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
+        const count = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
+        if(points > 0) totalPositive += (points * count);
+        else totalNegative += (points * count);
+    });
+
+    const memberListHTML = processedSiuMembers.map(m => `
+        <a href="#" class="list-group-item list-group-item-action siu-member-link" data-admission-no="${m.admissionNo}">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">${sanitize(m.name)}</h5>
+                <small>Rank #${m.rank}</small>
+            </div>
+            <p class="mb-1">Total Points: <span class="fw-bold">${m.totalPoints}</span></p>
+        </a>`).join('');
+
+    return `
+        <div class="row g-3 mb-4">
+            <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold">${totalActivities}</p><p class="small text-muted mb-0">Total Activities</p></div></div></div>
+            <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold text-success">+${Math.round(totalPositive)}</p><p class="small text-muted mb-0">Points Added</p></div></div></div>
+            <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold text-danger">${Math.round(totalNegative)}</p><p class="small text-muted mb-0">Points Deducted</p></div></div></div>
+        </div>
+        <h4 class="mt-4">Member Leaderboard</h4>
+        <div class="list-group">${memberListHTML}</div>
+    `;
+}
 // --- DASHBOARD WIDGETS AND CHARTS ---
 
 export function buildStandingsChart(students, isSection = false) {
