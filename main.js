@@ -1,4 +1,4 @@
-import { getOrFetchAllData } from './api.js';
+import { getOrFetchAllData, submitMarks } from './api.js';
 import { getSession, logout, handleLoginAttempt, setSession } from './auth.js';
 import { processStudentData, processSiuMemberData } from './dataProcessor.js';
 import {
@@ -7,7 +7,7 @@ import {
     renderHouseWidget, setLanguage, buildSearchResults, updateDashboardHeader, buildSiuDashboard,
     buildHouseEvaluationContent, buildSiuEvaluationContent
 } from './ui.js';
-import { isActivityForStudent, getTeacherSection, getSection, customClassSort } from './utils.js';
+import { isActivityForStudent, getTeacherSection, getSection, customClassSort, getGradeInfo } from './utils.js';
 import { activityRules } from './config.js';
 
 // --- GLOBAL APP STATE ---
@@ -140,6 +140,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeUI({ detail: detailModal, iframe: iframeModal, dobVerify: dobVerifyModal });
 
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+
+    // 2. Show the "Add to Home Screen" prompt only for iOS users
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS && !window.navigator.standalone) {
+        const installPrompt = document.getElementById('ios-install-prompt');
+        if (installPrompt) {
+            installPrompt.style.display = 'block';
+            new bootstrap.Toast(installPrompt).show();
+        }
+    }
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -252,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
                              <div><strong>Attendance Score</strong><p class="small mb-0 text-muted">You get <strong>3 points</strong> for every day you are present.</p></div>
                              <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
                         </li>
-                         <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                          <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
                              <strong class="fs-5">Total Points</strong><strong class="fs-4">${total} pts</strong>
                         </li>
                     </ul>`;
@@ -282,61 +301,122 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
+            } else if (target.closest('[data-action="mark-entry"]')) {
+                document.getElementById('evaluationModalLabel').textContent = 'Mark Entry';
+                const teacherSections = getTeacherSection(currentUser.designation);
+                document.getElementById('evaluationModalBody').innerHTML = buildMarkEntryForm(teacherSections, appData.processedStudents);
+                evaluationModal.show();
             }
         });
     }
     
+    // --- New listener for the evaluation modal's dynamic content ---
     const evaluationModalEl = document.getElementById('evaluationModal');
-    if(evaluationModalEl){
-        evaluationModalEl.addEventListener('click', e => {
+    if (evaluationModalEl) {
+        evaluationModalEl.addEventListener('change', e => {
             const target = e.target;
-            const siuLink = target.closest('.siu-member-link');
-            const houseCard = target.closest('.clickable-card[data-house]');
+            const form = target.closest('#markEntryForm');
+            if (!form) return;
 
-            if(siuLink){
-                const admNo = siuLink.dataset.admissionNo;
-                const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
-                const memberData = processedSiuMembers.find(m => m.admissionNo.toString() === admNo);
-                if(memberData){
-                    document.getElementById('detailModalLabel').textContent = `SIU Dashboard for ${memberData.name}`;
-                    document.getElementById('detailModalBody').innerHTML = `<div class="p-3">${buildSiuDashboard(memberData, processedSiuMembers, true)}</div>`;
-                    evaluationModal.hide();
-                    detailModal.show();
+            const termSelect = form.querySelector('#entry-term');
+            const classSelect = form.querySelector('#entry-class');
+            const subjectSelect = form.querySelector('#entry-subject');
+            const studentContainer = form.querySelector('#student-marks-container');
+            const submitBtn = form.querySelector('#submitMarksBtn');
+
+            if (target === termSelect) {
+                const teacherSections = getTeacherSection(currentUser.designation);
+                const sectionStudents = appData.processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
+                const classes = [...new Set(sectionStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+                classSelect.innerHTML = `<option value="">Select Class</option>` + classes.map(c => `<option value="${c}">${c}</option>`).join('');
+                classSelect.disabled = false;
+            }
+
+            if (target === classSelect) {
+                const className = classSelect.value;
+                const term = termSelect.value;
+                const subjects = [...new Set(appData.marks.flatMap(m => m.terms?.[term]?.marks ? Object.keys(m.terms[term].marks) : []))].sort();
+                subjectSelect.innerHTML = `<option value="">Select Subject</option>` + subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+                subjectSelect.disabled = false;
+            }
+
+            if (target === subjectSelect) {
+                const className = classSelect.value;
+                const subject = subjectSelect.value;
+                if (!className || !subject) return;
+
+                const classStudents = appData.users.filter(u => u.role === 'student' && `${u.class}-${u.division}` === className)
+                    .sort((a,b) => a.name.localeCompare(b.name));
+                
+                let tableHTML = `<div class="table-responsive"><table class="table"><thead><tr><th>Sl.No</th><th>Name</th><th>Mark</th><th>Grade</th></tr></thead><tbody>`;
+                classStudents.forEach((student, index) => {
+                    tableHTML += `
+                        <tr data-admission-no="${student.admissionNo}">
+                            <td>${index + 1}</td>
+                            <td>${sanitize(student.name)}</td>
+                            <td><input type="number" class="form-control mark-input" min="0" max="100"></td>
+                            <td class="grade-cell"></td>
+                        </tr>`;
+                });
+                tableHTML += `</tbody></table></div>`;
+                studentContainer.innerHTML = tableHTML;
+                submitBtn.disabled = false;
+            }
+        });
+
+        evaluationModalEl.addEventListener('input', e => {
+            if (e.target.matches('.mark-input')) {
+                const mark = parseFloat(e.target.value);
+                const row = e.target.closest('tr');
+                const gradeCell = row.querySelector('.grade-cell');
+                
+                const term = document.getElementById('entry-term').value;
+                const subject = document.getElementById('entry-subject').value;
+                const className = document.getElementById('entry-class').value.split('-')[0];
+
+                const { grade, cssClass } = getGradeInfo(mark, subject, term, className);
+                gradeCell.textContent = grade;
+                gradeCell.className = `grade-cell ${cssClass}`;
+            }
+        });
+
+        evaluationModalEl.addEventListener('submit', async e => {
+            if (e.target.id === 'markEntryForm') {
+                e.preventDefault();
+                const statusEl = document.getElementById('mark-entry-status');
+                statusEl.innerHTML = `<p class="text-info">Submitting... Please wait.</p>`;
+
+                const form = e.target;
+                const sheetName = form.querySelector('#entry-class').value;
+                const term = form.querySelector('#entry-term').value;
+                const subject = form.querySelector('#entry-subject').value;
+                
+                const marksToSubmit = [];
+                form.querySelectorAll('#student-marks-container tr').forEach(row => {
+                    const markInput = row.querySelector('.mark-input');
+                    if (markInput.value !== '') {
+                        marksToSubmit.push({
+                            admissionNo: row.dataset.admissionNo,
+                            mark: parseFloat(markInput.value)
+                        });
+                    }
+                });
+
+                if(marksToSubmit.length > 0){
+                    const result = await submitMarks({ sheetName, term, subject, marks: marksToSubmit });
+                    if(result.success){
+                        statusEl.innerHTML = `<p class="text-success">All marks submitted successfully! The dashboard will update after the next hourly sync.</p>`;
+                        form.reset();
+                        form.querySelector('#student-marks-container').innerHTML = '';
+                    } else {
+                           statusEl.innerHTML = `<p class="text-danger">Submission failed: ${result.message}</p>`;
+                    }
+                } else {
+                       statusEl.innerHTML = `<p class="text-warning">No marks were entered to submit.</p>`;
                 }
-            } else if (houseCard) {
-                const houseName = houseCard.dataset.house;
-                const members = appData.processedStudents.filter(s => s.house === houseName);
-                const modalType = houseCard.dataset.modal;
-                let modalTitle, tableHeaders, tableBody;
-
-                if (modalType === 'members') {
-                    modalTitle = `${houseName} House Members (${members.length})`;
-                    tableHeaders = '<th>Sl. No.</th><th>Name</th><th>Class</th>';
-                    tableBody = members
-                        .sort((a,b) => customClassSort(`${a.class}-${a.division}`, `${b.class}-${b.division}`) || a.name.localeCompare(b.name))
-                        .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td></tr>`).join('');
-                } else { // students
-                     modalTitle = `All Students in ${houseName} House (Ranked by Points)`;
-                     tableHeaders = '<th>Rank</th><th>Name</th><th>Class</th><th>Points</th>';
-                     tableBody = members
-                        .sort((a,b) => b.housePoints - a.housePoints)
-                        .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td><td>${Math.round(s.housePoints)}</td></tr>`).join('');
-                }
-
-                document.getElementById('detailModalLabel').textContent = modalTitle;
-                document.getElementById('detailModalBody').innerHTML = `
-                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-                        <table class="table table-striped">
-                            <thead><tr>${tableHeaders}</tr></thead>
-                            <tbody>${tableBody}</tbody>
-                        </table>
-                    </div>`;
-                evaluationModal.hide();
-                detailModal.show();
             }
         });
     }
-
     const widgetModalEl = document.getElementById('houseWidgetModal');
     if (widgetModalEl) {
         widgetModalEl.addEventListener('shown.bs.modal', () => {
@@ -381,4 +461,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeApp();
 });
-
