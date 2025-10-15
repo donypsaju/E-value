@@ -94,6 +94,7 @@ async function initializeApp() {
             const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
             const currentSiuMemberData = processedSiuMembers.find(m => m.admissionNo === currentUser.admissionNo);
             if (currentSiuMemberData) {
+                // THE FIX: Pass the *processed* list to the dashboard builder.
                 document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, processedSiuMembers);
             } else {
                 document.getElementById('dashboard-container').innerHTML = `<p class="text-danger">Could not load SIU member data.</p>`;
@@ -139,26 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     evaluationModal = new bootstrap.Modal(document.getElementById('evaluationModal'));
 
     initializeUI({ detail: detailModal, iframe: iframeModal, dobVerify: dobVerifyModal });
-    
-if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').then(registration => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, err => {
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    }
-
-    // 2. Show the "Add to Home Screen" prompt only for iOS users
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIOS && !window.navigator.standalone) {
-        const installPrompt = document.getElementById('ios-install-prompt');
-        if (installPrompt) {
-            installPrompt.style.display = 'block';
-            new bootstrap.Toast(installPrompt).show();
-        }
-    }
 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -297,7 +278,7 @@ if ('serviceWorker' in navigator) {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             } else if (target.closest('[data-action="add-activity"]') || target.closest('[data-action="discipline"]')) {
-                const url = "https://forms.gle/FntrejQSM8tve45R7";
+                const url = "https://docs.google.com/forms/d/1LXL3mDMDkbjuffisC-HY-RS7l2ibqQ5lhbyfrliI8I4/viewform?usp=sf_link";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
