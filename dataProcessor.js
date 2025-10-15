@@ -42,68 +42,82 @@ export function processStudentData(students, marksData, activities) {
 }
 
 /**
- * Calculates scores and ranks for SIU members based on an additive point system.
+ * Calculates scores and ranks for SIU members, including previous day's rank.
  */
 export function processSiuMemberData(siuMembers, activities, attendanceData, allUsers) {
-    if (!siuMembers || siuMembers.length === 0) return [];
+    if (!siuMembers || !siuMembers.length === 0) return [];
 
     const augmentedSiuMembers = siuMembers.map(member => {
         const userProfile = allUsers.find(u => u.admissionNo && u.admissionNo.toString() === member.admissionNo.toString());
         return { ...member, dob: userProfile ? userProfile.dob : null };
     });
     
-    const totalAttendanceDays = attendanceData.length;
+    // --- Calculate Previous Day's Ranks ---
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    const processedMembers = augmentedSiuMembers.map(member => {
-        const memberActivities = activities.filter(act => 
-            act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase()
-        );
+    const activitiesBeforeToday = activities.filter(act => new Date(act.activityDate || act.submissionTimestamp) < today);
+    const attendanceBeforeToday = attendanceData.filter(att => new Date(att.date) < today);
+    
+    const previousDayRanks = augmentedSiuMembers.map(member => {
+        const memberActivities = activitiesBeforeToday.filter(act => act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase());
         
         let timelinessScore = 0;
-        let totalStudentEntries = 0; // Use a direct counter
-
+        let entryCountScore = 0;
         memberActivities.forEach(act => {
-            // Ensure admissionNo exists and is not null before processing
-            if (act.admissionNo == null) return; 
-            
-            const numStudentsInEntry = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
-            
-            // Directly count the number of students
-            totalStudentEntries += numStudentsInEntry;
-
-            // Check if the submission was timely
-            const submissionTime = new Date(act.submissionTimestamp).getTime();
-            const activityDayStart = new Date(act.activityDate + 'T00:00:00Z').getTime();
-            const deadline = activityDayStart + (48 * 60 * 60 * 1000);
-            
-            // If timely, add 10 points for every student in that submission
-            if (submissionTime < deadline) {
-                timelinessScore += numStudentsInEntry * 5;
+            const numStudents = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
+            entryCountScore += numStudents * 5;
+            const subTime = new Date(act.submissionTimestamp).getTime();
+            const actTime = new Date(act.activityDate + 'T00:00:00Z').getTime();
+            if (subTime < (actTime + 48 * 3600 * 1000)) {
+                timelinessScore += numStudents * 10;
             }
         });
         
-        // Calculate Entry Count Score from the direct count
-        const entryCountScore = totalStudentEntries * 1;
+        const absentDays = attendanceBeforeToday.filter(day => day.absentees.includes(member.admissionNo)).length;
+        const presentDays = attendanceBeforeToday.length - absentDays;
+        const attendanceScore = presentDays * 3;
+
+        return {
+            admissionNo: member.admissionNo,
+            previousPoints: timelinessScore + entryCountScore + attendanceScore
+        };
+    }).sort((a, b) => b.previousPoints - a.previousPoints)
+      .map((member, index) => ({ ...member, previousRank: index + 1 }));
+
+    // --- Calculate Current Ranks ---
+    const totalAttendanceDays = attendanceData.length;
+    const processedMembers = augmentedSiuMembers.map(member => {
+        const memberActivities = activities.filter(act => act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase());
         
-        // 3. Calculate Attendance Score (3 points per present day)
+        let timelinessScore = 0;
+        let totalStudentEntries = 0;
+        memberActivities.forEach(act => {
+            if (act.admissionNo == null) return; 
+            const numStudentsInEntry = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
+            totalStudentEntries += numStudentsInEntry;
+            const submissionTime = new Date(act.submissionTimestamp).getTime();
+            const activityDayStart = new Date(act.activityDate + 'T00:00:00Z').getTime();
+            if (submissionTime < activityDayStart + (48 * 60 * 60 * 1000)) {
+                timelinessScore += numStudentsInEntry * 10;
+            }
+        });
+        
+        const entryCountScore = totalStudentEntries * 5;
         const absentDays = attendanceData.filter(day => day.absentees.includes(member.admissionNo)).length;
         const presentDays = totalAttendanceDays - absentDays;
-        const attendanceScore = presentDays * 2;
-
-        // Combine all scores for the total
+        const attendanceScore = presentDays * 3;
         const totalPoints = timelinessScore + entryCountScore + attendanceScore;
 
-        const last5Entries = memberActivities.slice(-5).reverse();
+        const previousRankData = previousDayRanks.find(r => r.admissionNo === member.admissionNo);
+        const previousRank = previousRankData ? previousRankData.previousRank : null;
 
         return {
             ...member,
-            totalEntries: totalStudentEntries, // Use the direct, correct count for display
-            timelinessScore,
-            entryCountScore,
-            attendanceScore,
-            totalPoints,
-            presentDays,
-            last5Entries
+            totalEntries: totalStudentEntries,
+            timelinessScore, entryCountScore, attendanceScore, totalPoints, presentDays,
+            last5Entries: memberActivities.slice(-5).reverse(),
+            previousRank: previousRank
         };
     });
 

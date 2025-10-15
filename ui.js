@@ -328,7 +328,16 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
             <td>${member.totalPoints}</td>
         </tr>
     `).join('');
-    
+    // --- NEW: Rank Change Logic ---
+    let rankChangeHTML = '';
+    if (siuMemberData.previousRank && siuMemberData.previousRank !== siuMemberData.rank) {
+        const change = siuMemberData.previousRank - siuMemberData.rank;
+        if (change > 0) {
+            rankChangeHTML = `<span class="ms-2 small trend-up fw-bold">(+${change}) <i class="fa-solid fa-arrow-trend-up"></i></span>`;
+        } else {
+            rankChangeHTML = `<span class="ms-2 small trend-down fw-bold">(${change}) <i class="fa-solid fa-arrow-trend-down"></i></span>`;
+        }
+    }
     const mainHeader = isModal ? '' : `
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
@@ -342,7 +351,10 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.totalEntries}</p><p class="small text-muted mb-0">Activities Entered</p></div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.timelinessScore}</p><p class="small text-muted mb-0">Timeliness Score</p></div></div></div>
-                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">#${siuMemberData.rank}</p><p class="small text-muted mb-0">Your Rank</p></div></div></div>
+                    <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center">
+                        <p class="display-5 fw-bold themed-text">#${siuMemberData.rank}${rankChangeHTML}</p>
+                        <p class="small text-muted mb-0">Your Rank</p>
+                    </div></div></div>
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.presentDays}</p><p class="small text-muted mb-0">Days Present</p></div></div></div>
                     <div class="col-md-12 col-lg-8">
                         <button class="card h-100 shadow-sm text-center bg-primary text-white w-100 border-0" id="showScoreBreakdownBtn" data-timeliness="${siuMemberData.timelinessScore}" data-entrycount="${siuMemberData.entryCountScore}" data-attendance="${siuMemberData.attendanceScore}">
@@ -368,6 +380,7 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
         </div>
     `;
 }
+
 
 
 export function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
