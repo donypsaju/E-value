@@ -99,14 +99,14 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
             const submissionTime = new Date(act.submissionTimestamp).getTime();
             const activityDayStart = new Date(act.activityDate + 'T00:00:00Z').getTime();
             if (submissionTime < activityDayStart + (48 * 60 * 60 * 1000)) {
-                timelinessScore += numStudentsInEntry * 10;
+                timelinessScore += numStudentsInEntry * 5;
             }
         });
         
-        const entryCountScore = totalStudentEntries * 5;
+        const entryCountScore = totalStudentEntries * 3;
         const absentDays = attendanceData.filter(day => day.absentees.includes(member.admissionNo)).length;
         const presentDays = totalAttendanceDays - absentDays;
-        const attendanceScore = presentDays * 3;
+        const attendanceScore = presentDays * 1;
         const totalPoints = timelinessScore + entryCountScore + attendanceScore;
 
         const previousRankData = previousDayRanks.find(r => r.admissionNo === member.admissionNo);

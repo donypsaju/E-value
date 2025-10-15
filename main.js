@@ -241,15 +241,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Your total score is an uncapped value based on your performance in three key areas.</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div><strong>Timeliness Score</strong><p class="small mb-0 text-muted">You get <strong>10 points</strong> for every timely student entry.</p></div>
+                            <div><strong>Timeliness Score</strong><p class="small mb-0 text-muted">You get <strong>5 points</strong> for every timely student entry.</p></div>
                             <span class="badge bg-primary rounded-pill fs-5">${timeliness} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div><strong>Activity Entry Score</strong><p class="small mb-0 text-muted">You get <strong>5 points</strong> for every individual student activity you record.</p></div>
+                            <div><strong>Activity Entry Score</strong><p class="small mb-0 text-muted">You get <strong>3 points</strong> for every individual student activity you record.</p></div>
                             <span class="badge bg-info rounded-pill fs-5">${entrycount} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                             <div><strong>Attendance Score</strong><p class="small mb-0 text-muted">You get <strong>3 points</strong> for every day you are present.</p></div>
+                             <div><strong>Attendance Score</strong><p class="small mb-0 text-muted">You get <strong>1 points</strong> for every day you are present.</p></div>
                              <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
                         </li>
                          <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             } else if (target.closest('[data-action="add-activity"]') || target.closest('[data-action="discipline"]')) {
-                const url = "https://docs.google.com/forms/d/1LXL3mDMDkbjuffisC-HY-RS7l2ibqQ5lhbyfrliI8I4/viewform?usp=sf_link";
+                const url = "https://forms.gle/nZtp3qEoEPgKQLB16";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
