@@ -45,7 +45,7 @@ export function processStudentData(students, marksData, activities) {
  * Calculates scores and ranks for SIU members, including previous day's rank.
  */
 export function processSiuMemberData(siuMembers, activities, attendanceData, allUsers) {
-    if (!siuMembers || !siuMembers.length === 0) return [];
+    if (!siuMembers || siuMembers.length === 0) return [];
 
     const augmentedSiuMembers = siuMembers.map(member => {
         const userProfile = allUsers.find(u => u.admissionNo && u.admissionNo.toString() === member.admissionNo.toString());

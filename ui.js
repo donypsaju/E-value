@@ -328,6 +328,13 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
             <td>${member.totalPoints}</td>
         </tr>
     `).join('');
+    
+    const mainHeader = isModal ? '' : `
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
+            <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-plus me-1"></i> Add Activity Entry</button>
+        </div>`;
+
     // --- NEW: Rank Change Logic ---
     let rankChangeHTML = '';
     if (siuMemberData.previousRank && siuMemberData.previousRank !== siuMemberData.rank) {
@@ -338,11 +345,6 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
             rankChangeHTML = `<span class="ms-2 small trend-down fw-bold">(${change}) <i class="fa-solid fa-arrow-trend-down"></i></span>`;
         }
     }
-    const mainHeader = isModal ? '' : `
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
-            <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-plus me-1"></i> Add Activity Entry</button>
-        </div>`;
 
     return `
         ${mainHeader}
