@@ -46,7 +46,7 @@ export const activityRules = {
     "Misbehaviour towards teachers": -15, "Without ID Card": -10, "Indiscipline": -10,
     "Misbehaviour in Assembly": -10, "Indisciplinary activity at anytime": -10,
     "Personal Hygiene": -10, "Incomplete Uniform": -5, "Missing Homework": -5,
-    "Play during interval": -5
+    "Play during interval": -5, "Participation in Kalolsavam & Sports/ Science fair": 10, "First Prize in any Event": 50, "Second Prize in any Event": 30, "Third Prize in any Event": 20
 };
 
 export const gradeConfig = {
