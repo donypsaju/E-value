@@ -59,6 +59,7 @@ export const gradeConfig = {
     maxMarks: {
         'Monthly Exam 01': { default: 20 },
         'First Mid Term Exam': { default: 20 },
+        'Second Mid Term Exam': { default: 20 },
         'First Term Exam': {
             LP: { default: 25 },
             UP: { default: 30 },
