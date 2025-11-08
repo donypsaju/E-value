@@ -1,5 +1,5 @@
 // App version for cache management
-export const APP_VERSION = '2.5.3-DRAFT';
+export const APP_VERSION = '2.5.3-MID';
 
 // Translation data for multi-language support
 export const translations = {
