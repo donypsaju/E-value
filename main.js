@@ -216,13 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('evaluationModalBody').innerHTML = buildHouseEvaluationContent(appData.processedStudents, appData.activities);
                 evaluationModal.show();
             } else if (target.closest('[data-action="evaluate-siu"]')) {
-                // THE FIX: Calculate all necessary data before calling the function
                 siuAvailableMonths = [...new Set(appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' })))];
                 const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
-                siuProcessedData = { "All-Time": processedSiuMembers }; // Cache the "All-Time" data
-
+                siuProcessedData = { "All-Time": processedSiuMembers };
                 document.getElementById('evaluationModalLabel').textContent = 'SIU Evaluation Dashboard';
-                // Pass all four required arguments
                 document.getElementById('evaluationModalBody').innerHTML = buildSiuEvaluationContent(processedSiuMembers, appData.activities, siuAvailableMonths, 'All-Time');
                 evaluationModal.show();
             } else if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
@@ -310,7 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         const attDate = new Date(att.date);
                         return attDate >= monthStart && attDate < monthEnd;
                     });
-                    dataToRender = processSiuMemberData(appData.siu_members, filteredActivities, filteredAttendance, appData.users, true);
+                    // THE FIX: Pass the 'selectedMonth' string, not 'true'
+                    dataToRender = processSiuMemberData(appData.siu_members, filteredActivities, filteredAttendance, appData.users, selectedMonth);
                     siuProcessedData[selectedMonth] = dataToRender;
                 }
                 const currentSiuMemberData = dataToRender.find(m => m.admissionNo === currentUser.admissionNo);
@@ -403,7 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         return attDate >= monthStart && attDate < monthEnd;
                     });
 
-                    dataToRender = processSiuMemberData(appData.siu_members, activitiesToRender, filteredAttendance, appData.users, true);
+                    // THE FIX: Pass the 'selectedMonth' string, not 'true'
+                    dataToRender = processSiuMemberData(appData.siu_members, activitiesToRender, filteredAttendance, appData.users, selectedMonth);
                     siuProcessedData[selectedMonth] = dataToRender;
                 }
                 
