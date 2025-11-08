@@ -15,6 +15,8 @@ let appData = {};
 let currentUser = null;
 let widgetRefreshInterval = null;
 let detailModal, iframeModal, dobVerifyModal, houseWidgetModal, hmVerifyModal, evaluationModal;
+let siuProcessedData = { "All-Time": [] };
+let siuAvailableMonths = [];
 
 /**
 * The main application initializer.
@@ -91,16 +93,12 @@ async function initializeApp() {
         }
 
         if (currentUser.role === 'siu') {
-            const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
-            const currentSiuMemberData = processedSiuMembers.find(m => m.admissionNo === currentUser.admissionNo);
-                       siuAvailableMonths = [...new Set(appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' })))];
-// Process the default "All-Time" data
+            siuAvailableMonths = [...new Set(appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' })))];
             const allTimeData = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users, null);
-            siuProcessedData = { "All-Time": allTimeData }; // Store it
-
+            siuProcessedData = { "All-Time": allTimeData };
+            const currentSiuMemberData = allTimeData.find(m => m.admissionNo === currentUser.admissionNo);
             if (currentSiuMemberData) {
-                // THE FIX: Pass the *processed* list to the dashboard builder.
-                document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, processedSiuMembers);
+                document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, allTimeData, siuAvailableMonths, 'All-Time');
             } else {
                 document.getElementById('dashboard-container').innerHTML = `<p class="text-danger">Could not load SIU member data.</p>`;
             }
@@ -218,9 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('evaluationModalBody').innerHTML = buildHouseEvaluationContent(appData.processedStudents, appData.activities);
                 evaluationModal.show();
             } else if (target.closest('[data-action="evaluate-siu"]')) {
+                // THE FIX: Calculate all necessary data before calling the function
+                siuAvailableMonths = [...new Set(appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' })))];
                 const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
+                siuProcessedData = { "All-Time": processedSiuMembers }; // Cache the "All-Time" data
+
                 document.getElementById('evaluationModalLabel').textContent = 'SIU Evaluation Dashboard';
-                document.getElementById('evaluationModalBody').innerHTML = buildSiuEvaluationContent(processedSiuMembers, appData.activities);
+                // Pass all four required arguments
+                document.getElementById('evaluationModalBody').innerHTML = buildSiuEvaluationContent(processedSiuMembers, appData.activities, siuAvailableMonths, 'All-Time');
                 evaluationModal.show();
             } else if (target.closest('#backToParentDashboardBtn') || target.closest('#backToDashboardBtn')) {
                 initializeApp();
@@ -246,15 +249,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Your total score is an uncapped value based on your performance in three key areas.</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div><strong>Timeliness Score</strong><p class="small mb-0 text-muted">You get <strong>5 points</strong> for every timely student entry.</p></div>
+                            <div><strong>Timeliness Score</strong><p class="small mb-0 text-muted">You get <strong>10 points</strong> for every timely student entry.</p></div>
                             <span class="badge bg-primary rounded-pill fs-5">${timeliness} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div><strong>Activity Entry Score</strong><p class="small mb-0 text-muted">You get <strong>3 points</strong> for every individual student activity you record.</p></div>
+                            <div><strong>Activity Entry Score</strong><p class="small mb-0 text-muted">You get <strong>5 points</strong> for every individual student activity you record.</p></div>
                             <span class="badge bg-info rounded-pill fs-5">${entrycount} pts</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                             <div><strong>Attendance Score</strong><p class="small mb-0 text-muted">You get <strong>1 points</strong> for every day you are present.</p></div>
+                             <div><strong>Attendance Score</strong><p class="small mb-0 text-muted">You get <strong>3 points</strong> for every day you are present.</p></div>
                              <span class="badge bg-success rounded-pill fs-5">${attendance} pts</span>
                         </li>
                          <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
@@ -283,26 +286,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             } else if (target.closest('[data-action="add-activity"]') || target.closest('[data-action="discipline"]')) {
-                const url = "https://forms.gle/nZtp3qEoEPgKQLB16";
+                const url = "https://docs.google.com/forms/d/1LXL3mDMDkbjuffisC-HY-RS7l2ibqQ5lhbyfrliI8I4/viewform?usp=sf_link";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
             }
         });
+        
         dashboardView.addEventListener('change', e => {
             if (e.target.id === 'siuRankFilter') {
                 const selectedMonth = e.target.value;
-                
                 let dataToRender = siuProcessedData[selectedMonth];
-                
                 if (!dataToRender) {
-                    // This data hasn't been processed yet. Process it now.
                     const [monthName, year] = selectedMonth.split(' ');
                     const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
-
                     const monthStart = new Date(year, monthIndex, 1);
                     const monthEnd = new Date(year, monthIndex + 1, 1);
-
                     const filteredActivities = appData.activities.filter(act => {
                         const actDate = new Date(act.activityDate || act.submissionTimestamp);
                         return actDate >= monthStart && actDate < monthEnd;
@@ -311,11 +310,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         const attDate = new Date(att.date);
                         return attDate >= monthStart && attDate < monthEnd;
                     });
-
                     dataToRender = processSiuMemberData(appData.siu_members, filteredActivities, filteredAttendance, appData.users, true);
-                    siuProcessedData[selectedMonth] = dataToRender; // Cache it
+                    siuProcessedData[selectedMonth] = dataToRender;
                 }
-                
                 const currentSiuMemberData = dataToRender.find(m => m.admissionNo === currentUser.admissionNo);
                 document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, dataToRender, siuAvailableMonths, selectedMonth);
             }
@@ -335,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const memberData = processedSiuMembers.find(m => m.admissionNo.toString() === admNo);
                 if(memberData){
                     document.getElementById('detailModalLabel').textContent = `SIU Dashboard for ${memberData.name}`;
-                    document.getElementById('detailModalBody').innerHTML = `<div class="p-3">${buildSiuDashboard(memberData, processedSiuMembers, true)}</div>`;
+                    document.getElementById('detailModalBody').innerHTML = `<div class="p-3">${buildSiuDashboard(memberData, processedSiuMembers, siuAvailableMonths, 'All-Time', true)}</div>`;
                     evaluationModal.hide();
                     detailModal.show();
                 }
@@ -351,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     tableBody = members
                         .sort((a,b) => customClassSort(`${a.class}-${a.division}`, `${b.class}-${b.division}`) || a.name.localeCompare(b.name))
                         .map((s, i) => `<tr><td>${i + 1}</td><td>${sanitize(s.name)}</td><td>${s.class}-${s.division}</td></tr>`).join('');
-                } else { // students
+                } else {
                      modalTitle = `All Students in ${houseName} House (Ranked by Points)`;
                      tableHeaders = '<th>Rank</th><th>Name</th><th>Class</th><th>Points</th>';
                      tableBody = members
@@ -371,6 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailModal.show();
             }
         });
+        
         evaluationModalEl.addEventListener('change', e => {
             if (e.target.id === 'siuEvalFilter') {
                 const selectedMonth = e.target.value;
@@ -382,7 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     activitiesToRender = appData.activities;
                 } else if (siuProcessedData[selectedMonth]) {
                     dataToRender = siuProcessedData[selectedMonth];
-                    // Re-filter activities just for this month for the top cards
                     const [monthName, year] = selectedMonth.split(' ');
                     const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
                     const monthStart = new Date(year, monthIndex, 1);
@@ -392,7 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         return actDate >= monthStart && actDate < monthEnd;
                     });
                 } else {
-                    // This data hasn't been processed yet. Process it now.
                     const [monthName, year] = selectedMonth.split(' ');
                     const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
                     const monthStart = new Date(year, monthIndex, 1);
@@ -408,10 +404,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     dataToRender = processSiuMemberData(appData.siu_members, activitiesToRender, filteredAttendance, appData.users, true);
-                    siuProcessedData[selectedMonth] = dataToRender; // Cache it
+                    siuProcessedData[selectedMonth] = dataToRender;
                 }
                 
-                // Re-render the modal body
                 document.getElementById('evaluationModalBody').innerHTML = buildSiuEvaluationContent(dataToRender, activitiesToRender, siuAvailableMonths, selectedMonth);
             }
         });
@@ -461,4 +456,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initializeApp();
 });
-
