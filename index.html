@@ -92,66 +92,55 @@
     </script>
 </head>
 <body>
-    <noscript>
-        <div id="noscript-overlay">
-            <div>
-                <h1 class="display-5 fw-bold">JavaScript Required</h1>
-                <p class="fs-5 mt-3">This web application relies on JavaScript to function. Please enable it in your browser settings and refresh the page to continue.</p>
-            </div>
-        </div>
-    </noscript>
+    <noscript><div id="noscript-overlay"><div><h1 class="display-5 fw-bold">JavaScript Required</h1><p class="fs-5 mt-3">This web application relies on JavaScript to function. Please enable it in your browser settings and refresh the page.</p></div></div></noscript>
     
-    <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;">
-        <div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div>
-    </div>
+    <div id="progressBarContainer" class="fixed-top w-100 d-none" style="height: 4px; z-index: 1056;"><div style="background-color: var(--theme-text); width: 100%; height: 100%; animation: indeterminate-progress 1.5s infinite ease-in-out; transform-origin: 0% 50%;"></div></div>
 
     <div id="homeView" class="min-vh-100 d-flex align-items-center justify-content-center p-4">
         <div id="globalControls" class="position-fixed top-0 end-0 p-3 d-flex align-items-center gap-3" style="z-index: 1051;">
              <div class="card p-1 d-flex flex-row gap-1">
-                <button class="lang-btn btn-sm" data-lang="en">EN</button>
-                <button class="lang-btn btn-sm" data-lang="ml">മല</button>
-            </div>
-            <button class="theme-switcher-btn">
-                <div class="theme-switcher-thumb"></div>
-            </button>
+                 <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                 <button class="lang-btn btn-sm" data-lang="ml">മല</button>
+             </div>
+             <button class="theme-switcher-btn" aria-label="Toggle theme">
+                 <div class="theme-switcher-thumb"></div>
+             </button>
         </div>
-
         <div class="container-lg pt-5">
-            <div class="text-center mb-5">
-                <h1 class="display-4 fw-bold">Emmanuel's HSS Kothanalloor</h1>
-                <p class="mt-2 fs-5" data-translate-key="subtitle">Student Evaluation Portal</p>
-            </div>
-            
-            <div class="card p-4 p-md-5 shadow-lg">
-                <div class="row g-4 g-md-5">
-                    <div class="col-md-6">
-                        <h2 class="fs-4 fw-bold mb-4 d-flex align-items-center gap-3"><i class="fa-solid fa-star themed-text"></i> <span data-translate-key="features_title">Key Features</span></h2>
-                        <ul class="list-unstyled d-grid gap-3">
-                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-chart-line mt-1 themed-text"></i> <span data-translate-key="feature_1">Comprehensive Performance Tracking</span></li>
-                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-magnifying-glass-chart mt-1 themed-text"></i> <span data-translate-key="feature_2">Detailed Subject-wise Analysis</span></li>
-                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-users mt-1 themed-text"></i> <span data-translate-key="feature_3">Parent Dashboard for Siblings</span></li>
-                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-shield-halved mt-1 themed-text"></i> <span data-translate-key="feature_4">House System and Discipline Points</span></li>
-                            <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-circle-half-stroke mt-1 themed-text"></i> <span data-translate-key="feature_5">Light & Dark Mode Support</span></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h2 class="fs-4 fw-bold mb-4 d-flex align-items-center gap-3"><i class="fa-solid fa-circle-info themed-text"></i> <span data-translate-key="instructions_title">Instructions for Parents</span></h2>
-                        <ol class="list-unstyled d-grid gap-3">
-                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">1.</span> <span data-translate-key="instruction_1">Click the 'Go to Login' button below.</span></li>
-                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">2.</span> <span data-translate-key="instruction_2">Enter your registered phone number.</span></li>
-                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">3.</span> <span data-translate-key="instruction_3">Enter one of your children's date of birth.</span></li>
-                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">4.</span> <span data-translate-key="instruction_4">You will see a dashboard with all your children.</span></li>
-                            <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">5.</span> <span data-translate-key="instruction_5">To view another child, click 'Switch' and verify.</span></li>
-                        </ol>
-                    </div>
-                </div>
-                 <div class="mt-5 text-center">
-                    <button id="goToLoginBtn" class="btn btn-lg rounded-pill themed-bg action-btn px-4">
-                        <span data-translate-key="login_button">Go to Login</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
+             <div class="text-center mb-5">
+                 <h1 class="display-4 fw-bold">Emmanuel's HSS Kothanalloor</h1>
+                 <p class="mt-2 fs-5" data-translate-key="subtitle">Student Evaluation Portal</p>
+             </div>
+             <div class="card p-4 p-md-5 shadow-lg">
+                 <div class="row g-4 g-md-5">
+                     <div class="col-md-6">
+                         <h2 class="fs-4 fw-bold mb-4 d-flex align-items-center gap-3"><i class="fa-solid fa-star themed-text"></i> <span data-translate-key="features_title">Key Features</span></h2>
+                         <ul class="list-unstyled d-grid gap-3">
+                             <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-chart-line mt-1 themed-text"></i> <span data-translate-key="feature_1">Comprehensive Performance Tracking</span></li>
+                             <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-magnifying-glass-chart mt-1 themed-text"></i> <span data-translate-key="feature_2">Detailed Subject-wise Analysis</span></li>
+                             <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-users mt-1 themed-text"></i> <span data-translate-key="feature_3">Parent Dashboard for Siblings</span></li>
+                             <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-shield-halved mt-1 themed-text"></i> <span data-translate-key="feature_4">House System and Discipline Points</span></li>
+                             <li class="d-flex align-items-start gap-3"><i class="fa-solid fa-circle-half-stroke mt-1 themed-text"></i> <span data-translate-key="feature_5">Light & Dark Mode Support</span></li>
+                         </ul>
+                     </div>
+                     <div class="col-md-6">
+                         <h2 class="fs-4 fw-bold mb-4 d-flex align-items-center gap-3"><i class="fa-solid fa-circle-info themed-text"></i> <span data-translate-key="instructions_title">Instructions for Parents</span></h2>
+                         <ol class="list-unstyled d-grid gap-3">
+                             <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">1.</span> <span data-translate-key="instruction_1">Click the 'Go to Login' button below.</span></li>
+                             <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">2.</span> <span data-translate-key="instruction_2">Enter your registered phone number.</span></li>
+                             <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">3.</span> <span data-translate-key="instruction_3">Enter one of your children's date of birth.</span></li>
+                             <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">4.</span> <span data-translate-key="instruction_4">You will see a dashboard with all your children.</span></li>
+                             <li class="d-flex align-items-start gap-3"><span class="fw-bold themed-text me-2">5.</span> <span data-translate-key="instruction_5">To view another child, click 'Switch' and verify.</span></li>
+                         </ol>
+                     </div>
+                 </div>
+                  <div class="mt-5 text-center">
+                     <button id="goToLoginBtn" class="btn btn-lg rounded-pill themed-bg action-btn px-4">
+                         <span data-translate-key="login_button">Go to Login</span>
+                         <i class="fa-solid fa-arrow-right"></i>
+                     </button>
+                  </div>
+             </div>
         </div>
     </div>
     
@@ -159,12 +148,12 @@
         <div class="card shadow-lg p-4" style="width: 100%; max-width: 420px;">
             <div class="card-body">
                 <div class="text-center mb-4">
-                    <h1 class="h3 mb-3 fw-bold">Student Login</h1>
+                    <h1 class="h3 mb-3 fw-bold">Login</h1>
                 </div>
                 <form id="loginForm" class="d-grid gap-3">
                     <div>
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input id="phone" type="tel" required class="form-control form-control-lg" placeholder="Enter phone number">
+                        <label for="phone" class="form-label">Phone Number or Admission No.</label>
+                        <input id="phone" type="tel" required class="form-control form-control-lg" placeholder="Phone or Admission No.">
                     </div>
                     <div>
                         <label for="dob" class="form-label">Date of Birth</label>
@@ -190,23 +179,21 @@
                     
                     <div id="header-search-container" class="position-relative flex-grow-1 mx-2 mx-md-4">
                         <input type="search" id="headerSearch" placeholder="Find a student..." class="form-control rounded-pill">
-                        <div id="headerSearchResults" class="position-absolute top-100 mt-1 w-100 rounded shadow-lg bg-body" style="z-index: 1050; max-height: 300px; overflow-y: auto;"></div>
+                        <div id="headerSearchResults" class="position-absolute top-100 mt-1 w-100 rounded shadow-lg" style="z-index: 1050; max-height: 300px; overflow-y: auto; background-color: var(--bg-secondary);"></div>
                     </div>
 
-                    <!-- Desktop Controls -->
                     <div id="desktopControls" class="d-none d-md-flex align-items-center gap-3">
                         <div id="userInfoDesktop"></div>
                         <div class="card p-1 d-flex flex-row gap-1">
                             <button class="lang-btn btn-sm" data-lang="en">EN</button>
                             <button class="lang-btn btn-sm" data-lang="ml">മല</button>
                         </div>
-                        <button class="theme-switcher-btn">
+                        <button class="theme-switcher-btn" aria-label="Toggle theme">
                             <div class="theme-switcher-thumb"></div>
                         </button>
                         <button class="btn btn-sm themed-bg text-white rounded-pill px-3 logout-btn">Logout</button>
                     </div>
                     
-                    <!-- Mobile Menu Button -->
                     <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="settingsOffcanvas">
                         <i class="fas fa-bars fs-4"></i>
                     </button>
@@ -218,7 +205,6 @@
         </main>
     </div>
 
-    <!-- Modals -->
     <!-- Modals -->
     <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -245,35 +231,55 @@
     </div>
 
     <div class="modal fade" id="iframeModal" tabindex="-1" aria-labelledby="iframeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered" style="height: 85vh;">
-            <div class="modal-content h-100">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="iframeModalTitle">Loading...</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-2 h-100">
-                     <iframe id="modalIframe" src="" class="w-100 h-100 border-0"></iframe>
-                </div>
-            </div>
+      <div class="modal-dialog modal-xl modal-dialog-centered" style="height: 85vh;">
+        <div class="modal-content h-100">
+          <div class="modal-header">
+            <h5 class="modal-title" id="iframeModalTitle">Loading...</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-2 h-100">
+             <iframe id="modalIframe" src="" class="w-100 h-100 border-0"></iframe>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="modal fade" id="dobVerifyModal" tabindex="-1" aria-labelledby="dobVerifyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="dobVerifyTitle">Verify Child's Date of Birth</h5>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="dobVerifyTitle">Verify Child's Date of Birth</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="dobVerifyForm" class="modal-body d-grid gap-3">
+            <input type="hidden" id="dobVerifyAdmissionNo">
+            <div>
+              <label for="dobVerifyInput" class="form-label">Date of Birth</label>
+              <input id="dobVerifyInput" type="date" required class="form-control">
+            </div>
+            <button type="submit" class="btn w-100 themed-bg">Verify & Switch</button>
+            <p id="dobError" class="text-center small text-danger"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="houseWidgetModal" tabindex="-1" aria-labelledby="houseWidgetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="--bg-secondary: #1a1a1a;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="houseWidgetModalLabel">
+                        <span class="themed-text fw-bold">Live House Standings</span>
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="dobVerifyForm" class="modal-body d-grid gap-3">
-                    <input type="hidden" id="dobVerifyAdmissionNo">
-                    <div>
-                        <label for="dobVerifyInput" class="form-label">Date of Birth</label>
-                        <input id="dobVerifyInput" type="date" required class="form-control">
-                    </div>
-                    <button type="submit" class="btn w-100 themed-bg">Verify & Switch</button>
-                    <p id="dobError" class="text-center small text-danger"></p>
-                </form>
+                <div class="modal-body d-flex flex-column" id="houseWidgetContent">
+                    <!-- Widget content injected here -->
+                </div>
+                <div class="modal-footer border-0 justify-content-between">
+                    <span class="small text-muted">This widget will automatically refresh every 60 seconds.</span>
+                    <span class="small text-muted" id="widgetLastUpdated"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -286,64 +292,48 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="hmVerifyForm" class="modal-body d-grid gap-3">
-                    <p>To close the widget, please enter the Headmaster's Date of Birth.</p>
+                    <p class="text-muted small">To close the live widget, please verify your identity by entering your date of birth.</p>
                     <div>
                         <label for="hmDobInput" class="form-label">Headmaster's Date of Birth</label>
                         <input id="hmDobInput" type="date" required class="form-control">
                     </div>
-                    <button type="submit" class="btn w-100 themed-bg">Authorize & Close</button>
+                    <button type="submit" class="btn w-100 themed-bg">Verify & Close</button>
                     <p id="hmDobError" class="text-center small text-danger"></p>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="houseWidgetModal" tabindex="-1" aria-labelledby="houseWidgetModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="--bg-secondary: #1a1a1a;">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="houseWidgetModalLabel"><span class="themed-text fw-bold">Live House Standings</span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex flex-column" id="houseWidgetContent"></div>
-                <div class="modal-footer border-0 justify-content-between">
-                    <span class="small text-muted">This widget will automatically refresh every 60 seconds.</span>
-                    <span class="small text-muted" id="widgetLastUpdated"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Offcanvas Menu for Mobile -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffcanvas" aria-labelledby="settingsOffcanvasLabel">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="settingsOffcanvasLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="settingsOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="userInfoMobile" class="p-3 mb-3 rounded text-center" style="background-color: var(--bg-primary);">
+            <!-- Mobile user info injected here -->
         </div>
-        <div class="offcanvas-body">
-            <div id="userInfoMobile" class="p-3 mb-3 rounded text-center" style="background-color: var(--bg-primary);"></div>
-            
-            <div class="d-flex justify-content-between align-items-center p-2">
-                <span>Language</span>
-                <div class="card p-1 d-flex flex-row gap-1">
-                     <button class="lang-btn btn-sm" data-lang="en">EN</button>
-                     <button class="lang-btn btn-sm" data-lang="ml">മല</button>
-                </div>
-            </div>
-            
-            <div class="d-flex justify-content-between align-items-center p-2">
-                <span>Theme</span>
-                <button class="theme-switcher-btn">
-                    <div class="theme-switcher-thumb"></div>
-                </button>
-            </div>
-            <hr>
-            <div class="d-grid">
-                <button class="btn themed-bg text-white rounded-pill logout-btn">Logout</button>
+        <div class="d-flex justify-content-between align-items-center p-2">
+            <span>Language</span>
+            <div class="card p-1 d-flex flex-row gap-1">
+                 <button class="lang-btn btn-sm" data-lang="en">EN</button>
+                 <button class="lang-btn btn-sm" data-lang="ml">മല</button>
             </div>
         </div>
+        <div class="d-flex justify-content-between align-items-center p-2">
+            <span>Theme</span>
+            <button class="theme-switcher-btn" aria-label="Toggle theme">
+                <div class="theme-switcher-thumb"></div>
+            </button>
+        </div>
+        <hr>
+        <div class="d-grid">
+            <button class="btn themed-bg text-white rounded-pill logout-btn">Logout</button>
+        </div>
+      </div>
     </div>
-    <!-- NEW: Add this container for the iOS install prompt -->
+    
     <div id="ios-install-prompt" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1100; display: none;">
         <div class="d-flex">
             <div class="toast-body">
@@ -352,10 +342,8 @@
             <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    <!-- Load the main application script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="main.js"></script>
 </body>
 </html>
