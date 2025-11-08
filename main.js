@@ -93,6 +93,11 @@ async function initializeApp() {
         if (currentUser.role === 'siu') {
             const processedSiuMembers = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users);
             const currentSiuMemberData = processedSiuMembers.find(m => m.admissionNo === currentUser.admissionNo);
+                       siuAvailableMonths = [...new Set(appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' })))];
+// Process the default "All-Time" data
+            const allTimeData = processSiuMemberData(appData.siu_members, appData.activities, appData.attendance_siu, appData.users, null);
+            siuProcessedData = { "All-Time": allTimeData }; // Store it
+
             if (currentSiuMemberData) {
                 // THE FIX: Pass the *processed* list to the dashboard builder.
                 document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, processedSiuMembers);
@@ -284,6 +289,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 iframeModal.show();
             }
         });
+        dashboardView.addEventListener('change', e => {
+            if (e.target.id === 'siuRankFilter') {
+                const selectedMonth = e.target.value;
+                
+                let dataToRender = siuProcessedData[selectedMonth];
+                
+                if (!dataToRender) {
+                    // This data hasn't been processed yet. Process it now.
+                    const [monthName, year] = selectedMonth.split(' ');
+                    const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
+
+                    const monthStart = new Date(year, monthIndex, 1);
+                    const monthEnd = new Date(year, monthIndex + 1, 1);
+
+                    const filteredActivities = appData.activities.filter(act => {
+                        const actDate = new Date(act.activityDate || act.submissionTimestamp);
+                        return actDate >= monthStart && actDate < monthEnd;
+                    });
+                    const filteredAttendance = appData.attendance_siu.filter(att => {
+                        const attDate = new Date(att.date);
+                        return attDate >= monthStart && attDate < monthEnd;
+                    });
+
+                    dataToRender = processSiuMemberData(appData.siu_members, filteredActivities, filteredAttendance, appData.users, true);
+                    siuProcessedData[selectedMonth] = dataToRender; // Cache it
+                }
+                
+                const currentSiuMemberData = dataToRender.find(m => m.admissionNo === currentUser.admissionNo);
+                document.getElementById('dashboard-container').innerHTML = buildSiuDashboard(currentSiuMemberData, dataToRender, siuAvailableMonths, selectedMonth);
+            }
+        });
     }
     
     const evaluationModalEl = document.getElementById('evaluationModal');
@@ -333,6 +369,50 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>`;
                 evaluationModal.hide();
                 detailModal.show();
+            }
+        });
+        evaluationModalEl.addEventListener('change', e => {
+            if (e.target.id === 'siuEvalFilter') {
+                const selectedMonth = e.target.value;
+                let dataToRender;
+                let activitiesToRender;
+                
+                if (selectedMonth === 'All-Time') {
+                    dataToRender = siuProcessedData["All-Time"];
+                    activitiesToRender = appData.activities;
+                } else if (siuProcessedData[selectedMonth]) {
+                    dataToRender = siuProcessedData[selectedMonth];
+                    // Re-filter activities just for this month for the top cards
+                    const [monthName, year] = selectedMonth.split(' ');
+                    const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
+                    const monthStart = new Date(year, monthIndex, 1);
+                    const monthEnd = new Date(year, monthIndex + 1, 1);
+                    activitiesToRender = appData.activities.filter(act => {
+                        const actDate = new Date(act.activityDate || act.submissionTimestamp);
+                        return actDate >= monthStart && actDate < monthEnd;
+                    });
+                } else {
+                    // This data hasn't been processed yet. Process it now.
+                    const [monthName, year] = selectedMonth.split(' ');
+                    const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
+                    const monthStart = new Date(year, monthIndex, 1);
+                    const monthEnd = new Date(year, monthIndex + 1, 1);
+                    
+                    activitiesToRender = appData.activities.filter(act => {
+                        const actDate = new Date(act.activityDate || act.submissionTimestamp);
+                        return actDate >= monthStart && actDate < monthEnd;
+                    });
+                    const filteredAttendance = appData.attendance_siu.filter(att => {
+                        const attDate = new Date(att.date);
+                        return attDate >= monthStart && attDate < monthEnd;
+                    });
+
+                    dataToRender = processSiuMemberData(appData.siu_members, activitiesToRender, filteredAttendance, appData.users, true);
+                    siuProcessedData[selectedMonth] = dataToRender; // Cache it
+                }
+                
+                // Re-render the modal body
+                document.getElementById('evaluationModalBody').innerHTML = buildSiuEvaluationContent(dataToRender, activitiesToRender, siuAvailableMonths, selectedMonth);
             }
         });
     }

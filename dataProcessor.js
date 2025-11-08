@@ -44,39 +44,62 @@ export function processStudentData(students, marksData, activities) {
 /**
  * Calculates scores and ranks for SIU members, including previous day's rank.
  */
-export function processSiuMemberData(siuMembers, activities, attendanceData, allUsers) {
+export function processSiuMemberData(siuMembers, allActivities, allAttendance, allUsers, filterMonth = null) {
     if (!siuMembers || siuMembers.length === 0) return [];
 
     const augmentedSiuMembers = siuMembers.map(member => {
         const userProfile = allUsers.find(u => u.admissionNo && u.admissionNo.toString() === member.admissionNo.toString());
         return { ...member, dob: userProfile ? userProfile.dob : null };
     });
-    
-    // --- Calculate Previous Day's Ranks ---
+
+    // --- Filter data based on the selected month ---
+    let activities, attendanceData, activitiesBefore, attendanceBefore;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    let currentPeriodStart = new Date(0); // The beginning of time
 
-    const activitiesBeforeToday = activities.filter(act => new Date(act.activityDate || act.submissionTimestamp) < today);
-    const attendanceBeforeToday = attendanceData.filter(att => new Date(att.date) < today);
-    
+    if (filterMonth) {
+        const [monthName, year] = filterMonth.split(' ');
+        const monthIndex = new Date(Date.parse(monthName +" 1, 2021")).getMonth();
+        
+        currentPeriodStart = new Date(year, monthIndex, 1);
+        const nextMonthStart = new Date(year, monthIndex + 1, 1);
+
+        activities = allActivities.filter(act => {
+            const actDate = new Date(act.activityDate || act.submissionTimestamp);
+            return actDate >= currentPeriodStart && actDate < nextMonthStart;
+        });
+        attendanceData = allAttendance.filter(att => {
+            const attDate = new Date(att.date);
+            return attDate >= currentPeriodStart && attDate < nextMonthStart;
+        });
+    } else {
+        activities = allActivities;
+        attendanceData = allAttendance;
+    }
+
+    // --- Calculate Previous Ranks (relative to the start of the current period) ---
+    activitiesBefore = allActivities.filter(act => new Date(act.activityDate || act.submissionTimestamp) < currentPeriodStart);
+    attendanceBefore = allAttendance.filter(att => new Date(att.date) < currentPeriodStart);
+
     const previousDayRanks = augmentedSiuMembers.map(member => {
-        const memberActivities = activitiesBeforeToday.filter(act => act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase());
+        const memberActivities = activitiesBefore.filter(act => act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase());
         
         let timelinessScore = 0;
         let entryCountScore = 0;
         memberActivities.forEach(act => {
             const numStudents = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
-            entryCountScore += numStudents * 3;
+            entryCountScore += numStudents * 5;
             const subTime = new Date(act.submissionTimestamp).getTime();
             const actTime = new Date(act.activityDate + 'T00:00:00Z').getTime();
             if (subTime < (actTime + 48 * 3600 * 1000)) {
-                timelinessScore += numStudents * 5;
+                timelinessScore += numStudents * 10;
             }
         });
         
-        const absentDays = attendanceBeforeToday.filter(day => day.absentees.includes(member.admissionNo)).length;
-        const presentDays = attendanceBeforeToday.length - absentDays;
-        const attendanceScore = presentDays * 1;
+        const absentDays = attendanceBefore.filter(day => day.absentees.includes(member.admissionNo)).length;
+        const presentDays = attendanceBefore.length - absentDays;
+        const attendanceScore = presentDays * 3;
 
         return {
             admissionNo: member.admissionNo,
@@ -85,7 +108,7 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
     }).sort((a, b) => b.previousPoints - a.previousPoints)
       .map((member, index) => ({ ...member, previousRank: index + 1 }));
 
-    // --- Calculate Current Ranks ---
+    // --- Calculate Current Ranks (for the selected period) ---
     const totalAttendanceDays = attendanceData.length;
     const processedMembers = augmentedSiuMembers.map(member => {
         const memberActivities = activities.filter(act => act.submittedBy && member.email && act.submittedBy.toLowerCase() === member.email.toLowerCase());
@@ -99,14 +122,14 @@ export function processSiuMemberData(siuMembers, activities, attendanceData, all
             const submissionTime = new Date(act.submissionTimestamp).getTime();
             const activityDayStart = new Date(act.activityDate + 'T00:00:00Z').getTime();
             if (submissionTime < activityDayStart + (48 * 60 * 60 * 1000)) {
-                timelinessScore += numStudentsInEntry * 5;
+                timelinessScore += numStudentsInEntry * 10;
             }
         });
         
-        const entryCountScore = totalStudentEntries * 3;
+        const entryCountScore = totalStudentEntries * 5;
         const absentDays = attendanceData.filter(day => day.absentees.includes(member.admissionNo)).length;
         const presentDays = totalAttendanceDays - absentDays;
-        const attendanceScore = presentDays * 1;
+        const attendanceScore = presentDays * 3;
         const totalPoints = timelinessScore + entryCountScore + attendanceScore;
 
         const previousRankData = previousDayRanks.find(r => r.admissionNo === member.admissionNo);

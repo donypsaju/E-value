@@ -310,7 +310,7 @@ export function buildParentDashboard(currentChild, siblings, processedStudents) 
     </div>`;
 }
 
-export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false) {
+export function buildSiuDashboard(siuMemberData, allSiuMembers, availableMonths, selectedMonth = 'All-Time', isModal = false) {
     const lastEntriesHTML = siuMemberData.last5Entries.map(entry => `
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div>
@@ -329,10 +329,26 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
         </tr>
     `).join('');
     
+    // --- NEW: Month Filter Dropdown ---
+    const monthOptions = `<option value="All-Time">All-Time</option>` +
+        availableMonths.map(month => `<option value="${month}" ${month === selectedMonth ? 'selected' : ''}>${month}</option>`).join('');
+
+    const filterHTML = `
+        <div class="col-12 col-md-auto">
+            <label for="siuRankFilter" class="form-label small">Filter by Month</label>
+            <select class="form-select form-select-sm" id="siuRankFilter">
+                ${monthOptions}
+            </select>
+        </div>
+    `;
+
     const mainHeader = isModal ? '' : `
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h4 fw-bold themed-text">SIU Performance Dashboard</h2>
-            <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-plus me-1"></i> Add Activity Entry</button>
+        <div class="row g-3 justify-content-between align-items-center mb-4">
+            <div class="col-auto"><h2 class="h4 fw-bold themed-text mb-0">SIU Performance Dashboard</h2></div>
+            <div class="col-auto d-flex gap-2">
+                ${isModal ? '' : filterHTML}
+                <button data-action="add-activity" class="btn themed-bg action-btn rounded-pill"><i class="fa-solid fa-plus me-1"></i> Add Activity Entry</button>
+            </div>
         </div>`;
 
     // --- NEW: Rank Change Logic ---
@@ -342,13 +358,14 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, isModal = false)
         if (change > 0) {
             rankChangeHTML = `<span class="ms-2 small trend-up fw-bold">(+${change}) <i class="fa-solid fa-arrow-trend-up"></i></span>`;
         } else {
-            rankChangeHTML = `<span class="ms-2 small trend-down fw-bold">(${change}) <i class="fa-solid fa-arrow-trend-down"></i></span>`;
+            rankChangeHTML = `<span class"ms-2 small trend-down fw-bold">(${change}) <i class="fa-solid fa-arrow-trend-down"></i></span>`;
         }
     }
 
     return `
         ${mainHeader}
-        <div class="row g-4">
+        ${isModal ? filterHTML : ''} 
+        <div class="row g-4 ${isModal ? 'mt-3' : ''}">
             <div class="col-lg-8">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm text-center"><div class="card-body d-flex flex-column justify-content-center"><p class="display-5 fw-bold themed-text">${siuMemberData.totalEntries}</p><p class="small text-muted mb-0">Activities Entered</p></div></div></div>
@@ -542,9 +559,11 @@ export function buildHouseEvaluationContent(processedStudents, activities) {
     return `<ul class="nav nav-tabs">${navTabs}</ul><div class="tab-content pt-3">${tabContent}</div>`;
 }
 
-export function buildSiuEvaluationContent(processedSiuMembers, activities) {
-    const totalActivities = activities.reduce((acc, act) => acc + (Array.isArray(act.admissionNo) ? act.admissionNo.length : 1), 0);
+export function buildSiuEvaluationContent(processedSiuMembers, activities, availableMonths, selectedMonth = 'All-Time') {
+    const totalActivities = processedSiuMembers.reduce((sum, m) => sum + m.totalEntries, 0);
     let totalPositive = 0, totalNegative = 0;
+    
+    // Use the *filtered* activities list to calculate points
     activities.forEach(act => {
         const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
         const count = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
@@ -561,11 +580,24 @@ export function buildSiuEvaluationContent(processedSiuMembers, activities) {
             <p class="mb-1">Total Points: <span class="fw-bold">${m.totalPoints}</span></p>
         </a>`).join('');
 
+    const monthOptions = `<option value="All-Time">All-Time</option>` +
+        availableMonths.map(month => `<option value="${month}" ${month === selectedMonth ? 'selected' : ''}>${month}</option>`).join('');
+
     return `
-        <div class="row g-3 mb-4">
-            <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold">${totalActivities}</p><p class="small text-muted mb-0">Total Activities</p></div></div></div>
-            <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold text-success">+${Math.round(totalPositive)}</p><p class="small text-muted mb-0">Points Added</p></div></div></div>
-            <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold text-danger">${Math.round(totalNegative)}</p><p class="small text-muted mb-0">Points Deducted</p></div></div></div>
+        <div class="row g-3 mb-4 align-items-center">
+            <div class="col-md-8">
+                <div class="row g-3">
+                    <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold">${totalActivities}</p><p class="small text-muted mb-0">Total Activities</p></div></div></div>
+                    <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold text-success">+${Math.round(totalPositive)}</p><p class="small text-muted mb-0">Points Added</p></div></div></div>
+                    <div class="col-md-4"><div class="card text-center"><div class="card-body"><p class="display-6 fw-bold text-danger">${Math.round(totalNegative)}</p><p class="small text-muted mb-0">Points Deducted</p></div></div></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                 <label for="siuEvalFilter" class="form-label small">Filter by Month</label>
+                 <select class="form-select" id="siuEvalFilter">
+                    ${monthOptions}
+                 </select>
+            </div>
         </div>
         <h4 class="mt-4">Member Leaderboard</h4>
         <div class="list-group">${memberListHTML}</div>
