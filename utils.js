@@ -1,4 +1,4 @@
-import { gradeConfig } from './config.js';
+import { gradeConfig, EXAM_CONFIG } from './config.js';
 
 function findTermConfig(termKey) {
     const lowerTermKey = termKey.toLowerCase().trim();
