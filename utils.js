@@ -2,9 +2,15 @@ import { gradeConfig } from './config.js';
 
 function findTermConfig(termKey) {
     const lowerTermKey = termKey.toLowerCase().trim();
-    if (lowerTermKey.includes('monthly exam 01')) return gradeConfig.maxMarks['Monthly Exam 01'];
-    if (lowerTermKey.includes('first mid term')) return gradeConfig.maxMarks['First Mid Term Exam'];
-    if (lowerTermKey.includes('first term')) return gradeConfig.maxMarks['First Term Exam'];
+    
+    // Dynamically check all keys from EXAM_CONFIG
+    for (const examName in EXAM_CONFIG) {
+        if (lowerTermKey.includes(examName.toLowerCase())) {
+            return gradeConfig.maxMarks[examName];
+        }
+    }
+    
+    // Fallback if no specific exam config is found
     return gradeConfig.maxMarks.default;
 }
 
