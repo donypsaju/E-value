@@ -1,5 +1,5 @@
 import { sanitize, getGradeInfo, getSection, getTeacherSection, customClassSort, isActivityForStudent, calculateCE_HS, calculateCE_UP } from './utils.js';
-import { translations, activityRules } from './config.js';
+import { translations, activityRules, EXAM_CONFIG } from './config.js';
 
 // --- GLOBAL UI STATE ---
 let standingsChart = null;
@@ -410,7 +410,8 @@ export function buildStudentDashboard(student, activities, viewer = null, siblin
         return;
     }
 
-    const termOrder = ["Monthly Exam 01", "First Mid Term Exam", "First Term Exam"];
+    // THE FIX: Get the exam order from the config file.
+    const termOrder = Object.keys(EXAM_CONFIG);
     const termKeys = Object.keys(marksRecord.terms).sort((a, b) => termOrder.indexOf(a) - termOrder.indexOf(b));
     const allSubjects = [...new Set(termKeys.flatMap(key => marksRecord.terms[key].marks ? Object.keys(marksRecord.terms[key].marks) : []))];
 
