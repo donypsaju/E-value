@@ -1,5 +1,5 @@
 // App version for cache management
-export const APP_VERSION = '2.5.3-MID';
+export const APP_VERSION = '2.5.3-FINAL';
 
 // Translation data for multi-language support
 export const translations = {
@@ -49,6 +49,15 @@ export const activityRules = {
     "Play during interval": -5, "Participation in Kalolsavam & Sports/ Science fair": 10, "First Prize in any Event": 50, "Second Prize in any Event": 30, "Third Prize in any Event": 20
 };
 
+// Central configuration for exams.
+// This is the single source of truth for the UI and the API.
+export const EXAM_CONFIG = {
+    "Monthly Exam 01": "",
+    "First Mid Term Exam": "_1",
+    "First Term Exam": "_2",
+    "Second Mid Term Exam": "_3"
+};
+
 export const gradeConfig = {
     defaultGrades: {
         90: 'A+', 80: 'A', 70: 'B+', 60: 'B', 50: 'C+', 40: 'C', 30: 'D+', 20: 'D', 0: 'E'
@@ -64,7 +73,6 @@ export const gradeConfig = {
             LP: { default: 25 },
             UP: { default: 30 },
             HS: {
-                // THE FIX: Subject names now use abbreviations to match your data
                 8: { 'Phy.': 20, 'Chem.': 20, 'Bio.': 20, default: 40 },
                 9: { 'English': 80, 'S.S.': 80, 'Maths': 80, default: 40 },
                 10: { 'English': 80, 'S.S.': 80, 'Maths': 80, default: 40 }
@@ -73,4 +81,3 @@ export const gradeConfig = {
         default: { default: 100 }
     }
 };
-
