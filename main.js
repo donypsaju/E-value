@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderHouseWidget(appData.processedStudents, appData.activities);
                 houseWidgetModal.show();
             } else if (target.closest('[data-action="add-activity"]') || target.closest('[data-action="discipline"]')) {
-                const url = "https://docs.google.com/forms/d/1LXL3mDMDkbjuffisC-HY-RS7l2ibqQ5lhbyfrliI8I4/viewform?usp=sf_link";
+                const url = "https://forms.gle/gqP5wot7g3jkm32WA";
                 document.getElementById('iframeModalTitle').textContent = "Add Activity Entry";
                 document.getElementById('modalIframe').src = url;
                 iframeModal.show();
