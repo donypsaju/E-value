@@ -1,5 +1,5 @@
 // App version for cache management
-export const APP_VERSION = '2.5.3-FINAL';
+export const APP_VERSION = '2.6-exam-dates';
 
 // Translation data for multi-language support
 export const translations = {
@@ -50,12 +50,12 @@ export const activityRules = {
 };
 
 // Central configuration for exams.
-// This is the single source of truth for the UI and the API.
+// FIX: Added 'date' field. Timestamps are estimates for old exams.
 export const EXAM_CONFIG = {
-    "Monthly Exam 01": "",
-    "First Mid Term Exam": "_1",
-    "First Term Exam": "_2",
-    "Second Mid Term Exam": "_3"
+    "Monthly Exam 01": { suffix: "", date: "2025-06-15" }, // Est. June
+    "First Mid Term Exam": { suffix: "_1", date: "2025-08-20" }, // Est. August
+    "First Term Exam": { suffix: "_2", date: "2025-09-10" }, // Est. September
+    "Second Mid Term Exam": { suffix: "_3", date: "2025-10-20" } // October 2025
 };
 
 export const gradeConfig = {

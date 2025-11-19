@@ -152,9 +152,25 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
     return `<div class="row g-4 mb-4">${finalHTML}</div>`;
 }
 
+/**
+ * Generates a list of all months that have either Activity Data OR Exam Data.
+ */
+function getAvailableMonths() {
+    const activityMonths = appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp));
+    const examMonths = Object.values(EXAM_CONFIG).map(conf => new Date(conf.date));
+    
+    const allDates = [...activityMonths, ...examMonths];
+    
+    // Format dates to "Month Year" and remove duplicates
+    const uniqueMonths = [...new Set(allDates.map(d => d.toLocaleString('default', { month: 'long', year: 'numeric' })))];
+    
+    // Sort months chronologically
+    return uniqueMonths.sort((a, b) => new Date(Date.parse("1 " + a)) - new Date(Date.parse("1 " + b)));
+}
+
 export function buildHMDashboard(user, allStudents, processedStudents, staffBirthdays, studentBirthdays) {
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
-    const months = [...new Set(appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' })))];
+    const months = getAvailableMonths();
     
     document.getElementById('dashboard-container').innerHTML = `
         <div class="card shadow-sm dashboard-card mb-4">
@@ -186,7 +202,7 @@ export function buildHMDashboard(user, allStudents, processedStudents, staffBirt
         <div id="subjectToppersCard"></div>
         <div id="reportGeneratorCard"></div>`;
 
-    buildStandingsChart(processedStudents, appData.activities);
+    buildStandingsChart(processedStudents, appData.activities, appData.marks);
     buildLeaderboardCard(processedStudents, appData.activities, false);
     buildClassToppersCard(processedStudents);
     buildSubjectToppersCard(processedStudents);
@@ -209,12 +225,17 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
 
     const relevantClasses = [...new Set(sectionStudents.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    const months = getAvailableMonths();
+    
     let filterOptions = `<option value="school">School-wide</option>`;
     teacherSections.forEach(section => {
         filterOptions += `<option value="${section.toLowerCase()}">${section} Section</option>`;
     });
     relevantClasses.forEach(cls => {
         filterOptions += `<option value="${cls}">${cls}</option>`;
+    });
+    months.forEach(m => {
+        filterOptions += `<option value="${m}">${m}</option>`;
     });
     
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
@@ -236,35 +257,7 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
         <div id="subjectToppersCard" class="mb-4"></div>
         <div id="reportGeneratorCard"></div>`;
 
-    const filter = document.getElementById('teacherStandingsFilter');
-    const chartCtx = document.getElementById('teacherStandingsChart')?.getContext('2d');
-    let chartInstance = null;
-
-    if (filter && chartCtx) {
-        const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
-        const updateChart = () => {
-            const value = filter.value;
-            let filteredStudents = processedStudents;
-            if (value === 'up' || value === 'hs' || value === 'lp') {
-                filteredStudents = processedStudents.filter(s => getSection(s.class).toLowerCase() === value);
-            } else if (value !== 'school') {
-                filteredStudents = processedStudents.filter(s => `${s.class}-${s.division}` === value);
-            }
-            const chartHouseData = filteredStudents.reduce((acc, s) => {
-                if (s.house) {
-                    if (!acc[s.house]) acc[s.house] = 0;
-                    acc[s.house] += s.housePoints;
-                }
-                return acc;
-            }, {});
-            const data = houses.map(house => chartHouseData[house] || 0);
-            const backgroundColors = houses.map(house => ({ 'Blue': '#0d6efd', 'Green': '#198754', 'Rose': '#dc3545', 'Yellow': '#ffc107' }[house] || '#6c757d'));
-            if (chartInstance) chartInstance.destroy();
-            chartInstance = new Chart(chartCtx, { type: 'bar', data: { labels: houses, datasets: [{ label: 'Total Points', data, backgroundColor: backgroundColors }] }, options: { responsive: true, maintainAspectRatio: false } });
-        };
-        filter.addEventListener('change', updateChart);
-        updateChart();
-    }
+    buildStandingsChart(processedStudents, appData.activities, appData.marks, 'teacherStandingsChart', 'teacherStandingsFilter');
 
     buildLeaderboardCard(sectionStudents, appData.activities, true);
     buildClassToppersCard(sectionStudents);
