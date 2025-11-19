@@ -599,7 +599,7 @@ export function buildSiuEvaluationContent(processedSiuMembers, activities, avail
 }
 // --- DASHBOARD WIDGETS AND CHARTS ---
 
-export function buildStandingsChart(students, activities, chartId = 'standingsChart', filterId = 'standingsFilter') {
+export function buildStandingsChart(students, activities, marksData, chartId = 'standingsChart', filterId = 'standingsFilter') {
     const filter = document.getElementById(filterId);
     const chartCtx = document.getElementById(chartId)?.getContext('2d');
     if (!filter || !chartCtx) return;
@@ -622,16 +622,29 @@ export function buildStandingsChart(students, activities, chartId = 'standingsCh
         } else if (value.includes('Section')) { // Section-wide points
              const section = value.split(' ')[0];
              const sectionStudents = students.filter(s => getSection(s.class).toLowerCase() === section);
-             pointData = sectionStudents.reduce((acc, s) => { /*...*/}, {});
+             pointData = sectionStudents.reduce((acc, s) => { 
+                 if (s.house) {
+                    if (!acc[s.house]) acc[s.house] = 0;
+                    acc[s.house] += s.housePoints;
+                }
+                return acc;
+             }, {});
         } else if (value.includes('-')) { // Class-specific points
             const classStudents = students.filter(s => `${s.class}-${s.division}` === value);
-            pointData = classStudents.reduce((acc, s) => { /*...*/}, {});
-        } else { // Monthly points
+            pointData = classStudents.reduce((acc, s) => {
+                if (s.house) {
+                    if (!acc[s.house]) acc[s.house] = 0;
+                    acc[s.house] += s.housePoints;
+                }
+                return acc;
+             }, {});
+        } else { // Monthly points (The new logic)
             pointData = houses.reduce((acc, house) => {
                 acc[house] = 0;
                 return acc;
             }, {});
             
+            // 1. Add Activity Points for the month
             activities.forEach(act => {
                 const activityMonth = new Date(act.activityDate || act.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' });
                 if (activityMonth === value) {
@@ -645,6 +658,25 @@ export function buildStandingsChart(students, activities, chartId = 'standingsCh
                     });
                 }
             });
+
+            // 2. Add Exam Marks for the month
+            // Iterate through EXAM_CONFIG to find exams that happened in the selected month
+            for (const [examName, config] of Object.entries(EXAM_CONFIG)) {
+                const examDate = new Date(config.date);
+                const examMonth = examDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+                
+                if (examMonth === value) {
+                    // This exam happened in the selected month. Add its marks.
+                    students.forEach(student => {
+                         if (student.house && student.marksRecord && student.marksRecord.terms && student.marksRecord.terms[examName]) {
+                             const total = student.marksRecord.terms[examName].total;
+                             if (typeof total === 'number') {
+                                 pointData[student.house] += total;
+                             }
+                         }
+                    });
+                }
+            }
         }
         
         const data = houses.map(house => Math.round(pointData[house] || 0));
