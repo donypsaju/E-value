@@ -55,7 +55,8 @@ export const EXAM_CONFIG = {
     "Monthly Exam 01": { suffix: "", date: "2025-06-15" }, // Est. June
     "First Mid Term Exam": { suffix: "_1", date: "2025-08-20" }, // Est. August
     "First Term Exam": { suffix: "_2", date: "2025-09-10" }, // Est. September
-    "Second Mid Term Exam": { suffix: "_3", date: "2025-10-20" } // October 2025
+    "Second Mid Term Exam": { suffix: "_3", date: "2025-10-20" }, // October 2025
+    "Second Term Exam": { suffix: "_4", date: "2025-12-20" }
 };
 
 export const gradeConfig = {
@@ -70,6 +71,14 @@ export const gradeConfig = {
         'First Mid Term Exam': { default: 20 },
         'Second Mid Term Exam': { default: 20 },
         'First Term Exam': {
+            LP: { default: 25 },
+            UP: { default: 30 },
+            HS: {
+                8: { 'Phy.': 20, 'Chem.': 20, 'Bio.': 20, default: 40 },
+                9: { 'English': 80, 'S.S.': 80, 'Maths': 80, default: 40 },
+                10: { 'English': 80, 'S.S.': 80, 'Maths': 80, default: 40 }
+            }
+        },'Second Term Exam': {
             LP: { default: 25 },
             UP: { default: 30 },
             HS: {
