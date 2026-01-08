@@ -3,7 +3,7 @@ import { translations, activityRules, EXAM_CONFIG } from './config.js';
 
 // --- GLOBAL UI STATE ---
 let standingsChartInstance = null;
-let teacherStandingsChartInstance = null; // Separate instance for teacher view
+let teacherStandingsChartInstance = null;
 let appData = {};
 let currentUser = null;
 
@@ -95,7 +95,6 @@ function getSelectedValues(selectId) {
 
 /**
  * Dynamically updates the "Target" dropdown based on the "Criteria" selection.
- * Used for Class and Subject Toppers.
  */
 function updateTargetOptions(criteria, students, targetSelectId) {
     const targetSelect = document.getElementById(targetSelectId);
@@ -103,17 +102,13 @@ function updateTargetOptions(criteria, students, targetSelectId) {
 
     let options = [];
     if (criteria === 'section') {
-        // Hardcoded sections based on school logic
         options = ['LP', 'UP', 'HS']; 
     } else if (criteria === 'class') {
-        // Numeric sort for classes
         options = [...new Set(students.map(s => s.class))].sort((a, b) => a - b);
     } else { // 'division'
-        // Custom sort for "10-A", "9-B" etc.
         options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
     }
 
-    // Default to selecting all options to be helpful
     targetSelect.innerHTML = options.map(o => `<option value="${o}" selected>${o}</option>`).join('');
 }
 
@@ -187,14 +182,6 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
     return `<div class="row g-4 mb-4">${finalHTML}</div>`;
 }
 
-function getAvailableMonths() {
-    const activityMonths = appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp));
-    const examMonths = Object.values(EXAM_CONFIG).map(conf => new Date(conf.date));
-    const allDates = [...activityMonths, ...examMonths];
-    const uniqueMonths = [...new Set(allDates.map(d => d.toLocaleString('default', { month: 'long', year: 'numeric' })))];
-    return uniqueMonths.sort((a, b) => new Date(Date.parse("1 " + a)) - new Date(Date.parse("1 " + b)));
-}
-
 // --- DASHBOARD BUILDERS ---
 
 export function buildHMDashboard(user, allStudents, processedStudents, staffBirthdays, studentBirthdays) {
@@ -248,7 +235,6 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     };
     const markEntryButtons = teacherSections.map(section => `<a href="${markEntryUrls[section]}" target="_blank" class="btn themed-bg action-btn rounded-pill">${section} Mark Entry</a>`).join('');
     
-    // Filter students for this teacher
     const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
 
@@ -269,7 +255,6 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
         <div id="subjectToppersCard" class="mb-4"></div>
         <div id="reportGeneratorCard"></div>`;
 
-    // Only pass the teacher's students to the widgets
     buildStandingsChart(sectionStudents, appData.activities, appData.marks, 'teacherStandingsChart', 'teacherStandingsFilterContainer');
     buildLeaderboardCard(sectionStudents, appData.activities);
     buildClassToppersCard(sectionStudents);
@@ -804,6 +789,7 @@ export function buildClassToppersCard(students) {
     const card = document.getElementById('classToppersCard');
     if (!card) return;
 
+    // Fetch exams dynamically from config
     const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
 
     // 1. Inject UI with 3 Filters
@@ -899,6 +885,7 @@ export function buildClassToppersCard(students) {
                     if (useAllExams) {
                         Object.values(student.marksRecord.terms).forEach(t => score += (t.total || 0));
                     } else {
+                        // Logic to support multiple selected exams (e.g. First Term + Second Term)
                         selectedExams.forEach(exam => {
                             const term = student.marksRecord.terms[exam];
                             if (term && typeof term.total === 'number') score += term.total;
