@@ -114,6 +114,7 @@ function updateTargetOptions(criteria, students, targetSelectId) {
 
 /**
  * Dynamically updates the "Subject" dropdown based on Selected Exams and Students.
+ * FIXED: Now looks at 'marks' property instead of 'subjects'.
  */
 function updateSubjectOptions(students, selectedExams, subjectSelectId) {
     const subjectSelect = document.getElementById(subjectSelectId);
@@ -129,8 +130,9 @@ function updateSubjectOptions(students, selectedExams, subjectSelectId) {
         
         examsToScan.forEach(examKey => {
             const termData = s.marksRecord.terms[examKey];
-            if (termData?.subjects) {
-                Object.keys(termData.subjects).forEach(subj => uniqueSubjects.add(subj));
+            // Check 'marks' object specifically
+            if (termData?.marks) {
+                Object.keys(termData.marks).forEach(subj => uniqueSubjects.add(subj));
             }
         });
     });
@@ -1078,8 +1080,9 @@ export function buildSubjectToppersCard(students) {
 
                 examsToProcess.forEach(examKey => {
                     const termData = student.marksRecord.terms[examKey];
-                    if (termData?.subjects) {
-                        Object.entries(termData.subjects).forEach(([subj, marks]) => {
+                    // FIX: Check 'marks' not 'subjects'
+                    if (termData?.marks) {
+                        Object.entries(termData.marks).forEach(([subj, marks]) => {
                             const val = Number(marks);
                             if (!isNaN(val)) {
                                 if (!mySubjectTotals[subj]) mySubjectTotals[subj] = 0;
@@ -1100,7 +1103,7 @@ export function buildSubjectToppersCard(students) {
             // C. Build HTML for this Target Group
             let subjects = Object.keys(subjectLeaders).sort();
             
-            // NEW: Apply Subject Filter if any are selected
+            // Apply Subject Filter if any are selected
             if (selectedSubjects.length > 0) {
                 subjects = subjects.filter(subj => selectedSubjects.includes(subj));
             }
@@ -1132,7 +1135,7 @@ export function buildSubjectToppersCard(students) {
 
     // Initial Load
     updateTargetOptions('class', students, 'st_targetFilter');
-    updateSubjectOptions(students, ['ALL'], 'st_subjectFilter'); // Pre-populate subjects based on All Time
+    updateSubjectOptions(students, ['ALL'], 'st_subjectFilter'); // Pre-populate subjects
     updateTable();
 }
 
