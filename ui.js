@@ -2,7 +2,8 @@ import { sanitize, getGradeInfo, getSection, getTeacherSection, customClassSort,
 import { translations, activityRules, EXAM_CONFIG } from './config.js';
 
 // --- GLOBAL UI STATE ---
-let standingsChartInstance = null; // Renamed to avoid conflict with function name
+let standingsChartInstance = null;
+let teacherStandingsChartInstance = null; // Separate instance for teacher view
 let appData = {};
 let currentUser = null;
 
@@ -84,12 +85,36 @@ export function buildSearchResults(results) {
     }
 }
 
-// --- HELPER UI COMPONENTS ---
+// --- HELPER FUNCTIONS ---
 
 function getSelectedValues(selectId) {
     const select = document.getElementById(selectId);
     if (!select) return [];
     return Array.from(select.selectedOptions).map(option => option.value);
+}
+
+/**
+ * Dynamically updates the "Target" dropdown based on the "Criteria" selection.
+ * Used for Class and Subject Toppers.
+ */
+function updateTargetOptions(criteria, students, targetSelectId) {
+    const targetSelect = document.getElementById(targetSelectId);
+    if (!targetSelect) return;
+
+    let options = [];
+    if (criteria === 'section') {
+        // Hardcoded sections based on school logic
+        options = ['LP', 'UP', 'HS']; 
+    } else if (criteria === 'class') {
+        // Numeric sort for classes
+        options = [...new Set(students.map(s => s.class))].sort((a, b) => a - b);
+    } else { // 'division'
+        // Custom sort for "10-A", "9-B" etc.
+        options = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
+    }
+
+    // Default to selecting all options to be helpful
+    targetSelect.innerHTML = options.map(o => `<option value="${o}" selected>${o}</option>`).join('');
 }
 
 function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
@@ -165,13 +190,8 @@ function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
 function getAvailableMonths() {
     const activityMonths = appData.activities.map(a => new Date(a.activityDate || a.submissionTimestamp));
     const examMonths = Object.values(EXAM_CONFIG).map(conf => new Date(conf.date));
-    
     const allDates = [...activityMonths, ...examMonths];
-    
-    // Format dates to "Month Year" and remove duplicates
     const uniqueMonths = [...new Set(allDates.map(d => d.toLocaleString('default', { month: 'long', year: 'numeric' })))];
-    
-    // Sort months chronologically
     return uniqueMonths.sort((a, b) => new Date(Date.parse("1 " + a)) - new Date(Date.parse("1 " + b)));
 }
 
@@ -228,6 +248,7 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
     };
     const markEntryButtons = teacherSections.map(section => `<a href="${markEntryUrls[section]}" target="_blank" class="btn themed-bg action-btn rounded-pill">${section} Mark Entry</a>`).join('');
     
+    // Filter students for this teacher
     const sectionStudents = processedStudents.filter(s => teacherSections.includes(getSection(s.class)));
     const birthdayCarouselsHTML = buildBirthdayCardsHTML(staffBirthdays, studentBirthdays);
 
@@ -248,7 +269,7 @@ export function buildTeacherDashboard(user, allStudents, processedStudents, staf
         <div id="subjectToppersCard" class="mb-4"></div>
         <div id="reportGeneratorCard"></div>`;
 
-    // Initialize Components with Section Students
+    // Only pass the teacher's students to the widgets
     buildStandingsChart(sectionStudents, appData.activities, appData.marks, 'teacherStandingsChart', 'teacherStandingsFilterContainer');
     buildLeaderboardCard(sectionStudents, appData.activities);
     buildClassToppersCard(sectionStudents);
@@ -266,9 +287,9 @@ export function buildParentDashboard(currentChild, siblings, processedStudents) 
             <p class="card-text mb-4">Select a child to view their detailed academic profile.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 ${allChildren.map(child => {
-        const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
-        const borderClass = currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-primary' : '';
-        return `
+                    const studentData = processedStudents.find(s => s.admissionNo.toString() === child.admissionNo.toString());
+                    const borderClass = currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'border-primary' : '';
+                    return `
                     <div class="col">
                         <div class="card h-100 ${borderClass}">
                             <div class="card-body d-flex flex-column">
@@ -279,16 +300,14 @@ export function buildParentDashboard(currentChild, siblings, processedStudents) 
                                 <div class="mt-2 small">
                                     <p>Academic Rank: <span class="fw-bold themed-text">#${studentData.academicRank}</span></p>
                                     <p>Discipline Rank: <span class="fw-bold themed-text">#${studentData.disciplineRank}</span></p>
-                                </div>` : ''
-            }
+                                </div>` : ''}
                                 <button class="btn btn-sm themed-bg w-100 mt-auto view-sibling-profile" data-admission-no="${sanitize(child.admissionNo)}">
                                     ${currentUser && child.admissionNo.toString() === currentUser.admissionNo.toString() ? 'View Full Profile' : 'Switch to Profile'}
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    `;
-    }).join('')}
+                    </div>`;
+                }).join('')}
             </div>
         </div>
     </div>`;
@@ -322,8 +341,7 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, availableMonths,
             <select class="form-select form-select-sm" id="siuRankFilter">
                 ${monthOptions}
             </select>
-        </div>
-    `;
+        </div>`;
 
     const mainHeader = isModal ? '' : `
         <div class="row g-3 justify-content-between align-items-center mb-4">
@@ -378,8 +396,7 @@ export function buildSiuDashboard(siuMemberData, allSiuMembers, availableMonths,
                 <h3 class="h5 card-title fw-bold mb-3">SIU Member Rankings</h3>
                 <div class="table-responsive" style="max-height: 400px;"><table class="table table-striped table-hover"><thead><tr><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Points</th></tr></thead><tbody>${rankingTableHTML}</tbody></table></div>
             </div>
-        </div>
-    `;
+        </div>`;
 }
 
 export function buildStudentDashboard(student, activities, viewer = null, siblings = []) {
@@ -543,7 +560,6 @@ export function buildSiuEvaluationContent(processedSiuMembers, activities, avail
     const totalActivities = processedSiuMembers.reduce((sum, m) => sum + m.totalEntries, 0);
     let totalPositive = 0, totalNegative = 0;
     
-    // Use the *filtered* activities list to calculate points
     activities.forEach(act => {
         const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
         const count = Array.isArray(act.admissionNo) ? act.admissionNo.length : 1;
@@ -580,8 +596,7 @@ export function buildSiuEvaluationContent(processedSiuMembers, activities, avail
             </div>
         </div>
         <h4 class="mt-4">Member Leaderboard</h4>
-        <div class="list-group">${memberListHTML}</div>
-    `;
+        <div class="list-group">${memberListHTML}</div>`;
 }
 
 // --- WIDGETS AND CARDS ---
@@ -592,7 +607,7 @@ export function buildStandingsChart(students, activities, marksData, chartId = '
     if (!container || !chartCtx) return;
 
     // 1. Generate Unique Options
-    const classes = [...new Set(students.map(s => s.class))].sort();
+    const classes = [...new Set(students.map(s => s.class))].sort((a,b) => a-b);
     const divisions = [...new Set(students.map(s => s.division))].sort();
     const exams = Object.keys(window.EXAM_CONFIG || {});
     const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
@@ -621,9 +636,6 @@ export function buildStandingsChart(students, activities, marksData, chartId = '
             </div>
         </div>
     `;
-
-    // Local variable to this function call to avoid global conflicts if multiple charts exist
-    let myChartInstance = null;
 
     const updateChart = () => {
         // 3. Get Selected Values
@@ -677,12 +689,19 @@ export function buildStandingsChart(students, activities, marksData, chartId = '
         const data = houses.map(house => Math.round(pointData[house] || 0));
         const backgroundColors = houses.map(house => ({ 'Blue': '#0d6efd', 'Green': '#198754', 'Rose': '#dc3545', 'Yellow': '#ffc107' }[house] || '#6c757d'));
 
-        if (myChartInstance) myChartInstance.destroy();
-        myChartInstance = new Chart(chartCtx, { 
+        // Handle instances correctly based on which chart we are updating
+        let instanceRef = chartId === 'teacherStandingsChart' ? teacherStandingsChartInstance : standingsChartInstance;
+        if (instanceRef) instanceRef.destroy();
+
+        instanceRef = new Chart(chartCtx, { 
             type: 'bar', 
             data: { labels: houses, datasets: [{ label: 'Points', data, backgroundColor: backgroundColors }] }, 
             options: { responsive: true, maintainAspectRatio: false } 
         });
+
+        // Update global reference
+        if (chartId === 'teacherStandingsChart') teacherStandingsChartInstance = instanceRef;
+        else standingsChartInstance = instanceRef;
     };
 
     // Attach listeners
@@ -698,7 +717,7 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
     const leaderboardCard = document.getElementById('leaderboardCard');
     if (!leaderboardCard) return;
 
-    const classes = [...new Set(students.map(s => s.class))].sort();
+    const classes = [...new Set(students.map(s => s.class))].sort((a,b)=>a-b);
     const divisions = [...new Set(students.map(s => s.division))].sort();
 
     leaderboardCard.innerHTML = `
@@ -786,8 +805,8 @@ export function buildClassToppersCard(students) {
     if (!card) return;
 
     const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
-    const classes = [...new Set(students.map(s => s.class))].sort();
 
+    // 1. Inject UI with 3 Filters
     card.innerHTML = `
         <div class="card shadow-sm h-100">
             <div class="card-header bg-transparent border-0 pt-3 pb-0">
@@ -795,24 +814,27 @@ export function buildClassToppersCard(students) {
             </div>
             <div class="card-body">
                 <div class="row g-2 mb-3">
-                    <div class="col-md-5">
-                        <label class="form-label small text-muted fw-bold">Ranking Basis (Hold Ctrl/Cmd)</label>
-                        <select id="ct_examFilter" class="form-select" multiple size="4">
+                    <div class="col-md-4">
+                        <label class="form-label small text-muted fw-bold">1. Exams (Ctrl+Click)</label>
+                        <select id="ct_examFilter" class="form-select" multiple size="3">
                             <option value="ALL" selected>All Time (Cumulative)</option>
                             ${exams.map(e => `<option value="${e}">${e}</option>`).join('')}
                         </select>
                     </div>
 
                     <div class="col-md-4">
-                         <label class="form-label small text-muted fw-bold">Student Group</label>
-                         <select id="ct_groupFilter" class="form-select">
-                            <option value="school">School-wide</option>
-                            ${classes.map(c => `<option value="${c}">${c}</option>`).join('')}
+                         <label class="form-label small text-muted fw-bold">2. Group By</label>
+                         <select id="ct_criteriaFilter" class="form-select" size="3">
+                            <option value="section">By Section</option>
+                            <option value="class" selected>By Class</option>
+                            <option value="division">By Division</option>
                          </select>
                     </div>
 
-                    <div class="col-md-3 d-flex align-items-end">
-                        <button id="ct_resetBtn" class="btn btn-outline-secondary w-100 btn-sm" style="height: 38px;">Reset</button>
+                    <div class="col-md-4">
+                         <label class="form-label small text-muted fw-bold">3. Select Targets</label>
+                         <select id="ct_targetFilter" class="form-select" multiple size="3">
+                            </select>
                     </div>
                 </div>
 
@@ -820,7 +842,7 @@ export function buildClassToppersCard(students) {
                     <table class="table table-hover align-middle">
                         <thead class="table-light">
                             <tr>
-                                <th>Class</th>
+                                <th>Group</th>
                                 <th>Topper Name</th>
                                 <th class="text-end">Score</th>
                             </tr>
@@ -832,80 +854,102 @@ export function buildClassToppersCard(students) {
         </div>
     `;
 
+    // 2. Event Listeners & Logic
+    const examSelect = document.getElementById('ct_examFilter');
+    const criteriaSelect = document.getElementById('ct_criteriaFilter');
+    const targetSelect = document.getElementById('ct_targetFilter');
+
+    // Update Targets when Criteria changes
+    criteriaSelect.addEventListener('change', () => {
+        updateTargetOptions(criteriaSelect.value, students, 'ct_targetFilter');
+        updateTable();
+    });
+
+    // Update Table when Exams or Targets change
+    examSelect.addEventListener('change', () => updateTable());
+    targetSelect.addEventListener('change', () => updateTable());
+
     const updateTable = () => {
-        const selectedExams = Array.from(document.getElementById('ct_examFilter').selectedOptions).map(o => o.value);
-        const groupValue = document.getElementById('ct_groupFilter').value;
-        const useAll = selectedExams.includes('ALL') || selectedExams.length === 0;
+        const selectedExams = getSelectedValues('ct_examFilter');
+        const selectedTargets = getSelectedValues('ct_targetFilter');
+        const criteria = criteriaSelect.value;
+        const useAllExams = selectedExams.includes('ALL') || selectedExams.length === 0;
 
-        const topperMap = {};
+        const results = [];
 
-        students.forEach(student => {
-             if (groupValue !== 'school' && student.class !== groupValue) return;
+        // Iterate through each SELECTED Target
+        selectedTargets.forEach(target => {
+            // A. Filter Students belonging to this specific target
+            const groupStudents = students.filter(s => {
+                if (criteria === 'section') return getSection(s.class) === target;
+                if (criteria === 'class') return String(s.class) === String(target);
+                if (criteria === 'division') return `${s.class}-${s.division}` === target;
+                return false;
+            });
 
-             let score = 0;
-             if (student.marksRecord?.terms) {
-                 if (useAll) {
-                     Object.values(student.marksRecord.terms).forEach(t => score += (t.total || 0));
-                 } else {
-                     selectedExams.forEach(examName => {
-                         const term = student.marksRecord.terms[examName];
-                         if (term && typeof term.total === 'number') {
-                             score += term.total;
-                         }
-                     });
-                 }
-             }
+            if (groupStudents.length === 0) return;
 
-             const key = `${student.class}-${student.division}`;
-             if (!topperMap[key] || score > topperMap[key].score) {
-                 topperMap[key] = {
-                     name: student.name,
-                     class: student.class,
-                     division: student.division,
-                     score: score
-                 };
-             }
+            // B. Find the Topper within this group
+            let groupTopper = null;
+            let maxScore = -1;
+
+            groupStudents.forEach(student => {
+                let score = 0;
+                if (student.marksRecord?.terms) {
+                    if (useAllExams) {
+                        Object.values(student.marksRecord.terms).forEach(t => score += (t.total || 0));
+                    } else {
+                        selectedExams.forEach(exam => {
+                            const term = student.marksRecord.terms[exam];
+                            if (term && typeof term.total === 'number') score += term.total;
+                        });
+                    }
+                }
+
+                if (score > maxScore) {
+                    maxScore = score;
+                    groupTopper = student;
+                }
+            });
+
+            if (groupTopper) {
+                results.push({ label: target, student: groupTopper, score: maxScore });
+            }
         });
 
-        const sortedToppers = Object.values(topperMap).sort((a, b) => {
-            if (a.class !== b.class) return a.class.localeCompare(b.class);
-            return a.division.localeCompare(b.division);
-        });
-
+        // C. Render
         const tbody = document.getElementById('ct_tableBody');
-        if (sortedToppers.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data available for selection</td></tr>`;
+        if (results.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">Select exams and targets to view data</td></tr>`;
             return;
         }
 
-        tbody.innerHTML = sortedToppers.map(t => `
+        // Sort results naturally
+        results.sort((a, b) => customClassSort(a.label, b.label));
+
+        tbody.innerHTML = results.map(r => `
             <tr>
-                <td class="fw-bold text-secondary">${sanitize(t.class)}-${sanitize(t.division)}</td>
-                <td>${sanitize(t.name)}</td>
-                <td class="text-end fw-bold">${Math.round(t.score)}</td>
+                <td class="fw-bold text-secondary">${sanitize(r.label)}</td>
+                <td>
+                    ${sanitize(r.student.name)}
+                    <small class="text-muted ms-1">(${sanitize(r.student.class)}-${sanitize(r.student.division)})</small>
+                </td>
+                <td class="text-end fw-bold">${Math.round(r.score)}</td>
             </tr>
         `).join('');
     };
 
-    document.getElementById('ct_examFilter').addEventListener('change', updateTable);
-    document.getElementById('ct_groupFilter').addEventListener('change', updateTable);
-    
-    document.getElementById('ct_resetBtn').addEventListener('click', () => {
-        const examSelect = document.getElementById('ct_examFilter');
-        Array.from(examSelect.options).forEach(opt => opt.selected = (opt.value === 'ALL'));
-        document.getElementById('ct_groupFilter').value = 'school';
-        updateTable();
-    });
-
+    // Initial Load
+    updateTargetOptions('class', students, 'ct_targetFilter'); 
     updateTable();
 }
+
 
 export function buildSubjectToppersCard(students) {
     const card = document.getElementById('subjectToppersCard');
     if (!card) return;
 
     const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
-    const classes = [...new Set(students.map(s => s.class))].sort();
 
     card.innerHTML = `
         <div class="card shadow-sm h-100">
@@ -914,23 +958,25 @@ export function buildSubjectToppersCard(students) {
             </div>
             <div class="card-body">
                 <div class="row g-2 mb-3">
-                    <div class="col-md-5">
-                        <label class="form-label small text-muted fw-bold">Ranking Basis (Hold Ctrl/Cmd)</label>
-                        <select id="st_examFilter" class="form-select" multiple size="4">
-                            <option value="ALL" selected>All Time (Cumulative)</option>
+                    <div class="col-md-4">
+                        <label class="form-label small text-muted fw-bold">1. Exams</label>
+                        <select id="st_examFilter" class="form-select" multiple size="3">
+                            <option value="ALL" selected>All Time</option>
                             ${exams.map(e => `<option value="${e}">${e}</option>`).join('')}
                         </select>
                     </div>
-
                     <div class="col-md-4">
-                         <label class="form-label small text-muted fw-bold">Select Class</label>
-                         <select id="st_classFilter" class="form-select">
-                            ${classes.map(c => `<option value="${c}">${c}</option>`).join('')}
+                         <label class="form-label small text-muted fw-bold">2. Group By</label>
+                         <select id="st_criteriaFilter" class="form-select" size="3">
+                            <option value="section">By Section</option>
+                            <option value="class" selected>By Class</option>
+                            <option value="division">By Division</option>
                          </select>
                     </div>
-
-                    <div class="col-md-3 d-flex align-items-end">
-                        <button id="st_resetBtn" class="btn btn-outline-secondary w-100 btn-sm" style="height: 38px;">Reset</button>
+                    <div class="col-md-4">
+                         <label class="form-label small text-muted fw-bold">3. Select Targets</label>
+                         <select id="st_targetFilter" class="form-select" multiple size="3">
+                            </select>
                     </div>
                 </div>
 
@@ -938,7 +984,7 @@ export function buildSubjectToppersCard(students) {
                     <table class="table table-hover align-middle">
                         <thead class="table-light">
                             <tr>
-                                <th>Subject</th>
+                                <th>Group / Subject</th>
                                 <th>Topper Name</th>
                                 <th class="text-end">Score</th>
                             </tr>
@@ -950,77 +996,101 @@ export function buildSubjectToppersCard(students) {
         </div>
     `;
 
-    const updateTable = () => {
-        const selectedExams = Array.from(document.getElementById('st_examFilter').selectedOptions).map(o => o.value);
-        const selectedClass = document.getElementById('st_classFilter').value;
-        const useAll = selectedExams.includes('ALL') || selectedExams.length === 0;
+    const examSelect = document.getElementById('st_examFilter');
+    const criteriaSelect = document.getElementById('st_criteriaFilter');
+    const targetSelect = document.getElementById('st_targetFilter');
 
-        const subjectLeaders = {};
-        const classStudents = students.filter(s => s.class === selectedClass);
-
-        classStudents.forEach(student => {
-            if (!student.marksRecord?.terms) return;
-            const studentTotals = {};
-            const examsToProcess = useAll ? Object.keys(student.marksRecord.terms) : selectedExams;
-
-            examsToProcess.forEach(examKey => {
-                const termData = student.marksRecord.terms[examKey];
-                if (termData && termData.subjects) {
-                    Object.entries(termData.subjects).forEach(([subject, marks]) => {
-                        const score = Number(marks); 
-                        if (!isNaN(score)) {
-                            if (!studentTotals[subject]) studentTotals[subject] = 0;
-                            studentTotals[subject] += score;
-                        }
-                    });
-                }
-            });
-
-            Object.entries(studentTotals).forEach(([subject, totalScore]) => {
-                if (!subjectLeaders[subject] || totalScore > subjectLeaders[subject].score) {
-                    subjectLeaders[subject] = {
-                        name: student.name,
-                        division: student.division,
-                        score: totalScore
-                    };
-                }
-            });
-        });
-
-        const tbody = document.getElementById('st_tableBody');
-        const sortedSubjects = Object.keys(subjectLeaders).sort();
-
-        if (sortedSubjects.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data found for Class ${selectedClass}</td></tr>`;
-            return;
-        }
-
-        tbody.innerHTML = sortedSubjects.map(subj => {
-            const data = subjectLeaders[subj];
-            return `
-            <tr>
-                <td class="fw-bold text-secondary">${sanitize(subj)}</td>
-                <td>
-                    ${sanitize(data.name)} 
-                    <small class="text-muted ms-1">(${sanitize(selectedClass)}-${sanitize(data.division)})</small>
-                </td>
-                <td class="text-end fw-bold">${Math.round(data.score)}</td>
-            </tr>`;
-        }).join('');
-    };
-
-    document.getElementById('st_examFilter').addEventListener('change', updateTable);
-    document.getElementById('st_classFilter').addEventListener('change', updateTable);
-
-    document.getElementById('st_resetBtn').addEventListener('click', () => {
-        const examSelect = document.getElementById('st_examFilter');
-        Array.from(examSelect.options).forEach(opt => opt.selected = (opt.value === 'ALL'));
-        if (classes.length > 0) {
-            document.getElementById('st_classFilter').value = classes[0];
-        }
+    criteriaSelect.addEventListener('change', () => {
+        updateTargetOptions(criteriaSelect.value, students, 'st_targetFilter');
         updateTable();
     });
 
+    examSelect.addEventListener('change', () => updateTable());
+    targetSelect.addEventListener('change', () => updateTable());
+
+    const updateTable = () => {
+        const selectedExams = getSelectedValues('st_examFilter');
+        const selectedTargets = getSelectedValues('st_targetFilter');
+        const criteria = criteriaSelect.value;
+        const useAllExams = selectedExams.includes('ALL') || selectedExams.length === 0;
+
+        let tableHTML = '';
+
+        // Iterate through each SELECTED Target (e.g., "Class 5", then "Class 6")
+        selectedTargets.forEach(target => {
+            
+            // A. Filter Students
+            const groupStudents = students.filter(s => {
+                if (criteria === 'section') return getSection(s.class) === target;
+                if (criteria === 'class') return String(s.class) === String(target);
+                if (criteria === 'division') return `${s.class}-${s.division}` === target;
+                return false;
+            });
+
+            if (groupStudents.length === 0) return;
+
+            // B. Aggregate Subject Marks for this group
+            // Map: SubjectName -> { topper: StudentObj, score: MaxScore }
+            const subjectLeaders = {};
+
+            groupStudents.forEach(student => {
+                if (!student.marksRecord?.terms) return;
+                
+                // Temp map to sum scores for this specific student across selected exams
+                const mySubjectTotals = {}; 
+
+                const examsToProcess = useAllExams ? Object.keys(student.marksRecord.terms) : selectedExams;
+
+                examsToProcess.forEach(examKey => {
+                    const termData = student.marksRecord.terms[examKey];
+                    if (termData?.subjects) {
+                        Object.entries(termData.subjects).forEach(([subj, marks]) => {
+                            const val = Number(marks);
+                            if (!isNaN(val)) {
+                                if (!mySubjectTotals[subj]) mySubjectTotals[subj] = 0;
+                                mySubjectTotals[subj] += val;
+                            }
+                        });
+                    }
+                });
+
+                // Compare my totals to current leaders
+                Object.entries(mySubjectTotals).forEach(([subj, total]) => {
+                    if (!subjectLeaders[subj] || total > subjectLeaders[subj].score) {
+                        subjectLeaders[subj] = { student: student, score: total };
+                    }
+                });
+            });
+
+            // C. Build HTML for this Target Group
+            const subjects = Object.keys(subjectLeaders).sort();
+            if (subjects.length > 0) {
+                // Add a Header Row for the Group
+                tableHTML += `<tr class="table-secondary"><td colspan="3" class="fw-bold text-center small text-uppercase letter-spacing-1">${sanitize(target)}</td></tr>`;
+                
+                subjects.forEach(subj => {
+                    const data = subjectLeaders[subj];
+                    tableHTML += `
+                        <tr>
+                            <td class="ps-4 fw-medium text-secondary">${sanitize(subj)}</td>
+                            <td>${sanitize(data.student.name)}</td>
+                            <td class="text-end fw-bold">${Math.round(data.score)}</td>
+                        </tr>
+                    `;
+                });
+            }
+        });
+
+        const tbody = document.getElementById('st_tableBody');
+        if (!tableHTML) {
+            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data found</td></tr>`;
+        } else {
+            tbody.innerHTML = tableHTML;
+        }
+    };
+
+    // Initial Load
+    updateTargetOptions('class', students, 'st_targetFilter');
     updateTable();
 }
 
