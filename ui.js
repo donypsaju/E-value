@@ -598,144 +598,180 @@ export function buildSiuEvaluationContent(processedSiuMembers, activities, avail
     `;
 }
 // --- DASHBOARD WIDGETS AND CHARTS ---
+// Helper to get array of values from a <select multiple>
+function getSelectedValues(selectId) {
+    const select = document.getElementById(selectId);
+    if (!select) return [];
+    return Array.from(select.selectedOptions).map(option => option.value);
+}
 
-export function buildStandingsChart(students, activities, marksData, chartId = 'standingsChart', filterId = 'standingsFilter') {
-    const filter = document.getElementById(filterId);
+
+export function buildStandingsChart(students, activities, marksData, chartId = 'standingsChart', filterContainerId = 'standingsFilterContainer') {
+    const container = document.getElementById(filterContainerId);
     const chartCtx = document.getElementById(chartId)?.getContext('2d');
-    if (!filter || !chartCtx) return;
-    
-    let chartInstance = null;
-    const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
-    
-    const updateChart = () => {
-        const value = filter.value;
-        let pointData = {};
+    if (!container || !chartCtx) return;
 
-        if (value === 'school') { // Overall points
-            pointData = students.reduce((acc, s) => {
-                if (s.house) {
-                    if (!acc[s.house]) acc[s.house] = 0;
-                    acc[s.house] += s.housePoints;
-                }
-                return acc;
-            }, {});
-        } else if (value.includes('Section')) { // Section-wide points
-             const section = value.split(' ')[0];
-             const sectionStudents = students.filter(s => getSection(s.class).toLowerCase() === section);
-             pointData = sectionStudents.reduce((acc, s) => { 
-                 if (s.house) {
-                    if (!acc[s.house]) acc[s.house] = 0;
-                    acc[s.house] += s.housePoints;
-                }
-                return acc;
-             }, {});
-        } else if (value.includes('-')) { // Class-specific points
-            const classStudents = students.filter(s => `${s.class}-${s.division}` === value);
-            pointData = classStudents.reduce((acc, s) => {
-                if (s.house) {
-                    if (!acc[s.house]) acc[s.house] = 0;
-                    acc[s.house] += s.housePoints;
-                }
-                return acc;
-             }, {});
-        } else { // Monthly points (The new logic)
-            pointData = houses.reduce((acc, house) => {
-                acc[house] = 0;
-                return acc;
-            }, {});
-            
-            // 1. Add Activity Points for the month
+    // 1. Generate Unique Options
+    const classes = [...new Set(students.map(s => s.class))].sort();
+    const divisions = [...new Set(students.map(s => s.division))].sort();
+    const exams = Object.keys(window.EXAM_CONFIG || {}); // Assuming EXAM_CONFIG is global based on your snippet
+    const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
+
+    // 2. Inject Multi-Select Controls (User hostile UI, but functional per requirements)
+    container.innerHTML = `
+        <div class="d-flex gap-2 flex-wrap mb-3">
+            <div class="flex-grow-1">
+                <label class="form-label small fw-bold">Classes (Hold Ctrl/Cmd to select multiple)</label>
+                <select id="std_classFilter" class="form-select" multiple size="3">
+                    ${classes.map(c => `<option value="${c}" selected>${c}</option>`).join('')}
+                </select>
+            </div>
+            <div class="flex-grow-1">
+                <label class="form-label small fw-bold">Divisions</label>
+                <select id="std_divFilter" class="form-select" multiple size="3">
+                    ${divisions.map(d => `<option value="${d}" selected>${d}</option>`).join('')}
+                </select>
+            </div>
+            <div class="flex-grow-1">
+                <label class="form-label small fw-bold">Data Source (Exams/Activities)</label>
+                <select id="std_dataFilter" class="form-select" multiple size="3">
+                    <option value="ACTIVITIES" selected>All Activities</option>
+                    ${exams.map(e => `<option value="${e}">${e}</option>`).join('')}
+                </select>
+            </div>
+        </div>
+    `;
+
+    let chartInstance = null;
+
+    const updateChart = () => {
+        // 3. Get Selected Values
+        const selectedClasses = getSelectedValues('std_classFilter');
+        const selectedDivs = getSelectedValues('std_divFilter');
+        const selectedSources = getSelectedValues('std_dataFilter');
+
+        // 4. Filter Population (Who?)
+        const filteredStudents = students.filter(s => 
+            selectedClasses.includes(s.class) && 
+            selectedDivs.includes(s.division)
+        );
+
+        // 5. Calculate Points based on Data Source (What?)
+        const pointData = houses.reduce((acc, h) => ({ ...acc, [h]: 0 }), {});
+
+        // A. Process Activity Points (If selected)
+        if (selectedSources.includes('ACTIVITIES')) {
+            // Filter activities to only include those done by the Filtered Students
+            // Optimization: Set of admission numbers for O(1) lookup
+            const targetAdmins = new Set(filteredStudents.map(s => String(s.admissionNo)));
+
             activities.forEach(act => {
-                const activityMonth = new Date(act.activityDate || act.submissionTimestamp).toLocaleString('default', { month: 'long', year: 'numeric' });
-                if (activityMonth === value) {
-                    const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
-                    const actAdmNos = Array.isArray(act.admissionNo) ? act.admissionNo.map(String) : [String(act.admissionNo)];
-                    actAdmNos.forEach(admNo => {
-                        const student = students.find(s => s.admissionNo.toString() === admNo);
+                const actAdmNos = Array.isArray(act.admissionNo) ? act.admissionNo.map(String) : [String(act.admissionNo)];
+                // Check if any student in this activity is in our filtered population
+                actAdmNos.forEach(admNo => {
+                    if (targetAdmins.has(admNo)) {
+                        const student = filteredStudents.find(s => String(s.admissionNo) === admNo);
                         if (student && student.house) {
+                            const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
                             pointData[student.house] += points;
+                        }
+                    }
+                });
+            });
+        }
+
+        // B. Process Exam Marks (If specific exams are selected)
+        const examKeys = selectedSources.filter(s => s !== 'ACTIVITIES');
+        if (examKeys.length > 0) {
+            filteredStudents.forEach(student => {
+                if (student.house && student.marksRecord?.terms) {
+                    examKeys.forEach(exam => {
+                        const termData = student.marksRecord.terms[exam];
+                        if (termData && typeof termData.total === 'number') {
+                            pointData[student.house] += termData.total;
                         }
                     });
                 }
             });
-
-            // 2. Add Exam Marks for the month
-            // Iterate through EXAM_CONFIG to find exams that happened in the selected month
-            for (const [examName, config] of Object.entries(EXAM_CONFIG)) {
-                const examDate = new Date(config.date);
-                const examMonth = examDate.toLocaleString('default', { month: 'long', year: 'numeric' });
-                
-                if (examMonth === value) {
-                    // This exam happened in the selected month. Add its marks.
-                    students.forEach(student => {
-                         if (student.house && student.marksRecord && student.marksRecord.terms && student.marksRecord.terms[examName]) {
-                             const total = student.marksRecord.terms[examName].total;
-                             if (typeof total === 'number') {
-                                 pointData[student.house] += total;
-                             }
-                         }
-                    });
-                }
-            }
         }
-        
+
+        // 6. Render Chart
         const data = houses.map(house => Math.round(pointData[house] || 0));
         const backgroundColors = houses.map(house => ({ 'Blue': '#0d6efd', 'Green': '#198754', 'Rose': '#dc3545', 'Yellow': '#ffc107' }[house] || '#6c757d'));
 
         if (chartInstance) chartInstance.destroy();
-        chartInstance = new Chart(chartCtx, { type: 'bar', data: { labels: houses, datasets: [{ label: 'Points', data, backgroundColor: backgroundColors }] }, options: { responsive: true, maintainAspectRatio: false } });
+        chartInstance = new Chart(chartCtx, { 
+            type: 'bar', 
+            data: { labels: houses, datasets: [{ label: 'Points', data, backgroundColor: backgroundColors }] }, 
+            options: { responsive: true, maintainAspectRatio: false } 
+        });
     };
 
-    filter.addEventListener('change', updateChart);
+    // Attach listeners
+    ['std_classFilter', 'std_divFilter', 'std_dataFilter'].forEach(id => {
+        document.getElementById(id).addEventListener('change', updateChart);
+    });
+
     updateChart();
 }
 
-export function buildLeaderboardCard(students, activities, isSection = false) {
+
+export function buildLeaderboardCard(students, activities) {
     const leaderboardCard = document.getElementById('leaderboardCard');
     if (!leaderboardCard) return;
 
-    const classes = [...new Set(students.map(s => `${s.class}-${s.division}`))].sort(customClassSort);
-    const filterOptions = isSection
-        ? `<option value="section">Section-wide</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`
-        : `<option value="school">School-wide</option><option value="lp">LP</option><option value="up">UP</option><option value="hs">HS</option>${classes.map(c => `<option value="${c}">${c}</option>`).join('')}`;
+    const classes = [...new Set(students.map(s => s.class))].sort();
+    const divisions = [...new Set(students.map(s => s.division))].sort();
 
+    // Inject Filters
     leaderboardCard.innerHTML = `
     <div class="card shadow-sm">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h2 class="h4 card-title mb-0 fw-bold">Discipline Leaderboards</h2>
-                <select id="leaderboardFilter" class="form-select w-auto">${filterOptions}</select>
+            </div>
+            <div class="row g-2 mb-4">
+                 <div class="col-md-6">
+                    <label class="small text-muted">Filter Class (Multi-select)</label>
+                    <select id="lb_classFilter" class="form-select" multiple size="3">
+                        ${classes.map(c => `<option value="${c}" selected>${c}</option>`).join('')}
+                    </select>
+                 </div>
+                 <div class="col-md-6">
+                    <label class="small text-muted">Filter Division (Multi-select)</label>
+                    <select id="lb_divFilter" class="form-select" multiple size="3">
+                        ${divisions.map(d => `<option value="${d}" selected>${d}</option>`).join('')}
+                    </select>
+                 </div>
             </div>
             <div id="leaderboardContent"></div>
         </div>
     </div>`;
 
     const updateLeaderboards = () => {
-        const value = document.getElementById('leaderboardFilter').value;
-        let filteredStudents = students;
-        let filteredActivities = activities;
+        const selectedClasses = getSelectedValues('lb_classFilter');
+        const selectedDivs = getSelectedValues('lb_divFilter');
 
-        if (value === 'lp' || value === 'up' || value === 'hs') {
-            const studentAdmNos = new Set(students.filter(s => getSection(s.class).toLowerCase() === value).map(s => s.admissionNo.toString()));
-            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-            filteredActivities = activities.filter(a => {
-                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [String(a.admissionNo)];
-                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-            });
-        } else if (value !== 'school' && value !== 'section') {
-            const studentAdmNos = new Set(students.filter(s => `${s.class}-${s.division}` === value).map(s => s.admissionNo.toString()));
-            filteredStudents = students.filter(s => studentAdmNos.has(s.admissionNo.toString()));
-            filteredActivities = activities.filter(a => {
-                const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [String(a.admissionNo)];
-                return activityAdmNos.some(admNo => studentAdmNos.has(admNo));
-            });
-        }
+        // 1. Filter Students
+        const filteredStudents = students.filter(s => 
+            selectedClasses.includes(s.class) && 
+            selectedDivs.includes(s.division)
+        );
 
+        // 2. Filter Activities (Only keep activities involving the filtered students)
+        const validAdmNos = new Set(filteredStudents.map(s => String(s.admissionNo)));
+        const filteredActivities = activities.filter(a => {
+            const activityAdmNos = Array.isArray(a.admissionNo) ? a.admissionNo.map(String) : [String(a.admissionNo)];
+            // Keep activity if AT LEAST ONE of the students involved is in the filtered list
+            return activityAdmNos.some(admNo => validAdmNos.has(admNo));
+        });
+
+        // 3. Generate Lists (Existing logic, applied to filtered data)
         const topPositiveStudents = [...filteredStudents].sort((a, b) => b.disciplinePoints - a.disciplinePoints).slice(0, 5);
         const topNegativeStudents = [...filteredStudents].sort((a, b) => a.disciplinePoints - b.disciplinePoints).slice(0, 5);
         
         const activityPoints = filteredActivities.reduce((acc, act) => {
-            const points = (act.Rating / 10) * (activityRules[act.Activity] || 0); // Use 10 for rating
+            const points = (act.Rating / 10) * (activityRules[act.Activity] || 0);
             if (!acc[act.Activity]) acc[act.Activity] = 0;
             acc[act.Activity] += points;
             return acc;
@@ -745,6 +781,7 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
         const topPositiveActivities = sortedActivities.filter(a => a[1] > 0).slice(0, 5);
         const topNegativeActivities = sortedActivities.filter(a => a[1] < 0).sort((a, b) => a[1] - b[1]).slice(0, 5);
 
+        // Render (No changes to rendering logic, just data source)
         document.getElementById('leaderboardContent').innerHTML = `
         <div class="row g-4">
             <div class="col-md-6">
@@ -755,7 +792,7 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
                 <h3 class="h6 fw-semibold mb-2 text-danger">Top Students (Negative)</h3>
                 <ul class="list-group list-group-flush">${topNegativeStudents.map(s => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(s.name)} (${sanitize(s.class)}-${sanitize(s.division)})</span><span class="fw-bold text-danger">${s.disciplinePoints.toFixed(1)}</span></li>`).join('')}</ul>
             </div>
-            <div class="col-md-6">
+             <div class="col-md-6">
                 <h3 class="h6 fw-semibold mb-2 text-success">Top Positive Activities</h3>
                 <ul class="list-group list-group-flush">${topPositiveActivities.map(([name, pts]) => `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${sanitize(name)}</span><span class="fw-bold text-success">${pts.toFixed(1)}</span></li>`).join('')}</ul>
             </div>
@@ -766,9 +803,11 @@ export function buildLeaderboardCard(students, activities, isSection = false) {
         </div>`;
     };
 
-    document.getElementById('leaderboardFilter').addEventListener('change', updateLeaderboards);
+    document.getElementById('lb_classFilter').addEventListener('change', updateLeaderboards);
+    document.getElementById('lb_divFilter').addEventListener('change', updateLeaderboards);
     updateLeaderboards();
 }
+
 
 
 export function buildClassToppersCard(students) {
