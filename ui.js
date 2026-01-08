@@ -112,6 +112,34 @@ function updateTargetOptions(criteria, students, targetSelectId) {
     targetSelect.innerHTML = options.map(o => `<option value="${o}" selected>${o}</option>`).join('');
 }
 
+/**
+ * Dynamically updates the "Subject" dropdown based on Selected Exams and Students.
+ */
+function updateSubjectOptions(students, selectedExams, subjectSelectId) {
+    const subjectSelect = document.getElementById(subjectSelectId);
+    if (!subjectSelect) return;
+
+    const useAllExams = selectedExams.includes('ALL') || selectedExams.length === 0;
+    const uniqueSubjects = new Set();
+
+    students.forEach(s => {
+        if (!s.marksRecord?.terms) return;
+        
+        const examsToScan = useAllExams ? Object.keys(s.marksRecord.terms) : selectedExams;
+        
+        examsToScan.forEach(examKey => {
+            const termData = s.marksRecord.terms[examKey];
+            if (termData?.subjects) {
+                Object.keys(termData.subjects).forEach(subj => uniqueSubjects.add(subj));
+            }
+        });
+    });
+
+    const sortedSubjects = Array.from(uniqueSubjects).sort();
+    subjectSelect.innerHTML = sortedSubjects.map(s => `<option value="${s}" selected>${s}</option>`).join('');
+}
+
+
 function buildBirthdayCardsHTML(staffBirthdays, studentBirthdays) {
     const safeStaffBirthdays = staffBirthdays || [];
     const safeStudentBirthdays = studentBirthdays || [];
@@ -594,7 +622,7 @@ export function buildStandingsChart(students, activities, marksData, chartId = '
     // 1. Generate Unique Options
     const classes = [...new Set(students.map(s => s.class))].sort((a,b) => a-b);
     const divisions = [...new Set(students.map(s => s.division))].sort();
-    const exams = Object.keys(window.EXAM_CONFIG || {});
+    const exams = Object.keys(EXAM_CONFIG || {});
     const houses = ['Blue', 'Green', 'Rose', 'Yellow'];
 
     // 2. Inject Multi-Select Controls
@@ -789,8 +817,8 @@ export function buildClassToppersCard(students) {
     const card = document.getElementById('classToppersCard');
     if (!card) return;
 
-    // Fetch exams dynamically from config
-    const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
+    // Use the imported EXAM_CONFIG
+    const exams = Object.keys(EXAM_CONFIG || {}).sort();
 
     // 1. Inject UI with 3 Filters
     card.innerHTML = `
@@ -885,7 +913,6 @@ export function buildClassToppersCard(students) {
                     if (useAllExams) {
                         Object.values(student.marksRecord.terms).forEach(t => score += (t.total || 0));
                     } else {
-                        // Logic to support multiple selected exams (e.g. First Term + Second Term)
                         selectedExams.forEach(exam => {
                             const term = student.marksRecord.terms[exam];
                             if (term && typeof term.total === 'number') score += term.total;
@@ -936,7 +963,8 @@ export function buildSubjectToppersCard(students) {
     const card = document.getElementById('subjectToppersCard');
     if (!card) return;
 
-    const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
+    // Use the imported EXAM_CONFIG
+    const exams = Object.keys(EXAM_CONFIG || {}).sort();
 
     card.innerHTML = `
         <div class="card shadow-sm h-100">
@@ -945,14 +973,14 @@ export function buildSubjectToppersCard(students) {
             </div>
             <div class="card-body">
                 <div class="row g-2 mb-3">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label class="form-label small text-muted fw-bold">1. Exams</label>
                         <select id="st_examFilter" class="form-select" multiple size="3">
                             <option value="ALL" selected>All Time</option>
                             ${exams.map(e => `<option value="${e}">${e}</option>`).join('')}
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                          <label class="form-label small text-muted fw-bold">2. Group By</label>
                          <select id="st_criteriaFilter" class="form-select" size="3">
                             <option value="section">By Section</option>
@@ -960,9 +988,16 @@ export function buildSubjectToppersCard(students) {
                             <option value="division">By Division</option>
                          </select>
                     </div>
-                    <div class="col-md-4">
+                    
+                    <div class="col-md-6">
                          <label class="form-label small text-muted fw-bold">3. Select Targets</label>
                          <select id="st_targetFilter" class="form-select" multiple size="3">
+                            </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                         <label class="form-label small text-muted fw-bold">4. Subjects</label>
+                         <select id="st_subjectFilter" class="form-select" multiple size="3">
                             </select>
                     </div>
                 </div>
@@ -986,24 +1021,37 @@ export function buildSubjectToppersCard(students) {
     const examSelect = document.getElementById('st_examFilter');
     const criteriaSelect = document.getElementById('st_criteriaFilter');
     const targetSelect = document.getElementById('st_targetFilter');
+    const subjectSelect = document.getElementById('st_subjectFilter');
 
+    // -- Event Listeners --
+
+    // 1. Criteria Changed -> Update Targets
     criteriaSelect.addEventListener('change', () => {
         updateTargetOptions(criteriaSelect.value, students, 'st_targetFilter');
         updateTable();
     });
 
-    examSelect.addEventListener('change', () => updateTable());
+    // 2. Exams Changed -> Update Subjects
+    examSelect.addEventListener('change', () => {
+        const selectedExams = getSelectedValues('st_examFilter');
+        updateSubjectOptions(students, selectedExams, 'st_subjectFilter');
+        updateTable();
+    });
+
+    // 3. Targets/Subjects Changed -> Just Update Table
     targetSelect.addEventListener('change', () => updateTable());
+    subjectSelect.addEventListener('change', () => updateTable());
 
     const updateTable = () => {
         const selectedExams = getSelectedValues('st_examFilter');
         const selectedTargets = getSelectedValues('st_targetFilter');
+        const selectedSubjects = getSelectedValues('st_subjectFilter'); // Specific subjects filter
         const criteria = criteriaSelect.value;
         const useAllExams = selectedExams.includes('ALL') || selectedExams.length === 0;
 
         let tableHTML = '';
 
-        // Iterate through each SELECTED Target (e.g., "Class 5", then "Class 6")
+        // Iterate through each SELECTED Target
         selectedTargets.forEach(target => {
             
             // A. Filter Students
@@ -1050,7 +1098,13 @@ export function buildSubjectToppersCard(students) {
             });
 
             // C. Build HTML for this Target Group
-            const subjects = Object.keys(subjectLeaders).sort();
+            let subjects = Object.keys(subjectLeaders).sort();
+            
+            // NEW: Apply Subject Filter if any are selected
+            if (selectedSubjects.length > 0) {
+                subjects = subjects.filter(subj => selectedSubjects.includes(subj));
+            }
+
             if (subjects.length > 0) {
                 // Add a Header Row for the Group
                 tableHTML += `<tr class="table-secondary"><td colspan="3" class="fw-bold text-center small text-uppercase letter-spacing-1">${sanitize(target)}</td></tr>`;
@@ -1070,7 +1124,7 @@ export function buildSubjectToppersCard(students) {
 
         const tbody = document.getElementById('st_tableBody');
         if (!tableHTML) {
-            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data found</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data found based on selection</td></tr>`;
         } else {
             tbody.innerHTML = tableHTML;
         }
@@ -1078,6 +1132,7 @@ export function buildSubjectToppersCard(students) {
 
     // Initial Load
     updateTargetOptions('class', students, 'st_targetFilter');
+    updateSubjectOptions(students, ['ALL'], 'st_subjectFilter'); // Pre-populate subjects based on All Time
     updateTable();
 }
 
