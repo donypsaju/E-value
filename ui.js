@@ -94,6 +94,15 @@ function getSelectedValues(selectId) {
 }
 
 /**
+ * Helper to normalize subject names. 
+ * Merges "Mal I" and "Mal II" into "Malayalam".
+ */
+function normalizeSubjectName(subject) {
+    if (subject === 'Mal I' || subject === 'Mal II') return 'Malayalam';
+    return subject;
+}
+
+/**
  * Dynamically updates the "Target" dropdown based on the "Criteria" selection.
  */
 function updateTargetOptions(criteria, students, targetSelectId) {
@@ -113,8 +122,8 @@ function updateTargetOptions(criteria, students, targetSelectId) {
 }
 
 /**
- * Dynamically updates the "Subject" dropdown based on Selected Exams and Students.
- * FIXED: Now looks at 'marks' property instead of 'subjects'.
+ * Dynamically updates the "Subject" dropdown.
+ * Uses normalization to merge Mal I/II into Malayalam.
  */
 function updateSubjectOptions(students, selectedExams, subjectSelectId) {
     const subjectSelect = document.getElementById(subjectSelectId);
@@ -130,9 +139,10 @@ function updateSubjectOptions(students, selectedExams, subjectSelectId) {
         
         examsToScan.forEach(examKey => {
             const termData = s.marksRecord.terms[examKey];
-            // Check 'marks' object specifically
             if (termData?.marks) {
-                Object.keys(termData.marks).forEach(subj => uniqueSubjects.add(subj));
+                Object.keys(termData.marks).forEach(subj => {
+                    uniqueSubjects.add(normalizeSubjectName(subj));
+                });
             }
         });
     });
@@ -905,8 +915,8 @@ export function buildClassToppersCard(students) {
 
             if (groupStudents.length === 0) return;
 
-            // B. Find the Topper within this group
-            let groupTopper = null;
+            // B. Find the Topper(s) within this group
+            let groupToppers = []; // Changed to Array
             let maxScore = -1;
 
             groupStudents.forEach(student => {
@@ -924,12 +934,14 @@ export function buildClassToppersCard(students) {
 
                 if (score > maxScore) {
                     maxScore = score;
-                    groupTopper = student;
+                    groupToppers = [student]; // New max found, reset array
+                } else if (score === maxScore && score > 0) {
+                    groupToppers.push(student); // Tie found, append
                 }
             });
 
-            if (groupTopper) {
-                results.push({ label: target, student: groupTopper, score: maxScore });
+            if (groupToppers.length > 0) {
+                results.push({ label: target, students: groupToppers, score: maxScore });
             }
         });
 
@@ -947,8 +959,7 @@ export function buildClassToppersCard(students) {
             <tr>
                 <td class="fw-bold text-secondary">${sanitize(r.label)}</td>
                 <td>
-                    ${sanitize(r.student.name)}
-                    <small class="text-muted ms-1">(${sanitize(r.student.class)}-${sanitize(r.student.division)})</small>
+                    ${r.students.map(s => `${sanitize(s.name)} <small class="text-muted">(${sanitize(s.class)}-${sanitize(s.division)})</small>`).join('<br>')}
                 </td>
                 <td class="text-end fw-bold">${Math.round(r.score)}</td>
             </tr>
@@ -1067,7 +1078,7 @@ export function buildSubjectToppersCard(students) {
             if (groupStudents.length === 0) return;
 
             // B. Aggregate Subject Marks for this group
-            // Map: SubjectName -> { topper: StudentObj, score: MaxScore }
+            // Map: SubjectName -> { students: [StudentObj], score: MaxScore }
             const subjectLeaders = {};
 
             groupStudents.forEach(student => {
@@ -1080,13 +1091,14 @@ export function buildSubjectToppersCard(students) {
 
                 examsToProcess.forEach(examKey => {
                     const termData = student.marksRecord.terms[examKey];
-                    // FIX: Check 'marks' not 'subjects'
+                    // Check 'marks' not 'subjects'
                     if (termData?.marks) {
                         Object.entries(termData.marks).forEach(([subj, marks]) => {
                             const val = Number(marks);
                             if (!isNaN(val)) {
-                                if (!mySubjectTotals[subj]) mySubjectTotals[subj] = 0;
-                                mySubjectTotals[subj] += val;
+                                const normalizedSubj = normalizeSubjectName(subj);
+                                if (!mySubjectTotals[normalizedSubj]) mySubjectTotals[normalizedSubj] = 0;
+                                mySubjectTotals[normalizedSubj] += val;
                             }
                         });
                     }
@@ -1094,8 +1106,14 @@ export function buildSubjectToppersCard(students) {
 
                 // Compare my totals to current leaders
                 Object.entries(mySubjectTotals).forEach(([subj, total]) => {
-                    if (!subjectLeaders[subj] || total > subjectLeaders[subj].score) {
-                        subjectLeaders[subj] = { student: student, score: total };
+                    if (!subjectLeaders[subj]) {
+                        subjectLeaders[subj] = { students: [student], score: total };
+                    } else {
+                        if (total > subjectLeaders[subj].score) {
+                            subjectLeaders[subj] = { students: [student], score: total };
+                        } else if (total === subjectLeaders[subj].score) {
+                            subjectLeaders[subj].students.push(student);
+                        }
                     }
                 });
             });
@@ -1117,7 +1135,9 @@ export function buildSubjectToppersCard(students) {
                     tableHTML += `
                         <tr>
                             <td class="ps-4 fw-medium text-secondary">${sanitize(subj)}</td>
-                            <td>${sanitize(data.student.name)}</td>
+                            <td>
+                                ${data.students.map(s => sanitize(s.name)).join(', ')}
+                            </td>
                             <td class="text-end fw-bold">${Math.round(data.score)}</td>
                         </tr>
                     `;
