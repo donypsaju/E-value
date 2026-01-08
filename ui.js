@@ -811,12 +811,311 @@ export function buildLeaderboardCard(students, activities) {
 
 
 export function buildClassToppersCard(students) {
-    setupTopperFilters('classToppersCard', students, 'Class Toppers', updateClassToppersView);
+    const card = document.getElementById('classToppersCard');
+    if (!card) return;
+
+    // 1. Get Exam List from your global config
+    const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
+    
+    // 2. Get Unique Classes for the "Group" filter
+    const classes = [...new Set(students.map(s => s.class))].sort();
+
+    // 3. Inject UI
+    // Note: 'size="4"' makes the multi-select visible without clicking
+    card.innerHTML = `
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-transparent border-0 pt-3 pb-0">
+                <h3 class="h5 mb-0 fw-bold">Class Toppers</h3>
+            </div>
+            <div class="card-body">
+                <div class="row g-2 mb-3">
+                    <div class="col-md-5">
+                        <label class="form-label small text-muted fw-bold">Ranking Basis (Hold Ctrl/Cmd)</label>
+                        <select id="ct_examFilter" class="form-select" multiple size="4">
+                            <option value="ALL" selected>All Time (Cumulative)</option>
+                            ${exams.map(e => `<option value="${e}">${e}</option>`).join('')}
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                         <label class="form-label small text-muted fw-bold">Student Group</label>
+                         <select id="ct_groupFilter" class="form-select">
+                            <option value="school">School-wide</option>
+                            ${classes.map(c => `<option value="${c}">${c}</option>`).join('')}
+                         </select>
+                    </div>
+
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button id="ct_resetBtn" class="btn btn-outline-secondary w-100 btn-sm" style="height: 38px;">Reset</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Class</th>
+                                <th>Topper Name</th>
+                                <th class="text-end">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ct_tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // 4. Update Logic
+    const updateTable = () => {
+        // Helper to get values from multi-select
+        const selectedExams = Array.from(document.getElementById('ct_examFilter').selectedOptions).map(o => o.value);
+        const groupValue = document.getElementById('ct_groupFilter').value;
+
+        // LOGIC: If 'ALL' is selected (or nothing is), we sum EVERYTHING. 
+        // Otherwise, we strictly sum the selected exams.
+        const useAll = selectedExams.includes('ALL') || selectedExams.length === 0;
+
+        // Map: "Class-Div" => { studentData, totalScore }
+        const topperMap = {};
+
+        students.forEach(student => {
+             // Filter population based on Group selection
+             if (groupValue !== 'school' && student.class !== groupValue) return;
+
+             let score = 0;
+             if (student.marksRecord?.terms) {
+                 if (useAll) {
+                     // Sum all available exams in the record
+                     Object.values(student.marksRecord.terms).forEach(t => score += (t.total || 0));
+                 } else {
+                     // Sum ONLY selected exams
+                     selectedExams.forEach(examName => {
+                         const term = student.marksRecord.terms[examName];
+                         if (term && typeof term.total === 'number') {
+                             score += term.total;
+                         }
+                     });
+                 }
+             }
+
+             // Determine if this student is the new max for their class-division
+             const key = `${student.class}-${student.division}`;
+             if (!topperMap[key] || score > topperMap[key].score) {
+                 topperMap[key] = {
+                     name: student.name,
+                     class: student.class,
+                     division: student.division,
+                     score: score
+                 };
+             }
+        });
+
+        // Sort by Class then Division
+        const sortedToppers = Object.values(topperMap).sort((a, b) => {
+            if (a.class !== b.class) return a.class.localeCompare(b.class);
+            return a.division.localeCompare(b.division);
+        });
+
+        // Render
+        const tbody = document.getElementById('ct_tableBody');
+        if (sortedToppers.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data available for selection</td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = sortedToppers.map(t => `
+            <tr>
+                <td class="fw-bold text-secondary">${sanitize(t.class)}-${sanitize(t.division)}</td>
+                <td>${sanitize(t.name)}</td>
+                <td class="text-end fw-bold">${Math.round(t.score)}</td>
+            </tr>
+        `).join('');
+    };
+
+    // Attach Listeners
+    document.getElementById('ct_examFilter').addEventListener('change', updateTable);
+    document.getElementById('ct_groupFilter').addEventListener('change', updateTable);
+    
+    document.getElementById('ct_resetBtn').addEventListener('click', () => {
+        // Reset Exam Filter to 'ALL'
+        const examSelect = document.getElementById('ct_examFilter');
+        Array.from(examSelect.options).forEach(opt => opt.selected = (opt.value === 'ALL'));
+        
+        // Reset Group
+        document.getElementById('ct_groupFilter').value = 'school';
+        
+        updateTable();
+    });
+
+    // Initial Load
+    updateTable();
 }
 
-export function buildSubjectToppersCard(students) {
-    setupTopperFilters('subjectToppersCard', students, 'Subject Toppers', updateSubjectToppersView);
+// Simple Sanitize Helper (if you don't have one globally)
+function sanitize(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
 }
+
+
+export function buildSubjectToppersCard(students) {
+    const card = document.getElementById('subjectToppersCard');
+    if (!card) return;
+
+    // 1. Configuration
+    const exams = Object.keys(window.EXAM_CONFIG || {}).sort();
+    const classes = [...new Set(students.map(s => s.class))].sort();
+
+    // 2. Inject UI
+    // Note: 'st_' prefix is used to avoid ID conflicts with the previous card
+    card.innerHTML = `
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-transparent border-0 pt-3 pb-0">
+                <h3 class="h5 mb-0 fw-bold">Subject Toppers</h3>
+            </div>
+            <div class="card-body">
+                <div class="row g-2 mb-3">
+                    <div class="col-md-5">
+                        <label class="form-label small text-muted fw-bold">Ranking Basis (Hold Ctrl/Cmd)</label>
+                        <select id="st_examFilter" class="form-select" multiple size="4">
+                            <option value="ALL" selected>All Time (Cumulative)</option>
+                            ${exams.map(e => `<option value="${e}">${e}</option>`).join('')}
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                         <label class="form-label small text-muted fw-bold">Select Class</label>
+                         <select id="st_classFilter" class="form-select">
+                            ${classes.map(c => `<option value="${c}">${c}</option>`).join('')}
+                         </select>
+                    </div>
+
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button id="st_resetBtn" class="btn btn-outline-secondary w-100 btn-sm" style="height: 38px;">Reset</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Subject</th>
+                                <th>Topper Name</th>
+                                <th class="text-end">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="st_tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // 3. Calculation Logic
+    const updateTable = () => {
+        const selectedExams = Array.from(document.getElementById('st_examFilter').selectedOptions).map(o => o.value);
+        const selectedClass = document.getElementById('st_classFilter').value;
+        const useAll = selectedExams.includes('ALL') || selectedExams.length === 0;
+
+        // Map: "SubjectName" => { name, score, division }
+        const subjectLeaders = {};
+
+        // Filter students to ONLY the selected class
+        const classStudents = students.filter(s => s.class === selectedClass);
+
+        classStudents.forEach(student => {
+            if (!student.marksRecord?.terms) return;
+
+            // 1. Calculate this student's total for EVERY subject across selected exams
+            const studentTotals = {}; // { 'Maths': 95, 'English': 88 }
+
+            // Identify which exams to process
+            const examsToProcess = useAll 
+                ? Object.keys(student.marksRecord.terms) 
+                : selectedExams;
+
+            examsToProcess.forEach(examKey => {
+                const termData = student.marksRecord.terms[examKey];
+                // Ensure term exists and has subjects
+                if (termData && termData.subjects) {
+                    Object.entries(termData.subjects).forEach(([subject, marks]) => {
+                        // Handle numeric marks only
+                        const score = Number(marks); 
+                        if (!isNaN(score)) {
+                            if (!studentTotals[subject]) studentTotals[subject] = 0;
+                            studentTotals[subject] += score;
+                        }
+                    });
+                }
+            });
+
+            // 2. Compare this student's totals against the current leaders
+            Object.entries(studentTotals).forEach(([subject, totalScore]) => {
+                if (!subjectLeaders[subject] || totalScore > subjectLeaders[subject].score) {
+                    subjectLeaders[subject] = {
+                        name: student.name,
+                        division: student.division,
+                        score: totalScore
+                    };
+                }
+            });
+        });
+
+        // 4. Render
+        const tbody = document.getElementById('st_tableBody');
+        const sortedSubjects = Object.keys(subjectLeaders).sort();
+
+        if (sortedSubjects.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted py-4">No data found for Class ${selectedClass}</td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = sortedSubjects.map(subj => {
+            const data = subjectLeaders[subj];
+            return `
+            <tr>
+                <td class="fw-bold text-secondary">${sanitize(subj)}</td>
+                <td>
+                    ${sanitize(data.name)} 
+                    <small class="text-muted ms-1">(${sanitize(selectedClass)}-${sanitize(data.division)})</small>
+                </td>
+                <td class="text-end fw-bold">${Math.round(data.score)}</td>
+            </tr>`;
+        }).join('');
+    };
+
+    // Attach Listeners
+    document.getElementById('st_examFilter').addEventListener('change', updateTable);
+    document.getElementById('st_classFilter').addEventListener('change', updateTable);
+
+    document.getElementById('st_resetBtn').addEventListener('click', () => {
+        // Reset Exam Filter
+        const examSelect = document.getElementById('st_examFilter');
+        Array.from(examSelect.options).forEach(opt => opt.selected = (opt.value === 'ALL'));
+        
+        // Reset Class (Default to first)
+        if (classes.length > 0) {
+            document.getElementById('st_classFilter').value = classes[0];
+        }
+        
+        updateTable();
+    });
+
+    // Initial Load
+    updateTable();
+}
+
+// Ensure sanitize helper exists
+function sanitize(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+}
+
 
 export function buildReportGeneratorCard(students) {
     const cardContainer = document.getElementById('reportGeneratorCard');
