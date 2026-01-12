@@ -1723,20 +1723,6 @@
   },
   {
     "role": "student",
-    "admissionNo": "15669",
-    "name": "Miya U Nair",
-    "class": "06",
-    "gender": "F",
-    "division": "B",
-    "house": "Yellow",
-    "dob": "2014-07-11",
-    "phone": [
-      4503415669,
-      4503415669
-    ]
-  },
-  {
-    "role": "student",
     "admissionNo": "15571",
     "name": "Sivani N R",
     "class": "06",
@@ -1943,20 +1929,6 @@
     "phone": [
       9846504048,
       9746218899
-    ]
-  },
-  {
-    "role": "student",
-    "admissionNo": "15476",
-    "name": "Rohan Biju",
-    "class": "06",
-    "gender": "M",
-    "division": "B",
-    "house": "Blue",
-    "dob": "2013-12-18",
-    "phone": [
-      7306135276,
-      7306135276
     ]
   },
   {
