@@ -1,5 +1,5 @@
 // App version for cache management
-export const APP_VERSION = '2.7-exam-dates';
+export const APP_VERSION = '2.8';
 
 // Translation data for multi-language support
 export const translations = {
